@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script id="adobe_dtm" src="//www.redhat.com/dtm.js" type="text/javascript"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Securing WildFly Apps on OpenShift with OpenID Connect Using Additional Scope Values</title>
+  <meta name="description" content="">
+  <link rel="me" href="https://fosstodon.org/@wildflyas" />
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" >
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/atelier-dune-light.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/protobuf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/dockerfile.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40221748-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-40221748-1');
+  </script>
+
+  
+
+</head>
+
+<body class="Securing WildFly Apps on OpenShift with OpenID Connect Using Additional Scope Values">
+  <div class="content">
+    <div class="header navigation">
+  <div class="logo-wrapper">
+    <a href="/"><img class="wf-logo" src="/assets/img/wildfly_icons_one-color-logo.png"></a>
+  </div>
+  <div class="nav-container">
+    <nav>
+      <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+      <ul class="nav-list">
+        <li>
+          <a href="/news/" class="">News</a>
+        </li>
+        <li>
+          <a href="/about/" class="">About</a>
+        </li>
+        <li>
+          <a href="/contribute/" class="">Contribute</a>
+        </li>
+        <li>
+            <a target="_blank" href="https://docs.wildfly.org">Docs</a>
+        </li>
+        <li>
+          <a href="/guides/" class="active">Guides</a>
+        </li>
+        <li>
+          <a href="/downloads/" class="">Downloads</a>
+        </li>
+        <li>
+          <a href="/security/" class="">CVE Reporting</a>
+        </li>
+        <li>
+          <a href="https://github.com/wildfly/wildfly/fork" target="_blank">Fork</a>
+        </li>
+        <li>
+          <a class="button-cta secondary " href="/get-started/">Get Started</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+    <div class="grid-wrapper guide">
+  <div class="grid__item width-12-12 width-12-12-mobile">
+    <h1 class="text-caps">Securing WildFly Apps on OpenShift with OpenID Connect Using Additional Scope Values </h1>
+  </div>
+  <div class="width-12-12">
+    <div>
+      <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#example-application">Example Application</a></li>
+<li><a href="#log-into-the-openshift-cluster">Log Into the OpenShift Cluster</a></li>
+<li><a href="#start-keycloak">Start Keycloak</a>
+<ul class="sectlevel2">
+<li><a href="#openshift-cli">OpenShift CLI</a></li>
+<li><a href="#openshift-web-console">OpenShift Web Console</a></li>
+<li><a href="#openshift-web-console-2">OpenShift Web Console</a></li>
+</ul>
+</li>
+<li><a href="#configure-keycloak">Configure Keycloak</a></li>
+<li><a href="#add-helm-configuration">Add Helm Configuration</a></li>
+<li><a href="#stability-levels-for-openshift-deployment">Stability Levels for OpenShift Deployment</a></li>
+<li><a href="#deploy-the-example-application-to-wildfly-on-openshift">Deploy the Example Application to WildFly on OpenShift</a></li>
+<li><a href="#behind-the-scenes">Behind the Scenes</a></li>
+<li><a href="#get-the-application-url">Get the Application URL</a></li>
+<li><a href="#finish-configuring-keycloak">Finish Configuring Keycloak</a></li>
+<li><a href="#accessing-the-application">Accessing the Application</a>
+<ul class="sectlevel2">
+<li><a href="#invalid-scope-values">Invalid Scope Values</a></li>
+</ul>
+</li>
+<li><a href="#whats-next">What&#8217;s next?</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>WildFly 32 includes the ability to add additional scope values when securing applications using OpenID Connect (OIDC). This new feature is available at the <a href="https://docs.wildfly.org/32/Admin_Guide.html#Feature_stability_levels">Preview stability level</a>. <a href="https://openid.net/developers/how-connect-works/"> OpenID Connect</a> is an identity layer on top of the OAuth 2.0 protocol that makes it possible for a client to verify a user’s identity based on authentication that’s performed by an OpenID provider. The <a href="https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest">OpenID Connect specification</a> indicates that there are other scope values which may be included in the authentication request to ask permission to access additional and specific resources. This guide shows how to configure additional scope values when securing a WildFly app with OpenID Connect on OpenShift.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="prerequisites">Prerequisites</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To complete this guide, you need:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Roughly 15 minutes</p>
+</li>
+<li>
+<p>JDK 11+ installed with <code>JAVA_HOME</code> configured appropriately</p>
+</li>
+<li>
+<p>Apache Maven 3.9+</p>
+</li>
+<li>
+<p>Access to an OpenShift cluster (try the Red Hat Developer Sandbox for free)</p>
+</li>
+<li>
+<p><a href="https://docs.openshift.com/container-platform/4.15/cli_reference/openshift_cli/getting-started-cli.html">OpenShift CLI</a></p>
+</li>
+<li>
+<p><a href="https://helm.sh/docs/intro/install/">Helm Chart</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="example-application">Example Application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We will use a simple web application in this guide that consists of a <a href="https://github.com/wildfly-security-incubator/elytron-examples/blob/main/elytron-oidc-client-scope/src/main/java/org/wildfly/security/examples/SecuredServlet.java">single servlet</a>. We will secure this servlet using OIDC.</p>
+</div>
+<div class="paragraph">
+<p>We will use the example in the <a href="https://github.com/wildfly-security-incubator/elytron-examples/tree/main/elytron-oidc-client-scope">elytron-oidc-client-scope</a> directory in this repo.</p>
+</div>
+<div class="paragraph">
+<p>To obtain this example, clone the elytron-examples repository to your local machine:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">git clone git@github.com:wildfly-security-incubator/elytron-examples.git</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="log-into-the-openshift-cluster">Log Into the OpenShift Cluster</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Before we can deploy our application, we need to log in to an OpenShift cluster. You can log in via the <a href="https://docs.openshift.com/container-platform/4.14/cli_reference/openshift_cli/getting-started-cli.html">OpenShift CLI</a>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">oc login -u myUserName</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alternatively, you can log in using an API token:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">oc login --token=myToken --server=myServerUrl</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can request the token via the <code>Copy Login Command</code> link in the OpenShift web console.</p>
+</div>
+<div class="paragraph">
+<p>If you don&#8217;t already have a project created, you can create one using:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">oc new-project myProjectName</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="start-keycloak">Start Keycloak</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We will be using Keycloak as our OpenID provider.</p>
+</div>
+<div class="paragraph">
+<p>To start a Keycloak server in your project on OpenShift, use the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">oc process -f https://raw.githubusercontent.com/keycloak/keycloak-quickstarts/latest/openshift/keycloak.yaml \
+    -p KEYCLOAK_ADMIN=admin                    \// <b class="conum">(1)</b>
+    -p KEYCLOAK_ADMIN_PASSWORD=admin           \// <b class="conum">(2)</b>
+    -p NAMESPACE=&lt;PROJECT_NAME&gt;                \// <b class="conum">(3)</b>
+| oc create -f -</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Replace <code>admin</code> with the user name you would like to use when accessing the Keycloak Administration Console.</p>
+</li>
+<li>
+<p>Replace <code>admin</code> with the password you would like to use when accessing the Keycloak Administration Console.</p>
+</li>
+<li>
+<p>Replace <code>&lt;PROJECT_NAME&gt;</code> with your project name.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>After running the above command, you should see the following output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">service/keycloak created
+route.route.openshift.io/keycloak created
+Warning: apps.openshift.io/v1 DeploymentConfig is deprecated in v4.14+, unavailable in v4.10000+
+deploymentconfig.apps.openshift.io/keycloak created.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It will take a few minutes for OpenShift to provision the Keycloak pod and its related resources.</p>
+</div>
+<div class="paragraph">
+<p>You can use the OpenShift CLI or the OpenShift web console, depending on your preference, to check if your Keycloak server has been provisioned.</p>
+</div>
+<div class="sect2">
+<h3 id="openshift-cli">OpenShift CLI</h3>
+<div class="paragraph">
+<p>To make sure your Keycloak server has been provisioned using the OpenShift CLI, run:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">oc get pods</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After a little while, check for a message similar to the following message that indicates the pod is ready:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">NAME                READY     STATUS      RESTARTS   AGE
+keycloak-1-deploy   0/1       Completed   0          1h
+keycloak-1-l9kdx    1/1       Running     0          1h</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once the Keycloak server has been provisioned, use the following command to find the URL for your Keycloak instance&#8217;s
+Admin Console:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">KEYCLOAK_URL=https://$(oc get route keycloak --template='{{ .spec.host }}') &amp;&amp;
+echo "" &amp;&amp;
+echo "Keycloak Admin Console:   $KEYCLOAK_URL/admin" &amp;&amp;
+echo ""</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="openshift-web-console">OpenShift Web Console</h3>
+<div class="paragraph">
+<p>To make sure your Keycloak server has been provisioned using the OpenShift web console,
+navigate to the <code>Topology</code> view in the <code>Developer</code> perspective. You can click on your <code>keycloak</code> app
+to check its status. Once it is running, you can click on <code>Open URL</code> and then access Keycloak&#8217;s <code>Administration Console</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="openshift-web-console-2">OpenShift Web Console</h3>
+<div class="paragraph">
+<p>To make sure your Keycloak server has been provisioned using the OpenShift web console, navigate to the <strong>Topology</strong> view in the <strong>Developer</strong> perspective. You can click on your <strong>keycloak</strong> app to check its status. Once it is running, you can click on <strong>Open URL</strong> and then access Keycloak’s <strong>Administration Console</strong>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configure-keycloak">Configure Keycloak</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Log into the Keycloak Admin Console using the admin username and password you specified earlier.</p>
+</li>
+<li>
+<p>Next, create a realm called <strong>myrealm</strong> and register a client called <strong>myclient</strong> as follows:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>General settings</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Client type</strong> (or <strong>Client Protocol</strong>, depending on your keycloak version): <strong>OpenID Connect</strong></p>
+</li>
+<li>
+<p><strong>Client ID</strong>: <strong>myclient</strong></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Capability config</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Authentication flow</strong>: <strong>Standard flow, Direct access grants</strong></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Login Settings</strong>: For the <strong>Valid Redirect URIs</strong>, enter a * for now. We will come back to edit it later.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Navigate to the <strong>Client scopes</strong> tab for <strong>myclient</strong> and change the <strong>Assigned type</strong> for all scope values from <strong>Default</strong> to <strong>Optional</strong>. When <code>Client scopes</code> are set to <code>Default</code>, the claims associated with them are automatically added to the access token you receive. Changing it to <code>Optional</code> ensures that they are not included by default and you will only get access to claims that you request using the scope values you configure. This list of scope are the values that Keycloak allows and it varies for different OpenID providers.</p>
+</li>
+<li>
+<p>Now, click on <strong>Realm roles</strong> and create two roles, <strong>user</strong> and <strong>admin</strong>.</p>
+</li>
+<li>
+<p>Finally, create a user called <strong>alice</strong> whose <strong>First name</strong> is <strong>Alice</strong> and <strong>Last name</strong> is <strong>Smith</strong> and assign her the <strong>user</strong> and <strong>admin</strong> roles. Steps for assigning roles can be found in the <a href="https://www.keycloak.org/docs/latest/server_admin/#proc-assigning-role-mappings_server_administration_guide"> Keycloak documentation</a>. We will be using different scopes to query these pieces of information about Alice.</p>
+</li>
+<li>
+<p>Next, navigate to the <strong>Credentials</strong> tab and create a password for Alice. Toggle the <strong>Temporary</strong> switch off so you are not prompted to update the password after the first login.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="add-helm-configuration">Add Helm Configuration</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Obtain the URL for Keycloak.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>KEYCLOAK_URL=https://$(oc get route keycloak --template='{{ .spec.host }}') &amp;&amp;
+echo "" &amp;&amp;
+echo "Keycloak URL:   $KEYCLOAK_URL" &amp;&amp;
+echo ""</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Switch to the charts directory in the <code>elytron-oidc-client-scope</code> example.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cd /PATH/TO/ELYTRON/EXAMPLES/elytron-oidc-client-scope/charts</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice there’s a helm.yaml file in this directory with the following content:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-yaml" data-lang="yaml">build:
+  uri: https://github.com/wildfly-security-incubator/elytron-examples.git
+  contextDir: elytron-oidc-client-scope
+deploy:
+  replicas: 1
+  env:
+    - name: OIDC_PROVIDER_URL
+      value: &lt;KEYCLOAK_URL&gt;    <b class="conum">(1)</b>
+    - name: SERVER_ARGS
+      value: "--stability=preview"</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Replace &lt;KEYCLOAK_URL&gt; with the Keycloak URL obtained in the previous command.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="stability-levels-for-openshift-deployment">Stability Levels for OpenShift Deployment</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The WildFly server now includes different stability levels, that can be associated with functionality. Users can use the <code>--stability</code> argument when staring the WildFly server. Depending on the value of the stability levels, different features are available. You can learn more about stability levels <a href="https://docs.wildfly.org/32/Admin_Guide.html#Feature_stability_levels">here</a>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>scope</code> attribute under the <code>elytron-oidc-client</code> subsystem is a <code>preview</code> level feature, which means in order to access its functionality, the server&#8217;s stability level must be set to <code>preview</code>. When applications are deployed to OpenShift, the WildFly Cloud Galleon Feature Pack is used to provision a server. Therefore, in order to use the scope attribute, we need to provision the server at the <code>preview</code> stability level. This is why we have added the environment variable named <strong>SERVER_ARGS</strong> with a value of <strong>--stability=preview</strong>, which specifies that the provisioned server should be started at the <code>preview</code> stability level. For more information about the server&#8217;s stability levels, please refer to <a href="https://docs.wildfly.org/32/Admin_Guide.html#Feature_stability_levels">WildFly Docs</a>.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, we have used the <code>stability</code> galleon option to specify the stability level used by the feature pack when deploying the application using the tags below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">    &lt;galleon-options&gt;
+        &lt;stability-level&gt;preview&lt;/stability-level&gt;
+    &lt;/galleon-options&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="deploy-the-example-application-to-wildfly-on-openshift">Deploy the Example Application to WildFly on OpenShift</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you haven&#8217;t already installed the WildFly Helm chart, install it:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">helm repo add wildfly https://docs.wildfly.org/wildfly-charts/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you&#8217;ve already installed the WildFly Helm Chart, be sure to update it to ensure you have the latest one:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">helm repo update</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We can deploy our example application to WildFly on OpenShift using the WildFly Helm Chart:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">helm install oidc-app -f /PATH/TO/ELYTRON/EXAMPLES/elytron-oidc-client-scope/charts/helm.yaml wildfly/wildfly</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice that this command specifies the file we updated, <code>helm.yaml</code>, that contains the values needed to build and deploy our application.</p>
+</div>
+<div class="paragraph">
+<p>The application will now begin to build. This will take a couple of minutes.</p>
+</div>
+<div class="paragraph">
+<p>The build can be observed using:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">oc get build -w</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once complete, you can follow the deployment of the application using:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">oc get deployment oidc-app -w</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alternatively, you can check status directly from the OpenShift web console.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="behind-the-scenes">Behind the Scenes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>While our application is building, let’s take a closer look at our application.</p>
+</div>
+<div class="paragraph">
+<p>Examine the <a href="https://github.com/wildfly-security-incubator/elytron-examples/blob/main/elytron-oidc-client-scope/pom.xml">pom.xml</a> file.</p>
+</div>
+<div class="paragraph">
+<p>Notice that it contains an openshift profile. A profile in Maven lets you create a set of configuration values to customize your application build for different environments. The openshift profile in this example defines a configuration that will be used by the WildFly Helm Chart when provisioning the WildFly server on OpenShift.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-xml" data-lang="xml">&lt;profiles&gt;
+    &lt;profile&gt;
+            &lt;id&gt;openshift&lt;/id&gt;
+            &lt;build&gt;
+                &lt;plugins&gt;
+                    &lt;plugin&gt;
+                        &lt;groupId&gt;org.wildfly.plugins&lt;/groupId&gt;
+                        &lt;artifactId&gt;wildfly-maven-plugin&lt;/artifactId&gt;
+                        &lt;version&gt;${version.wildfly.maven.plugin}&lt;/version&gt;                  <b class="conum">(1)</b>
+                        &lt;configuration&gt;
+                            &lt;feature-packs&gt;
+                                &lt;feature-pack&gt;
+                                    &lt;location&gt;org.wildfly:wildfly-galleon-pack:${version.wildfly}&lt;/location&gt;
+                                &lt;/feature-pack&gt;
+                                &lt;feature-pack&gt;
+                                    &lt;location&gt;org.wildfly.cloud:wildfly-cloud-galleon-pack:${version.wildfly.cloud.galleon.pack}&lt;/location&gt;
+                                &lt;/feature-pack&gt;
+                            &lt;/feature-packs&gt;
+                            &lt;layers&gt;
+                                &lt;layer&gt;cloud-server&lt;/layer&gt;
+                                &lt;layer&gt;elytron-oidc-client&lt;/layer&gt;                      <b class="conum">(2)</b>
+                            &lt;/layers&gt;
+                            &lt;galleon-options&gt;
+                                &lt;stability-level&gt;preview&lt;/stability-level&gt;             <b class="conum">(3)</b>
+                            &lt;/galleon-options&gt;
+                            &lt;filename&gt;simple-webapp-oidc.war&lt;/filename&gt;
+                        &lt;/configuration&gt;
+                        &lt;executions&gt;
+                            &lt;execution&gt;
+                                &lt;goals&gt;
+                                    &lt;goal&gt;package&lt;/goal&gt;
+                                &lt;/goals&gt;
+                            &lt;/execution&gt;
+                        &lt;/executions&gt;
+                    &lt;/plugin&gt;
+                &lt;/plugins&gt;
+            &lt;/build&gt;
+        &lt;/profile&gt;
+&lt;/profiles&gt;</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p><strong>wildfly-maven-plugin</strong> provisions a WildFly server with the specified layers with our application deployed.Version <strong>7.0.0.Beta2</strong> or later must be used to allow for stability levels.</p>
+</li>
+<li>
+<p><strong>elytron-oidc-client</strong> automatically adds the native OIDC client subsystem to our WildFly installation.</p>
+</li>
+<li>
+<p><strong>stability-level</strong> for the feature pack is set to <strong>preview</strong> since we are making use of a preview level feature.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Examine the <a href="https://github.com/wildfly-security-incubator/elytron-examples/blob/main/elytron-oidc-client-scope/src/main/webapp/WEB-INF/oidc.json">oidc.json</a> file, which is used to configure the OIDC client.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-json" data-lang="json">{
+    "client-id" : "myclient",
+    "provider-url" : "${env.OIDC_PROVIDER_URL:http://localhost:8080}/realms/myrealm",
+    "public-client" : "true",
+    "scope" : "profile email roles web-origins microprofile-jwt offline_access",
+    "principal-attribute" : "preferred_username",
+    "ssl-required" : "EXTERNAL"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that we have specified the scope values to be <strong>profile</strong>, <strong>email</strong>, <strong>web-origins</strong>, <strong>microprofile-jwt</strong>, <strong>roles</strong> and <strong>offline_access</strong> in a space delimited list inside the <strong>oidc.json</strong> file. <code>profile</code>, <code>email</code> and <code>offline_access</code> are OpenID built-in scopes, while <code>web-origin</code>, <code>microprofile-jwt</code> and <code>roles</code> are Keycloak specific scope values and allow access to additional claims. You can read the descriptions under the <code>Client scope</code> tab for <code>myclient</code> to learn more about the purpose of these scope values.</p>
+</div>
+<div class="paragraph">
+<p>Next, navigate to the OIDC application&#8217;s <code>web.xml</code> file and look for the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-json" data-lang="json">    &lt;login-config&gt;
+        &lt;auth-method&gt;OIDC&lt;/auth-method&gt;         <b class="conum">(1)</b>
+    &lt;/login-config&gt;</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Setting the <code>auth-method</code> to <code>OIDC</code> specifies that our application will use OpenID Connect to authenticate users.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="get-the-application-url">Get the Application URL</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Once the WildFly server has been provisioned, use the following command to find the URL for your example application:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">    SIMPLE_WEBAPP_OIDC_URL=https://$(oc get route oidc-app --template='{{ .spec.host }}') &amp;&amp;
+    echo "" &amp;&amp;
+    echo "Application URL: $SIMPLE_WEBAPP_OIDC_URL/simple-webapp-oidc"  &amp;&amp;
+    echo "Valid redirect URI: $SIMPLE_WEBAPP_OIDC_URL/simple-webapp-oidc/secured/*" &amp;&amp;
+    echo ""</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="finish-configuring-keycloak">Finish Configuring Keycloak</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>From your <strong>myclient</strong> client in the Keycloak Administration Console, in the client settings, set <strong>Valid Redirect URI</strong> to the Valid redirect URI that was output in the previous section and then click <strong>Save</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="accessing-the-application">Accessing the Application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Now, let’s try accessing our application using the application URL.</p>
+</div>
+<div class="paragraph">
+<p>Click on <strong>Access Secured Servlet</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Now, you’ll be redirected to Keycloak to log in. If you click on the url on the search bar, you will see the scope values specified in the <code>redirect-uri</code> field with the different scope values separated by a <code>+</code>. You will also notice that a new scope value, <code>openid</code>, has been added. This indicates that we are going to be using OpenID Connect to authenticate the user.</p>
+</div>
+<div class="paragraph">
+<p>Log in with <strong>alice</strong> and the password that you set when configuring Keycloak.</p>
+</div>
+<div class="paragraph">
+<p>Next, you’ll be redirected back to our application and you should see the <strong>Secured Servlet</strong> page. That means that we were able to successfully log in to our application using the Keycloak OpenID provider!</p>
+</div>
+<div class="paragraph">
+<p>This page will display the current principal, and a list of claim values obtained using the scope values you configured. This is what it will look like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-text" data-lang="text">Current Principal 'alice'
+
+Claims received using additional scope values:
+
+By configuring the "profile" scope, the "given_name" and "family_name" claims are present in the access token and have values : Alice and Smith
+
+By configuring the "email" scope, the "email_verified" claim is present in the access token and has value : false
+
+By configuring the "roles" scope, the "realm_access" claim is present in the access token and has value : {roles=[default-roles-myrealm, offline_access, admin, uma_authorization, user]}
+
+By configuring the "microprofile-jwt" scope, the "groups" claim is present in the access token and has value : [default-roles-myrealm, offline_access, admin, uma_authorization, user]
+
+By configuring the "web-origins" scope, the "allowed-origins" claim is present in the access token and has value : [http://localhost:8090]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that the value for Current Principal may be different, and can be replaced by the unique client id assigned by keycloak.</p>
+</div>
+<div class="paragraph">
+<p>Notice that there are no claims obtained using the <code>offline_access</code> scope. To learn more about what this scope value does, please refer to the <a href="https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess"> OpenID Documentation </a>.</p>
+</div>
+<div class="sect2">
+<h3 id="invalid-scope-values">Invalid Scope Values</h3>
+<div class="paragraph">
+<p>Different OpenID providers have their own set of valid scope values and they vary depending on the OpenID provider. Try changing the scope values to <code>INVALID_SCOPE</code> inside the oidc.json file.</p>
+</div>
+<div class="paragraph">
+<p>Deploy and access the webapp again using the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">helm upgrade oidc-app -f charts/helm.yaml wildfly/wildfly</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Since <code>INVALID_SCOPE</code> is not one of the acceptable scope values, you will now see a <code>Bad request</code> page instead of being redirected to the Keycloak login page. You will notice that the url now contains
+<code>error=invalid_scope&amp;error_description=Invalid+scopes</code>
+This indicates that your authentication request was rejected because it contains invalid scope values.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="whats-next">What&#8217;s next?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This example has demonstrated how to secure a WildFly application deployed to OpenShift using additional scope values. For more details on the <code>elytron-oidc-client</code> subsystem, please check out the <a href="https://docs.wildfly.org/32/Admin_Guide.html#Elytron_OIDC_Client"> documentation </a> and for more details on OpenID Connect, checkout the <a href="https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims"> OpenID documentation </a> and the documentation of your OpenID provider.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="references">References</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.wildfly.org/32/Getting_Started_on_OpenShift.html">Getting Started with WildFly on OpenShift</a></p>
+</li>
+<li>
+<p><a href="https://docs.openshift.com/container-platform/4.15/cli_reference/openshift_cli/getting-started-cli.html">OpenShift CLI</a></p>
+</li>
+<li>
+<p><a href="https://docs.wildfly.org/32/Getting_Started_on_OpenShift.html#helm-charts">WildFly Helm Chart</a></p>
+</li>
+<li>
+<p><a href="https://www.keycloak.org/getting-started/getting-started-openshift">Getting started with Keycloak on OpenShift</a></p>
+</li>
+<li>
+<p><a href="https://www.keycloak.org/docs/latest/server_admin/index.html">Keycloak Server Administration Guide</a></p>
+</li>
+<li>
+<p><a href="https://www.keycloak.org/docs/latest/securing_apps/#_oidc">Using OpenID Connect to secure applications and services</a></p>
+</li>
+<li>
+<p><a href="https://docs.wildfly.org/32/Admin_Guide.html#Feature_stability_levels">Feature stability levels</a></p>
+</li>
+<li>
+<p><a href="https://docs.wildfly.org/32/Galleon_Guide.html#WildFly_Galleon_feature-packs">WildFly Galleon feature-packs</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+    </div>
+    <div>&lt; <a href="/guides">Back to Guides</a></div>
+  </div>
+</div>
+  </div>
+
+  <div class="content project-footer">
+  <div class="footer-section">
+    <div class="logo-wrapper">
+      <a href="/"><img class="wf-logo" src="/assets/img/wildfly_icons_one-color-logo.png"></a>
+    </div>
+  </div>
+  <div class="grid-wrapper">
+    <p class="grid__item width-3-12">WildFly is fully open. All components are open source and follow a community-focused development process.<br/><br/>This website was built with <a href='https://jekyllrb.com/' target='_blank'>Jekyll</a> is hosted on <a href='https://pages.github.com/' target='_blank'>Github Pages</a> and is completely open source. If you want to make it better, <a href='https://github.com/wildfly/wildfly.org/fork' target='_blank'>fork it</a> and show us what you’ve got.</p>
+
+    
+      <div class="width-1-12 project-links">
+        <strong>Navigation</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="/downloads">Downloads</a></li>
+          
+            <li><a href="https://docs.wildfly.org">Docs</a></li>
+          
+            <li><a href="/get-started">Get Started</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly">Github</a></li>
+          
+            <li><a href="/guides">Guides</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Contribute</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://issues.jboss.org/browse/WFLY">Submit a bug</a></li>
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly/fork">Fork WildFly</a></li>
+          
+            <li><a href="https://twitter.com/WildFlyAS">Follow us</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Get Help</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://wildfly.zulipchat.com/">Join Zulip Chat</a></li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="width-6-12 more-links">
+        <strong>Find more Red Hat Middleware Community Projects</strong>
+        <ul class="footer-links">
+          
+            <li><a href="https://www.apiman.io/">APIMan</a></li>
+          
+            <li><a href="http://arquillian.org">Arquillian</a></li>
+          
+            <li><a href="https://github.com/ansible-middleware/wildfly">Ansible Collection for Wildfly</a></li>
+          
+            <li><a href="http://byteman.jboss.org/">Byteman</a></li>
+          
+            <li><a href="http://capedwarf.org/">CapeDwarf</a></li>
+          
+            <li><a href="https://github.com/alechenninger/chronicler">Chronicler</a></li>
+          
+            <li><a href="https://github.com/darcy-framework">Darcy</a></li>
+          
+            <li><a href="http://debezium.io/">Debezium</a></li>
+          
+            <li><a href="https://www.drools.org/">Drools</a></li>
+          
+            <li><a href="http://gatein.jboss.org/">GateIn</a></li>
+          
+            <li><a href="http://www.hawkular.org/">Hawkular</a></li>
+          
+            <li><a href="http://hawt.io/">Hawtio</a></li>
+          
+            <li><a href="http://hibernate.org/">Hibernate</a></li>
+          
+            <li><a href="http://www.infinispan.org/">Infinispan</a></li>
+          
+            <li><a href="https://developers.redhat.com/products/codeready-studio/overview">CodeReady Studio</a></li>
+          
+            <li><a href="http://forge.jboss.org/">JBoss Forge</a></li>
+          
+            <li><a href="https://github.com/jboss-logging">JBoss Logging</a></li>
+          
+            <li><a href="http://jbossremoting.jboss.org/">JBoss Remoting</a></li>
+          
+            <li><a href="https://www.jbpm.org/">jBPM</a></li>
+          
+            <li><a href="https://jsfunit.jboss.org/">JSFUnit</a></li>
+          
+            <li><a href="https://www.keycloak.org/">Keycloak</a></li>
+          
+            <li><a href="http://modcluster.io/">Mod Cluster</a></li>
+          
+            <li><a href="http://modeshape.jboss.org/">ModeShape</a></li>
+          
+            <li><a href="https://www.optaplanner.org/">OptaPlanner</a></li>
+          
+            <li><a href="https://quarkus.io/">Quarkus</a></li>
+          
+            <li><a href="http://resteasy.jboss.org/">RESTEasy</a></li>
+          
+            <li><a href="https://riftsaw.jboss.org/">Riftsaw</a></li>
+          
+            <li><a href="http://savara.jboss.org/">Savara</a></li>
+          
+            <li><a href="https://weld.cdi-spec.org/">Weld</a></li>
+          
+            <li><a href="http://arquillian.org/">Shrinkwrap</a></li>
+          
+            <li><a href="https://switchyard.jboss.org/">Switchyard</a></li>
+          
+            <li><a href="https://tattletale.jboss.org/">Tattletale</a></li>
+          
+            <li><a href="https://teiid.io/">Teiid</a></li>
+          
+            <li><a href="https://wildfly-security.github.io/wildfly-elytron/">WildFly Elytron</a></li>
+          
+            <li><a href="http://wise.jboss.org/">Wise</a></li>
+          
+            <li><a href="https://xnio.jboss.org/">XNIO</a></li>
+          
+        </ul>
+      </div>
+    
+  </div>
+</div>
+  <div class="content redhat-footer">
+  <div class="grid-wrapper">
+    <span class="licence">
+      <i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i> <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC by 3.0</a> | <a href="https://www.redhat.com/en/about/privacy-policy">Privacy Policy</a>
+    </span>
+    <span class="redhat">
+      Sponsored by
+    </span>
+    <span class="redhat-logo">
+      <a href="https://www.redhat.com/" target="_blank"><img src="/assets/img/redhat_reversed.svg"></a>
+    </span>
+  </div>
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/mobile-nav.js"></script>
+  <script type="text/javascript" src="/assets/javascript/random-color-picker.js"></script>
+  <script type="text/javascript">
+    if (("undefined" !== typeof _satellite) && ("function" === typeof _satellite.pageBottom)) {
+        _satellite.pageBottom();
+    }
+    hljs.highlightAll();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/copy.js"></script>
+
+</body>
+
+</html>

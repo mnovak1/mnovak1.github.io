@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script id="adobe_dtm" src="//www.redhat.com/dtm.js" type="text/javascript"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manual GitHub Actions Workflow in WildFly</title>
+  <meta name="description" content="">
+  <link rel="me" href="https://fosstodon.org/@wildflyas" />
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" >
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/atelier-dune-light.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/protobuf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/dockerfile.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40221748-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-40221748-1');
+  </script>
+
+  
+
+</head>
+
+<body class="Manual GitHub Actions Workflow in WildFly">
+  <div class="content">
+    <div class="header navigation">
+  <div class="logo-wrapper">
+    <a href="/"><img class="wf-logo" src="/assets/img/wildfly_icons_one-color-logo.png"></a>
+  </div>
+  <div class="nav-container">
+    <nav>
+      <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+      <ul class="nav-list">
+        <li>
+          <a href="/news/" class="active">News</a>
+        </li>
+        <li>
+          <a href="/about/" class="">About</a>
+        </li>
+        <li>
+          <a href="/contribute/" class="">Contribute</a>
+        </li>
+        <li>
+            <a target="_blank" href="https://docs.wildfly.org">Docs</a>
+        </li>
+        <li>
+          <a href="/guides/" class="">Guides</a>
+        </li>
+        <li>
+          <a href="/downloads/" class="">Downloads</a>
+        </li>
+        <li>
+          <a href="/security/" class="">CVE Reporting</a>
+        </li>
+        <li>
+          <a href="https://github.com/wildfly/wildfly/fork" target="_blank">Fork</a>
+        </li>
+        <li>
+          <a class="button-cta secondary " href="/get-started/">Get Started</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+    <div class="post-page grid-wrapper">
+  <div class="grid__item width-10-12">
+    <h1 class="title">Manual GitHub Actions Workflow in WildFly</h1>
+    
+    
+    
+
+    <p>
+      
+        <p class="byline">By Cheng Fang | November 13, 2023</p>
+      
+    </p>
+  </div>
+  <div class="grid__item width-10-12 doc-content">
+    
+    <div class="paragraph">
+<p>GitHub actions workflow is a valuable tool that automates development process and continuous integration. While it&#8217;s
+great to see every pull request can be verified automatically upon submission, sometimes we also like the flexibility
+to tweak which OS, JDK distribution and version to use, which tests to run, which maven options to specify, or which
+system properties to apply. Basically, a more customizable build environment and testing plan targeted for a particular
+issue at hand. This is what a manual workflow is for. This post will walk you through how to do this in WildFly.</p>
+</div>
+<div class="sect1">
+<h2 id="use-cases-for-manual-workflow">Use cases for manual workflow</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A pull request in WildFly usually triggers more than 10 CI jobs, and some of them take hours to complete.
+The Manual workflow in WildFly can greatly reduce the duration and resource consumption via parameterization, and perform
+the desired verification without the overhead of a full-blown CI cycle. And below are some more occasions where manual
+workflow is a good fit:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The build takes too long on your local machine.</p>
+</li>
+<li>
+<p>You want to reproduce certain failures that only occur in GitHub CI settings, but not on your local machine.</p>
+</li>
+<li>
+<p>You want to build and test WildFly on certain combination of OS and JDK versions not readily available locally.</p>
+</li>
+<li>
+<p>You want to test your WildFly code changes in a clean environment, without the interference fom other projects.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="how-to-start-manual-workflow">How to start manual workflow</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>First thing to consider is where to run the manual workflow. It depends on your role and permission within WildFly project.
+If you are in maintainer role, you can run it in <a href="https://github.com/wildfly/wildfly/actions">upstream WildFly repository</a>,
+or your fork of it. Other WildFly contributors and watchers are free to run it in their own fork.</p>
+</div>
+<div class="paragraph">
+<p>In either case, navigate to the <code>Actions</code> tab of WildFly repository, choose <code>Manual Build and Test</code> from the list of
+workflows on the left panel, and then click <code>Run workflow</code> dropdown on the right-side panel. The following is a sample
+screenshot of various configurations available in the dropdown menu:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="/assets/img/news/manual-github-actions-workflow.png" alt="Manual workflow">
+</div>
+</div>
+<div class="sect2">
+<h3 id="manual-workflow-parameters">Manual workflow parameters</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Branch</code>: Choose the branch your wish to run against, typically a topic branch containing some new code you want to verify.
+It defaults to <code>main</code> branch. This is the standard GitHub branch selector with quick filtering.</p>
+</li>
+<li>
+<p><code>OS</code>: Choose the runner operating system, either <code>ubuntu-latest</code> or <code>windows-latest</code>. It defaults to <code>ubuntu-latest</code>.</p>
+</li>
+<li>
+<p><code>JDK Distribution</code>: Choose the JDK distribution to build and test WildFly. It defaults to <code>temurin</code> and supports the
+following distributions. For more information,
+see <a href="https://github.com/actions/setup-java#supported-distributions">setup-java action docs</a>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>temurin</code>: Eclipse Temurin</p>
+</li>
+<li>
+<p><code>semeru</code>: IBM Semeru Runtime Open Edition</p>
+</li>
+<li>
+<p><code>microsoft</code>: Microsoft Build of OpenJDK</p>
+</li>
+<li>
+<p><code>oracle</code>: Oracle JDK</p>
+</li>
+<li>
+<p><code>zulu</code>: Azul Zulu OpenJDK</p>
+</li>
+<li>
+<p><code>corretto</code>: Amazon Corretto Build of OpenJDK</p>
+</li>
+<li>
+<p><code>liberica</code>: Liberica JDK</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>jdk-version</code>: Enter JDK version, a string value that is an exact version or a version range using SemVer notation.
+It&#8217;s a required parameter with no default. For more information,
+see <a href="https://github.com/actions/setup-java#supported-version-syntax">setup-java action docs</a></p>
+</li>
+<li>
+<p><code>args</code>: Enter optional, additional maven command options. It defaults to <code>-Dquickly</code>. Some common args are:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>-Dquickly</code>: activates the <code>quick-build</code> maven profile, which skips steps like testing, javadoc generation and checkstyle,
+For more information, see its <a href="https://github.com/wildfly/wildfly/blob/main/pom.xml#L1340">definition in pom.xml</a></p>
+</li>
+<li>
+<p><code>-DskipTests</code>: a maven option to skip running tests</p>
+</li>
+<li>
+<p><code>-DallTests</code>: activates the maven profile that runs all suitable tests</p>
+</li>
+<li>
+<p>other system properties or maven options</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>timeout</code>: Enter number of minutes beyond which the workflow job will time out. It&#8217;s an optional parameter and defaults
+to 120 minutes. How to choose a good timeout value depends largely on the previous parameter, <code>args</code>, which determines
+which maven profile to activate, which tests to run, or which build steps to execute.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+    
+  </div>
+</div>
+
+
+
+  </div>
+
+  <div class="content project-footer">
+  <div class="footer-section">
+    <div class="logo-wrapper">
+      <a href="/"><img class="wf-logo" src="/assets/img/wildfly_icons_one-color-logo.png"></a>
+    </div>
+  </div>
+  <div class="grid-wrapper">
+    <p class="grid__item width-3-12">WildFly is fully open. All components are open source and follow a community-focused development process.<br/><br/>This website was built with <a href='https://jekyllrb.com/' target='_blank'>Jekyll</a> is hosted on <a href='https://pages.github.com/' target='_blank'>Github Pages</a> and is completely open source. If you want to make it better, <a href='https://github.com/wildfly/wildfly.org/fork' target='_blank'>fork it</a> and show us what you’ve got.</p>
+
+    
+      <div class="width-1-12 project-links">
+        <strong>Navigation</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="/downloads">Downloads</a></li>
+          
+            <li><a href="https://docs.wildfly.org">Docs</a></li>
+          
+            <li><a href="/get-started">Get Started</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly">Github</a></li>
+          
+            <li><a href="/guides">Guides</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Contribute</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://issues.jboss.org/browse/WFLY">Submit a bug</a></li>
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly/fork">Fork WildFly</a></li>
+          
+            <li><a href="https://twitter.com/WildFlyAS">Follow us</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Get Help</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://wildfly.zulipchat.com/">Join Zulip Chat</a></li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="width-6-12 more-links">
+        <strong>Find more Red Hat Middleware Community Projects</strong>
+        <ul class="footer-links">
+          
+            <li><a href="https://www.apiman.io/">APIMan</a></li>
+          
+            <li><a href="http://arquillian.org">Arquillian</a></li>
+          
+            <li><a href="https://github.com/ansible-middleware/wildfly">Ansible Collection for Wildfly</a></li>
+          
+            <li><a href="http://byteman.jboss.org/">Byteman</a></li>
+          
+            <li><a href="http://capedwarf.org/">CapeDwarf</a></li>
+          
+            <li><a href="https://github.com/alechenninger/chronicler">Chronicler</a></li>
+          
+            <li><a href="https://github.com/darcy-framework">Darcy</a></li>
+          
+            <li><a href="http://debezium.io/">Debezium</a></li>
+          
+            <li><a href="https://www.drools.org/">Drools</a></li>
+          
+            <li><a href="http://gatein.jboss.org/">GateIn</a></li>
+          
+            <li><a href="http://www.hawkular.org/">Hawkular</a></li>
+          
+            <li><a href="http://hawt.io/">Hawtio</a></li>
+          
+            <li><a href="http://hibernate.org/">Hibernate</a></li>
+          
+            <li><a href="http://www.infinispan.org/">Infinispan</a></li>
+          
+            <li><a href="https://developers.redhat.com/products/codeready-studio/overview">CodeReady Studio</a></li>
+          
+            <li><a href="http://forge.jboss.org/">JBoss Forge</a></li>
+          
+            <li><a href="https://github.com/jboss-logging">JBoss Logging</a></li>
+          
+            <li><a href="http://jbossremoting.jboss.org/">JBoss Remoting</a></li>
+          
+            <li><a href="https://www.jbpm.org/">jBPM</a></li>
+          
+            <li><a href="https://jsfunit.jboss.org/">JSFUnit</a></li>
+          
+            <li><a href="https://www.keycloak.org/">Keycloak</a></li>
+          
+            <li><a href="http://modcluster.io/">Mod Cluster</a></li>
+          
+            <li><a href="http://modeshape.jboss.org/">ModeShape</a></li>
+          
+            <li><a href="https://www.optaplanner.org/">OptaPlanner</a></li>
+          
+            <li><a href="https://quarkus.io/">Quarkus</a></li>
+          
+            <li><a href="http://resteasy.jboss.org/">RESTEasy</a></li>
+          
+            <li><a href="https://riftsaw.jboss.org/">Riftsaw</a></li>
+          
+            <li><a href="http://savara.jboss.org/">Savara</a></li>
+          
+            <li><a href="https://weld.cdi-spec.org/">Weld</a></li>
+          
+            <li><a href="http://arquillian.org/">Shrinkwrap</a></li>
+          
+            <li><a href="https://switchyard.jboss.org/">Switchyard</a></li>
+          
+            <li><a href="https://tattletale.jboss.org/">Tattletale</a></li>
+          
+            <li><a href="https://teiid.io/">Teiid</a></li>
+          
+            <li><a href="https://wildfly-security.github.io/wildfly-elytron/">WildFly Elytron</a></li>
+          
+            <li><a href="http://wise.jboss.org/">Wise</a></li>
+          
+            <li><a href="https://xnio.jboss.org/">XNIO</a></li>
+          
+        </ul>
+      </div>
+    
+  </div>
+</div>
+  <div class="content redhat-footer">
+  <div class="grid-wrapper">
+    <span class="licence">
+      <i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i> <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC by 3.0</a> | <a href="https://www.redhat.com/en/about/privacy-policy">Privacy Policy</a>
+    </span>
+    <span class="redhat">
+      Sponsored by
+    </span>
+    <span class="redhat-logo">
+      <a href="https://www.redhat.com/" target="_blank"><img src="/assets/img/redhat_reversed.svg"></a>
+    </span>
+  </div>
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/mobile-nav.js"></script>
+  <script type="text/javascript" src="/assets/javascript/random-color-picker.js"></script>
+  <script type="text/javascript">
+    if (("undefined" !== typeof _satellite) && ("function" === typeof _satellite.pageBottom)) {
+        _satellite.pageBottom();
+    }
+    hljs.highlightAll();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/copy.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script id="adobe_dtm" src="//www.redhat.com/dtm.js" type="text/javascript"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Identity Propagation with OpenID Connect</title>
+  <meta name="description" content="">
+  <link rel="me" href="https://fosstodon.org/@wildflyas" />
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" >
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/atelier-dune-light.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/protobuf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/dockerfile.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40221748-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-40221748-1');
+  </script>
+
+  
+
+</head>
+
+<body class="Identity Propagation with OpenID Connect">
+  <div class="content">
+    <div class="header navigation">
+  <div class="logo-wrapper">
+    <a href="/"><img class="wf-logo" src="/assets/img/wildfly_icons_one-color-logo.png"></a>
+  </div>
+  <div class="nav-container">
+    <nav>
+      <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+      <ul class="nav-list">
+        <li>
+          <a href="/news/" class="">News</a>
+        </li>
+        <li>
+          <a href="/about/" class="">About</a>
+        </li>
+        <li>
+          <a href="/contribute/" class="">Contribute</a>
+        </li>
+        <li>
+            <a target="_blank" href="https://docs.wildfly.org">Docs</a>
+        </li>
+        <li>
+          <a href="/guides/" class="active">Guides</a>
+        </li>
+        <li>
+          <a href="/downloads/" class="">Downloads</a>
+        </li>
+        <li>
+          <a href="/security/" class="">CVE Reporting</a>
+        </li>
+        <li>
+          <a href="https://github.com/wildfly/wildfly/fork" target="_blank">Fork</a>
+        </li>
+        <li>
+          <a class="button-cta secondary " href="/get-started/">Get Started</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+    <div class="grid-wrapper guide">
+  <div class="grid__item width-12-12 width-12-12-mobile">
+    <h1 class="text-caps">Identity Propagation with OpenID Connect </h1>
+  </div>
+  <div class="width-12-12">
+    <div>
+      <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#overview-of-identity-propagation-with-oidc">Overview of Identity Propagation with OIDC</a>
+<ul class="sectlevel2">
+<li><a href="#securing-an-ejb-using-the-same-oidc-virtual-security-domain">Securing an EJB using the Same OIDC Virtual Security Domain</a></li>
+<li><a href="#different-security-domain">Securing an EJB using a Different Security Domain</a></li>
+</ul>
+</li>
+<li><a href="#example-applications">Example Applications</a></li>
+<li><a href="#start-keycloak">Start Keycloak</a></li>
+<li><a href="#configure-keycloak">Configure Keycloak</a></li>
+<li><a href="#secure-an-ejb-invoked-by-an-oidc-app-using-a-different-security-domain">Secure an EJB Invoked by an OIDC App using a Different Security Domain</a>
+<ul class="sectlevel2">
+<li><a href="#inspect-the-example-applications">Inspect the Example Applications</a></li>
+<li><a href="#start-wildfly">Start WildFly</a></li>
+<li><a href="#configure-the-security-domain-that-will-be-used-to-secure-the-ejb-businessdomain">Configure the Security Domain that will be used to Secure the EJB (BusinessDomain)</a></li>
+<li><a href="#configure-identity-propagation">Configure Identity Propagation</a></li>
+<li><a href="#deploy-the-example-application-to-wildfly">Deploy the Example Application to WildFly</a></li>
+<li><a href="#finish-configuring-keycloak">Finish Configuring Keycloak</a></li>
+<li><a href="#access-the-application">Access the Application</a></li>
+</ul>
+</li>
+<li><a href="#same-virtual-domain">Secure an EJB Invoked by an OIDC App using the Same Virtual Security Domain</a>
+<ul class="sectlevel2">
+<li><a href="#inspect-the-example-applications-2">Inspect the Example Applications</a></li>
+<li><a href="#start-wildfly-2">Start WildFly</a></li>
+<li><a href="#configure-the-virtual-security-domain-that-will-be-used-to-secure-the-ejb">Configure the Virtual Security Domain that will be used to Secure the EJB</a></li>
+<li><a href="#configure-identity-propagation-2">Configure Identity Propagation</a></li>
+<li><a href="#deploy-the-example-application-to-wildfly-2">Deploy the Example Application to WildFly</a></li>
+<li><a href="#finish-configuring-keycloak-2">Finish Configuring Keycloak</a></li>
+<li><a href="#access-the-application-2">Access the Application</a></li>
+</ul>
+</li>
+<li><a href="#whats-next">What&#8217;s next?</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>When securing an application with OpenID Connect (OIDC), WildFly <a href="https://docs.wildfly.org/31/Admin_Guide.html#virtual-security-2">automatically</a>
+creates and makes use of a virtual security domain across the deployment. If the application invokes an EJB, additional configuration
+might be required in order to propagate the security identity from the virtual security domain. The configuration that&#8217;s needed
+depends on how the EJB that&#8217;s being invoked is secured. This guide covers the different use cases for propagating an identity
+from a virtual security domain.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="prerequisites">Prerequisites</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To complete this guide, you need:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Roughly 15 minutes</p>
+</li>
+<li>
+<p>JDK 11+ installed with <code>JAVA_HOME</code> configured appropriately</p>
+</li>
+<li>
+<p>Apache Maven 3.9+</p>
+</li>
+<li>
+<p><a href="https://www.keycloak.org/guides#getting-started">Keycloak</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview-of-identity-propagation-with-oidc">Overview of Identity Propagation with OIDC</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Additional configuration might be needed in order to propagate a security identity from a virtual security domain depending
+on how the EJB that&#8217;s being invoked is secured.</p>
+</div>
+<div class="sect2">
+<h3 id="securing-an-ejb-using-the-same-oidc-virtual-security-domain">Securing an EJB using the Same OIDC Virtual Security Domain</h3>
+<div class="sect3">
+<h4 id="within-the-same-deployment">Within the Same Deployment</h4>
+<div class="paragraph">
+<p>If a web application secured with OIDC invokes an EJB within the same deployment (e.g., within the same WAR or EAR) and you&#8217;d
+like to secure the EJB using the same virtual security domain as the web application, no additional configuration is required.</p>
+</div>
+<div class="paragraph">
+<p>Both of examples that we&#8217;ll be going through cover this use case.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="across-deployments">Across Deployments</h4>
+<div class="paragraph">
+<p>If a web application secured with OIDC invokes an EJB in a separate deployment (e.g., across EARs) and you&#8217;d like
+to secure the EJB using the same virtual security domain as the web application, the following configuration is needed:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A <code>virtual-security-domain</code> resource needs to be added in the Elytron subsystem.</p>
+</li>
+<li>
+<p>The EJB being invoked needs to be updated with a <code>@SecurityDomain</code> annotation that references the <code>virtual-security-domain</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For a guided step by step example of how to configure this use case, see <a href="#same-virtual-domain">Secure an EJB Invoked by an OIDC App using the Same Virtual Security Domain</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="different-security-domain">Securing an EJB using a Different Security Domain</h3>
+<div class="paragraph">
+<p>If a web application secured with OIDC invokes an EJB (either in the same deployment or in a separate deployment) and
+you&#8217;d like to secure the EJB using a different security domain from the web application, the following configuration is
+needed:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A <code>virtual-security-domain</code> resource needs to be added in the Elytron subsystem.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This indicates the list of
+security domains that a virtual security domain should automatically outflow its security identities to.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>A <code>trusted-virtual-security-domains</code> attribute needs to be configured for the <code>security-domain</code> that is being
+used to secure the EJB being invoked.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This indicates that the <code>security-domain</code> should trust any security identities
+that have been established by the specified virtual security domains.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For a guided step by step example of how to configure this use case, see <a href="#different-security-domain">Securing an EJB using a Different Security Domain</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="example-applications">Example Applications</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We will use some simple web applications in this guide that consist of a servlet secured using OIDC. The servlet will invoke an EJB
+within the same deployment (i.e., invocation within the same EAR). This EJB will then invoke another EJB located in a different deployment
+(i.e., invocation across EARs).</p>
+</div>
+<div class="paragraph">
+<p>We will use the <code>oidc-with-identity-propagation</code> and <code>oidc-with-identity-propagation-same-domain</code> examples from the <code>elytron-examples</code> repository:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/wildfly-security-incubator/elytron-examples/tree/main/oidc-with-identity-propagation">oidc-with-identity-propagation</a></p>
+</li>
+<li>
+<p><a href="https://github.com/wildfly-security-incubator/elytron-examples/tree/main/oidc-with-identity-propagation-same-domain">oidc-with-identity-propagation-same-domain</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To obtain the examples, clone the <code>elytron-examples</code> repository to your local machine:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">git clone git@github.com:wildfly-security-incubator/elytron-examples.git</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="start-keycloak">Start Keycloak</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This guide will be making use of Keycloak as our OpenID provider.</p>
+</div>
+<div class="paragraph">
+<p>To start a Keycloak server in your environment, follow the appropriate guide for your environment
+from Keycloak’s <a href="https://www.keycloak.org/guides#getting-started">Getting Started</a> page.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configure-keycloak">Configure Keycloak</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Log into the <code>Keycloak Admin Console</code>.</p>
+</li>
+<li>
+<p>Create a new realm called <code>myrealm</code>. For more information, see the Keycloak documentation on how to <a href="https://www.keycloak.org/getting-started/getting-started-openshift#_create_a_realm">create a realm</a>.</p>
+</li>
+<li>
+<p>Add a role called <code>User</code>. This role will be required to access our simple web application. For more information, see the Keycloak documentation on how to <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#assigning-permissions-using-roles-and-groups">create a role</a>.</p>
+</li>
+<li>
+<p>Add a new user named <code>alice</code>. For more information, see the Keycloak documentation on how to <a href="https://www.keycloak.org/getting-started/getting-started-openshift#_create_a_user">create a user</a>.</p>
+</li>
+<li>
+<p>Once the new user has been created, set a password for this new user from the <code>Credentials</code> tab.</p>
+</li>
+<li>
+<p>From the <code>Role Mapping</code> tab, assign <code>alice</code> the <code>User</code> role. For more information, see the Keycloak documentation on how to <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#proc-assigning-role-mappings_server_administration_guide">assign a role</a> to a user.</p>
+</li>
+<li>
+<p>Create a new client as follows:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>General Settings</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Client type</strong> (or <strong>Client Protocol</strong>, depending on your Keycloak version): <code>OpenID Connect</code></p>
+</li>
+<li>
+<p><strong>Client ID</strong>: <code>myclient</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Capability config</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Authentication flow</strong>: <code>Standard flow</code>, <code>Direct access grants</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Login settings</code>: Leave the fields blank for now.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For more information, see the Keycloak documentation on how to <a href="https://www.keycloak.org/docs/latest/server_admin/index.html#_oidc_clients">Manage OpenID Connect clients</a>.</p>
+</div>
+</li>
+<li>
+<p>Click <code>Save</code> to save the client.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="secure-an-ejb-invoked-by-an-oidc-app-using-a-different-security-domain">Secure an EJB Invoked by an OIDC App using a Different Security Domain</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For this use case, we&#8217;ll be using the <a href="https://github.com/wildfly-security-incubator/elytron-examples/tree/main/oidc-with-identity-propagation">oidc-with-identity-propagation</a> example.</p>
+</div>
+<div class="sect2">
+<h3 id="inspect-the-example-applications">Inspect the Example Applications</h3>
+<div class="paragraph">
+<p>Let&#8217;s take a closer look at our example.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>This example consists of two EARs when built: <code>virtual-security-domain-to-domain.ear</code> and <code>ejb-basic.ear</code>.</p>
+</li>
+<li>
+<p>Notice that <code>virtual-security-domain-to-domain.ear</code> contains a <a href="https://github.com/wildfly-security-incubator/elytron-examples/tree/main/oidc-with-identity-propagation/virtual-security-domain-to-domain/web/src/main/java/org/wildfly/security/examples/virtual_security_domain_to_domain/web/SecuredServlet.java">servlet</a>
+that invokes an EJB, <a href="https://github.com/wildfly-security-incubator/elytron-examples/tree/main/oidc-with-identity-propagation/virtual-security-domain-to-domain/ejb/src/main/java/org/wildfly/security/examples/virtual_security_domain_to_domain/ejb/EntryBean.java">EntryBean</a>,
+that&#8217;s also contained in the same EAR. This EJB doesn&#8217;t have any explicit security domain configuration. Thus, this EJB will automatically be secured using the same virtual security domain as the servlet.</p>
+</li>
+<li>
+<p>The <code>EntryBean</code> invokes another EJB, <a href="https://github.com/wildfly-security-incubator/elytron-examples/tree/main/oidc-with-identity-propagation/ejb-basic/ejb/src/main/java/org/wildfly/security/examples/ejb_basic/ejb/ManagementBean.java">ManagementBean</a>, that&#8217;s part of <code>ejb-basic.ear</code>.
+Notice that <code>ManagementBean</code> has a <code>@SecurityDomain("BusinessDomain")</code> annotation.</p>
+</li>
+<li>
+<p>Because the <code>ManagementBean</code> is being secured using a security domain that&#8217;s different from the virtual security domain that&#8217;s being
+used to secure the web application, we&#8217;ll need to add configuration to propagate security identities from the virtual security domain to
+the <code>BusinessDomain</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="start-wildfly">Start WildFly</h3>
+<div class="paragraph">
+<p>First, we need to start our WildFly instance. We&#8217;ll specify a port offset since our Keycloak instance is exposed on
+port 8080:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">./bin/standalone.sh -Djboss.socket.binding.port-offset=10</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configure-the-security-domain-that-will-be-used-to-secure-the-ejb-businessdomain">Configure the Security Domain that will be used to Secure the EJB (BusinessDomain)</h3>
+<div class="paragraph">
+<p>We&#8217;re going to secure the EJB being invoked with a security domain called <code>BusinessDomain</code>. To create this security domain,
+we&#8217;ll connect to the WildFly CLI and execute the CLI commands shown below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">./bin/jboss-cli.sh --connect --controller=localhost:10000</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash"># Add a filesystem realm called BusinessRealm in the jboss.server.config directory
+/subsystem=elytron/filesystem-realm=BusinessRealm:add(path=business-realm-users,relative-to=jboss.server.config.dir)
+
+# Add user alice with Admin role
+/subsystem=elytron/filesystem-realm=BusinessRealm:add-identity(identity=alice)
+/subsystem=elytron/filesystem-realm=BusinessRealm:add-identity-attribute(identity=alice, name=Roles, value=["Admin"])
+
+# Add a security domain that references our newly created realm
+/subsystem=elytron/security-domain=BusinessDomain:add(realms=[{realm=BusinessRealm}],default-realm=BusinessRealm,permission-mapper=default-permission-mapper)
+
+# Update the application security domain mapping in the EJB3 subsystem
+/subsystem=ejb3/application-security-domain=BusinessDomain:add(security-domain=BusinessDomain)
+
+reload</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configure-identity-propagation">Configure Identity Propagation</h3>
+<div class="paragraph">
+<p>First, let&#8217;s configure a <code>virtual-security-domain</code> in the Elytron subsystem to specify that we want to automatically
+outflow any security identities established by the virtual security domain to the <code>BusinessDomain</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">/subsystem=elytron/virtual-security-domain=virtual-security-domain-to-domain.ear:add(outflow-security-domains=[BusinessDomain])</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Next, let&#8217;s update the <code>BusinessDomain</code> to specify that we want to trust any security identities established by the virtual
+security domain associated with <code>virtual-security-domain-to-domain.ear</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">/subsystem=elytron/security-domain=BusinessDomain:write-attribute(name=trusted-virtual-security-domains, value=[virtual-security-domain-to-domain.ear])</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Finally, let&#8217;s execute a reload:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">reload</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deploy-the-example-application-to-wildfly">Deploy the Example Application to WildFly</h3>
+<div class="paragraph">
+<p>We&#8217;re now going to build and deploy our example.</p>
+</div>
+<div class="paragraph">
+<p>From the <code>elytron-examples</code> directory, run the following commands to build and deploy the <code>ejb-basic.ear</code> and <code>virtual-security-domain-to-domain.ear</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">cd YOUR_PATH_TO_ELYTRON_EXAMPLES/oidc-with-identity-propagation/ejb-basic
+mvn clean install wildfly:deploy -Dwildfly.port=10000</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">cd YOUR_PATH_TO_ELYTRON_EXAMPLES/oidc-with-identity-propagation/virtual-security-domain-to-domain
+mvn clean install wildfly:deploy -Dwildfly.port=10000</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finish-configuring-keycloak">Finish Configuring Keycloak</h3>
+<div class="paragraph">
+<p>From your <code>myclient</code> client in the Keycloak Administration Console,
+in the client settings, set <code>Valid redirect URIs</code> to <a href="http://localhost:8090/virtual-security-domain-to-domain/secured" class="bare">http://localhost:8090/virtual-security-domain-to-domain/secured</a> and then click <code>Save</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="access-the-application">Access the Application</h3>
+<div class="paragraph">
+<p>From your browser, navigate to <a href="http://localhost:8090/virtual-security-domain-to-domain" class="bare">http://localhost:8090/virtual-security-domain-to-domain</a>.</p>
+</div>
+<div class="paragraph">
+<p>Click on <code>Access Secured Servlet</code>.</p>
+</div>
+<div class="paragraph">
+<p>You will be redirected to Keycloak to log in.</p>
+</div>
+<div class="paragraph">
+<p>Log in using the <code>alice</code> user we created earlier.</p>
+</div>
+<div class="paragraph">
+<p>Upon successful authentication, you will be redirected back to the example application.</p>
+</div>
+<div class="paragraph">
+<p>The example application outputs information about the user.</p>
+</div>
+<div class="paragraph">
+<p>You should see the following output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-text" data-lang="text">Successfully logged into Secured Servlet with OIDC
+
+Identity as visible to servlet.
+
+Principal : alice
+
+Authentication Type : OIDC
+
+Caller Has Role 'User'=true
+
+Caller Has Role 'Admin'=false
+
+Identity as visible to EntryBean.
+
+Principal : alice
+
+Caller Has Role 'User'=true
+
+Caller Has Role 'Admin'=false
+
+Identity as visible to ManagementBean.
+
+Principal : alice
+
+Caller Has Role 'User'=false
+
+Caller Has Role 'Admin'=true</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice the following things:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The identity as visible to the servlet and the EJB within <code>virtual-security-domain-to-domain.ear</code> is <code>alice</code> with <code>User</code> role. This
+shows that the identity from the virtual security domain was successfully propagated to the EJB within the same EAR.</p>
+</li>
+<li>
+<p>The identity as visible to the EJB within <code>ejb-basic.ear</code> is <code>alice</code> with <code>Admin</code> role. This shows that the identity
+from the virtual security domain was successfully propagated to the <code>BusinessDomain</code> that&#8217;s used to secure the EJB
+in a separate deployment.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="same-virtual-domain">Secure an EJB Invoked by an OIDC App using the Same Virtual Security Domain</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For this use case, we&#8217;ll be using the <a href="https://github.com/wildfly-security-incubator/elytron-examples/tree/main/oidc-with-identity-propagation-same-domain">oidc-with-identity-propagation-same-domain</a> example.</p>
+</div>
+<div class="sect2">
+<h3 id="inspect-the-example-applications-2">Inspect the Example Applications</h3>
+<div class="paragraph">
+<p>Let&#8217;s take a closer look at our example.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>This example consists of two EARs when built: <code>same-virtual-domain.ear</code> and <code>ejb-same-domain.ear</code>.</p>
+</li>
+<li>
+<p>Notice that <code>same-virtual-domain.ear</code> contains a <a href="https://github.com/wildfly-security-incubator/elytron-examples/blob/main/oidc-with-identity-propagation-same-domain/same-virtual-domain/web/src/main/java/org/wildfly/security/examples/same_virtual_domain/web/WhoAmIServlet.java">servlet</a>
+that invokes an EJB, <a href="https://github.com/wildfly-security-incubator/elytron-examples/blob/main/oidc-with-identity-propagation-same-domain/same-virtual-domain/ejb/src/main/java/org/wildfly/security/examples/same_virtual_domain/ejb/EntryBean.java">EntryBean</a>,
+that&#8217;s also contained in the same EAR. This EJB doesn&#8217;t have any explicit security domain configuration. Thus, this EJB will automatically be secured using the same virtual security domain as the servlet.</p>
+</li>
+<li>
+<p>The <code>EntryBean</code> invokes another EJB, <a href="https://github.com/wildfly-security-incubator/elytron-examples/blob/main/oidc-with-identity-propagation-same-domain/ejb-same-domain/ejb/src/main/java/org/wildfly/security/examples/ejb_same_domain/ejb/WhoAmIBean.java">WhoAmIBean</a>, that&#8217;s part of <code>ejb-same-domain.ear</code>.</p>
+</li>
+<li>
+<p>Because we want to secure the <code>WhoAmIBean</code> with the same virtual security domain that&#8217;s being
+used to secure the web application, we&#8217;ll need to add configuration to accomplish this.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="start-wildfly-2">Start WildFly</h3>
+<div class="paragraph">
+<p>First, we need to start our WildFly instance. We&#8217;ll specify a port offset since our Keycloak instance is exposed on
+port 8080:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">./bin/standalone.sh -Djboss.socket.binding.port-offset=10</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configure-the-virtual-security-domain-that-will-be-used-to-secure-the-ejb">Configure the Virtual Security Domain that will be used to Secure the EJB</h3>
+<div class="paragraph">
+<p>We&#8217;re going to secure the EJB being invoked with the same virtual security domain that&#8217;s being used
+to secure the web application with OIDC. We first need to connect to the WildFly CLI and add a <code>virtual-security-domain</code>
+resource in the Elytron subsystem as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">./bin/jboss-cli.sh --connect --controller=localhost:10000</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash"># Add a virtual security domain resource for the same-virtual-domain.ear application
+/subsystem=elytron/virtual-security-domain=same-virtual-domain.ear:add()</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configure-identity-propagation-2">Configure Identity Propagation</h3>
+<div class="paragraph">
+<p>Next, let&#8217;s update the <code>WhoAmIBean</code> to indicate that we want to secure it using the same virtual domain
+that&#8217;s being used to secure <code>same-virtual-domain.ear</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">@SecurityDomain("same-virtual-domain.ear")
+public class WhoAmIBean implements WhoAmI {
+    ...
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deploy-the-example-application-to-wildfly-2">Deploy the Example Application to WildFly</h3>
+<div class="paragraph">
+<p>We&#8217;re going to build and deploy our example.</p>
+</div>
+<div class="paragraph">
+<p>From the <code>elytron-examples</code> directory, run the following commands to build and deploy the <code>ejb-same-domain.ear</code> and <code>same-virtual-domain.ear</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">cd YOUR_PATH_TO_ELYTRON_EXAMPLES/oidc-with-identity-propagation-same-domain/ejb-same-domain
+mvn clean install wildfly:deploy -Dwildfly.port=10000</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">cd YOUR_PATH_TO_ELYTRON_EXAMPLES/oidc-with-identity-propagation-same-domain/same-virtual-domain
+mvn clean install wildfly:deploy -Dwildfly.port=10000</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finish-configuring-keycloak-2">Finish Configuring Keycloak</h3>
+<div class="paragraph">
+<p>From your <code>myclient</code> client in the Keycloak Administration Console,
+in the client settings, set <code>Valid redirect URIs</code> to <a href="http://localhost:8090/same-virtual-domain/secured" class="bare">http://localhost:8090/same-virtual-domain/secured</a> and then click <code>Save</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="access-the-application-2">Access the Application</h3>
+<div class="paragraph">
+<p>From your browser, navigate to <a href="http://localhost:8090/same-virtual-domain" class="bare">http://localhost:8090/same-virtual-domain</a>.</p>
+</div>
+<div class="paragraph">
+<p>Click on <code>Access Secured Servlet</code>.</p>
+</div>
+<div class="paragraph">
+<p>You will be redirected to Keycloak to log in.</p>
+</div>
+<div class="paragraph">
+<p>Log in using the <code>alice</code> user we created earlier.</p>
+</div>
+<div class="paragraph">
+<p>Upon successful authentication, you will be redirected back to the example application.</p>
+</div>
+<div class="paragraph">
+<p>The example application outputs information about the user.</p>
+</div>
+<div class="paragraph">
+<p>You should see the following output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-text" data-lang="text">Successfully logged into Secured Servlet with OIDC
+
+Identity as visible to servlet.
+
+Principal : alice
+
+Authentication Type : OIDC
+
+Caller Has Role 'User'=true
+
+Caller Has Role 'Admin'=false
+
+Identity as visible to EntryBean.
+
+Principal : alice
+
+Caller Has Role 'User'=true
+
+Caller Has Role 'Admin'=false
+
+Identity as visible to ManagementBean.
+
+Principal : alice
+
+Caller Has Role 'User'=true
+
+Caller Has Role 'Admin'=false</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice the following things:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The identity as visible to the servlet and the EJB within <code>same-virutal-domain.ear</code> is <code>alice</code> with <code>User</code> role. This
+shows that the identity from the virtual security domain was successfully propagated to the EJB within the same EAR.</p>
+</li>
+<li>
+<p>The identity as visible to the EJB within <code>ejb-same-domain.ear</code> is <code>alice</code> with <code>User</code> role. This shows that the identity
+from the virtual security domain was successfully propagated to the EJB in a separate deployment.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="whats-next">What&#8217;s next?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This guide shown how to propagate security identities established by a virtual security domain within a deployment
+and across deployments when securing a web application with OIDC. To learn
+more about OIDC configuration, check out the <a href="https://docs.wildfly.org/31/Admin_Guide.html#Elytron_OIDC_Client">Elytron OIDC Client</a>
+documentation.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="references">References</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.wildfly.org/31/Admin_Guide.html#identity_propagation">OIDC Identity Propagation</a></p>
+</li>
+<li>
+<p><a href="https://docs.wildfly.org/31/Admin_Guide.html#Elytron_OIDC_Client">Elytron OpenID Connect Client Subsystem Configuration</a></p>
+</li>
+<li>
+<p><a href="https://www.keycloak.org/docs/latest/server_admin/index.html">Keycloak Server Administration Guide</a></p>
+</li>
+<li>
+<p><a href="security-oidc-openshift.html#security-oidc-openshift">Securing WildFly Apps with OIDC on OpenShift</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+    </div>
+    <div>&lt; <a href="/guides">Back to Guides</a></div>
+  </div>
+</div>
+  </div>
+
+  <div class="content project-footer">
+  <div class="footer-section">
+    <div class="logo-wrapper">
+      <a href="/"><img class="wf-logo" src="/assets/img/wildfly_icons_one-color-logo.png"></a>
+    </div>
+  </div>
+  <div class="grid-wrapper">
+    <p class="grid__item width-3-12">WildFly is fully open. All components are open source and follow a community-focused development process.<br/><br/>This website was built with <a href='https://jekyllrb.com/' target='_blank'>Jekyll</a> is hosted on <a href='https://pages.github.com/' target='_blank'>Github Pages</a> and is completely open source. If you want to make it better, <a href='https://github.com/wildfly/wildfly.org/fork' target='_blank'>fork it</a> and show us what you’ve got.</p>
+
+    
+      <div class="width-1-12 project-links">
+        <strong>Navigation</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="/downloads">Downloads</a></li>
+          
+            <li><a href="https://docs.wildfly.org">Docs</a></li>
+          
+            <li><a href="/get-started">Get Started</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly">Github</a></li>
+          
+            <li><a href="/guides">Guides</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Contribute</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://issues.jboss.org/browse/WFLY">Submit a bug</a></li>
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly/fork">Fork WildFly</a></li>
+          
+            <li><a href="https://twitter.com/WildFlyAS">Follow us</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Get Help</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://wildfly.zulipchat.com/">Join Zulip Chat</a></li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="width-6-12 more-links">
+        <strong>Find more Red Hat Middleware Community Projects</strong>
+        <ul class="footer-links">
+          
+            <li><a href="https://www.apiman.io/">APIMan</a></li>
+          
+            <li><a href="http://arquillian.org">Arquillian</a></li>
+          
+            <li><a href="https://github.com/ansible-middleware/wildfly">Ansible Collection for Wildfly</a></li>
+          
+            <li><a href="http://byteman.jboss.org/">Byteman</a></li>
+          
+            <li><a href="http://capedwarf.org/">CapeDwarf</a></li>
+          
+            <li><a href="https://github.com/alechenninger/chronicler">Chronicler</a></li>
+          
+            <li><a href="https://github.com/darcy-framework">Darcy</a></li>
+          
+            <li><a href="http://debezium.io/">Debezium</a></li>
+          
+            <li><a href="https://www.drools.org/">Drools</a></li>
+          
+            <li><a href="http://gatein.jboss.org/">GateIn</a></li>
+          
+            <li><a href="http://www.hawkular.org/">Hawkular</a></li>
+          
+            <li><a href="http://hawt.io/">Hawtio</a></li>
+          
+            <li><a href="http://hibernate.org/">Hibernate</a></li>
+          
+            <li><a href="http://www.infinispan.org/">Infinispan</a></li>
+          
+            <li><a href="https://developers.redhat.com/products/codeready-studio/overview">CodeReady Studio</a></li>
+          
+            <li><a href="http://forge.jboss.org/">JBoss Forge</a></li>
+          
+            <li><a href="https://github.com/jboss-logging">JBoss Logging</a></li>
+          
+            <li><a href="http://jbossremoting.jboss.org/">JBoss Remoting</a></li>
+          
+            <li><a href="https://www.jbpm.org/">jBPM</a></li>
+          
+            <li><a href="https://jsfunit.jboss.org/">JSFUnit</a></li>
+          
+            <li><a href="https://www.keycloak.org/">Keycloak</a></li>
+          
+            <li><a href="http://modcluster.io/">Mod Cluster</a></li>
+          
+            <li><a href="http://modeshape.jboss.org/">ModeShape</a></li>
+          
+            <li><a href="https://www.optaplanner.org/">OptaPlanner</a></li>
+          
+            <li><a href="https://quarkus.io/">Quarkus</a></li>
+          
+            <li><a href="http://resteasy.jboss.org/">RESTEasy</a></li>
+          
+            <li><a href="https://riftsaw.jboss.org/">Riftsaw</a></li>
+          
+            <li><a href="http://savara.jboss.org/">Savara</a></li>
+          
+            <li><a href="https://weld.cdi-spec.org/">Weld</a></li>
+          
+            <li><a href="http://arquillian.org/">Shrinkwrap</a></li>
+          
+            <li><a href="https://switchyard.jboss.org/">Switchyard</a></li>
+          
+            <li><a href="https://tattletale.jboss.org/">Tattletale</a></li>
+          
+            <li><a href="https://teiid.io/">Teiid</a></li>
+          
+            <li><a href="https://wildfly-security.github.io/wildfly-elytron/">WildFly Elytron</a></li>
+          
+            <li><a href="http://wise.jboss.org/">Wise</a></li>
+          
+            <li><a href="https://xnio.jboss.org/">XNIO</a></li>
+          
+        </ul>
+      </div>
+    
+  </div>
+</div>
+  <div class="content redhat-footer">
+  <div class="grid-wrapper">
+    <span class="licence">
+      <i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i> <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC by 3.0</a> | <a href="https://www.redhat.com/en/about/privacy-policy">Privacy Policy</a>
+    </span>
+    <span class="redhat">
+      Sponsored by
+    </span>
+    <span class="redhat-logo">
+      <a href="https://www.redhat.com/" target="_blank"><img src="/assets/img/redhat_reversed.svg"></a>
+    </span>
+  </div>
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/mobile-nav.js"></script>
+  <script type="text/javascript" src="/assets/javascript/random-color-picker.js"></script>
+  <script type="text/javascript">
+    if (("undefined" !== typeof _satellite) && ("function" === typeof _satellite.pageBottom)) {
+        _satellite.pageBottom();
+    }
+    hljs.highlightAll();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/copy.js"></script>
+
+</body>
+
+</html>

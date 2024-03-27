@@ -1,0 +1,2118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator>
+  <link href="https://wildfly.org//feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://wildfly.org//" rel="alternate" type="text/html" />
+  <updated>2024-10-02T09:13:28+00:00</updated>
+  <id>https://wildfly.org/</id>
+
+  
+  
+    <title type="html">WildFly</title>
+  
+
+  
+    <entry>
+      <title type="html">WildFly 33.0.2 is released!</title>
+      <link href="https://wildfly.org//news/2024/09/17/WildFly3302-Released/" rel="alternate" type="text/html" title="WildFly 33.0.2 is released!" />
+      <published>2024-09-17T00:00:00+00:00</published>
+      <updated>2024-09-17T00:00:00+00:00</updated>
+      <id>https://wildfly.org//news/2024/09/17/WildFly3302-Released</id>
+      
+      
+        <content type="html" xml:base="https://wildfly.org//news/2024/09/17/WildFly3302-Released/">&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;WildFly 33.0.2.Final is now available &lt;a href=&quot;https://wildfly.org/downloads&quot;&gt;for download&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Typically after a major release of WildFly we follow up with one small bug fix release in the coming weeks before moving
+on to the next major release, however due to the nature of the issues fixed in this release we have decided to release
+one more release so I am pleased to confirm WildFly 33.0.2.Final is now available.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The following issues were resolved in 33.0.2:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;component-upgrade&quot;&gt;Component Upgrade&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19705&quot;&gt;WFLY-19705&lt;/a&gt;] - Upgrade WildFly Core to 25.0.2.Final&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19730&quot;&gt;WFLY-19730&lt;/a&gt;] - CVE-2024-8391 Upgrade Vert.x to 4.5.10&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Issues resolved in the WildFly Core update included with WildFly 33.0.2 were:&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;component-upgrade-2&quot;&gt;Component Upgrade&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFCORE-6968&quot;&gt;WFCORE-6968&lt;/a&gt;] - Upgrade WildFly Elytron to 2.5.2.Final&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFCORE-6973&quot;&gt;WFCORE-6973&lt;/a&gt;] - CVE-2024-7885 Upgrade Undertow to 2.3.17.Final&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Issues resolved in the WildFly Elytron upgrade were:&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;bug&quot;&gt;Bug&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/ELY-2797&quot;&gt;ELY-2797&lt;/a&gt;]- NullPointerException in OidcClientConfiguration.resolveUrls if parameter &amp;quot;request_parameter_supported&amp;quot; is not present in openid-configuration.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Enjoy!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Darran Lofthouse</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="announcement" />
+      
+        <category term="release" />
+      
+
+      
+        <summary type="html">WildFly 33.0.2.Final is now available for download.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Automate WildFly&#8217;s subsystems configuration using Ansible!</title>
+      <link href="https://wildfly.org//news/2024/09/10/ansible-yaml-wildfly/" rel="alternate" type="text/html" title="Automate WildFly&#8217;s subsystems configuration using Ansible!" />
+      <published>2024-09-10T00:00:00+00:00</published>
+      <updated>2024-09-10T00:00:00+00:00</updated>
+      <id>https://wildfly.org//news/2024/09/10/ansible-yaml-wildfly</id>
+      
+      
+        <content type="html" xml:base="https://wildfly.org//news/2024/09/10/ansible-yaml-wildfly/">&lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In this brief demonstration, we’ll see how to use &lt;a href=&quot;https://www.ansible.com/&quot;&gt;Ansible&lt;/a&gt; to fully automate the deployment of a WildFly instance, including the configuration of its subsystems. In particular, we’ll illustrate how to set up messaging queues and deploy JDBC drivers.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;For readers not familiar with Ansible, the article with starts with the instructions on how to set it up and install the required extension (a collection, in Ansible lexicon) for WildFly.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;install-ansible-and-its-collection-for-wildfly&quot;&gt;Install Ansible and its collection for WildFly&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;On a Linux system using a package manager, installing Ansible is pretty straightforward:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;$ sudo dnf install ansible-core&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; &lt;em&gt;this demonstration assumes you are running both the Ansible controller and the target (same machine in our case) on a Linux system. However, it should work on a different OS (bearing a few adjustments). Please refer to the &lt;a href=&quot;https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html&quot;&gt;documentation available online&lt;/a&gt; for installation on other operating systems.&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Before going further, double check that you are running a recent enough version of Ansible (2.16 or above will do):&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;$ ansible --version
+ansible [core 2.16.0]
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = [&apos;/home/rpelisse/.ansible/plugins/modules&apos;, &apos;/usr/share/ansible/plugins/modules&apos;]
+  ansible python module location = /home/rpelisse/.local/lib/python3.12/site-packages/ansible
+  ansible collection location = /home/rpelisse/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible
+  python version = 3.12.3 (main, Apr 17 2024, 00:00:00) [GCC 13.2.1 20240316 (Red Hat 13.2.1-7)] (/usr/bin/python3)
+  jinja version = 3.1.4
+  libyaml = True&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The next and last step to ensure your Ansible environment is ready to be used is to install the &lt;a href=&quot;https://github.com/ansible-middleware/wildfly/&quot;&gt;Ansible collection for WildFly&lt;/a&gt; on the &lt;strong&gt;controller&lt;/strong&gt; (the machine that will run Ansible):&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;# ansible-galaxy collection install middleware_automation.wildfly
+Starting collection install process
+Downloading https://galaxy.ansible.com/api/v3/plugin/ansible/content/published/collections/artifacts/middleware_automation-wildfly-1.5.2.tar.gz to /root/.ansible/tmp/ansible-local-85_kfluuxm/tmpztz1ds3y/middleware_automation-wildfly-1.5.2-veisxadr
+Installing &apos;middleware_automation.wildfly:1.5.2&apos; to &apos;/root/.ansible/collections/ansible_collections/middleware_automation/wildfly&apos;
+ownloading https://console.redhat.com/api/automation-hub/v3/plugin/ansible/content/641409-synclist/collections/artifacts/ansible-posix-1.5.4.tar.gz to /root/.ansible/tmp/ansible-local-85_kfluuxm/tmpztz1ds3y/ansible-posix-1.5.4-it7fl_gz
+middleware_automation.wildfly:1.5.2 was installed successfully
+Installing &apos;ansible.posix:1.5.4&apos; to &apos;/root/.ansible/collections/ansible_collections/ansible/posix&apos;
+Downloading https://galaxy.ansible.com/api/v3/plugin/ansible/content/published/collections/artifacts/middleware_automation-common-1.2.1.tar.gz to /root/.ansible/tmp/ansible-local-85_kfluuxm/tmpztz1ds3y/middleware_automation-common-1.2.1-0tzs6cy9
+ansible.posix:1.5.4 was installed successfully
+Installing &apos;middleware_automation.common:1.2.1&apos; to &apos;/root/.ansible/collections/ansible_collections/middleware_automation/common&apos;
+middleware_automation.common:1.2.1 was installed successfully
+Downloading https://galaxy.ansible.com/api/v3/plugin/ansible/content/published/collections/artifacts/fedora-linux_system_roles-1.82.0.tar.gz to /root/.ansible/tmp/ansible-local-85_kfluuxm/tmpztz1ds3y/fedora-linux_system_roles-1.82.0-5rfvn8a7
+Installing &apos;fedora.linux_system_roles:1.82.0&apos; to &apos;/root/.ansible/collections/ansible_collections/fedora/linux_system_roles&apos;
+Downloading https://galaxy.ansible.com/api/v3/plugin/ansible/content/published/collections/artifacts/containers-podman-1.15.3.tar.gz to /root/.ansible/tmp/ansible-local-85_kfluuxm/tmpztz1ds3y/containers-podman-1.15.3-brqeuvs6
+fedora.linux_system_roles:1.82.0 was installed successfully
+Installing &apos;containers.podman:1.15.3&apos; to &apos;/root/.ansible/collections/ansible_collections/containers/podman&apos;
+containers.podman:1.15.3 was installed successfully
+Downloading https://galaxy.ansible.com/api/v3/plugin/ansible/content/published/collections/artifacts/community-general-9.1.0.tar.gz to /root/.ansible/tmp/ansible-local-85_kfluuxm/tmpztz1ds3y/community-general-9.1.0-1ute58rg
+Installing &apos;community.general:9.1.0&apos; to &apos;/root/.ansible/collections/ansible_collections/community/general&apos;
+community.general:9.1.0 was installed successfully&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;To verify that the installation was successful, let&amp;#8217;s run again the &lt;code&gt;ansible-galaxy&lt;/code&gt; command, this time asking it to list the installed collection:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;$ ansible-galaxy collection list
+
+$ /home/rpelisse/.ansible/collections/ansible_collections
+Collection                    Version
+----------------------------- -------
+ansible.posix                 1.5.4
+community.general             9.1.0
+containers.podman             1.15.3
+fedora.linux_system_roles     1.82.0
+middleware_automation.common  1.2.1
+middleware_automation.wildfly 1.5.2&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;define-ansibles-inventory&quot;&gt;Define Ansible’s Inventory&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ansible is an automation tool designed to manage, if necessary, thousands of machines. Thus, to work, it needs a list of the &lt;strong&gt;targets&lt;/strong&gt; systems (the ones Ansible are in charge of). There are several ways to provide such an inventory, but the simplest, especially for the demonstration of this article to be easily reproduced, is to use a simple file.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Also, for practicality’s sake, we will not set up a remote machine, but just ask Ansible to leverage the local system as a target:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;[all]
+localhost ansible_connection=local&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Because we utilize &lt;code&gt;localhost&lt;/code&gt; as a target, we also don&amp;#8217;t need to use SSH (and setup the appropriate credentials). For more detail on Ansible inventory, please refer to &lt;a href=&quot;https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html&quot;&gt;the following documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;To verify that everything works as expected and that Ansible is ready to be used, we are going to ask the tool to gather all the information it can on its targets, which, in our case, is only &lt;code&gt;localhost&lt;/code&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;# ansible -m setup -i inventory all
+localhost | SUCCESS =&amp;gt; {
+    &quot;ansible_facts&quot;: {
+...&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The output of the command does not really matter (in the context of this article). The only important item is that Ansible runs successfully and can gather information on the target (&lt;code&gt;localhost&lt;/code&gt;). Our system is now ready for the demonstration.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;ansible-playbook-to-install-wildfly&quot;&gt;Ansible Playbook to Install WildFly&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Now that Ansible and the required collection are both properly installed, we can start working on our &lt;code&gt;playbook&lt;/code&gt;. To make it simple to follow, we are going to proceed step by step. First, we&amp;#8217;ll set up WildFly on the target, without any special configuration to its subsystems. Then, we&amp;#8217;ll modify the playbook below to add the necessary elements in order to adjust the instance resources (messaging queues and data sources).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Here is the &lt;code&gt;playbook&lt;/code&gt; we&amp;#8217;ll use to deploy our clusters. Its content is relatively self-explanatory, at least if you are somewhat familiar with the Ansible syntax.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-yml&quot; data-lang=&quot;yml&quot;&gt;- name: &quot;WildFly installation and configuration&quot;
+  hosts: all
+  become: yes
+  vars:
+    wildfly_install_workdir: &apos;/opt/&apos;
+    wildfly_config_base: &apos;standalone.xml&apos;
+    wildfly_version: &apos;30.0.1.Final&apos;
+    wildfly_java_package_name: &apos;java-11-openjdk-headless.x86_64&apos;
+    wildfly_home: &quot;/opt/wildfly-{{ wildfly_version }}&quot;
+  collections:
+    - middleware_automation.wildfly
+  roles:
+    - role: wildfly_install
+    - role: wildfly_systemd&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In short, this &lt;code&gt;playbook&lt;/code&gt; calls the Ansible collection for WildFly to, first, install the appserver by utilizing the &lt;code&gt;wildfly_install&lt;/code&gt; role. This will download all the artifacts, create the needed system groups and users, install dependency (unzip) and so on. At the end of its execution, all the tidbits required to run WildFly on the target host are in place, but the server is not yet started. That’s what happening with the next role.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;There is indeed another role configured in our &lt;code&gt;playbook&lt;/code&gt; called &lt;code&gt;wildfly_systemd&lt;/code&gt;. This role will take care of integrating WildFly onto the target as a regular system service handled by the service manager.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;run-the-playbook&quot;&gt;Run the playbook !&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Now, let’s run our Ansible &lt;code&gt;playbook&lt;/code&gt; and observe its output:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;$ ansible-playbook -i inventory playbook.yml
+
+PLAY [WildFly installation and configuration] **********************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Validating arguments against arg spec &apos;main&apos;] ***
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Ensure prerequirements are fullfilled.] ***
+included: /root/.ansible/collections/ansible_collections/middleware_automation/wildfly/roles/wildfly_install/tasks/prereqs.yml for localhost
+
+TASK [middleware_automation.wildfly.wildfly_install : Validate credentials] ****
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Validate existing zipfiles wildfly-30.0.1.Final.zip for offline installs] ***
+skipping: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Validate patch version for offline installs] ***
+skipping: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Validate existing additional zipfiles {{ eap_archive_filename }} for offline installs] ***
+skipping: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Validate node identifier length] ***
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Check that required packages list has been provided.] ***
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Add JDK package java-11-openjdk-headless.x86_64 to packages list] ***
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Add selinux package java-11-openjdk-headless.x86_64 to packages list] ***
+skipping: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Install required packages (7)] ***
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Ensure required local user exists.] ***
+included: /root/.ansible/collections/ansible_collections/middleware_automation/wildfly/roles/wildfly_install/tasks/user.yml for localhost
+
+TASK [middleware_automation.wildfly.wildfly_install : Check arguments] *********
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Set wildfly group] *******
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Ensure group wildfly exists.] ***
+changed: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Ensure user wildfly exists.] ***
+changed: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Ensure required directories exists.] ***
+included: /root/.ansible/collections/ansible_collections/middleware_automation/wildfly/roles/wildfly_install/tasks/prepdirs.yml for localhost
+
+TASK [middleware_automation.wildfly.wildfly_install : Check if work directory /opt/ exists] ***
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Check if work directory /opt/ is readable] ***
+ok: [localhost] =&amp;gt; {
+    &quot;changed&quot;: false,
+    &quot;msg&quot;: &quot;Archive directory /opt/ is readable&quot;
+}
+
+TASK [middleware_automation.wildfly.wildfly_install : Create archive_dir /opt/, if not exists.] ***
+skipping: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Check if archive directory /opt/ exists] ***
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Check if archive directory /opt/ is readable] ***
+ok: [localhost] =&amp;gt; {
+    &quot;changed&quot;: false,
+    &quot;msg&quot;: &quot;Archive directory /opt/ is readable&quot;
+}
+
+TASK [middleware_automation.wildfly.wildfly_install : Create archive_dir /opt/, if not exists.] ***
+skipping: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Ensure server is installed] ***
+included: /root/.ansible/collections/ansible_collections/middleware_automation/wildfly/roles/wildfly_install/tasks/install.yml for localhost
+
+TASK [middleware_automation.wildfly.wildfly_install : Check arguments] *********
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Check local download archive path] ***
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Set download paths] ******
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Check target archive: /opt//wildfly-30.0.1.Final.zip] ***
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Retrieve archive from website: https://github.com/wildfly/wildfly/releases/download] ***
+included: /root/.ansible/collections/ansible_collections/middleware_automation/wildfly/roles/wildfly_install/tasks/install/web.yml for localhost
+
+TASK [middleware_automation.wildfly.wildfly_install : Check arguments] *********
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Download zipfile from https://github.com/wildfly/wildfly/releases/download/30.0.1.Final/wildfly-30.0.1.Final.zip into /work/wildfly-30.0.1.Final.zip] ***
+changed: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Retrieve archive from RHN] ***
+skipping: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Install server using RPM] ***
+skipping: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Check downloaded archive] ***
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Copy archive to target nodes] ***
+changed: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Check target archive: /opt//wildfly-30.0.1.Final.zip] ***
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Verify target archive state: /opt//wildfly-30.0.1.Final.zip] ***
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Read target directory information: /opt/wildfly-30.0.1.Final] ***
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Extract files from /opt//wildfly-30.0.1.Final.zip into /opt/.] ***
+changed: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Note: decompression was not executed] ***
+skipping: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Read information on server home directory: /opt/wildfly-30.0.1.Final] ***
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Check state of server home directory: /opt/wildfly-30.0.1.Final] ***
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Deploy custom configuration] ***
+skipping: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Deploy configuration] ****
+changed: [localhost]
+
+TASK [Apply latest cumulative patch] *******************************************
+skipping: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Ensure required parameters for elytron adapter are provided.] ***
+skipping: [localhost]
+
+TASK [Install elytron adapter] *************************************************
+skipping: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Install server using Prospero] ***
+skipping: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Check wildfly install directory state] ***
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Validate conditions] *****
+ok: [localhost]
+
+TASK [Ensure firewalld configuration allows server port (if enabled).] *********
+skipping: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_systemd : Validating arguments against arg spec &apos;main&apos;] ***
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_systemd : Check arguments] *********
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_systemd : Validate node identifier length] ***
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_systemd : Ensure that version is correct for yaml config extension] ***
+skipping: [localhost]
+
+TASK [Ensure required local user and group exists.] ****************************
+
+TASK [middleware_automation.wildfly.wildfly_install : Check arguments] *********
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Set wildfly group] *******
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Ensure group wildfly exists.] ***
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_install : Ensure user wildfly exists.] ***
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_systemd : Check if PID directory exists] ***
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_systemd : Create PID directory path if not exists] ***
+changed: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_systemd : Ensure server configuration and systemd configuration are set] ***
+included: /root/.ansible/collections/ansible_collections/middleware_automation/wildfly/roles/wildfly_systemd/tasks/systemd.yml for localhost
+
+TASK [middleware_automation.wildfly.wildfly_systemd : Create basedir /opt/wildfly-30.0.1.Final/standalone for instance: wildfly] ***
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_systemd : Create deployment directories for instance: wildfly] ***
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_systemd : Ensure configuration directory exists] ***
+skipping: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_systemd : Find properties for colocated instance] ***
+skipping: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_systemd : Deploy properties for colocated instance] ***
+skipping: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_systemd : Deploy configuration] ****
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_systemd : Deploy custom configuration] ***
+skipping: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_systemd : Include YAML configuration extension] ***
+skipping: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_systemd : Check YAML configuration is disabled] ***
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_systemd : Determine JAVA_HOME for selected JVM] ***
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_systemd : Determine JAVA_HOME for selected JVM] ***
+skipping: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_systemd : Deploy service instance configuration: /etc/sysconfig/wildfly.conf] ***
+changed: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_systemd : Deploy Systemd unit for service: /etc/systemd/system/wildfly.service] ***
+changed: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_systemd : Perform daemon-reload to ensure the changes are picked up] ***
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_systemd : Ensure service is started] ***
+included: /root/.ansible/collections/ansible_collections/middleware_automation/wildfly/roles/wildfly_systemd/tasks/service.yml for localhost
+
+TASK [middleware_automation.wildfly.wildfly_systemd : Check arguments] *********
+ok: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_systemd : Set instance wildfly state to started] ***
+changed: [localhost]
+
+TASK [middleware_automation.wildfly.wildfly_systemd : Ensure server&apos;s apps are deployed] ***
+skipping: [localhost]
+
+RUNNING HANDLER [middleware_automation.wildfly.wildfly_systemd : Restart Wildfly] ***
+included: /root/.ansible/collections/ansible_collections/middleware_automation/wildfly/roles/wildfly_systemd/tasks/service.yml for localhost
+
+RUNNING HANDLER [middleware_automation.wildfly.wildfly_systemd : Check arguments] ***
+ok: [localhost]
+
+RUNNING HANDLER [middleware_automation.wildfly.wildfly_systemd : Set instance wildfly state to restarted] ***
+changed: [localhost]
+
+RUNNING HANDLER [middleware_automation.wildfly.wildfly_install : Execute restorecon] ***
+skipping: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=61   changed=11   unreachable=0    failed=0    skipped=24   rescued=0    ignored=0&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;check-that-everything-worked-as-expected&quot;&gt;Check that everything worked as expected&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The easiest way to confirm that the &lt;code&gt;playbook&lt;/code&gt; did indeed install WildFly (and started the appserver) is to use the &lt;code&gt;systemctl&lt;/code&gt; command to check the associate services state:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;● wildfly.service - JBoss EAP (standalone mode)
+     Loaded: loaded (/etc/systemd/system/wildfly.service; enabled; preset: disabled)
+     Active: active (running) since Thu 2024-07-04 13:04:59 UTC; 6min ago
+   Main PID: 1173 (standalone.sh)
+      Tasks: 86 (limit: 1638)
+     Memory: 379.4M
+        CPU: 17.479s
+     CGroup: /system.slice/wildfly.service
+             ├─1173 /bin/sh /opt/wildfly-30.0.1.Final/bin/standalone.sh -c wildfly.xml -b 0.0.0.0 -bmanagement 127.0.0.1 -Djboss.bind.address.private=127.0.0.1 -Djboss.default.multicast.address=230.0.0.4 -Djboss.server.config.dir=/opt/wildfly-30.0.1.Final/standalone/configuration/ -Djboss.server.base.dir=/opt/wildfly-30.0.1.Final/standalone -Djboss.tx.node.id=localhost -Djboss.node.name=wildfly -Djboss.socket.binding.port-offset=0 -Dwildfly.statistics-enabled=false
+             └─1316 /etc/alternatives/jre_11/bin/java &quot;-D[Standalone]&quot; &quot;-Djdk.serialFilter=maxbytes=10485760;maxdepth=128;maxarray=100000;maxrefs=300000&quot; -Xmx1024M -Xms512M --add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.ldap=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.url.ldap=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.url.ldaps=ALL-UNNAMED --add-exports=jdk.naming.dns/com.sun.jndi.dns=ALL-UNNAMED --add-opens=java.base/com.sun.net.ssl.internal.ssl=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.bas&amp;gt;
+
+Jul 04 13:05:02 e32fad81e375 standalone.sh[1316]: 13:05:02,460 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0006: Undertow HTTP listener default listening on [0:0:0:0:0:0:0:0]:8080
+Jul 04 13:05:02 e32fad81e375 standalone.sh[1316]: 13:05:02,585 INFO  [org.jboss.as.ejb3] (MSC service thread 1-8) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+Jul 04 13:05:02 e32fad81e375 standalone.sh[1316]: 13:05:02,585 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0006: Undertow HTTPS listener https listening on [0:0:0:0:0:0:0:0]:8443
+Jul 04 13:05:02 e32fad81e375 standalone.sh[1316]: 13:05:02,641 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-8) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+Jul 04 13:05:02 e32fad81e375 standalone.sh[1316]: 13:05:02,730 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-8) WFLYDS0013: Started FileSystemDeploymentService for directory /opt/wildfly-30.0.1.Final/standalone/deployments
+Jul 04 13:05:02 e32fad81e375 standalone.sh[1316]: 13:05:02,788 INFO  [org.jboss.ws.common.management] (MSC service thread 1-6) JBWS022052: Starting JBossWS 7.0.0.Final (Apache CXF 4.0.0)
+Jul 04 13:05:02 e32fad81e375 standalone.sh[1316]: 13:05:02,920 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+Jul 04 13:05:02 e32fad81e375 standalone.sh[1316]: 13:05:02,926 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+Jul 04 13:05:02 e32fad81e375 standalone.sh[1316]: 13:05:02,926 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+Jul 04 13:05:02 e32fad81e375 standalone.sh[1316]: 13:05:02,928 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 30.0.1.Final (WildFly Core 22.0.2.Final) started in 2998ms - Started 280 of 522 services (317 services are lazy, passive or on-demand) - Server configuration file in use: wildfly.xml&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;deploy-queues-using-the-yaml-config-feature&quot;&gt;Deploy Queues Using the Yaml Config Feature&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Now that we have a working instance of WildFly, let&amp;#8217;s look at the configuration of its subsystems. We have two requirements we want to implement: datasources and messaging queues. We&amp;#8217;ll start with the latter, as the setup of these resources is a bit simpler than datasources, which we&amp;#8217;ll give ourselves an opportunity to get familiar with the &lt;a href=&quot;https://docs.wildfly.org/32/Admin_Guide.html#YAML_Configuration_file&quot;&gt;Yaml configuration feature&lt;/a&gt; before discussing how to handle the datasources.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Here are the messaging requirements: the WildFly instance needs to have two queues and one topic, both ready to be used and already configured. This can be achieved using the JBoss CLI with the following queries:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;jms-queue --profile=full add --queue-address=FirstQueue --entries=[&quot;java:/jms/queue/first&quot;]
+jms-queue --profile=full add --queue-address=SecondQueue --entries=[&quot;java:/jms/queue/second&quot;]
+jms-topic --profile=full add --topic-address=Topic --entries=[&quot;java:/jms/topic/Topic&quot;]&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Before we see how to implement these modifications using the Ansible collection and the Yaml config feature, let’s point out that we cannot (easily) automate those changes utilizing the JBoss CLI queries above. First of all, the CLI is not idempotent, which means that the first time the queries are run, it will create the resources, but the next times, it will fail, stating (quite correctly) that the resources already exist. Also, even if we bundle those queries into a batch, each time a server is set up, the CLI client will need to be started and the script executed before the instance is ready. All in all, it’s not ideal.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Fortunately, this is where the Yaml Config feature comes in and nicely implements the modification in a Ansible-friendly manner (or rather in an idempotent fashion). In essence, the feature allows specifying changes in the server subsystem in a simple &lt;a href=&quot;https://yaml.org/&quot;&gt;YAML file&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As an example, here is how one can express the messaging requirements we discussed above using this format:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-yml&quot; data-lang=&quot;yml&quot;&gt;wildfly-configuration:
+  subsystem:
+    messaging-activemq:
+      server:
+        default:
+          jms-queue:
+            FirstQueue:
+              entries:
+                - &apos;java:/jms/queue/first&apos;
+            SecondQueue:
+              entries:
+                - &apos;java:/jms/queue/second&apos;
+          jms-topic:
+            TheTopic:
+              entries:
+                - topic/TheTopic
+                - java:jboss/exported/topic/TheTopic&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;With this file created; we can modify our &lt;code&gt;playbook&lt;/code&gt; now to use the Yaml Config feature and configure accordingly the server&amp;#8217;s subsystem:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-yml&quot; data-lang=&quot;yml&quot;&gt;    ...
+    wildfly_config_base: &apos;standalone.xml&apos;
+    wildfly_version: &apos;30.0.1.Final&apos;
+    wildfly_java_package_name: &apos;java-11-openjdk-headless.x86_64&apos;
+    wildfly_home: &quot;/opt/wildfly-{{ wildfly_version }}&quot;
+    wildfly_enable_yml_config: True
+    wildfly_yml_configs:
+      - &apos;article.yml.j2&apos;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Let&amp;#8217;s run again the &lt;code&gt;playbook&lt;/code&gt; with this new configuration file. Note that Ansible will ensure the functionality is activated in the server and triggers a restart of WildFly so that the changes applied with the Yaml Config feature are, indeed, live:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;...
+TASK [middleware_automation.wildfly.wildfly_systemd : Deploy YAML configuration files: [&apos;article.yml.j2&apos;]] *****************************
+changed: [localhost] =&amp;gt; (item=article.yml.j2)
+...
+RUNNING HANDLER [middleware_automation.wildfly.wildfly_systemd : Set instance wildfly state to restarted] ******************************
+changed: [localhost]
+
+RUNNING HANDLER [middleware_automation.wildfly.wildfly_install : Execute restorecon] ***************************************************
+skipping: [localhost]
+
+PLAY RECAP *****************************************************************************************************************************
+localhost                  : ok=73   changed=3    unreachable=0    failed=0    skipped=35   rescued=0    ignored=0&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This configuration above simply adds the required resources (the queues and a topic); however, real-life scenarios are rarely as clear cut. Let&amp;#8217;s introduce a bit of complexity for the sake of making our example closer to a real use case.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;FirstQueue is actually a legacy system, employed by a few, non-critical older apps and for this reason it has been decided it should not be durable. Also, because it is utilized by systems that are not yet updated, it needs to be associated with a legacy entry:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;/subsystem=messaging-activemq/server=default/jms-queue=FirstQueue:read-resource
+{
+    &quot;outcome&quot; =&amp;gt; &quot;success&quot;,
+    &quot;result&quot; =&amp;gt; {
+        &quot;durable&quot; =&amp;gt; false,
+        &quot;entries&quot; =&amp;gt; [&quot;java:/jms/queue/first&quot;],
+        &quot;legacy-entries&quot; =&amp;gt; [&quot;java:/jms/legacy/queue/old&quot;],
+        &quot;selector&quot; =&amp;gt; undefined
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Let&amp;#8217;s modify our Yaml Config file to reflect those extra requirements:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-yml&quot; data-lang=&quot;yml&quot;&gt;...
+FirstQueue:
+  entries:
+    - &apos;java:/jms/queue/first&apos;
+  durable: false
+  legacy-entries:
+    - &apos;java:/jms/legacy/queue/old&apos;
+SecondQueue:
+...&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It&amp;#8217;s already quite nice to be able to express our changes to the subsystem configuration inside a simple text file, but, thanks to Ansible we can go further than that. Currently, the resource settings are somewhat hard-coded in this file; however, we can do better here.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ansible can easily generate the content of this file using its &lt;strong&gt;templating mechanism&lt;/strong&gt;. Which means that we can even abstract part of the configuration and not have all the value hard-coded in the file.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Let&amp;#8217;s assume, for instance, that FirstQueue is not durable when deployed on &lt;em&gt;staging&lt;/em&gt; systems. We can employ a template so that Ansible can create the appropriate configuration depending on the target system. Relying on the internal convention that any staging system as the suffix &lt;code&gt;&apos;. stating&apos;&lt;/code&gt; in the machine hostname, Ansible be able to change the default value of durable from true to false:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-yml&quot; data-lang=&quot;yml&quot;&gt;wildfly-configuration:
+  subsystem:
+    messaging-activemq:
+      server:
+        default:
+          jms-queue:
+            FirstQueue:
+              entries:
+                - &apos;java:/jms/queue/first&apos;
+{% if &apos;.staging&apos; in ansible_nodename %}
+              durable: false
+{% endif %}
+              legacy-entries:
+                - &apos;java:/jms/legacy/queue/old&apos;
+            SecondQueue:
+              entries:
+                - &apos;java:/jms/queue/second&apos;
+          jms-topic:
+            TheTopic:
+              entries:
+                - topic/TheTopic
+                - java:jboss/exported/topic/TheTopic&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;While this templating feature is quite powerful, a balance needs to be found when it is leveraged. Generating the entire template, based on rather complex data structure is not advisable, for instance. The Yaml Config file is already a configuration artifact, that can be used as a source of truth.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In short, when designing the way WildFly&amp;#8217;s setup will be provisioned, it&amp;#8217;s important to determine what needs to be added directly to the default configuration (&lt;code&gt;standalone.xml&lt;/code&gt; or &lt;code&gt;standalone-full.xml&lt;/code&gt;) utilized as a base and what can be parameterized using the Yaml configuration feature, employing or not, the templating functionality of Ansible.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;To help make these decisions, here are a few rules of thumb to keep in mind:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Large alteration of the subsystems (adding one or several, or simply rewriting entirely the default configuration) are most likely easier to achieve by providing a modified base configuration.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Small changes to the subsystem configuration, adding a few, straightforward resources are most likely easy enough to implement.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Changes in the configuration linked to the target environments can be achieved using the templating feature of Ansible.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;No matter what, remember the &lt;a href=&quot;https://en.wikipedia.org/wiki/KISS_principle&quot;&gt;KISS principle (Keep It Stupid Simple)&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Let&amp;#8217;s run again the &lt;code&gt;playbook&lt;/code&gt;. As in the above example run, Ansible will notice the change to the Yaml configuration file and consequently update the target&amp;#8217;s subsystems configuration, before restarting the server.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;With these first requirements in place, we now move to the deployment of our JDBC drivers and datasources.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;deploy-jdbc-drivers-and-datasources&quot;&gt;Deploy JDBC drivers and datasources&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The deployment of JDBC drivers and datasources on the target system is a somewhat more elaborated use case than the one we just saw with the messaging subsystem. Indeed, to add a JDBC driver to a WildFly server an entire module must be created; it&amp;#8217;s not just a configuration change in the &lt;code&gt;standalone.xml&lt;/code&gt; that needs to be performed in an idempotent manner.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Fortunately, here again, the Ansible collection for WildFly does most of the heavy lifting. In fact, the default &lt;code&gt;playbook&lt;/code&gt; we used already comes with the setup of two JDBC drivers:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-yml&quot; data-lang=&quot;yml&quot;&gt;...
+  collections:
+    - middleware_automation.wildfly
+  tasks:
+    - name: Install second driver with wildfly_driver role
+      ansible.builtin.include_role:
+        name: wildfly_driver
+      when: jdbc_drivers is defined and jdbc_drivers | length &amp;gt; 0
+      vars:
+        wildfly_driver_module_name: &quot;{{ item.name }}&quot;
+        wildfly_driver_version: &quot;{{ item.version }}&quot;
+        wildfly_driver_jar_filename: &quot;{{ item.jar_file }}&quot;
+        wildfly_driver_jar_url: &quot;{{ item.url }}&quot;
+      loop: &quot;{{ jdbc_drivers }}&quot;
+...&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As shown above, the collection provides a generic role that takes care of creating the file hierarchy associated to a JDBC driver, but also downloading the required artifacts (jar file) along with generating the needed descriptor (module.xml). The driver&amp;#8217;s specific values are stored in the &lt;code&gt;vars.yml&lt;/code&gt;, imported by Ansible when executing this &lt;code&gt;playbook&lt;/code&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-yml&quot; data-lang=&quot;yml&quot;&gt;postgres_driver_version: 9.4.1212
+mariadb_driver_version: 3.2.0
+jdbc_drivers:
+    - { version: &quot;{{ postgres_driver_version }}&quot;, name: &apos;org.postgresql&apos;, jar_file: &quot;postgresql-{{ postgres_driver_version }}.jar&quot;, url: &quot;https://repo.maven.apache.org/maven2/org/postgresql/postgresql/{{ postgres_driver_version }}/postgresql-{{ postgres_driver_version }}.jar&quot; }
+    - { version: &quot;{{ mariadb_driver_version }}&quot;, name: &apos;org.mariadb&apos;, jar_file: &quot;mariadb-java-client-{{ mariadb_driver_version }}.jar&quot;, url: &quot;https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/{{ mariadb_driver_version }}/mariadb-java-client-{{ mariadb_driver_version }}.jar&quot; }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; &lt;em&gt;The Ansible collection for WildFly comes with a default template to generate the &lt;code&gt;module.xml&lt;/code&gt; of a custom module. Obviously, this template might not be a good fit for ALL the drivers that users may have to install in a WildFly setup. For this reason, the template itself can easily be replaced by another one, provided by the user.&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;While this role ensures the modules are ready to be utilized, it does not; however, activate them. To make them available to use for datasources, we will add their definition to our Yaml configuration file:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;wildfly-configuration:
+  subsystem:
+  ...
+    datasources:
+      jdbc-driver:
+        postgresql:
+          driver-name: postgresql
+          driver-xa-datasource-class-name: org.postgresql.xa.PGXADataSource
+          driver-module-name: org.postgresql
+     ...&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As we already have a datastructure with most of the required information, we are going to adopt a more dynamic approach, where the drivers configuration is automatically generated by the content of the existing array:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;...
+    datasources:
+      {% if jdbc_drivers is defined and jdbc_drivers | length &amp;gt; 0 %}jdbc-driver:
+{% for driver in jdbc_drivers %}
+        {{ driver.name | regex_replace(&apos;^org.&apos;, &apos;&apos;) }}:
+          driver-name: {{ driver.name | regex_replace(&apos;^org.&apos;, &apos;&apos;) }}
+          driver-xa-datasource-class-name: {{ driver.class_name }}
+          driver-module-name: {{ driver.name }}
+{% endfor %}
+{% endif %}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; &lt;em&gt;the jinja2 template above is there to demonstrate how much flexibility the ability to turn the Yaml Config file into a template brings to the user. It is; however, debatable if such an intricate approach is the most reasonable, or even recommended.&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The variable provided by the default &lt;code&gt;playbook&lt;/code&gt; does not contain the JDBC driver classname, so we need to add that information to the &lt;code&gt;vars.yml&lt;/code&gt; file:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;jdbc_drivers:
+  - { version: &quot;{{ postgres_driver_version }}&quot;, name: &apos;org.postgresql&apos;, jar_file: &quot;postgresql-{{ postgres_driver_version }}.jar&quot;, url: &quot;https://repo.maven.apache.org/maven2/org/postgresql/postgresql/{{ postgres_driver_version }}/postgresql-{{ postgres_driver_version }}.jar&quot;, class_name: &apos;org.postgresql.xa.PGXADataSource&apos; }
+  - { version: &quot;{{ mariadb_driver_version }}&quot;, name: &apos;org.mariadb&apos;, jar_file: &quot;mariadb-java-client-{{ mariadb_driver_version }}.jar&quot;, url: &quot;https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/{{ mariadb_driver_version }}/mariadb-java-client-{{ mariadb_driver_version }}.jar&quot;, class_name: &apos;org.mariadb.jdbc.Driver&apos; }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We can now run again the &lt;code&gt;playbook&lt;/code&gt; and simply check, after it ran successfully, that the drivers have been properly added:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;[standalone@localhost:9990 /] /subsystem=datasources/jdbc-driver=mariadb:read-resource
+{
+    &quot;outcome&quot; =&amp;gt; &quot;success&quot;,
+    &quot;result&quot; =&amp;gt; {
+        &quot;deployment-name&quot; =&amp;gt; undefined,
+        &quot;driver-class-name&quot; =&amp;gt; undefined,
+        &quot;driver-datasource-class-name&quot; =&amp;gt; undefined,
+        &quot;driver-major-version&quot; =&amp;gt; undefined,
+        &quot;driver-minor-version&quot; =&amp;gt; undefined,
+        &quot;driver-module-name&quot; =&amp;gt; &quot;org.mariadb&quot;,
+        &quot;driver-name&quot; =&amp;gt; &quot;mariadb&quot;,
+        &quot;driver-xa-datasource-class-name&quot; =&amp;gt; &quot;org.mariadb.jdbc.Driver&quot;,
+        &quot;jdbc-compliant&quot; =&amp;gt; undefined,
+        &quot;module-slot&quot; =&amp;gt; undefined,
+        &quot;profile&quot; =&amp;gt; undefined
+    }
+}
+[standalone@localhost:9990 /] /subsystem=datasources/jdbc-driver=postgresql:read-resource
+{
+    &quot;outcome&quot; =&amp;gt; &quot;success&quot;,
+    &quot;result&quot; =&amp;gt; {
+        &quot;deployment-name&quot; =&amp;gt; undefined,
+        &quot;driver-class-name&quot; =&amp;gt; undefined,
+        &quot;driver-datasource-class-name&quot; =&amp;gt; undefined,
+        &quot;driver-major-version&quot; =&amp;gt; undefined,
+        &quot;driver-minor-version&quot; =&amp;gt; undefined,
+        &quot;driver-module-name&quot; =&amp;gt; &quot;org.postgresql&quot;,
+        &quot;driver-name&quot; =&amp;gt; &quot;postgresql&quot;,
+        &quot;driver-xa-datasource-class-name&quot; =&amp;gt; &quot;org.postgresql.xa.PGXADataSource&quot;,
+        &quot;jdbc-compliant&quot; =&amp;gt; undefined,
+        &quot;module-slot&quot; =&amp;gt; undefined,
+        &quot;profile&quot; =&amp;gt; undefined
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;With the drivers in place, we have just one more requirement to implement: setting up the &lt;strong&gt;datasources&lt;/strong&gt;. The parameters vary depending on the target system. When WildFly is running on Red Hat Enterprise Linux 8 (RHEL8), the server is still using Postrgesql as a default datasources; however, when running on RHEL9, it should be utilizing MariaDB.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Here again, we are going to leverage the templating system of Ansible, to set up the right default datasource, with the appropriate driver on the targets.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;...
+wildfly-configuration:
+  subsystem:
+  ...
+      data-source:
+        DefaultDS:
+          enabled: true
+          jndi-name: java:jboss/datasources/DefaultDS
+          max-pool-size: {{ default_ds_max_size }}
+          min-pool-size: {{ default_ds_min_size }}
+          connection-url: &quot;jdbc:{% if ansible_distribution_major_version == 9 %}mariadb{% else %}postgresql{% endif %}://localhost/default_ds&quot;
+          driver-name: {% if ansible_distribution_major_version == 9 %}mariadb{% else %}postgresql{% endif %}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We have now fulfilled all the requirements and fully automated our set-up of WildFly. In doing so, we hopefully demonstrated how to use the Yaml Configuration feature of the Java server in conjunction with the Ansible collection for WildFly. Leveraging the latter with Ansible gives an efficient way to provision and manages hundreds, if not thousands of servers, without any manual intervention.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Romain Pelisse</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="ansible" />
+      
+        <category term="cluster" />
+      
+        <category term="subsystems" />
+      
+        <category term="yaml_config" />
+      
+
+      
+        <summary type="html">In this brief demonstration, we’ll see how to use Ansible to fully automate the deployment of a WildFly instance, including the configuration of its subsystems. In particular, we’ll illustrate how to set up messaging queues and deploy JDBC drivers.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Configuring The WildFly To Use The JBeret JDBC Job Repository (Part 2)</title>
+      <link href="https://jberet.org/configure-jberet-wildfly-jdbc-job-repo-2/" rel="alternate" type="text/html" title="Configuring The WildFly To Use The JBeret JDBC Job Repository (Part 2)" />
+      <published>2024-09-02T00:00:00+00:00</published>
+      <updated>2024-09-02T00:00:00+00:00</updated>
+      <id>https://jberet.org/configure-jberet-wildfly-jdbc-job-repo-2/</id>
+      
+      
+        <content type="html" xml:base="https://jberet.org/configure-jberet-wildfly-jdbc-job-repo-2/">&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In the previous blog post on this topic, I have introduced how to manually edit the configuration file of WildFly to configure the batch-jberet module to use the JDBC repository. In this article, I&amp;#8217;d like to introduce how to use the CLI Command Tool and the Admin Console to do the task.&lt;/p&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>阿男</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="wildfly" />
+      
+        <category term="jberet" />
+      
+        <category term="jdbc" />
+      
+        <category term="batch" />
+      
+
+      
+        <summary type="html">In the previous blog post on this topic, I have introduced how to manually edit the configuration file of WildFly to configure the batch-jberet module to use the JDBC repository. In this article, I&amp;#8217;d like to introduce how to use the CLI Command Tool and the Admin Console to do the task.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">WildFly 33.0.1 is released!</title>
+      <link href="https://wildfly.org//news/2024/08/22/WildFly3301-Released/" rel="alternate" type="text/html" title="WildFly 33.0.1 is released!" />
+      <published>2024-08-22T00:00:00+00:00</published>
+      <updated>2024-08-22T00:00:00+00:00</updated>
+      <id>https://wildfly.org//news/2024/08/22/WildFly3301-Released</id>
+      
+      
+        <content type="html" xml:base="https://wildfly.org//news/2024/08/22/WildFly3301-Released/">&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;WildFly 33.0.1.Final is now available &lt;a href=&quot;https://wildfly.org/downloads&quot;&gt;for download&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It&amp;#8217;s been about four weeks since the WildFly 33 release, so we&amp;#8217;ve done a small bug fix update, WildFly 33.0.1. This includes an update to WildFly Preview.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The following issues were resolved in 33.0.1:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;bugs&quot;&gt;Bugs&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19549&quot;&gt;WFLY-19549&lt;/a&gt;] - OIDCSecurityContext deserialization issue&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19577&quot;&gt;WFLY-19577&lt;/a&gt;] - Undertow ServerAdd could not detect referenced capabilities&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19583&quot;&gt;WFLY-19583&lt;/a&gt;] - Deployment-related undertow metrics are not exported&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19610&quot;&gt;WFLY-19610&lt;/a&gt;] - @PostConstruct on Servlet may be called twice&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19613&quot;&gt;WFLY-19613&lt;/a&gt;] - Performance regression with HttpSession.getAttribute&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;component-upgrades&quot;&gt;Component Upgrades&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19572&quot;&gt;WFLY-19572&lt;/a&gt;] - Upgrade Arquillian 1.9.1.Final, Arquillian Jakarta to 10.0.0.Final and WildFly Arquillian to 5.1.0.Beta4&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19576&quot;&gt;WFLY-19576&lt;/a&gt;] - Upgrade CXF to 4.0.5&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19600&quot;&gt;WFLY-19600&lt;/a&gt;] - Upgrade RESTEasy to 6.2.10.Final&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19611&quot;&gt;WFLY-19611&lt;/a&gt;] - Upgrade OpenSAML to 4.3.0&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19637&quot;&gt;WFLY-19637&lt;/a&gt;] - Upgrade WildFly Core to 25.0.1.Final&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19652&quot;&gt;WFLY-19652&lt;/a&gt;] - Upgrade jboss-ejb-client to 5.0.7.Final&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19654&quot;&gt;WFLY-19654&lt;/a&gt;] - Upgrade RESTEasy to 7.0.0.Alpha3 in WildFly Preview&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Issues resolved in the WildFly Core update included with WildFly 33.0.1 were:&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;bugs-2&quot;&gt;Bugs&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFCORE-6953&quot;&gt;WFCORE-6953&lt;/a&gt;] - java.lang.ClassNotFoundException: java.util.logging.Logger from Module &quot;org.bouncycastle.bcpg&quot;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;component-upgrades-2&quot;&gt;Component Upgrades&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFCORE-6952&quot;&gt;WFCORE-6952&lt;/a&gt;] - Upgrade WildFly Elytron to 2.5.1.Final&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Enjoy!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>James R. Perkins</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="announcement" />
+      
+        <category term="release" />
+      
+
+      
+        <summary type="html">WildFly 33.0.1.Final is now available for download.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">WildFly 33 is released!</title>
+      <link href="https://wildfly.org//news/2024/07/23/WildFly33-Released/" rel="alternate" type="text/html" title="WildFly 33 is released!" />
+      <published>2024-07-23T00:00:00+00:00</published>
+      <updated>2024-07-23T00:00:00+00:00</updated>
+      <id>https://wildfly.org//news/2024/07/23/WildFly33-Released</id>
+      
+      
+        <content type="html" xml:base="https://wildfly.org//news/2024/07/23/WildFly33-Released/">&lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I&amp;#8217;m pleased to announce that the new WildFly and WildFly Preview 33.0.0.Final releases are available for download at &lt;a href=&quot;https://wildfly.org/downloads&quot; class=&quot;bare&quot;&gt;https://wildfly.org/downloads&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;new-and-notable&quot;&gt;New and Notable&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;individual-features&quot;&gt;Individual Features&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;There a number of new features in WildFly 33, but before getting into the specific items I want to mention again the capabilities introduced in WildFly 31 to introduce features at &lt;a href=&quot;https://docs.wildfly.org/33/Admin_Guide.html#Feature_stability_levels&quot;&gt;different stability levels&lt;/a&gt;. Features can be introduced at one of four stability levels&amp;#8201;&amp;#8212;&amp;#8201;&lt;code&gt;experimental&lt;/code&gt;, &lt;code&gt;preview&lt;/code&gt;, &lt;code&gt;community&lt;/code&gt; or &lt;code&gt;default&lt;/code&gt;&amp;#8201;&amp;#8212;&amp;#8201;with the ideal outcome being that we promote them in subsequent releases to higher levels. The goal here is to allow users who want to look at features in earlier stages of the development lifecycle to easily do so, without leaving users who are not interested in that in a situation where they may inadvertently use those features.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;So, here&amp;#8217;s what&amp;#8217;s new:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;WildFly&amp;#8217;s support for &lt;a href=&quot;https://docs.wildfly.org/33/Admin_Guide.html#YAML_Configuration_file&quot;&gt;overriding base configuration settings using a YAML file&lt;/a&gt; has been enhanced with the addition of support for &lt;a href=&quot;https://issues.redhat.com/browse/WFCORE-6503&quot;&gt;using the YAML file to add &lt;strong&gt;unmanaged&lt;/strong&gt; deployments to the configuration&lt;/a&gt;. An unmanaged deployment is one where the server does not make an internal copy of the deployment content for its use; instead it directly uses the configured content. For more on this concept, see &lt;a href=&quot;https://docs.wildfly.org/33/Admin_Guide.html#managed-and-unmanaged-deployments&quot;&gt;Managed and Unmanaged Deployments&lt;/a&gt; in the WildFly documentation.  This feature is provided at the &lt;code&gt;default&lt;/code&gt; stability level.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;code&gt;core-management&lt;/code&gt; subsystem now allows you to enable &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/server/WFCORE-6750-unstable-api-annotation-scanner.html&quot;&gt;scanning of your deployments&lt;/a&gt; for usage of classes/methods in the SmallRye and Hibernate libraries annotated with &lt;code&gt;org.hibernate.Incubating&lt;/code&gt; and &lt;code&gt;io.smallrye.common.annotation.Experimental&lt;/code&gt;. These annotations indicate that those API elements are subject to change at any time, so users may wish to be made aware if their applications use them, or even fail deployment if they are used.  The goal here is not to discourage such use; rather it&amp;#8217;s part of our overall effort to allow users to take advantage in a controlled manner of newer, perhaps less stable, functionality. This feature itself is provided at the &lt;code&gt;preview&lt;/code&gt; stability level.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When configuring WildFly to act as a reverse proxy, the &lt;code&gt;undertow&lt;/code&gt; subsystem now supports configuring the reverse proxy handler to &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/undertow/WFLY-14255_Make_resuseXForwarded_and_rewriteHost_configurable.html&quot;&gt;reuse and append to any &lt;code&gt;X-Forwarded&lt;/code&gt; HTTP headers and to rewrite the &lt;code&gt;Host&lt;/code&gt; header&lt;/a&gt;. This feature is provided at the &lt;code&gt;preview&lt;/code&gt; stability level.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;code&gt;undertow&lt;/code&gt; subsystem now allows &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/undertow/WFLY-15452_ajp-listener_allowed_attr_pattern.html&quot;&gt;configuring the AJP listener to accept custom AJP request headers&lt;/a&gt;. Previously such configuration could only be done by via a system property. This feature is provided at the &lt;code&gt;preview&lt;/code&gt; stability level.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;code&gt;elytron-oidc-client&lt;/code&gt; subsystem now &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/elytron/WFLY-17143-request-uri-parameters.html&quot;&gt;allows authentication requests to be sent as a signed and encrypted request object&lt;/a&gt; using the &lt;code&gt;request&lt;/code&gt; and &lt;code&gt;request_uri&lt;/code&gt; authenication request parameters. This feature is provided at the &lt;code&gt;preview&lt;/code&gt; stability level.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Utilities to &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/server/WFCORE-6815-reload-domain-mode-to-stability-level.html&quot;&gt;reload a server to a different stability level&lt;/a&gt; in the testsuite are now available. The primary audience for this feature is the developers of WildFly itself or people writing extensions to WildFly. This follows up on a similar feature &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/server/WFCORE-6728-reload-to-stability-level.html&quot;&gt;reload a server to a different stability level&lt;/a&gt; added in WildFly 32. This feature is provided at the &lt;code&gt;community&lt;/code&gt; stability level.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;wildfly-ee-10-and-se-21&quot;&gt;WildFly, EE 10 and SE 21&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I am very happy to be able to announce that standard WildFly 33 is a compatible implementation of the Jakarta EE 10 &lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE10/WildFly_33.0.0.Final/jakarta-web-profile-jdk21.adoc#tck-results&quot;&gt;Web Profile&lt;/a&gt; and &lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE10/WildFly_33.0.0.Final/jakarta-full-platform-jdk21.adoc#tck-results&quot;&gt;Full Platform&lt;/a&gt; when running on Java SE 21.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;WildFly has been able to certify as a compatible EE 10 Core Profile, Web Profile and Full Platform implementation when running on SE 11 and SE 17 since &lt;a href=&quot;https://www.wildfly.org/news/2022/11/09/WildFly27-Final-Released/&quot;&gt;the WildFly 27 release&lt;/a&gt;. We&amp;#8217;ve also been able to certify as EE 10 Core Profile compatible on SE 21 since &lt;a href=&quot;https://www.wildfly.org/news/2023/10/18/WildFly30-Released/&quot;&gt;WildFly 30&lt;/a&gt;. What&amp;#8217;s new is the ability to add Web Profile and Full Platform on SE 21 to the compatibility matrix.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;My thanks to Scott Marlow for driving this effort and to James Perkins for his invaluable help. And &lt;strong&gt;kudos to the Jakarta EE community&lt;/strong&gt; in general for making this possible. It has been a Jakarta EE goal since EE 9.1 that vendors should be able to certify as compatible when running on SE releases that didn&amp;#8217;t even exist when the EE version went GA. This doesn&amp;#8217;t happen by magic; certifying as EE compatible requires passing a number of large TCKs, and like any large piece of software, adaptations to the TCKs are sometimes needed to allow proper execution on a new Java SE version. Those adaptations require &lt;em&gt;volunteer&lt;/em&gt; effort from the community of developers who work on Jakarta EE. My thanks to Paul Nicolucci, Gurunandan Rao, Jason Mehrens, Lance Andersen and Arjan Tims for your hard work on Jakarta EE in this area! And my thanks and apologies to anyone else involved who I&amp;#8217;ve neglected to mention.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;supported-specifications&quot;&gt;Supported Specifications&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;jakarta-ee&quot;&gt;Jakarta EE&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Standard WildFly 33 is a compatible implementation of the EE 10 &lt;a href=&quot;https://jakarta.ee/specifications/platform/10/&quot;&gt;Platform&lt;/a&gt; as well as the &lt;a href=&quot;https://jakarta.ee/specifications/webprofile/10/&quot;&gt;Web Profile&lt;/a&gt; and the &lt;a href=&quot;https://jakarta.ee/specifications/coreprofile/10/&quot;&gt;Core Profile&lt;/a&gt;. WildFly is EE 10 Platform, Web Profile and Core Profile compatible when running on Java SE 11, Java SE 17 and Java SE 21.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Evidence supporting our certification is available in the &lt;a href=&quot;https://github.com/wildfly/certifications/tree/EE10&quot;&gt;WildFly Certifications&lt;/a&gt; repository on GitHub:&lt;/p&gt;
+&lt;/div&gt;
+&lt;table class=&quot;tableblock frame-all grid-all stretch&quot;&gt;
+&lt;colgroup&gt;
+&lt;col style=&quot;width: 50%;&quot;&gt;
+&lt;col style=&quot;width: 50%;&quot;&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;Specification&lt;/th&gt;
+&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;Compatibility Evidence&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot; rowspan=&quot;3&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta EE 10 Full Platform&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE10/WildFly_33.0.0.Final/jakarta-full-platform-jdk11.adoc#tck-results&quot;&gt;SE 11&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE10/WildFly_33.0.0.Final/jakarta-full-platform-jdk17.adoc#tck-results&quot;&gt;SE 17&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE10/WildFly_33.0.0.Final/jakarta-full-platform-jdk21.adoc#tck-results&quot;&gt;SE 21&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot; rowspan=&quot;3&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta EE 10 Web Profile&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE10/WildFly_33.0.0.Final/jakarta-web-profile-jdk11.adoc#tck-results&quot;&gt;SE 11&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE10/WildFly_33.0.0.Final/jakarta-web-profile-jdk17.adoc#tck-results&quot;&gt;SE 17&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE10/WildFly_33.0.0.Final/jakarta-web-profile-jdk21.adoc#tck-results&quot;&gt;SE 21&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot; rowspan=&quot;3&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta EE 10 Core Profile&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE10/WildFly_33.0.0.Final/jakarta-core-jdk11.adoc#jakarta-core-profile-1001-tck-java-se-11-results&quot;&gt;SE 11&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE10/WildFly_33.0.0.Final/jakarta-core-jdk17.adoc#jakarta-core-profile-1001-tck-java-se-17-results&quot;&gt;SE 17&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE10/WildFly_33.0.0.Final/jakarta-core-jdk21.adoc#jakarta-core-profile-1001-tck-java-se-21-results&quot;&gt;SE 21&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;microprofile&quot;&gt;MicroProfile&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;WildFly supports numerous MicroProfile specifications. Because we no longer support MicroProfile Metrics, WildFly 33 cannot claim to be a compatible implementation of the MicroProfile 6.1 specification. However, WildFly&amp;#8217;s MicroProfile support includes implementations of the following specifications in our &quot;full&quot; (e.g. &lt;code&gt;standalone-full.xml&lt;/code&gt;) and &quot;default&quot; (e.g &lt;code&gt;standalone.xml&lt;/code&gt;) configurations as well as our &quot;microprofile&quot; configurations (e.g. &lt;code&gt;standalone-microprofile.xml&lt;/code&gt;):&lt;/p&gt;
+&lt;/div&gt;
+&lt;table class=&quot;tableblock frame-all grid-all stretch&quot;&gt;
+&lt;colgroup&gt;
+&lt;col style=&quot;width: 33.3333%;&quot;&gt;
+&lt;col style=&quot;width: 33.3333%;&quot;&gt;
+&lt;col style=&quot;width: 33.3334%;&quot;&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;MicroProfile Technology&lt;/th&gt;
+&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;WildFly Full/Default Configurations&lt;/th&gt;
+&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;WildFly MicroProfile Configuration&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile Config 3.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile Fault Tolerance 4.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile Health 4.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile JWT Authentication 2.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile LRA 2.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile OpenAPI 3.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile Reactive Messaging 3.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile Reactive Streams Operators 3.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile Rest Client 3.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile Telemetry 1.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/MP6.1/WildFly_33.0.0.Final/microprofile-6.1-selected-specifications/microprofile-6.1-selected-specifications-certification.adoc&quot;&gt;Compatibility evidence&lt;/a&gt; for the above specifications that are part of MicroProfile 6.1 can be found in the WildFly Certifications repository on GitHub.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;preview-ee11-se17&quot;&gt;WildFly Preview, EE 11 and SE 17&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As I noted in the &lt;a href=&quot;https://www.wildfly.org/news/2024/04/25/WildFly32-Released/&quot;&gt;WildFly 32 release announcement&lt;/a&gt;, beginning with that release we are using WildFly Preview to provide a look at what we&amp;#8217;re doing for Jakarta EE 11 support.  EE 11 won&amp;#8217;t go GA before later this year, and we don&amp;#8217;t expect standard WildFly to support EE 11 before the WildFly 35 release. But there are milestone, Release Candidate and Final releases of many EE 11 specs and implementations available, so we are providiong those in WildFly Preview. This means for a number of EE APIs, WildFly Preview no longer provides an EE 10 compatible implementation.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;However, for a number of specifications that are planning changes for EE 11 we are still offering the EE 10 variant. In future releases we&amp;#8217;ll shift those to the EE 11 variants.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As a result of this shift to EE 11 APIs, &lt;strong&gt;WildFly Preview no longer supports running on Java SE 11.&lt;/strong&gt; Going forward, if you want to use WildFly Preview you&amp;#8217;ll need to use SE 17 or higher.  A number of EE 11 APIs no longer produce SE 11 compatible binaries, which means an EE 11 runtime can no longer support SE 11.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The following table lists the various Jakarta EE technologies offered by WildFly Preview 33, along with information about which EE platform version the specification relates to. Note that a number of Jakarta specifications are unchanged between EE 10 and EE 11, while other EE technologies that WildFly offers are not part of EE 11.&lt;/p&gt;
+&lt;/div&gt;
+&lt;table class=&quot;tableblock frame-all grid-all stretch&quot;&gt;
+&lt;colgroup&gt;
+&lt;col style=&quot;width: 33.3333%;&quot;&gt;
+&lt;col style=&quot;width: 33.3333%;&quot;&gt;
+&lt;col style=&quot;width: 33.3334%;&quot;&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;Jakarta EE Technology&lt;/th&gt;
+&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;WildFly Preview Version&lt;/th&gt;
+&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;EE Version&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Activation&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;2.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &amp;amp; 11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Annotations&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;3.0.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Authentication&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;3.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Authorization&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;3.0.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Batch&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;2.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &amp;amp; 11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Concurrency&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;3.1.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Connectors&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;2.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &amp;amp; 11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Contexts and Dependency Injection&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;4.1.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Debugging Support for Other Languages&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;2.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &amp;amp; 11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Dependency Injection&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;2.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &amp;amp; 11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Enterprise Beans&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;4.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &amp;amp; 11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Enterprise Web Services&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;2.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &lt;a href=&quot;#note1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Expression Language&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;6.0.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Faces&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;4.1.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Interceptors&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;2.2.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta JSON Binding&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;3.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &amp;amp; 11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta JSON Processing&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;2.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &amp;amp; 11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Mail&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;2.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &amp;amp; 11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Messaging&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;3.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &amp;amp; 11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta MVC
+(&lt;em&gt;preview stability only&lt;/em&gt;)&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;2.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;N/A &lt;a href=&quot;#note2&quot;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Pages&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;3.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Persistence&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;3.2.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta RESTful Web Services&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;4.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Security&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;4.0.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Servlet&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;6.1.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta SOAP with Attachments&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;3.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &lt;a href=&quot;#note1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Standard Tag Library&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;3.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &amp;amp; 11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Transactions&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;2.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &amp;amp; 11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Validation&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;3.1.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta WebSocket&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;2.2.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta XML Binding&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;4.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &lt;a href=&quot;#note1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta XML Web Services&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;4.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &lt;a href=&quot;#note1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Notes:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;olist arabic&quot;&gt;
+&lt;ol class=&quot;arabic&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a id=&quot;note1&quot;&gt;&lt;/a&gt;This Jakarta EE 10 technology is not part of EE 11 but is still provided by WildFly.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a id=&quot;note2&quot;&gt;&lt;/a&gt;Jakarta MVC is not of the Jakarta EE Platform or the Web or Core Profile&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;java-se-support&quot;&gt;Java SE Support&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;recommended-se-versions&quot;&gt;Recommended SE Versions&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Our recommendation is that you run WildFly 33 on Java SE 21, as that is the latest LTS JDK release where we have completed the full set of testing we like to do before recommending a particular SE version. WildFly 33 also is heavily tested and runs well on Java 17 and Java 11.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Our recommendation of SE 21 over earlier LTS releases is solely because as a general principle we recommend being on later LTS releases, not because of any problems with WildFly on SE 17 or SE 11.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;One reason to use later SE versions is because it gets you ahead of the curve as WildFly and other projects begin to move on from supporting older SE releases.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;However, WildFly Preview no longer supports SE 11, as the baseline for Jakarta EE 11 is SE 17. We&amp;#8217;re continuing to evaluate our plans around SE 11 support in standard WildFly, and I&amp;#8217;ll be sure to post here as we make decisions. I do encourage WildFly users to prepare now for any eventual change to move off of SE 11.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;While we recommend using an LTS JDK release, I do believe WildFly runs well on JDK 22. By runs well, I mean the main WildFly testsuite runs with no more than a few failures in areas not expected to be commonly used. We want developers who are trying to evaluate what a newer JVM means for their applications to be able to look to WildFly as a useful development platform.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Please note that WildFly runs in classpath mode.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;incompatible-changes&quot;&gt;Incompatible Changes&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Running WildFly Preview 33 with the Java SecurityManager enabled is no longer allowed. In WildFly Preview 32 it was noted as being unsupported, but with 33 &lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19287&quot;&gt;booting a WildFly Preview server will fail if the SecurityManager is enabled&lt;/a&gt;. This is because the Jakarta EE 11 specifications no longer support the SecurityManager, and it is not possible for WildFly to provide a consistent, reliable SecurityManager experience once the spec APIs and implementation projects we integrate no longer support it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As noted above, WildFly Preview no longer supports running on Java SE 11.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;known-issues&quot;&gt;Known Issues&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The Arquillian version specified in the WildFly 33 end user &lt;a href=&quot;https://repository.jboss.org/org/wildfly/bom/wildfly-ee-with-tools/33.0.0.Final/wildfly-ee-with-tools-33.0.0.Final.pom&quot;&gt;&lt;code&gt;wildfly-ee-with-tools&lt;/code&gt; BOM&lt;/a&gt; results in &lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19574&quot;&gt;test failures with JUnit 5&lt;/a&gt;. Users can work around this problem by directly controlling the Arquillian version and using Arquillian 1.9.0.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.jboss.arquillian.container&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;arquillian-container-test-spi&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;1.9.0&amp;lt;/version&amp;gt;
+    &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.jboss.arquillian.junit&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;arquillian-junit-container&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;1.9.0&amp;lt;/version&amp;gt;
+    &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.jboss.arquillian.protocol&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;arquillian-protocol-servlet-jakarta&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;1.9.0&amp;lt;/version&amp;gt;
+    &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.jboss.arquillian.junit5&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;arquillian-junit5-container&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;1.9.0&amp;lt;/version&amp;gt;
+    &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
+&amp;lt;/dependency&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;release-notes&quot;&gt;Release Notes&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The full WildFly 33 release notes are &lt;a href=&quot;https://github.com/wildfly/wildfly/releases/tag/33.0.0.Final&quot;&gt;available in GitHub&lt;/a&gt;.  Issues fixed in the underlying &lt;a href=&quot;https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12315422&amp;amp;version=12430015&quot;&gt;WildFly Core 25&lt;/a&gt; release are listed in the WildFly Core JIRA.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Please try it out and give us your feedback, in the &lt;a href=&quot;https://groups.google.com/g/wildfly&quot;&gt;WildFly google group&lt;/a&gt;, &lt;a href=&quot;https://wildfly.zulipchat.com/#narrow/stream/196266-wildfly-user&quot;&gt;Zulip&lt;/a&gt; or &lt;a href=&quot;https://issues.redhat.com/projects/WFLY/summary&quot;&gt;JIRA&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;And, with that, onward to WildFly 34!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Best regards,&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Brian&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Brian Stansberry</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="announcement" />
+      
+        <category term="release" />
+      
+
+      
+        <summary type="html">I&amp;#8217;m pleased to announce that the new WildFly and WildFly Preview 33.0.0.Final releases are available for download at https://wildfly.org/downloads.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">WildFly 32.0.1 is released!</title>
+      <link href="https://wildfly.org//news/2024/05/31/WildFly3201-Released/" rel="alternate" type="text/html" title="WildFly 32.0.1 is released!" />
+      <published>2024-05-31T00:00:00+00:00</published>
+      <updated>2024-05-31T00:00:00+00:00</updated>
+      <id>https://wildfly.org//news/2024/05/31/WildFly3201-Released</id>
+      
+      
+        <content type="html" xml:base="https://wildfly.org//news/2024/05/31/WildFly3201-Released/">&lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;WildFly 32.0.1.Final is now available &lt;a href=&quot;https://wildfly.org/downloads&quot;&gt;for download&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It&amp;#8217;s been about five weeks since the WildFly 32 release, so we&amp;#8217;ve done a small bug fix update, WildFly 32.0.1. This includes an update to WildFly Preview.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The following issues were resolved in 32.0.1:&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect4&quot;&gt;
+&lt;h5 id=&quot;bugs&quot;&gt;Bugs&lt;/h5&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19305&quot;&gt;WFLY-19305&lt;/a&gt;] - ClassCastException when running live-only HA policy in messaging-activemq subsystem&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19326&quot;&gt;WFLY-19326&lt;/a&gt;] - LinkageError: loader constraint violation for class io.netty.*&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19355&quot;&gt;WFLY-19355&lt;/a&gt;] - Deploying multiple OpenAPI endpoints can result in a NoSuchElementException&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19366&quot;&gt;WFLY-19366&lt;/a&gt;] - OpenTelemetryDependencyProcessor should add io.smallrye.opentelemetry to deployment classpath&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect4&quot;&gt;
+&lt;h5 id=&quot;tasks&quot;&gt;Tasks&lt;/h5&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-18217&quot;&gt;WFLY-18217&lt;/a&gt;] - Add LICENSE and other community documents to widfly-archetypes&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19341&quot;&gt;WFLY-19341&lt;/a&gt;] - Make the testsuite/galleon tests appropriately scoped&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect4&quot;&gt;
+&lt;h5 id=&quot;component-upgrades&quot;&gt;Component Upgrades&lt;/h5&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19278&quot;&gt;WFLY-19278&lt;/a&gt;] - Upgrade Infinispan to 14.0.28.Final&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19279&quot;&gt;WFLY-19279&lt;/a&gt;] - Upgrade JGroups to 5.2.25.Final&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19353&quot;&gt;WFLY-19353&lt;/a&gt;] - Upgrade RESTEasy to 6.2.9.Final&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19364&quot;&gt;WFLY-19364&lt;/a&gt;] - Upgrade WildFly Core to 24.0.1.Final&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Issues resolved in the WildFly Core update included with WildFly 32.0.1 were:&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect4&quot;&gt;
+&lt;h5 id=&quot;bugs-2&quot;&gt;Bugs&lt;/h5&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFCORE-6825&quot;&gt;WFCORE-6825&lt;/a&gt;] - [CVE-2024-4029] wildfly-domain-http: wildfly: No timeout for EAP management interface may lead to Denial of Service (DoS)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect4&quot;&gt;
+&lt;h5 id=&quot;tasks-2&quot;&gt;Tasks&lt;/h5&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFCORE-6792&quot;&gt;WFCORE-6792&lt;/a&gt;] - Rename Installer.Builder.async() -&amp;gt; Installer.Builder.blocking()&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect4&quot;&gt;
+&lt;h5 id=&quot;component-upgrades-2&quot;&gt;Component Upgrades&lt;/h5&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFCORE-6797&quot;&gt;WFCORE-6797&lt;/a&gt;] - Upgrade BouncyCastle from 1.78 to 1.78.1&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFCORE-6831&quot;&gt;WFCORE-6831&lt;/a&gt;] - Upgrade WildFly Elytron to 2.4.2.Final&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFCORE-6833&quot;&gt;WFCORE-6833&lt;/a&gt;] - Upgrade XNIO to 3.8.15.Final&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Enjoy!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Brian Stansberry</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="announcement" />
+      
+        <category term="release" />
+      
+
+      
+        <summary type="html">WildFly 32.0.1.Final is now available for download.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">How to Connect with the WildFly Community</title>
+      <link href="https://wildfly.org//news/2024/05/31/How-to-connect-with-WildFly-community/" rel="alternate" type="text/html" title="How to Connect with the WildFly Community" />
+      <published>2024-05-31T00:00:00+00:00</published>
+      <updated>2024-05-31T00:00:00+00:00</updated>
+      <id>https://wildfly.org//news/2024/05/31/How-to-connect-with-WildFly-community</id>
+      
+      
+        <content type="html" xml:base="https://wildfly.org//news/2024/05/31/How-to-connect-with-WildFly-community/">&lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;WildFly is an open-source, production-ready, flexible and lightweight application server, offering all the necessary features to run and deploy Java applications. Connecting with the WildFly community can provide valuable support, enhance your understanding of the server, and offer opportunities to contribute to the project. Here&amp;#8217;s how you can get involved:&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;get-an-idea-about-wildfly&quot;&gt;Get an Idea about WildFly&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;explore-the-wildfly-website&quot;&gt;Explore the WildFly Website&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Visit WildFly&amp;#8217;s official &lt;a href=&quot;https://www.wildfly.org/&quot;&gt;website&lt;/a&gt; to access comprehensive documentations, guides, downloads, and the latest news. The website serves as your primary resource for understanding and using WildFly effectively.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;get-started-with-wildfly&quot;&gt;Get Started with WildFly&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Begin by downloading &lt;a href=&quot;https://www.wildfly.org/downloads/&quot;&gt;WildFly&lt;/a&gt; and following the &lt;a href=&quot;https://www.wildfly.org/get-started/&quot;&gt;getting started guide&lt;/a&gt; on the website. This guide walks you through installation, initial configuration, and deploying a sample application, setting you up for success with your first WildFly server.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;fork-the-wildfly-repository-on-github-and-play-with-it&quot;&gt;Fork the WildFly Repository on GitHub and Play with It&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Explore WildFly&amp;#8217;s &lt;a href=&quot;https://github.com/wildfly/wildfly&quot;&gt;source code&lt;/a&gt; by &lt;a href=&quot;https://github.com/wildfly/wildfly/fork&quot;&gt;forking&lt;/a&gt; the repository on GitHub. Clone your forked repository to your local machine, experiment with the code, and understand the inner workings of WildFly. This hands-on approach can deepen your knowledge and potentially lead to contributions to the project. You can also go through the article on &lt;a href=&quot;https://www.wildfly.org/news/2024/03/01/How-to-contribute-to-WildFly/&quot;&gt;How to contribute to WildFly&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;engage-with-the-wildfly-community&quot;&gt;Engage with the WildFly Community&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;engage-in-the-wildfly-forums&quot;&gt;Engage in the WildFly Forums&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Participate in the &lt;a href=&quot;https://groups.google.com/g/wildfly&quot;&gt;WildFly Google Group&lt;/a&gt; to ask questions, share knowledge, and engage with other users and developers. The forum is a valuable platform for seeking help, providing answers, and staying updated with announcements and community discussions. You can also chat with the WildFly community members as well as with contributors via our official &lt;a href=&quot;https://wildfly.zulipchat.com/&quot;&gt;Zulip&lt;/a&gt; chatroom and for discussions about using WildFly, try the &lt;a href=&quot;https://wildfly.zulipchat.com/#narrow/stream/196266-wildfly-user&quot;&gt;wildfly-user stream&lt;/a&gt; in the chatroom.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;follow-wildfly-on-social-media&quot;&gt;Follow WildFly on Social Media&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Stay informed and connected by following WildFly on social media platforms. Follow us on &lt;a href=&quot;https://x.com/WildFlyAS&quot;&gt;X&lt;/a&gt; and &lt;a href=&quot;https://fosstodon.org/@wildflyas&quot;&gt;Mastodon&lt;/a&gt; for quick updates, announcements, and subscribe to the WildFly &lt;a href=&quot;https://www.youtube.com/@WildFlyAS&quot;&gt;YouTube&lt;/a&gt; channel for video tutorials, webinars, and conference talks.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;use-wildfly-rss-feeds&quot;&gt;Use WildFly RSS Feeds&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Stay updated with the latest news, releases, and blog posts by subscribing to WildFly&amp;#8217;s &lt;a href=&quot;https://www.wildfly.org/feed.xml&quot;&gt;RSS feed&lt;/a&gt;. This ensures you never miss important announcements and updates from the WildFly project.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;attend-wildfly-community-events&quot;&gt;Attend WildFly Community Events&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Participate in WildFly community events such as mini-conferences and webinars. These events offer learning opportunities through sessions and workshops by experts, networking with other users and developers, and community-building activities. Keep an eye on the WildFly website and social media channels for announcements about upcoming events.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;provide-and-receive-support&quot;&gt;Provide and Receive Support&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;ask-for-help&quot;&gt;Ask for Help&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Don’t hesitate to seek support through forums, mailing lists, or social media channels. The WildFly community is active and responsive, making it a great resource for troubleshooting and advice.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;offer-help&quot;&gt;Offer Help&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Share your knowledge and expertise to help others in the community. By answering questions and providing guidance, you contribute to the collective knowledge base.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;submit-code-or-contribute-to-documentation&quot;&gt;Submit Code or Contribute to Documentation&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;WildFly uses JIRA for issue tracking. You can find the list of issues and tasks on the &lt;a href=&quot;https://issues.redhat.com/projects/WFLY/issues&quot;&gt;WildFly JIRA dashboard&lt;/a&gt;. If you&amp;#8217;ve made improvements or fixed bugs in your forked repository, consider submitting pull requests to contribute back to the WildFly project. You can also visit the WildFly official &lt;a href=&quot;https://docs.wildfly.org/&quot;&gt;documentation&lt;/a&gt; and feel free to suggest improvements, or directly contributing updates and corrections. Your contributions can help improve WildFly for everyone.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Connecting with the WildFly community enriches your experience with the platform. By exploring the website, engaging in forums, following on social media, attending events, and participating in support and contributions, you become an integral part of the vibrant WildFly ecosystem. Join the community today and help shape the future of enterprise Java applications!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Ranabir Chakraborty</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="WildFly" />
+      
+        <category term="Community" />
+      
+
+      
+        <summary type="html">WildFly is an open-source, production-ready, flexible and lightweight application server, offering all the necessary features to run and deploy Java applications. Connecting with the WildFly community can provide valuable support, enhance your understanding of the server, and offer opportunities to contribute to the project. Here&amp;#8217;s how you can get involved:</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Blog: WildFly 32 Delivers Preview of Jakarta EE 11 and Final Version of WildFly Glow</title>
+      <link href="https://www.infoq.com/news/2024/05/wildfly32-glow-jakartaee11" rel="alternate" type="text/html" title="Blog: WildFly 32 Delivers Preview of Jakarta EE 11 and Final Version of WildFly Glow" />
+      <published>2024-05-27T00:00:00+00:00</published>
+      <updated>2024-05-27T00:00:00+00:00</updated>
+      <id>https://www.infoq.com/news/2024/05/wildfly32-glow-jakartaee11</id>
+      
+      
+        <content type="html" xml:base="https://www.infoq.com/news/2024/05/wildfly32-glow-jakartaee11">&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Shaaf Syed, Principal Architect at Red Hat, has written a comprehensive &lt;a href=&quot;https://www.infoq.com/news/2024/05/wildfly32-glow-jakartaee11&quot;&gt;article&lt;/a&gt; on WildFly Glow. A must read!&lt;/p&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Syed M. Shaaf</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="wildfly" />
+      
+        <category term="glow" />
+      
+        <category term="galleon" />
+      
+        <category term="openshift" />
+      
+        <category term="provisioning" />
+      
+
+      
+        <summary type="html">Shaaf Syed, Principal Architect at Red Hat, has written a comprehensive article on WildFly Glow. A must read!</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Dynamic client SSL context that automatically delegates to different SSLContexts based on the host and port of the peer</title>
+      <link href="https://wildfly-security.github.io/wildfly-elytron/blog/dynamic-client-ssl-context/" rel="alternate" type="text/html" title="Dynamic client SSL context that automatically delegates to different SSLContexts based on the host and port of the peer" />
+      <published>2024-05-07T00:00:00+00:00</published>
+      <updated>2024-05-07T00:00:00+00:00</updated>
+      <id>https://wildfly-security.github.io/wildfly-elytron/blog/dynamic-client-ssl-context/</id>
+      
+      
+        <content type="html" xml:base="https://wildfly-security.github.io/wildfly-elytron/blog/dynamic-client-ssl-context/">&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;WildFly 32 introduces the ability to configure a dynamic client SSL context. The dynamic client SSL context will dynamically switch between different SSL contexts based on the host and port of the peer. The host and port rules can be specified in the authentication context. This blog post demonstrates how to use this new resource.&lt;/p&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Diana Krepinska Vilkolakova</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="elytron" />
+      
+        <category term="dynamic" />
+      
+        <category term="client" />
+      
+        <category term="ssl" />
+      
+        <category term="context" />
+      
+
+      
+        <summary type="html">WildFly 32 introduces the ability to configure a dynamic client SSL context. The dynamic client SSL context will dynamically switch between different SSL contexts based on the host and port of the peer. The host and port rules can be specified in the authentication context. This blog post demonstrates how to use this new resource.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Caching realm now automatically tries to authenticate users with the underlying realm if authentication with cached credentials fails</title>
+      <link href="https://wildfly-security.github.io/wildfly-elytron/blog/caching-security-realm-authenticate-with-underlying-realm-on-failure/" rel="alternate" type="text/html" title="Caching realm now automatically tries to authenticate users with the underlying realm if authentication with cached credentials fails" />
+      <published>2024-05-06T00:00:00+00:00</published>
+      <updated>2024-05-06T00:00:00+00:00</updated>
+      <id>https://wildfly-security.github.io/wildfly-elytron/blog/caching-security-realm-authenticate-with-underlying-realm-on-failure/</id>
+      
+      
+        <content type="html" xml:base="https://wildfly-security.github.io/wildfly-elytron/blog/caching-security-realm-authenticate-with-underlying-realm-on-failure/">&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;WildFly provides a caching security realm that allows you to cache the results of a credential lookup from a security realm. WildFly 32+ will automatically attempt to verify credentials with the underlying realm if an authentication fails with the cached credentials. If this authentication succeeds, the obsolete credential is replaced with the updated credential. This functionality is useful if the credentials have been updated externally of WildFly.&lt;/p&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Diana Krepinska Vilkolakova</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="elytron" />
+      
+        <category term="security" />
+      
+        <category term="caching" />
+      
+        <category term="realm" />
+      
+        <category term="credentials" />
+      
+        <category term="authentication" />
+      
+
+      
+        <summary type="html">WildFly provides a caching security realm that allows you to cache the results of a credential lookup from a security realm. WildFly 32+ will automatically attempt to verify credentials with the underlying realm if an authentication fails with the cached credentials. If this authentication succeeds, the obsolete credential is replaced with the updated credential. This functionality is useful if the credentials have been updated externally of WildFly.</summary>
+      
+
+      
+      
+    </entry>
+  
+
+</feed>
+
