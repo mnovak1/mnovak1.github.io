@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script id="adobe_dtm" src="//www.redhat.com/dtm.js" type="text/javascript"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WildFly 30 is released!</title>
+  <meta name="description" content="WildFly 30 Final is now available for download.">
+  <link rel="me" href="https://fosstodon.org/@wildflyas" />
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" >
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/atelier-dune-light.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/protobuf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/dockerfile.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40221748-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-40221748-1');
+  </script>
+
+  
+
+</head>
+
+<body class="WildFly 30 is released!">
+  <div class="content">
+    <div class="header navigation">
+  <div class="logo-wrapper">
+    <a href="/"><img class="wf-logo" src="/assets/img/wildfly_icons_one-color-logo.png"></a>
+  </div>
+  <div class="nav-container">
+    <nav>
+      <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+      <ul class="nav-list">
+        <li>
+          <a href="/news/" class="active">News</a>
+        </li>
+        <li>
+          <a href="/about/" class="">About</a>
+        </li>
+        <li>
+          <a href="/contribute/" class="">Contribute</a>
+        </li>
+        <li>
+            <a target="_blank" href="https://docs.wildfly.org">Docs</a>
+        </li>
+        <li>
+          <a href="/guides/" class="">Guides</a>
+        </li>
+        <li>
+          <a href="/downloads/" class="">Downloads</a>
+        </li>
+        <li>
+          <a href="/security/" class="">CVE Reporting</a>
+        </li>
+        <li>
+          <a href="https://github.com/wildfly/wildfly/fork" target="_blank">Fork</a>
+        </li>
+        <li>
+          <a class="button-cta secondary " href="/get-started/">Get Started</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+    <div class="post-page grid-wrapper">
+  <div class="grid__item width-10-12">
+    <h1 class="title">WildFly 30 is released!</h1>
+    
+    
+    
+
+    <p>
+      
+        
+          
+          <p class="byline">
+            
+              <img class="avatar" height="60px" width="60px" src="/assets/img/authors/bstansberry.jpg"/>
+            
+
+            By Brian Stansberry
+            
+              | October 18, 2023
+            
+          </p>
+        
+      
+    </p>
+  </div>
+  <div class="grid__item width-10-12 doc-content">
+    
+    <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>I&#8217;m pleased to announce that the new WildFly and WildFly Preview 30.0.0.Final releases are available for download at <a href="https://wildfly.org/downloads" class="bare">https://wildfly.org/downloads</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="new-and-notable">New and Notable</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An important focus of our work for this release was preparing for the arrival of Java SE 21, the latest LTS JDK release. While we still recommend that you run WildFly on SE 17 or 11 (see <a href="#java-se-support">Java SE Support</a> below for more on why), we do believe WildFly 30 is a great choice for evaluating how your applications run on SE 21.</p>
+</div>
+<div class="paragraph">
+<p>In particular, I&#8217;m pleased that WildFly 30 is able to <a href="https://github.com/wildfly/certifications/blob/EE10/WildFly_30.0.0.Final/jakarta-core-jdk21.adoc#jakarta-core-profile-1001-tck-java-se-21-results">certify</a> as a compatible Jakarta EE 10 Core Profile implementation when running on SE 21!</p>
+</div>
+<div class="paragraph">
+<p>We&#8217;re also able to <a href="https://github.com/wildfly/certifications/blob/MP6.0/WildFly_30.0.0.Final/microprofile-6.0-selected-specifications/microprofile-6.0-selected-specifications-jdk-21.adoc">pass the TCKs</a> for the  MicroProfile specifications we support when running on SE 21.</p>
+</div>
+<div class="paragraph">
+<p>Special thanks to Richard Opalka, James Perkins and Scott Marlow for all the hard work they put into this.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="supported-specifications">Supported Specifications</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="jakarta-ee">Jakarta EE</h3>
+<div class="paragraph">
+<p>WildFly 30 is a compatible implementation of the EE 10 <a href="https://jakarta.ee/specifications/platform/10/">Platform</a> as well as the <a href="https://jakarta.ee/specifications/webprofile/10/">Web Profile</a> and the <a href="https://jakarta.ee/specifications/coreprofile/10/">Core Profile</a>. WildFly is EE 10 compatible when running on both Java SE 11 and Java SE 17.</p>
+</div>
+<div class="paragraph">
+<p>Evidence supporting our certification is available in the <a href="https://github.com/wildfly/certifications/tree/EE10">WildFly Certifications</a> repository on GitHub:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Specification</th>
+<th class="tableblock halign-left valign-top">Compatibility Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Jakarta EE 10 Full Platform</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/wildfly/certifications/blob/EE10/WildFly_30.0.0.Final/jakarta-full-platform-jdk11.adoc#tck-results">SE 11</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/wildfly/certifications/blob/EE10/WildFly_30.0.0.Final/jakarta-full-platform-jdk17.adoc#tck-results">SE 17</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Jakarta EE 10 Web Profile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/wildfly/certifications/blob/EE10/WildFly_30.0.0.Final/jakarta-web-profile-jdk11.adoc#tck-results">SE 11</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/wildfly/certifications/blob/EE10/WildFly_30.0.0.Final/jakarta-web-profile-jdk17.adoc#tck-results">SE 17</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Jakarta EE 10 Core Profile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/wildfly/certifications/blob/EE10/WildFly_30.0.0.Final/jakarta-core-jdk11.adoc#jakarta-core-profile-1001-tck-java-se-11-results">SE 11</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/wildfly/certifications/blob/EE10/WildFly_30.0.0.Final/jakarta-core-jdk17.adoc#jakarta-core-profile-1001-tck-java-se-17-results">SE 17</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/wildfly/certifications/blob/EE10/WildFly_30.0.0.Final/jakarta-core-jdk21.adoc#jakarta-core-profile-1001-tck-java-se-21-results">SE 21</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="microprofile">MicroProfile</h3>
+<div class="paragraph">
+<p>WildFly supports numerous MicroProfile specifications. Because we no longer support MicroProfile Metrics, WildFly 30 cannot claim to be a compatible implementation of the MicroProfile 6.0 specification. However, WildFly&#8217;s MicroProfile support includes implementations of the following specifications in our "full" (e.g. <code>standalone-full.xml</code>) and "default" (e.g <code>standalone.xml</code>) configurations as well as our "microprofile" configurations (e.g. <code>standalone-microprofile.xml</code>):</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">MicroProfile Technology</th>
+<th class="tableblock halign-left valign-top">WildFly Full/Default Configurations</th>
+<th class="tableblock halign-left valign-top">WildFly MicroProfile Configuration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MicroProfile Config 3.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MicroProfile Fault Tolerance 4.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MicroProfile Health 4.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MicroProfile JWT Authentication 2.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MicroProfile LRA 2.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MicroProfile OpenAPI 3.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MicroProfile Open Telemetry 1.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MicroProfile Reactive Messaging 3.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MicroProfile Reactive Streams Operators 3.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MicroProfile Rest Client 3.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><a href="https://github.com/wildfly/certifications/blob/MP6.0/WildFly_30.0.0.Final/microprofile-6.0-selected-specifications/microprofile-6.0-selected-specifications-certification.adoc">Compatibility evidence</a> for the above specifications that are part of MicroProfile 6.0 can be found in the WildFly Certifications repository on GitHub.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="java-se-support">Java SE Support</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="recommended-se-versions">Recommended SE Versions</h3>
+<div class="paragraph">
+<p>Our recommendation is that you run WildFly 30 on Java SE 17, as that is the latest LTS JDK release where we have completed the full set of testing we like to do before recommending a particular SE version. WildFly 30 also is heavily tested and runs well on Java 11. Our recommendation of SE 17 over 11 is solely because we recommend as a general principle being on later LTS releases, not because of any problems with WildFly on SE 11.</p>
+</div>
+<div class="paragraph">
+<p>One reason to use later SE versions is because it gets you ahead of the curve as WildFly and other projects begin to move on from supporting older SE releases.</p>
+</div>
+<div class="paragraph">
+<p>At this point it is likely that <strong>WildFly 30 will be the last release where support SE 11</strong>. There is some possibility we will continue to support SE 11 in WildFly 31, but we have no plans to support it beyond then. As our focus and the focus of the broader Java ecosystem moves toward SE 21 and later, we need to shift focus away from SE 11.</p>
+</div>
+<div class="paragraph">
+<p>Please note that WildFly runs in classpath mode.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="java-se-21">Java SE 21</h3>
+<div class="paragraph">
+<p>I am very pleased to be able to say that WildFly 30 runs well on SE 21, the latest LTS release. By "runs well" I mean that we get the same results on SE 21 when running WildFly&#8217;s and WildFly Core&#8217;s own extensive test suites as we do when running SE 17 or SE 11.</p>
+</div>
+<div class="paragraph">
+<p>As noted above, we also pass the Jakarta EE 10 Core Profile TCK when running on SE 21, as well as the MicroProfile TCKs for the various specifications we support.</p>
+</div>
+<div class="paragraph">
+<p>We do not yet include SE 21 in the preceding "Recommended SE Versions" section because:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>We have not completed our program of seeing how WildFly on SE 21 does on the Jakarta EE Full Platform and Web Profile TCKs.</p>
+</li>
+<li>
+<p>We need to do further investigation into how the projects producing the various libraries we integrate are testing on SE 21.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If you are trying to evaluate what SE 21 means for your applications, I encourage you to look to WildFly 30 as your evaluation platform.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="move-to-asl-2-0">Move to ASL 2.0</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>During the WildFly 30 development cycle we moved the <a href="https://github.com/wildfly/wildfly">main WildFly source code</a> and the <a href="https://github.com/wildfly/wildfly-core">WildFly Core source code</a> from the Lesser General Public License 2.1 to the Apache Software License 2.0. This is something we&#8217;ve long wanted to do, and started doing in WildFly Core many years ago. So I&#8217;m very pleased that we&#8217;ve been able to take this step.</p>
+</div>
+<div class="paragraph">
+<p>Please note that when you run WildFly you are running software provided by a large number of component libraries that WildFly integrates, with those components licensed under a variety of open source licenses. The components provided by the WildFly and WildFly Core projects that we&#8217;ve shifted to ASL 2.0 are just a subset of what we integrate. The complete set of licensing information about the libraries found in a WildFly installation can be found in the <code>docs/licenses/licenses.html</code> folder in the WildFly installation, along with the same information in XML format and a copy of all of the relevant licenses.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release-notes">Release Notes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The full release notes for the release are in the <a href="https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12313721&amp;version=12413594">WildFly JIRA</a>.  Issues fixed in the  underlying <a href="https://issues.redhat.com/issues/?filter=12423012#">WildFly Core 22</a> releases are listed in the WildFly Core JIRA.</p>
+</div>
+<div class="paragraph">
+<p>Please try it out and give us your feedback, in the <a href="https://groups.google.com/g/wildfly">WildFly google group</a>, <a href="https://wildfly.zulipchat.com/#narrow/stream/196266-wildfly-user">Zulip</a> or <a href="https://issues.redhat.com/projects/WFLY/summary">JIRA</a>.</p>
+</div>
+<div class="paragraph">
+<p>Meanwhile, we&#8217;re busy at work on WildFly 31!</p>
+</div>
+<div class="paragraph">
+<p>Best regards,</p>
+</div>
+<div class="paragraph">
+<p>Brian</p>
+</div>
+</div>
+</div>
+    
+  </div>
+</div>
+
+
+
+  </div>
+
+  <div class="content project-footer">
+  <div class="footer-section">
+    <div class="logo-wrapper">
+      <a href="/"><img class="wf-logo" src="/assets/img/wildfly_icons_one-color-logo.png"></a>
+    </div>
+  </div>
+  <div class="grid-wrapper">
+    <p class="grid__item width-3-12">WildFly is fully open. All components are open source and follow a community-focused development process.<br/><br/>This website was built with <a href='https://jekyllrb.com/' target='_blank'>Jekyll</a> is hosted on <a href='https://pages.github.com/' target='_blank'>Github Pages</a> and is completely open source. If you want to make it better, <a href='https://github.com/wildfly/wildfly.org/fork' target='_blank'>fork it</a> and show us what you’ve got.</p>
+
+    
+      <div class="width-1-12 project-links">
+        <strong>Navigation</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="/downloads">Downloads</a></li>
+          
+            <li><a href="https://docs.wildfly.org">Docs</a></li>
+          
+            <li><a href="/get-started">Get Started</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly">Github</a></li>
+          
+            <li><a href="/guides">Guides</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Contribute</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://issues.jboss.org/browse/WFLY">Submit a bug</a></li>
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly/fork">Fork WildFly</a></li>
+          
+            <li><a href="https://twitter.com/WildFlyAS">Follow us</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Get Help</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://wildfly.zulipchat.com/">Join Zulip Chat</a></li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="width-6-12 more-links">
+        <strong>Find more Red Hat Middleware Community Projects</strong>
+        <ul class="footer-links">
+          
+            <li><a href="https://www.apiman.io/">APIMan</a></li>
+          
+            <li><a href="http://arquillian.org">Arquillian</a></li>
+          
+            <li><a href="https://github.com/ansible-middleware/wildfly">Ansible Collection for Wildfly</a></li>
+          
+            <li><a href="http://byteman.jboss.org/">Byteman</a></li>
+          
+            <li><a href="http://capedwarf.org/">CapeDwarf</a></li>
+          
+            <li><a href="https://github.com/alechenninger/chronicler">Chronicler</a></li>
+          
+            <li><a href="https://github.com/darcy-framework">Darcy</a></li>
+          
+            <li><a href="http://debezium.io/">Debezium</a></li>
+          
+            <li><a href="https://www.drools.org/">Drools</a></li>
+          
+            <li><a href="http://gatein.jboss.org/">GateIn</a></li>
+          
+            <li><a href="http://www.hawkular.org/">Hawkular</a></li>
+          
+            <li><a href="http://hawt.io/">Hawtio</a></li>
+          
+            <li><a href="http://hibernate.org/">Hibernate</a></li>
+          
+            <li><a href="http://www.infinispan.org/">Infinispan</a></li>
+          
+            <li><a href="https://developers.redhat.com/products/codeready-studio/overview">CodeReady Studio</a></li>
+          
+            <li><a href="http://forge.jboss.org/">JBoss Forge</a></li>
+          
+            <li><a href="https://github.com/jboss-logging">JBoss Logging</a></li>
+          
+            <li><a href="http://jbossremoting.jboss.org/">JBoss Remoting</a></li>
+          
+            <li><a href="https://www.jbpm.org/">jBPM</a></li>
+          
+            <li><a href="https://jsfunit.jboss.org/">JSFUnit</a></li>
+          
+            <li><a href="https://www.keycloak.org/">Keycloak</a></li>
+          
+            <li><a href="http://modcluster.io/">Mod Cluster</a></li>
+          
+            <li><a href="http://modeshape.jboss.org/">ModeShape</a></li>
+          
+            <li><a href="https://www.optaplanner.org/">OptaPlanner</a></li>
+          
+            <li><a href="https://quarkus.io/">Quarkus</a></li>
+          
+            <li><a href="http://resteasy.jboss.org/">RESTEasy</a></li>
+          
+            <li><a href="https://riftsaw.jboss.org/">Riftsaw</a></li>
+          
+            <li><a href="http://savara.jboss.org/">Savara</a></li>
+          
+            <li><a href="https://weld.cdi-spec.org/">Weld</a></li>
+          
+            <li><a href="http://arquillian.org/">Shrinkwrap</a></li>
+          
+            <li><a href="https://switchyard.jboss.org/">Switchyard</a></li>
+          
+            <li><a href="https://tattletale.jboss.org/">Tattletale</a></li>
+          
+            <li><a href="https://teiid.io/">Teiid</a></li>
+          
+            <li><a href="https://wildfly-security.github.io/wildfly-elytron/">WildFly Elytron</a></li>
+          
+            <li><a href="http://wise.jboss.org/">Wise</a></li>
+          
+            <li><a href="https://xnio.jboss.org/">XNIO</a></li>
+          
+        </ul>
+      </div>
+    
+  </div>
+</div>
+  <div class="content redhat-footer">
+  <div class="grid-wrapper">
+    <span class="licence">
+      <i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i> <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC by 3.0</a> | <a href="https://www.redhat.com/en/about/privacy-policy">Privacy Policy</a>
+    </span>
+    <span class="redhat">
+      Sponsored by
+    </span>
+    <span class="redhat-logo">
+      <a href="https://www.redhat.com/" target="_blank"><img src="/assets/img/redhat_reversed.svg"></a>
+    </span>
+  </div>
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/mobile-nav.js"></script>
+  <script type="text/javascript" src="/assets/javascript/random-color-picker.js"></script>
+  <script type="text/javascript">
+    if (("undefined" !== typeof _satellite) && ("function" === typeof _satellite.pageBottom)) {
+        _satellite.pageBottom();
+    }
+    hljs.highlightAll();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/copy.js"></script>
+
+</body>
+
+</html>

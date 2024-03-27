@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script id="adobe_dtm" src="//www.redhat.com/dtm.js" type="text/javascript"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Integrating with a PostgreSQL database</title>
+  <meta name="description" content="">
+  <link rel="me" href="https://fosstodon.org/@wildflyas" />
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" >
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/atelier-dune-light.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/protobuf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/dockerfile.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40221748-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-40221748-1');
+  </script>
+
+  
+
+</head>
+
+<body class="Integrating with a PostgreSQL database">
+  <div class="content">
+    <div class="header navigation">
+  <div class="logo-wrapper">
+    <a href="/"><img class="wf-logo" src="/assets/img/wildfly_icons_one-color-logo.png"></a>
+  </div>
+  <div class="nav-container">
+    <nav>
+      <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+      <ul class="nav-list">
+        <li>
+          <a href="/news/" class="">News</a>
+        </li>
+        <li>
+          <a href="/about/" class="">About</a>
+        </li>
+        <li>
+          <a href="/contribute/" class="">Contribute</a>
+        </li>
+        <li>
+            <a target="_blank" href="https://docs.wildfly.org">Docs</a>
+        </li>
+        <li>
+          <a href="/guides/" class="active">Guides</a>
+        </li>
+        <li>
+          <a href="/downloads/" class="">Downloads</a>
+        </li>
+        <li>
+          <a href="/security/" class="">CVE Reporting</a>
+        </li>
+        <li>
+          <a href="https://github.com/wildfly/wildfly/fork" target="_blank">Fork</a>
+        </li>
+        <li>
+          <a class="button-cta secondary " href="/get-started/">Get Started</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+    <div class="grid-wrapper guide">
+  <div class="grid__item width-12-12 width-12-12-mobile">
+    <h1 class="text-caps">Integrating with a PostgreSQL database </h1>
+  </div>
+  <div class="width-12-12">
+    <div>
+      <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#database">Database</a>
+<ul class="sectlevel2">
+<li><a href="#postgresql">PostgreSQL</a></li>
+</ul>
+</li>
+<li><a href="#application">Application</a>
+<ul class="sectlevel2">
+<li><a href="#create-a-new-maven-project">Create a new Maven project</a></li>
+<li><a href="#pom-xml">pom.xml</a></li>
+<li><a href="#persistence-xml">persistence.xml</a></li>
+<li><a href="#configure-the-jakarta-restful-web-services-application">Configure the Jakarta RESTful Web Services application</a></li>
+<li><a href="#book-entity">Book Entity</a></li>
+<li><a href="#bookresource">BookResource</a></li>
+</ul>
+</li>
+<li><a href="#start-the-application">Start the application</a></li>
+<li><a href="#check-the-application">Check the application</a>
+<ul class="sectlevel2">
+<li><a href="#create-a-book">Create a book</a></li>
+<li><a href="#read-all-the-books">Read all the books</a></li>
+<li><a href="#update-a-book">Update a book</a></li>
+<li><a href="#delete-a-book">Delete a book</a></li>
+</ul>
+</li>
+<li><a href="#test-cases">Test Cases</a>
+<ul class="sectlevel2">
+<li><a href="#pom-xml-2">pom.xml</a></li>
+<li><a href="#book-resource-test-case">Book Resource test case</a></li>
+<li><a href="#run-the-tests">Run the tests</a></li>
+<li><a href="#stop-the-database">Stop the database</a></li>
+</ul>
+</li>
+<li><a href="#whats-next">What&#8217;s next?</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this guide, you will learn how to configure WildFly to connect to a PostgreSQL database. You will create a simple Book Store API application to manage books stored in the database using <a href="https://jakarta.ee/specifications/restful-ws/" target="_blank" rel="noopener">Jakarta RESTful Web Services (Jakarta REST)</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="prerequisites">Prerequisites</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To complete this guide, you need:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Roughly 20 minutes</p>
+</li>
+<li>
+<p>JDK 11+ installed with <code>JAVA_HOME</code> configured appropriately</p>
+</li>
+<li>
+<p>Apache Maven 3.9+</p>
+</li>
+<li>
+<p>Docker or any Open Container Initiative engine installed. This guide uses <a href="https://podman.io/" target="_blank" rel="noopener">Podman</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="database">Database</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="postgresql">PostgreSQL</h3>
+<div class="paragraph">
+<p>We will use PostgreSQL as the database server in its containerized version: see <a href="https://hub.docker.com/_/postgres" target="_blank" rel="noopener">PostgreSQL Official Image</a>.</p>
+</div>
+<div class="paragraph">
+<p>Start PostgreSQL database in a container with:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">podman run --rm --name bookstore \
+  -p 5432:5432 \
+  -e POSTGRES_PASSWORD=admin \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_DB=bookstore_db \
+  docker.io/library/postgres</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+we started the container with the <code>--rm</code> flag so it can be disposed of automatically when we stop it.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="application">Application</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="create-a-new-maven-project">Create a new Maven project</h3>
+<div class="paragraph">
+<p>We are going to use the <a href="https://github.com/wildfly/wildfly-archetypes/tree/main/wildfly-getting-started-archetype" target="_blank" rel="noopener">WildFly Getting Started Archetype</a> to create the base structure of our Book Store API application.</p>
+</div>
+<div class="paragraph">
+<p>Open a new terminal window and create a new project using the WildFly Getting Started Archetype:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">mvn archetype:generate \
+    -DarchetypeGroupId=org.wildfly.archetype \
+    -DarchetypeArtifactId=wildfly-getting-started-archetype \
+    -DdefaultClassPrefix=BookStore \
+    -DartifactId=bookstore \
+    -Dversion=1.0.0 \
+    -DinteractiveMode=false</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Remove the following files from the base project since we are not going to use them:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">cd bookstore
+rm src/main/java/org/wildfly/examples/BookStoreService.java
+rm src/main/java/org/wildfly/examples/BookStoreEndpoint.java
+rm src/test/java/org/wildfly/examples/BookStoreApplicationIT.java
+rm src/test/java/org/wildfly/examples/BookStoreServiceIT.java</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="pom-xml">pom.xml</h3>
+<div class="sect3">
+<h4 id="jakarta-ee-dependencies">Jakarta EE dependencies:</h4>
+<div class="paragraph">
+<p>Add the following dependencies to the <code>pom.xml</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;jakarta.persistence&lt;/groupId&gt;
+    &lt;artifactId&gt;jakarta.persistence-api&lt;/artifactId&gt;
+    &lt;scope&gt;provided&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;jakarta.transaction&lt;/groupId&gt;
+    &lt;artifactId&gt;jakarta.transaction-api&lt;/artifactId&gt;
+    &lt;scope&gt;provided&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;jakarta.validation&lt;/groupId&gt;
+    &lt;artifactId&gt;jakarta.validation-api&lt;/artifactId&gt;
+    &lt;scope&gt;provided&lt;/scope&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="configure-wildfly-datasource-and-trimming-server-capabilities">Configure WildFly Datasource and trimming server capabilities:</h4>
+<div class="paragraph">
+<p>To connect to the database we need to configure the <a href="https://docs.wildfly.org/32/Admin_Guide.html#DataSource" target="_blank" rel="noopener">WildFly Datasource Subsystem</a> and install the PostgreSQL driver into the WildFly server. The <a href="https://github.com/wildfly-extras/wildfly-datasources-galleon-pack" target="_blank" rel="noopener">WildFly Datasources Galleon Pack</a> contains a set of <a href="https://github.com/wildfly-extras/wildfly-datasources-galleon-pack/blob/main/doc/postgresql/README.md" target="_blank" rel="noopener">Galleon Layers</a> that provide <strong>JDBC drivers</strong> and <strong>WildFly Datasource Subsystem</strong> configurations for various databases. For this guide, we will use the <code>postgresql-default-datasource</code> Galleon layer that will configure a PostgreSQL datasource as the default datasource for the server.</p>
+</div>
+<div class="paragraph">
+<p>In addition to the Galleon Layers to configure the datasource and install the drivers, we also want to trim the WildFly server to remove any unnecessary subsystems and features we don&#8217;t need. That will reduce the server footprint and the security attack surface. This task can be done by selecting the appropriate <a href="https://docs.wildfly.org/32/Galleon_Guide.html#wildfly_galleon_layers" target="_blank" rel="noopener">Galleon Layers</a> shipped with any WildFly distribution. However, instead of adding a static list of Galleon Layers, we are going to configure the <code>wildfly-maven-plugin</code> plugin to discover the required layers automatically for us.</p>
+</div>
+<div class="paragraph">
+<p>Replace the current <code>wildfly-maven-plugin</code> configuration in the <code>pom.xml</code> file provided by the getting started guide with the following one:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;plugin&gt;
+    &lt;groupId&gt;org.wildfly.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;wildfly-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;${version.wildfly.maven.plugin}&lt;/version&gt;
+    &lt;configuration&gt;
+        &lt;discover-provisioning-info&gt;
+            &lt;addOns&gt;
+                &lt;addOn&gt;postgresql:default&lt;/addOn&gt;
+            &lt;/addOns&gt;
+        &lt;/discover-provisioning-info&gt;
+    &lt;/configuration&gt;
+    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;package&lt;/goal&gt;
+            &lt;/goals&gt;
+        &lt;/execution&gt;
+    &lt;/executions&gt;
+&lt;/plugin&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the above configuration, behind the scenes the <code>wildfly-maven-plugin</code> is using <a href="https://docs.wildfly.org/wildfly-glow/" target="_blank" rel="noopener">WildFly Glow</a> to discover automatically the required Galleon Layers for our application. The <code>discover-provisioning-info</code> configuration tells the plugin to discover the required layers by inspecting our application code. By using the <code>postgresql:default</code> addon, we are specifying we want to use a PostgreSQL database, and we want to configure it as the default datasource for the server.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="persistence-xml">persistence.xml</h3>
+<div class="paragraph">
+<p>This file is used to configure the Jakarta Persistence persistence unit and its database schema generation strategy. In this guide, we are using the <code>drop-and-create</code> strategy to drop the existing schema and create a new one every time the application starts. For a production environment, you should use a more appropriate strategy to avoid data loss.</p>
+</div>
+<div class="paragraph">
+<p>Create the following <code>persistence.xml</code> file in the <code>src/main/resources/META-INF</code> directory:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0"&gt;
+    &lt;persistence-unit name="bookstore-PU"&gt;
+        &lt;properties&gt;
+            &lt;property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/&gt;
+        &lt;/properties&gt;
+    &lt;/persistence-unit&gt;
+&lt;/persistence&gt;</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+We don&#8217;t need to specify the name of the Datasource by using <code>&lt;jta-data-source&gt;</code>. In absence of this property, Jakarta Persistence will use the default datasource configured in the server.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configure-the-jakarta-restful-web-services-application">Configure the Jakarta RESTful Web Services application</h3>
+<div class="paragraph">
+<p>The <code>BookStoreApplication</code> class acts as a configuration class for the Jakarta REST application. It essentially tells the WildFly runtime that this is a Jakarta REST application and provides the base path for the application&#8217;s RESTful web services.</p>
+</div>
+<div class="paragraph">
+<p>Modify it as follows to specify <code>/api</code> as the base URL for our Jakarta REST Web Service:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">package org.wildfly.examples;
+
+import jakarta.ws.rs.ApplicationPath;
+import jakarta.ws.rs.core.Application;
+
+@ApplicationPath("/api")
+public class BookStoreApplication extends Application {
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="book-entity">Book Entity</h3>
+<div class="paragraph">
+<p>The <code>Book</code> entity represents a book record in the database.</p>
+</div>
+<div class="paragraph">
+<p>Create a new class <code>Book</code> in the <code>src/main/java/org/wildfly/examples/books</code> directory with the following content:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">package org.wildfly.examples.books;
+
+import java.util.Objects;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PositiveOrZero;
+
+@Entity
+@Table(name = "books")
+public class Book {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotBlank
+    @Column(nullable = false)
+    private String title;
+
+    @NotBlank
+    @Column(nullable = false)
+    private String author;
+
+    @NotBlank
+    @Column(nullable = false)
+    private String isbn;
+
+    @PositiveOrZero
+    @Column
+    private double price;
+
+    public Book() {
+    }
+
+    public Book(String title, String author, String isbn, double price) {
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+        this.price = price;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return Double.compare(price, book.price) == 0 &amp;&amp; Objects.equals(id, book.id) &amp;&amp; Objects.equals(title, book.title) &amp;&amp; Objects.equals(author, book.author) &amp;&amp; Objects.equals(isbn, book.isbn);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, author, isbn, price);
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", isbn='" + isbn + '\'' +
+                ", price=" + price +
+                '}';
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="bookresource">BookResource</h3>
+<div class="paragraph">
+<p>The <code>BookResource</code> is the web service that exposes the book records as JSON objects.</p>
+</div>
+<div class="paragraph">
+<p>Create a new class <code>BookResource</code> in the <code>src/main/java/org/wildfly/examples/books</code> directory with the following content:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">package org.wildfly.examples.books;
+
+import java.net.URI;
+import java.util.List;
+
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DELETE;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.NotFoundException;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.Context;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.UriInfo;
+
+@Path("/books")
+@RequestScoped
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
+public class BookResource {
+
+    @PersistenceContext
+    EntityManager em;
+
+    @Context
+    UriInfo uriInfo;
+
+    @GET
+    public Response getAll() {
+        List&lt;Book&gt; all = em.createQuery("SELECT b FROM Book b", Book.class)
+                .getResultList();
+
+        return Response.ok()
+                .entity(all)
+                .build();
+    }
+
+    @GET
+    @Path("/{id}")
+    public Response getById(@PathParam("id") Long id) {
+        Book book = em.find(Book.class, id);
+        if (book == null) {
+            throw new NotFoundException("Book with id " + id + " not found");
+        }
+
+        return Response.ok()
+                .entity(book)
+                .build();
+    }
+
+    @POST
+    @Transactional
+    public Response create(@Valid Book book) {
+        em.persist(book);
+
+        final URI location = uriInfo.getBaseUriBuilder()
+                .path(BookResource.class)
+                .path(book.getId().toString())
+                .build();
+
+        return Response.created(location)
+                .entity(book)
+                .build();
+    }
+
+    @PUT
+    @Path("/{id}")
+    @Transactional
+    public Response update(@PathParam("id") Long id, @Valid Book book) {
+        Book existing = em.find(Book.class, id);
+        if (existing == null) {
+            throw new NotFoundException("Book with id " + id + " not found");
+        }
+        existing.setAuthor(book.getAuthor());
+        existing.setTitle(book.getTitle());
+        existing.setIsbn(book.getIsbn());
+        existing.setPrice(book.getPrice());
+
+        return Response.ok()
+                .entity(existing)
+                .build();
+    }
+
+    @DELETE
+    @Path("/{id}")
+    @Transactional
+    public Response delete(@PathParam("id") Long id) {
+        Book book = em.find(Book.class, id);
+        if (book == null) {
+            throw new NotFoundException("Book with id " + id + " not found");
+        }
+        em.remove(book);
+
+        return Response.noContent()
+                .build();
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="start-the-application">Start the application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Now we should be ready to start our application and interact with the database. First, build the application using Maven:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">mvn clean package</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice how WildFly Glow gives us information about the feature packs and Galleon layers discovered. It also provides some hints about required environment variables:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">[INFO] --- wildfly:5.0.0.Final:package (default) @ bookstore ---
+[INFO] Glow is scanning...
+[INFO] Glow scanning DONE.
+[INFO] context: bare-metal
+[INFO] enabled profile: none
+[INFO] galleon discovery
+[INFO] - feature-packs
+   org.wildfly:wildfly-galleon-pack:32.0.1.Final
+   org.wildfly:wildfly-datasources-galleon-pack:8.0.0.Final
+- layers
+   ee-core-profile-server
+   jaxrs
+   jpa
+   postgresql-default-datasource
+
+[INFO] enabled add-ons
+[INFO] - postgresql : Documentation in https://github.com/wildfly-extras/wildfly-datasources-galleon-pack
+- postgresql:default : Documentation in https://github.com/wildfly-extras/wildfly-datasources-galleon-pack
+
+[INFO] identified fixes
+[INFO] * no default datasource found error is fixed
+  - add-on postgresql:default fixes the problem but you need to set the strongly suggested configuration.
+
+[WARNING] strongly suggested configuration at runtime
+[WARNING]
+postgresql-datasource environment variables:
+ - POSTGRESQL_DATABASE=Defines the database name to be used in the datasource’s `connection-url` property.
+ - POSTGRESQL_PASSWORD=Defines the password for the datasource.
+ - POSTGRESQL_USER=Defines the username for the datasource.
+[WARNING]
+postgresql-default-datasource environment variables:
+ - POSTGRESQL_DATABASE=Defines the database name to be used in the datasource’s `connection-url` property.
+ - POSTGRESQL_PASSWORD=Defines the password for the datasource.
+ - POSTGRESQL_USER=Defines the username for the datasource.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now create the required <strong>environment variables</strong> used by WildFly to connect to the PostgreSQL database and start the server:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">export POSTGRESQL_USER=postgres
+export POSTGRESQL_PASSWORD=admin
+export POSTGRESQL_DATABASE=bookstore_db
+
+./target/server/bin/standalone.sh
+&#8230;&#8203;
+11:34:49,242 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 32.0.1.Final (WildFly Core 24.0.1.Final) started in 2118ms - Started 295 of 366 services (139 services are lazy, passive or on-demand) - Server configuration file in use: standalone.xml</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="check-the-application">Check the application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We have our application running at <a href="http://localhost:8080/" class="bare">http://localhost:8080/</a>. Let&#8217;s now interact with it using the following endpoints to Create, Read, Update and Delete books. We will use the <code>curl</code> utility to interact with the application.</p>
+</div>
+<div class="sect2">
+<h3 id="create-a-book">Create a book</h3>
+<div class="paragraph">
+<p>To create a new book, execute a POST request to the <code>/api/books</code> endpoint with the book information:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl -v -X POST http://localhost:8080/api/books -H "Content-Type: application/json" -d '
+{
+"author": "Jules Verne",
+"isbn": "10-0760765197",
+"price": 9.99,
+"title": "From the Earth to the Moon"
+}'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you inspect the response, you will see the URL of the newly created book gets returned under the location header:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">Location: http://localhost:8080/api/books/1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can use the location to check the book you have just created:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl http://localhost:8080/api/books/1</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "author": "Jules Verne",
+  "id": 1,
+  "isbn": "10-0760765197",
+  "price": 9.99,
+  "title": "From the Earth to the Moon"
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="read-all-the-books">Read all the books</h3>
+<div class="paragraph">
+<p>To list all the books, execute a GET request to the <code>/api/books</code> endpoint:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl http://localhost:8080/api/books</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It will return the list of books of our database:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">[
+  {
+    "author": "Jules Verne",
+    "id": 1,
+    "isbn": "10-0760765197",
+    "price": 9.99,
+    "title": "From the Earth to the Moon"
+  }
+]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="update-a-book">Update a book</h3>
+<div class="paragraph">
+<p>To update a book, execute a PUT request to the <code>/api/books/{id}</code> endpoint with the book information you want. For example to change the price of the recent book we have recently created, execute the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl -X PUT http://localhost:8080/api/books/1 -H "Content-Type: application/json" -d '
+{
+"author": "Jules Verne",
+"isbn": "10-0760765197",
+"price": 10.99,
+"title": "From the Earth to the Moon"
+}'</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="delete-a-book">Delete a book</h3>
+<div class="paragraph">
+<p>To delete a book, execute a DELETE request to the <code>/api/books/{id}</code> endpoint with the book id you want to delete. For example, to delete the book we have recently created:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl -X DELETE http://localhost:8080/api/books/1</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="stop-the-application">Stop the application</h4>
+<div class="paragraph">
+<p>To stop the application, press <code>Ctrl+C</code> in the terminal where the server is running.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="test-cases">Test Cases</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Until now, we have verified the application manually. The following steps will guide you with the required changes to test our application using the Arquillian framework.</p>
+</div>
+<div class="sect2">
+<h3 id="pom-xml-2">pom.xml</h3>
+<div class="paragraph">
+<p>We need to have a JSON provider available on the test classpath to convert Book objects to JSON and vice versa.</p>
+</div>
+<div class="paragraph">
+<p>Add the following dependency to the <code>pom.xml</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.jboss.resteasy&lt;/groupId&gt;
+    &lt;artifactId&gt;resteasy-jackson2-provider&lt;/artifactId&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="book-resource-test-case">Book Resource test case</h3>
+<div class="paragraph">
+<p>Create a new class <code>BookResourceIT</code> in the <code>src/test/java/org/wildfly/examples/books</code> directory with the following content:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">package org.wildfly.examples.books;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.net.URI;
+import java.util.List;
+
+import jakarta.ws.rs.client.Client;
+import jakarta.ws.rs.client.ClientBuilder;
+import jakarta.ws.rs.client.Entity;
+import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+
+import org.jboss.arquillian.container.test.api.RunAsClient;
+import org.jboss.arquillian.junit5.ArquillianExtension;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.extension.ExtendWith;
+
+@RunAsClient
+@ExtendWith(ArquillianExtension.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+public class BookResourceIT {
+
+    @Test
+    @Order(1)
+    public void testHelloEndpoint() {
+        try (Client client = ClientBuilder.newClient()) {
+            Response response = client
+                    .target(URI.create("http://localhost:8080/"))
+                    .path("/")
+                    .request()
+                    .get();
+
+            assertEquals(200, response.getStatus());
+        }
+    }
+
+    @Test
+    @Order(2)
+    public void create() {
+        try (Client client = ClientBuilder.newClient()) {
+            Book book = new Book("Test Book title", "Test Book author", "Test Book isbn", 10.0);
+
+            Response response = client
+                    .target(URI.create("http://localhost:8080/"))
+                    .path("/api/books")
+                    .request(MediaType.APPLICATION_JSON)
+                    .post(Entity.entity(book, MediaType.APPLICATION_JSON));
+
+            assertEquals(201, response.getStatus());
+            assertEquals("http://localhost:8080/api/books/1", response.getLocation().toString());
+        }
+    }
+
+    @Test
+    @Order(3)
+    public void list() {
+        try (Client client = ClientBuilder.newClient()) {
+            Response response = client
+                    .target(URI.create("http://localhost:8080/"))
+                    .path("/api/books")
+                    .request(MediaType.APPLICATION_JSON)
+                    .get();
+
+            assertEquals(200, response.getStatus());
+
+            List&lt;Book&gt; books = response.readEntity(new GenericType&lt;&gt;() {
+            });
+            assertEquals(1, books.size());
+
+            Book book = books.get(0);
+            assertEquals("Test Book title", book.getTitle());
+            assertEquals("Test Book author", book.getAuthor());
+            assertEquals("Test Book isbn", book.getIsbn());
+            assertEquals(10.0, book.getPrice());
+        }
+    }
+
+    @Test
+    @Order(4)
+    public void update() {
+        try (Client client = ClientBuilder.newClient()) {
+            Book book = new Book("Test Book title updated", "Test Book author updated", "Test Book isbn updated", 99.9);
+
+            Response response = client
+                    .target(URI.create("http://localhost:8080/"))
+                    .path("/api/books/1")
+                    .request(MediaType.APPLICATION_JSON)
+                    .put(Entity.entity(book, MediaType.APPLICATION_JSON));
+
+            assertEquals(200, response.getStatus());
+
+            response = client
+                    .target(URI.create("http://localhost:8080/"))
+                    .path("/api/books/1")
+                    .request(MediaType.APPLICATION_JSON)
+                    .get();
+
+            Book updated = response.readEntity(new GenericType&lt;&gt;() {
+            });
+
+            assertEquals("Test Book title updated", updated.getTitle());
+            assertEquals("Test Book author updated", updated.getAuthor());
+            assertEquals("Test Book isbn updated", updated.getIsbn());
+            assertEquals(99.9, updated.getPrice());
+        }
+    }
+
+    @Test
+    @Order(5)
+    public void delete() {
+        try (Client client = ClientBuilder.newClient()) {
+            Response response = client
+                    .target(URI.create("http://localhost:8080/"))
+                    .path("/api/books/1")
+                    .request(MediaType.APPLICATION_JSON)
+                    .delete();
+
+            assertEquals(204, response.getStatus());
+
+            response = client
+                    .target(URI.create("http://localhost:8080/"))
+                    .path("/api/books/1")
+                    .request(MediaType.APPLICATION_JSON)
+                    .get();
+
+            assertEquals(404, response.getStatus());
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="run-the-tests">Run the tests</h3>
+<div class="paragraph">
+<p>You can run the tests using the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">export POSTGRESQL_USER=postgres
+export POSTGRESQL_PASSWORD=admin
+export POSTGRESQL_DATABASE=bookstore_db
+
+mvn clean verify</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this guide we have reused the same database instance for running the application and for the test cases. If you want to use a different instance for test cases, you have to adapt the values of the environment variables accordingly.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="stop-the-database">Stop the database</h3>
+<div class="paragraph">
+<p>Finally, to stop the PostgreSQL database, press <code>Ctrl+C</code> in the terminal where the container is running.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="whats-next">What&#8217;s next?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this guide we have learned how to configure a WildFly server to access to a PostgreSQL database and how to easily trim the server capabilities using WildFly Glow. Seamlessly, you can adapt the same application to use other databases by changing the Galleon Layers used by the WildFly server.
+You can learn more about how to configure WildFly for other databases by looking at the <a href="https://github.com/wildfly-extras/wildfly-datasources-galleon-pack">WildFly Datasources Galleon Pack</a> documentation and <a href="https://docs.wildfly.org/32/Glow_Guide.html">WildFly Glow Guide</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="references">References</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.wildfly.org/32/Admin_Guide.html#DataSource">WildFly Datasource Subsystem</a></p>
+</li>
+<li>
+<p><a href="https://github.com/wildfly-extras/wildfly-datasources-galleon-pack">WildFly Datasources Galleon Pack</a></p>
+</li>
+<li>
+<p><a href="https://docs.wildfly.org/32/Glow_Guide.html">WildFly Glow Guide</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+    </div>
+    <div>&lt; <a href="/guides">Back to Guides</a></div>
+  </div>
+</div>
+  </div>
+
+  <div class="content project-footer">
+  <div class="footer-section">
+    <div class="logo-wrapper">
+      <a href="/"><img class="wf-logo" src="/assets/img/wildfly_icons_one-color-logo.png"></a>
+    </div>
+  </div>
+  <div class="grid-wrapper">
+    <p class="grid__item width-3-12">WildFly is fully open. All components are open source and follow a community-focused development process.<br/><br/>This website was built with <a href='https://jekyllrb.com/' target='_blank'>Jekyll</a> is hosted on <a href='https://pages.github.com/' target='_blank'>Github Pages</a> and is completely open source. If you want to make it better, <a href='https://github.com/wildfly/wildfly.org/fork' target='_blank'>fork it</a> and show us what you’ve got.</p>
+
+    
+      <div class="width-1-12 project-links">
+        <strong>Navigation</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="/downloads">Downloads</a></li>
+          
+            <li><a href="https://docs.wildfly.org">Docs</a></li>
+          
+            <li><a href="/get-started">Get Started</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly">Github</a></li>
+          
+            <li><a href="/guides">Guides</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Contribute</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://issues.jboss.org/browse/WFLY">Submit a bug</a></li>
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly/fork">Fork WildFly</a></li>
+          
+            <li><a href="https://twitter.com/WildFlyAS">Follow us</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Get Help</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://wildfly.zulipchat.com/">Join Zulip Chat</a></li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="width-6-12 more-links">
+        <strong>Find more Red Hat Middleware Community Projects</strong>
+        <ul class="footer-links">
+          
+            <li><a href="https://www.apiman.io/">APIMan</a></li>
+          
+            <li><a href="http://arquillian.org">Arquillian</a></li>
+          
+            <li><a href="https://github.com/ansible-middleware/wildfly">Ansible Collection for Wildfly</a></li>
+          
+            <li><a href="http://byteman.jboss.org/">Byteman</a></li>
+          
+            <li><a href="http://capedwarf.org/">CapeDwarf</a></li>
+          
+            <li><a href="https://github.com/alechenninger/chronicler">Chronicler</a></li>
+          
+            <li><a href="https://github.com/darcy-framework">Darcy</a></li>
+          
+            <li><a href="http://debezium.io/">Debezium</a></li>
+          
+            <li><a href="https://www.drools.org/">Drools</a></li>
+          
+            <li><a href="http://gatein.jboss.org/">GateIn</a></li>
+          
+            <li><a href="http://www.hawkular.org/">Hawkular</a></li>
+          
+            <li><a href="http://hawt.io/">Hawtio</a></li>
+          
+            <li><a href="http://hibernate.org/">Hibernate</a></li>
+          
+            <li><a href="http://www.infinispan.org/">Infinispan</a></li>
+          
+            <li><a href="https://developers.redhat.com/products/codeready-studio/overview">CodeReady Studio</a></li>
+          
+            <li><a href="http://forge.jboss.org/">JBoss Forge</a></li>
+          
+            <li><a href="https://github.com/jboss-logging">JBoss Logging</a></li>
+          
+            <li><a href="http://jbossremoting.jboss.org/">JBoss Remoting</a></li>
+          
+            <li><a href="https://www.jbpm.org/">jBPM</a></li>
+          
+            <li><a href="https://jsfunit.jboss.org/">JSFUnit</a></li>
+          
+            <li><a href="https://www.keycloak.org/">Keycloak</a></li>
+          
+            <li><a href="http://modcluster.io/">Mod Cluster</a></li>
+          
+            <li><a href="http://modeshape.jboss.org/">ModeShape</a></li>
+          
+            <li><a href="https://www.optaplanner.org/">OptaPlanner</a></li>
+          
+            <li><a href="https://quarkus.io/">Quarkus</a></li>
+          
+            <li><a href="http://resteasy.jboss.org/">RESTEasy</a></li>
+          
+            <li><a href="https://riftsaw.jboss.org/">Riftsaw</a></li>
+          
+            <li><a href="http://savara.jboss.org/">Savara</a></li>
+          
+            <li><a href="https://weld.cdi-spec.org/">Weld</a></li>
+          
+            <li><a href="http://arquillian.org/">Shrinkwrap</a></li>
+          
+            <li><a href="https://switchyard.jboss.org/">Switchyard</a></li>
+          
+            <li><a href="https://tattletale.jboss.org/">Tattletale</a></li>
+          
+            <li><a href="https://teiid.io/">Teiid</a></li>
+          
+            <li><a href="https://wildfly-security.github.io/wildfly-elytron/">WildFly Elytron</a></li>
+          
+            <li><a href="http://wise.jboss.org/">Wise</a></li>
+          
+            <li><a href="https://xnio.jboss.org/">XNIO</a></li>
+          
+        </ul>
+      </div>
+    
+  </div>
+</div>
+  <div class="content redhat-footer">
+  <div class="grid-wrapper">
+    <span class="licence">
+      <i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i> <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC by 3.0</a> | <a href="https://www.redhat.com/en/about/privacy-policy">Privacy Policy</a>
+    </span>
+    <span class="redhat">
+      Sponsored by
+    </span>
+    <span class="redhat-logo">
+      <a href="https://www.redhat.com/" target="_blank"><img src="/assets/img/redhat_reversed.svg"></a>
+    </span>
+  </div>
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/mobile-nav.js"></script>
+  <script type="text/javascript" src="/assets/javascript/random-color-picker.js"></script>
+  <script type="text/javascript">
+    if (("undefined" !== typeof _satellite) && ("function" === typeof _satellite.pageBottom)) {
+        _satellite.pageBottom();
+    }
+    hljs.highlightAll();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/copy.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script id="adobe_dtm" src="//www.redhat.com/dtm.js" type="text/javascript"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WildFly testing with WildFly Glow</title>
+  <meta name="description" content="WildFly testing with WildFly Glow.">
+  <link rel="me" href="https://fosstodon.org/@wildflyas" />
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" >
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/atelier-dune-light.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/protobuf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/dockerfile.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40221748-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-40221748-1');
+  </script>
+
+  
+
+</head>
+
+<body class="WildFly testing with WildFly Glow">
+  <div class="content">
+    <div class="header navigation">
+  <div class="logo-wrapper">
+    <a href="/"><img class="wf-logo" src="/assets/img/wildfly_icons_one-color-logo.png"></a>
+  </div>
+  <div class="nav-container">
+    <nav>
+      <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+      <ul class="nav-list">
+        <li>
+          <a href="/news/" class="active">News</a>
+        </li>
+        <li>
+          <a href="/about/" class="">About</a>
+        </li>
+        <li>
+          <a href="/contribute/" class="">Contribute</a>
+        </li>
+        <li>
+            <a target="_blank" href="https://docs.wildfly.org">Docs</a>
+        </li>
+        <li>
+          <a href="/guides/" class="">Guides</a>
+        </li>
+        <li>
+          <a href="/downloads/" class="">Downloads</a>
+        </li>
+        <li>
+          <a href="/security/" class="">CVE Reporting</a>
+        </li>
+        <li>
+          <a href="https://github.com/wildfly/wildfly/fork" target="_blank">Fork</a>
+        </li>
+        <li>
+          <a class="button-cta secondary " href="/get-started/">Get Started</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+    <div class="post-page grid-wrapper">
+  <div class="grid__item width-10-12">
+    <h1 class="title">WildFly testing with WildFly Glow</h1>
+    
+    
+    
+
+    <p>
+      
+        
+          
+          <p class="byline">
+            
+              <img class="avatar" height="60px" width="60px" src="/assets/img/authors/jfdenise.jpg"/>
+            
+
+            By Jean-François Denise
+            
+              | February 05, 2024
+            
+          </p>
+        
+      
+    </p>
+  </div>
+  <div class="grid__item width-10-12 doc-content">
+    
+    <div class="paragraph">
+<p>This blog post provides information on how to use <a href="https://github.com/wildfly/wildfly-glow">WildFly Glow</a> to produce a
+WildFly server in order to test the applications you are developing for WildFly.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Reading this <a href="https://www.wildfly.org/news/2024/01/29/wildfly-glow/">blog post</a> that provides detailed information on WildFly provisioning in general and WildFly Glow in particular is
+a good pre-requisite to this blog post.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The main goal of the WildFly Glow project is to help you produce a trimmed server that will properly execute your deployments.</p>
+</div>
+<div class="paragraph">
+<p>The trimmed WildFly server can be produced to run your tests or execute your final deployments. This blog post focuses on the testing phase.</p>
+</div>
+<div class="sect1">
+<h2 id="provisioning-approaches-for-your-tests">Provisioning approaches for your tests</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To install a server to execute your tests, you can:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.wildfly.org/downloads/">Download</a> and install a WildFly distribution.
+This approach is outside the scope of executing tests with a trimmed server. This would apply when executing your applications inside a full
+WildFly server.</p>
+</li>
+<li>
+<p>Provisioning a WildFly server using the WildFly Maven Plugin (with WildFly Glow support enabled) during test execution.
+This approaches addresses simple applications composed of a single deployment.</p>
+</li>
+<li>
+<p>Use the <a href="https://github.com/wildfly/wildfly-arquillian">WildFly Arquillian Adapter</a> and WildFly Glow to provision a server to
+test more complex use-cases.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The server used by the tests should contain the same content as the one used in production (with some configuration adjustments
+to cope with each context). So testing with a full WildFly distribution and then using a trimmed server in production will hide issues.
+We strongly advise that you use provisioning in the first place and execute tests with a trimmed server.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Ok, so you are ready to provision a trimmed server, but what is the provisioning configuration you need
+to provide to the provisioning tooling to produce a WildFly server that will properly execute your tests?</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="testing-using-the-wildfly-maven-plugin-to-provision-a-server">Testing using the WildFly Maven Plugin to provision a server</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This is the simplest approach that applies to a single application deployed into WildFly. The WildFly quickstarts
+cover this approach with the <code>provisioned-server</code> profile. Each quickstart defines this profile as you can find in the quickstarts <a href="https://github.com/wildfly/quickstart">source code</a>.</p>
+</div>
+<div class="paragraph">
+<p>The WildFly quickstarts have been ported to rely on WildFly Glow.
+You can clone the following quickstart <a href="https://github.com/wildfly/quickstart/tree/glow-preview">branch</a> and play with the quickstarts of your choice.</p>
+</div>
+<div class="paragraph">
+<p>The <code>package</code> goal of the <a href="https://github.com/wildfly/wildfly-maven-plugin">WildFly Maven Plugin</a> scans the application,
+discovers the provisioning configuration then provisions the server and deploy the application.
+The server is started (<code>wildfly:start</code> goal) then the tests are executed to interact with the application deployed in the server.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">cd helloworld
+mvn clean package -Pprovisioned-server
+mvn wildfly:start
+mvn verify -Pintegration-testing -Dserver.host=http://localhost:8080
+mvn wildfly:shutdown</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In some cases you need to run tests from inside the server or you want to tests multiple deployments,
+that is where the WildFly Arquillian Adapter is needed.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="testing-using-the-wildfly-arquillian-adapter">Testing using the WildFly Arquillian Adapter</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="arquillian-deployments">Arquillian deployments</h3>
+<div class="paragraph">
+<p>When using Arquillian, the deployments to be deployed to the WildFly server are created by static Java methods
+annotated with the <code>@org.jboss.arquillian.container.test.api.Deployment</code> annotation.
+These deployments are created and deployed during test execution by Arquillian.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="wildfly-glow-arquillian-maven-plugin">WildFly Glow Arquillian Maven Plugin</h3>
+<div class="paragraph">
+<p>Details on how to use and configure the plugin can be found in the <a href="https://docs.wildfly.org/wildfly-glow/#_wildfly_glow_arquillian_maven_plugin">plugin documentation</a>.
+In this blog post we are introducing its usage.</p>
+</div>
+<div class="paragraph">
+<p>The WildFly Glow Arquillian Maven plugin scans all the <code>@Deployment</code>
+annotated static methods, and invokes them to obtain each deployment.
+It then scans these deployments to discover the required Galleon layers.</p>
+</div>
+<div class="paragraph">
+<p>A provisioning.xml file containing the discovered layers and feature-packs is generated.
+This Galleon configuration file is then used by the actual provisioning tooling (<a href="https://docs.wildfly.org/galleon/">Galleon Maven Plugin</a>,
+<a href="https://github.com/wildfly/wildfly-maven-plugin">WildFly Maven Plugin</a>,
+<a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin">WildFly JAR Maven Plugin</a>)
+to provision the test server.</p>
+</div>
+<div class="paragraph">
+<p>In order to validate that what the scanning has discovered is what you are expecting, you can configure the <code>wildfly-glow-arquillian-plugin</code>
+maven plugin to contain the element <code>&lt;expected-discovery&gt;</code>.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;expected-discovery&gt;[cdi, ee-integration, ejb, ejb-lite, elytron-oidc-client, naming, servlet]==&gt;ee-core-profile-server,ejb,elytron-oidc-client&lt;/expected-discovery&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The left part of the arrow contains the list of the discovered layers according to the scanning.
+The right part is what will get provisioned. Composed of a base layer (always <code>ee-core-profile-server</code>) and
+a list of the discovered layers not contained in the base layer.</p>
+</div>
+<div class="paragraph">
+<p>During plugin execution, the discovered layers are printed. If that is valid with respect to your tests,
+you can copy and paste this output as the <code>&lt;expected-discovery&gt;</code> value.</p>
+</div>
+<div class="paragraph">
+<p>If that is not valid (e.g.: some layers should not be present), you can enable <code>&lt;verbose&gt;true&lt;/verbose&gt;</code> to see why a layer was selected.</p>
+</div>
+<div class="paragraph">
+<p>WildFly Glow is based on rules contained in the Wildfy Galleon layers. If a rule matches, the layer is included. The set of rules
+contained in WildFly layers is documented in this <a href="http://docs.wildfly.org/wildfly-galleon-feature-packs/">documentation</a>.</p>
+</div>
+<div class="paragraph">
+<p>An example of output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>...
+layers inclusion rules
+* ee-core-profile-server
+  - BASE_LAYER
+* ee-concurrency
+  - JAVA_TYPE: [jakarta.enterprise.concurrent.*]
+* undertow-https
+  - ADD_ON
+...</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This output means:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ee-core-profile-server</code> is a base layer (always included).</p>
+</li>
+<li>
+<p><code>ee-concurrency</code> layer is included because a Java class located in the java package <code>jakarta.enterprise.concurrent</code> has been found.</p>
+</li>
+<li>
+<p><code>undertow-https</code> is included because it is bound to an included add-on (in this case <code>ssl</code>).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>BTW: The <a href="https://github.com/wildfly/wildfly/tree/main/testsuite/integration">WildFly integration tests</a> contain
+a lot of examples of WildFly Glow scanning executions that you could use as a starting-point.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="simple-pom-xml-example">Simple pom.xml example</h3>
+<div class="paragraph">
+<p>In this example, both the <code>wildfly-glow-arquillian-plugin</code> and <code>wildfly-maven-plugin</code> are bound to the
+<code>test-compile</code> phase (run after the test classes have been compiled).</p>
+</div>
+<div class="paragraph">
+<p>The <code>wildfly-glow-arquillian-plugin</code> execution produces the file <code>target/glow-scan/provisioning.xml</code> that is then consumed by
+the <code>wildfly-maven-plugin</code> to provision the server (in the directory <code>target/server</code>).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">...
+&lt;build&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.wildfly.glow&lt;/groupId&gt;
+            &lt;artifactId&gt;wildfly-glow-arquillian-plugin&lt;/artifactId&gt;
+            &lt;version&gt;1.0.0.Beta7&lt;/version&gt;
+            &lt;executions&gt;
+                &lt;execution&gt;
+                    &lt;id&gt;scan&lt;/id&gt;
+                    &lt;goals&gt;
+                        &lt;goal&gt;scan&lt;/goal&gt;
+                    &lt;/goals&gt;
+                    &lt;phase&gt;test-compile&lt;/phase&gt;
+                &lt;/execution&gt;
+            &lt;/executions&gt;
+        &lt;/plugin&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.wildfly.plugins&lt;/groupId&gt;
+            &lt;artifactId&gt;wildfly-maven-plugin&lt;/artifactId&gt;
+            &lt;version&gt;5.0.0.Beta2&lt;/version&gt;
+            &lt;configuration&gt;
+                &lt;provisioning-file&gt;${project.build.directory}/glow-scan/provisioning.xml&lt;/provisioning-file&gt;
+            &lt;/configuration&gt;
+            &lt;executions&gt;
+                &lt;execution&gt;
+                    &lt;id&gt;test-provisioning&lt;/id&gt;
+                    &lt;goals&gt;
+                        &lt;goal&gt;provision&lt;/goal&gt;
+                    &lt;/goals&gt;
+                    &lt;phase&gt;test-compile&lt;/phase&gt;
+                &lt;/execution&gt;
+            &lt;/executions&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The provisioned server is then started by Arquillian and tests are executed. As you can see the provisioning aspects are fully handled by
+the tooling, allowing you to focus on the testing.</p>
+</div>
+<div class="paragraph">
+<p>For more advanced usage (e.g.: selecting a WildFly version, an execution profile, adding <code>add-ons</code>,
+selecting specific surefire executions to provision multiple servers) you should check the
+WildFly Glow <a href="https://docs.wildfly.org/wildfly-glow">documentation</a>.</p>
+</div>
+<div class="paragraph">
+<p>We hope that you will see how useful WildFly Glow can be for your WildFly application testing.
+Your feedback would be very valuable to evolve WildFly Glow in the right direction.
+Feel free to log issues in the <a href="https://github.com/wildfly/wildfly-glow/issues">project</a>.</p>
+</div>
+<div class="paragraph">
+<p>Thank-you!</p>
+</div>
+<div class="paragraph">
+<p>Jean-Francois Denise</p>
+</div>
+</div>
+</div>
+</div>
+    
+  </div>
+</div>
+
+
+
+  </div>
+
+  <div class="content project-footer">
+  <div class="footer-section">
+    <div class="logo-wrapper">
+      <a href="/"><img class="wf-logo" src="/assets/img/wildfly_icons_one-color-logo.png"></a>
+    </div>
+  </div>
+  <div class="grid-wrapper">
+    <p class="grid__item width-3-12">WildFly is fully open. All components are open source and follow a community-focused development process.<br/><br/>This website was built with <a href='https://jekyllrb.com/' target='_blank'>Jekyll</a> is hosted on <a href='https://pages.github.com/' target='_blank'>Github Pages</a> and is completely open source. If you want to make it better, <a href='https://github.com/wildfly/wildfly.org/fork' target='_blank'>fork it</a> and show us what you’ve got.</p>
+
+    
+      <div class="width-1-12 project-links">
+        <strong>Navigation</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="/downloads">Downloads</a></li>
+          
+            <li><a href="https://docs.wildfly.org">Docs</a></li>
+          
+            <li><a href="/get-started">Get Started</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly">Github</a></li>
+          
+            <li><a href="/guides">Guides</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Contribute</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://issues.jboss.org/browse/WFLY">Submit a bug</a></li>
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly/fork">Fork WildFly</a></li>
+          
+            <li><a href="https://twitter.com/WildFlyAS">Follow us</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Get Help</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://wildfly.zulipchat.com/">Join Zulip Chat</a></li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="width-6-12 more-links">
+        <strong>Find more Red Hat Middleware Community Projects</strong>
+        <ul class="footer-links">
+          
+            <li><a href="https://www.apiman.io/">APIMan</a></li>
+          
+            <li><a href="http://arquillian.org">Arquillian</a></li>
+          
+            <li><a href="https://github.com/ansible-middleware/wildfly">Ansible Collection for Wildfly</a></li>
+          
+            <li><a href="http://byteman.jboss.org/">Byteman</a></li>
+          
+            <li><a href="http://capedwarf.org/">CapeDwarf</a></li>
+          
+            <li><a href="https://github.com/alechenninger/chronicler">Chronicler</a></li>
+          
+            <li><a href="https://github.com/darcy-framework">Darcy</a></li>
+          
+            <li><a href="http://debezium.io/">Debezium</a></li>
+          
+            <li><a href="https://www.drools.org/">Drools</a></li>
+          
+            <li><a href="http://gatein.jboss.org/">GateIn</a></li>
+          
+            <li><a href="http://www.hawkular.org/">Hawkular</a></li>
+          
+            <li><a href="http://hawt.io/">Hawtio</a></li>
+          
+            <li><a href="http://hibernate.org/">Hibernate</a></li>
+          
+            <li><a href="http://www.infinispan.org/">Infinispan</a></li>
+          
+            <li><a href="https://developers.redhat.com/products/codeready-studio/overview">CodeReady Studio</a></li>
+          
+            <li><a href="http://forge.jboss.org/">JBoss Forge</a></li>
+          
+            <li><a href="https://github.com/jboss-logging">JBoss Logging</a></li>
+          
+            <li><a href="http://jbossremoting.jboss.org/">JBoss Remoting</a></li>
+          
+            <li><a href="https://www.jbpm.org/">jBPM</a></li>
+          
+            <li><a href="https://jsfunit.jboss.org/">JSFUnit</a></li>
+          
+            <li><a href="https://www.keycloak.org/">Keycloak</a></li>
+          
+            <li><a href="http://modcluster.io/">Mod Cluster</a></li>
+          
+            <li><a href="http://modeshape.jboss.org/">ModeShape</a></li>
+          
+            <li><a href="https://www.optaplanner.org/">OptaPlanner</a></li>
+          
+            <li><a href="https://quarkus.io/">Quarkus</a></li>
+          
+            <li><a href="http://resteasy.jboss.org/">RESTEasy</a></li>
+          
+            <li><a href="https://riftsaw.jboss.org/">Riftsaw</a></li>
+          
+            <li><a href="http://savara.jboss.org/">Savara</a></li>
+          
+            <li><a href="https://weld.cdi-spec.org/">Weld</a></li>
+          
+            <li><a href="http://arquillian.org/">Shrinkwrap</a></li>
+          
+            <li><a href="https://switchyard.jboss.org/">Switchyard</a></li>
+          
+            <li><a href="https://tattletale.jboss.org/">Tattletale</a></li>
+          
+            <li><a href="https://teiid.io/">Teiid</a></li>
+          
+            <li><a href="https://wildfly-security.github.io/wildfly-elytron/">WildFly Elytron</a></li>
+          
+            <li><a href="http://wise.jboss.org/">Wise</a></li>
+          
+            <li><a href="https://xnio.jboss.org/">XNIO</a></li>
+          
+        </ul>
+      </div>
+    
+  </div>
+</div>
+  <div class="content redhat-footer">
+  <div class="grid-wrapper">
+    <span class="licence">
+      <i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i> <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC by 3.0</a> | <a href="https://www.redhat.com/en/about/privacy-policy">Privacy Policy</a>
+    </span>
+    <span class="redhat">
+      Sponsored by
+    </span>
+    <span class="redhat-logo">
+      <a href="https://www.redhat.com/" target="_blank"><img src="/assets/img/redhat_reversed.svg"></a>
+    </span>
+  </div>
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/mobile-nav.js"></script>
+  <script type="text/javascript" src="/assets/javascript/random-color-picker.js"></script>
+  <script type="text/javascript">
+    if (("undefined" !== typeof _satellite) && ("function" === typeof _satellite.pageBottom)) {
+        _satellite.pageBottom();
+    }
+    hljs.highlightAll();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/copy.js"></script>
+
+</body>
+
+</html>

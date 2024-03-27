@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script id="adobe_dtm" src="//www.redhat.com/dtm.js" type="text/javascript"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WildFly Glow, an evolution of WildFly provisioning</title>
+  <meta name="description" content="WildFly Glow, an evolution of WildFly provisioning.">
+  <link rel="me" href="https://fosstodon.org/@wildflyas" />
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" >
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/atelier-dune-light.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/protobuf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/dockerfile.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40221748-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-40221748-1');
+  </script>
+
+  
+
+</head>
+
+<body class="WildFly Glow, an evolution of WildFly provisioning">
+  <div class="content">
+    <div class="header navigation">
+  <div class="logo-wrapper">
+    <a href="/"><img class="wf-logo" src="/assets/img/wildfly_icons_one-color-logo.png"></a>
+  </div>
+  <div class="nav-container">
+    <nav>
+      <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+      <ul class="nav-list">
+        <li>
+          <a href="/news/" class="active">News</a>
+        </li>
+        <li>
+          <a href="/about/" class="">About</a>
+        </li>
+        <li>
+          <a href="/contribute/" class="">Contribute</a>
+        </li>
+        <li>
+            <a target="_blank" href="https://docs.wildfly.org">Docs</a>
+        </li>
+        <li>
+          <a href="/guides/" class="">Guides</a>
+        </li>
+        <li>
+          <a href="/downloads/" class="">Downloads</a>
+        </li>
+        <li>
+          <a href="/security/" class="">CVE Reporting</a>
+        </li>
+        <li>
+          <a href="https://github.com/wildfly/wildfly/fork" target="_blank">Fork</a>
+        </li>
+        <li>
+          <a class="button-cta secondary " href="/get-started/">Get Started</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+    <div class="post-page grid-wrapper">
+  <div class="grid__item width-10-12">
+    <h1 class="title">WildFly Glow, an evolution of WildFly provisioning</h1>
+    
+    
+    
+
+    <p>
+      
+        
+          
+          <p class="byline">
+            
+              <img class="avatar" height="60px" width="60px" src="/assets/img/authors/jfdenise.jpg"/>
+            
+
+            By Jean-François Denise
+            
+              | January 29, 2024
+            
+          </p>
+        
+      
+    </p>
+  </div>
+  <div class="grid__item width-10-12 doc-content">
+    
+    <div class="paragraph">
+<p>We are introducing an evolution of WildFly provisioning by means of the <a href="https://github.com/wildfly/wildfly-glow">WildFly Glow</a> project.</p>
+</div>
+<div class="sect1">
+<h2 id="what-is-wildfly-provisioning">What is WildFly provisioning?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Even though WildFly provisioning has been available for some time now, a quick summary seems useful to put WildFly Glow in context.</p>
+</div>
+<div class="paragraph">
+<p>WildFly provisioning is:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The ability to create a WildFly server installation on the fly.</p>
+</li>
+<li>
+<p>The ability to choose the set of features you want to see in the created server.</p>
+</li>
+<li>
+<p>The ability to extend the capabilities of the WildFly server (e.g.: datasources, Keycloak SAML).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The produced server has a smaller size than a full installation and the server process has a smaller memory footprint. Trimming comes with some benefits:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Reduced resource consumption.</p>
+</li>
+<li>
+<p>Smaller attack surface.</p>
+</li>
+<li>
+<p>Simpler server configuration.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.wildfly.org/galleon/">Galleon</a> is the technology used by WildFly provisioning.</p>
+</div>
+<div class="sect2">
+<h3 id="how-is-provisioning-performed">How is provisioning performed?</h3>
+<div class="paragraph">
+<p>WildFly provisioning uses two kinds of tooling:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Command Line tools:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.wildfly.org/galleon/#_galleon_cli_tool">Galleon CLI</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Maven Plugins:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.wildfly.org/galleon/#_maven_plugin">Galleon Maven Plugin</a></p>
+</li>
+<li>
+<p><a href="https://github.com/wildfly/wildfly-maven-plugin">WildFly Maven Plugin</a></p>
+</li>
+<li>
+<p><a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin">WildFly Bootable JAR Maven Plugin</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="what-are-the-main-concepts-of-wildfly-provisioning">What are the main concepts of WildFly provisioning?</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Galleon feature-packs: contain metadata on how to build a WildFly server.</p>
+</li>
+<li>
+<p>Galleon layers: contain metadata of a high level server feature (eg: jaxrs, ejb, jsf, &#8230;&#8203;).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If you want to deep dive into Galleon concepts, you can have a look at its <a href="https://docs.wildfly.org/galleon/">documentation</a>. In the context of WildFly Glow, feature-packs and layers are really
+all you need to know about.</p>
+</div>
+<div class="paragraph">
+<p>Provisioning a WildFly server is mainly selecting Galleon feature-packs and Galleon layers.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="wildfly-provisioning-diagram">WildFly provisioning diagram</h3>
+<div class="imageblock">
+<div class="content">
+<img src="/assets/img/news/wildfly-glow1.jpg" alt="WildFly provisioning diagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The above shows a simplified representation of what provisioning is. Let&#8217;s look at the complexity that comes with such flexibility.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="current-wildfly-provisioning-has-a-complex-configuration">Current WildFly provisioning has a complex configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The issues we are currently facing are mainly located at the user configuration level.
+It is not that trivial to build up a proper WildFly server to run your applications.</p>
+</div>
+<div class="paragraph">
+<p>Known issues:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>How to know about available Galleon feature-packs?</p>
+</li>
+<li>
+<p>How to discover the Galleon layers that my application requires to properly work?</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Current solutions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Use <a href="https://docs.wildfly.org/31/">WildFly documentation</a>, look at <a href="https://github.com/wildfly/quickstart">WildFly quickstarts</a>,
+search for blogs and/or github projects to discover extra feature-packs.</p>
+</li>
+<li>
+<p>Use WildFly base layers (aggregators for the main application use cases) such as <code>cloud-server</code> or <code>jaxrs-server</code> layers.
+Something to note is that when using these aggregators the set of features that you are provisioning may not be optimal.
+More content is usually provisioned than what your application requires. Furthermore these layers don&#8217;t contain everything,
+and, to meet your application&#8217;s requirements, you may need to add some more layers (e.g.: <code>microprofile-config</code>, <code>ejb</code>, <code>jsf</code>, &#8230;&#8203;).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To summarize we need a way to discover all the extra Galleon feature-packs that would provide interesting features and a way to link
+the deployed application(s) to the set of required Galleon layers.</p>
+</div>
+<div class="paragraph">
+<p>This is what <a href="https://github.com/wildfly/wildfly-glow">WildFly Glow</a> is all about, a provisioning time bridge between the deployment and the WildFly server.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="wildfly-glow">WildFly Glow</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Glow stands for “Galleon Layers Output from War”. By inspecting your deployments(s), WildFly Glow
+can determine the set of Galleon feature-packs and layers that your application requires.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Despite the "War" used in the acronym that led to WildFly Glow&#8217;s name, it can analyze all Jakarta EE deployment types, not just .war files.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>WildFly Glow knows the set of feature-packs compatible with a given WildFly version.
+It understands the connection that exists between Galleon layers and your application:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Java types and annotations in use</p>
+</li>
+<li>
+<p>XML descriptors,</p>
+</li>
+<li>
+<p>Properties files, …</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>WildFly Glow can suggest interesting features not directly required by your application but meaningful. For example: SSL when Undertow is in use,
+Microprofile OpenAPI when Jakarta REST is in use, WildFly CLI tools (all CLI launch scripts located in the WILDFLY_HOME/bin directory), &#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>WildFly Glow goes one step further than pure provisioning by identifying potential errors. And, when errors are identified,
+it can suggest ways to fix them (eg: add a missing datasource, add a missing access to a JMS broker).</p>
+</div>
+<div class="paragraph">
+<p>To summarize, WildFly Glow can build the server from your deployments and helps you discover additional
+WildFly server features that you are perhaps not aware of.</p>
+</div>
+<div class="paragraph">
+<p>The WildFly documentation site includes <a href="http://docs.wildfly.org/wildfly-glow">detailed documentation</a> of WildFly Glow.</p>
+</div>
+<div class="sect2">
+<h3 id="wildfly-glow-features">WildFly Glow Features</h3>
+<div class="sect3">
+<h4 id="a-set-of-tooling">A set of Tooling</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>WildFly Glow CLI, a standalone tool to scan your deployment to produce a WildFly server, a WildFly Bootable JAR or a docker image.</p>
+</li>
+<li>
+<p>Integration into the WildFly Maven Plugin 5.x&#8201;&#8212;&#8201;no more need for explicit feature-packs and layers in the plugin configuration.</p>
+</li>
+<li>
+<p>WildFly Glow Arquillian Maven plugin to scan your tests to produce a WildFly server required to execute your tests.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="handling-of-high-availability">Handling of High Availability</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>WildFly Glow allows you to enable an “ha” profile to produce a High Availablity WildFly server.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="handling-of-2-execution-contexts">Handling of 2 execution contexts</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>bare-metal (the default).</p>
+</li>
+<li>
+<p>cloud, to execute on Openshift and/or Kubernetes. In addition to fine tuning the server configuration for cloud execution,
+WildFly Glow discovers and advertises the WildFly env variables usable to configure the server at startup.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="handling-of-datasources">Handling of datasources</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Identify missing datasources and suggest datasources that you can use to connect to databases.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="knowledge-of-extra-feature-packs">Knowledge of extra Feature-packs</h4>
+<div class="paragraph">
+<p>A centralized knowledge (located in the <a href="https://github.com/wildfly/wildfly-galleon-feature-packs">wildfly-galleon-feature-packs</a> github project)
+of extra Galleon feature-packs compatible with WildFly. The WildFly features defined in these extra feature-packs
+are included in the provisioned server when WildFly Glow detects a need for them.</p>
+</div>
+<div class="paragraph">
+<p>The set of extra features supported are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/wildfly-extras/wildfly-cloud-galleon-pack">Cloud features</a></p>
+</li>
+<li>
+<p>Support for the major <a href="https://github.com/wildfly-extras/wildfly-datasources-galleon-pack">datasources</a> (PostgreSQL, MySQL, MariaDB, MSSQLServer, Oracle)</p>
+</li>
+<li>
+<p><a href="https://github.com/keycloak/keycloak">Keycloak</a> SAML</p>
+</li>
+<li>
+<p><a href="https://github.com/wildfly-extras/wildfly-grpc-feature-pack">GRPc</a></p>
+</li>
+<li>
+<p><a href="https://github.com/wildfly-extras/wildfly-myfaces-feature-pack">MyFaces</a></p>
+</li>
+<li>
+<p><a href="https://github.com/wildfly-extras/wildfly-graphql-feature-pack">Microprofile-GraphQL</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="support-for-wildfly-preview">Support for WildFly Preview</h4>
+<div class="paragraph">
+<p>WildFly Glow allows you to choose to provision a WildFly Preview server instead of a WildFly server.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Don&#8217;t know about WildFly Preview? To learn more, see the <a href="https://docs.wildfly.org/30/WildFly_and_WildFly_Preview.html">WildFly documentation</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="how-wildfly-glow-operates">How WildFly Glow operates</h3>
+<div class="paragraph">
+<p>WildFly Glow is used from provisioning tooling: the WildFly Glow command line tool or the WildFly Maven Plugin (starting with version 5.0.0 Beta).</p>
+</div>
+<div class="paragraph">
+<p>Java classes and file descriptors located in your deployments are scanned to identify the required set of galleon layers.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It leverages Galleon provisioning artifacts (Feature-packs and Layers).</p>
+</li>
+<li>
+<p>It relies on rules included in each Galleon Layer.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Rules capture the content expected inside the deployment for the layer to be required.</p>
+</li>
+<li>
+<p>Rules express the High Availability capability of a layer.</p>
+</li>
+<li>
+<p>Rules classify some layers as <code>add-on</code> that can be explicitly included. add-ons are advertised according to the set of layers discovered in the deployments.
+e.g.: SSL, embedded/remote JMS brokers, datasources, WildFly CLI (jboss-cli, add-users, elytron tooling, .,..).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>It knows about High Availability profile, and will automatically include HA Galleon layers.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="wildfly-glow-rules">WildFly Glow rules</h4>
+<div class="paragraph">
+<p>You can find documentation on the rules contained in WildFly Galleon layers in
+this <a href="http://docs.wildfly.org/wildfly-galleon-feature-packs/">documentation</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="wildfly-glow-provisioning-diagram">WildFly Glow Provisioning diagram</h4>
+<div class="imageblock">
+<div class="content">
+<img src="/assets/img/news/wildfly-glow2.jpg" alt="WildFly Glow provisioning diagram">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="provisioning-tooling-usage-comparison">Provisioning tooling usage comparison</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="wildfly-maven-plugin">WildFly Maven plugin</h3>
+<div class="sect3">
+<h4 id="simple-server">Simple server</h4>
+<div class="sect4">
+<h5 id="configuration-without-wildfly-glow-support">Configuration without WildFly Glow support</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">...
+
+&lt;feature-packs&gt;
+  &lt;feature-pack&gt;
+    &lt;location&gt;org.wildfly:wildfly-galleon-pack:${version.server}&lt;/location&gt;
+  &lt;/feature-pack&gt;
+&lt;/feature-packs&gt;
+&lt;layers&gt;
+    &lt;layer&gt;cloud-server&lt;/layer&gt;
+    &lt;layer&gt;ejb&lt;/layer&gt;
+&lt;/layers&gt;
+...</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="configuration-with-support-for-wildfly-glow">Configuration with support for WildFly Glow</h5>
+<div class="paragraph">
+<p>The XML element <code>&lt;discover-provisioning-info&gt;</code> enables the support for WildFly Glow (starting with WildFly Maven Plugin version 5 Beta).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">...
+&lt;discover-provisioning-info/&gt;
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The provisioning configuration is fully delegated to WildFly Glow. It will include and exclude Galleon layers according to what has been discovered
+(exclusion of layers can be required when provisioning an HA server).</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ha-server-for-cloud-execution-with-support-for-a-postgresql-datasource">HA server for cloud execution with support for a PostgreSQL datasource</h4>
+<div class="sect4">
+<h5 id="configuration-without-wildfly-glow-support-2">Configuration without WildFly Glow support</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">...
+
+&lt;feature-packs&gt;
+  &lt;feature-pack&gt;
+    &lt;location&gt;org.wildfly:wildfly-galleon-pack:${version.server}&lt;/location&gt;
+  &lt;/feature-pack&gt;
+  &lt;feature-pack&gt;
+    &lt;location&gt;org.wildfly.cloud:wildfly-cloud-galleon-pack:${version.cloud}&lt;/location&gt;
+  &lt;/feature-pack&gt;
+  &lt;feature-pack&gt;
+    &lt;location&gt;org.wildfly:wildfly-datasources-galleon-pack:${version.ds}&lt;/location&gt;
+  &lt;/feature-pack&gt;
+&lt;/feature-packs&gt;
+&lt;layers&gt;
+    &lt;layer&gt;cloud-server&lt;/layer&gt;
+    &lt;layer&gt;ejb&lt;/layer&gt;
+    &lt;layer&gt;ejb-dist-cache&lt;/layer&gt;
+    &lt;layer&gt;jpa-distributed&lt;/layer&gt;
+    &lt;layer&gt;postgresql-driver&lt;/layer&gt;
+&lt;/layers&gt;
+&lt;excludedLayers&gt;
+    &lt;layer&gt;ejb-local-cache&lt;/layer&gt;
+    &lt;layer&gt;jpa&lt;/layer&gt;
+&lt;/excludedLayers&gt;
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can notice that some Galleon layers have been excluded and their HA counter parts have been included.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="configuration-with-support-for-wildfly-glow-2">Configuration with support for WildFly Glow</h4>
+<div class="paragraph">
+<p>The XML element <code>&lt;discover-provisioning-info&gt;</code> is evolved with the <code>ha</code> profile, <code>cloud</code> context and the <code>postgresql</code> add-on.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">...
+&lt;discover-provisioning-info&gt;
+  &lt;profile&gt;ha&lt;/profile&gt;
+  &lt;context&gt;cloud&lt;/context&gt;
+  &lt;add-ons&gt;
+    &lt;add-on&gt;postgresql&lt;/add-on&gt;
+  &lt;/add-ons&gt;
+&lt;/discover-provisioning-info&gt;
+...</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="and-what-about-wildfly-bootable-jar">And What about WildFly Bootable JAR?</h3>
+<div class="paragraph">
+<p>The <a href="https://github.com/wildfly-extras/wildfly-jar-maven-plugin">WildFly Bootable JAR Maven Plugin</a> has not been evolved to support WildFly Glow.
+Instead, we have evolved the WildFly Maven Plugin to also produce a WildFly Bootable JAR.</p>
+</div>
+<div class="paragraph">
+<p>So you can benefit from WildFly Glow and build WildFly executable JARs by using the same Maven plugin.</p>
+</div>
+<div class="paragraph">
+<p>To enable Bootable JAR packaging, set the <code>&lt;bootable-jar&gt;true&lt;/bootable-jar&gt;</code> plugin option.</p>
+</div>
+<div class="paragraph">
+<p>Details on how to produce WildFly Bootable JAR from the WildFly Maven Plugin will come in a following blog post.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="galleon-cli-vs-wildfly-glow-cli">Galleon CLI vs WildFly Glow CLI</h3>
+<div class="sect3">
+<h4 id="server-with-support-for-postgresql-datasource">Server with support for postgresql datasource</h4>
+<div class="sect4">
+<h5 id="galleon-cli">Galleon CLI</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">galleon.sh install wildfly --layers=cloud-server,ejb,jsf --dir=server
+galleon.sh install org.wildfly:wildfly-datasources-galleon-pack:6.0.0.Final --layers=postgresql-datasource --dir=server</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You will then have to deploy your application into the provisioned server.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="wildfly-glow-cli">WildFly Glow CLI</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">wildfly-glow.sh scan myapp.war --add-ons=postgresql --provision=SERVER</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The provisioned server contains the deployment that has been scanned.</p>
+</li>
+<li>
+<p>By specifying <code>--provision=BOOTABLE_JAR</code> you can produce a WildFly bootable JAR. By specifying <code>--provision=DOCKER_IMAGE</code> you can produce a Docker image.</p>
+</li>
+<li>
+<p>If you don&#8217;t use the <code>--provision</code> parameter at all, WildFly Glow will simply output a report of what it has discovered.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s an example of producing a Docker image for cloud execution:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">wildfly-glow.sh scan myapp.war --add-ons=postgresql --provision=DOCKER_IMAGE --cloud</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="output-example">Output example</h5>
+<div class="paragraph">
+<p>WildFly Glow CLI output shows what it has discovered, for example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">wildfly-glow.sh scan myapp.war
+
+Wildfly Glow is scanning...
+context: bare-metal
+enabled profile: none
+galleon discovery
+- feature-packs
+   org.wildfly:wildfly-galleon-pack:30.0.1.Final
+- layers
+   ee-core-profile-server
+   jpa
+   ejb-lite
+   jaxrs
+   jsf
+   h2-driver
+
+Some suggestions have been found. You could enable suggestions with --suggest option (if using the WildFly Glow CLI) or &lt;suggest&gt;true&lt;/suggest&gt; (if using the WildFly Maven Plugin).
+If you had included a --provision option to the scan command, after outputting this report, WildFly Glow will continue on to provisioning your WildFly server, bootable jar or Docker image.</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="understanding-why-a-galleon-layer-has-been-selected">Understanding why a Galleon layer has been selected</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>WildFly Glow is based on rules contained in the WildFly Galleon layers. If a rule matches, the layer is included. The set of rules
+contained in WildFly layers is documented in this <a href="http://docs.wildfly.org/wildfly-galleon-feature-packs/">documentation</a>.</p>
+</div>
+<div class="paragraph">
+<p>If verbose mode is enabled (<code>--verbose</code> option with the WildFly Glow CLI, <code>&lt;verbose&gt;true&lt;/verbose&gt;</code> option for the maven plugin),
+WildFly Glow will output for each layer the rules that matched.</p>
+</div>
+<div class="paragraph">
+<p>An example of output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>...
+layers inclusion rules
+* ee-core-profile-server
+  - BASE_LAYER
+* ee-concurrency
+  - JAVA_TYPE: [jakarta.enterprise.concurrent.*]
+* undertow-https
+  - ADD_ON
+...</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This output means:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ee-core-profile-server</code> is a base layer (always included).</p>
+</li>
+<li>
+<p><code>ee-concurrency</code> layer is included because a Java class located in the java package <code>jakarta.enterprise.concurrent</code> has been found.</p>
+</li>
+<li>
+<p><code>undertow-https</code> is included because it is bound to an included add-on (in this case <code>ssl</code>).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="trimming-numbers-with-wildfly-glow">Trimming numbers with WildFly Glow</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We have measured the Disk usage and Memory consumption of some WildFly quickstarts
+(using the <a href="https://github.com/wildfly/quickstart/tree/31.0.0.Final-glow-preview">WildFly Glow branch</a> vs the <a href="https://github.com/wildfly/quickstart/tree/main">main branch</a>). We have observed a reduction of 5% to 55% for disk usage
+and 5% to 32% for memory consumption. Variation is bound to the complexity of the quickstart. If the quickstart requires all the Galleon layers
+present in an aggregator layer (eg: <code>cloud-server</code> or <code>jaxrs-server</code>) then the gain is lower.</p>
+</div>
+<div class="paragraph">
+<p>My colleague Kabir Khan has written an interesting <a href="https://github.com/kabir/vlog-glow/blob/main/README.md">project</a>
+and is going to publish a Vlog on the <a href="https://www.youtube.com/@WildFlyAS">WildFly Channel</a> that will showcase the gain you can expect with WildFly Glow. Stay tuned!</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="datasources-support-missing-datasource-detection">Datasources support, missing datasource detection</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If WildFly Glow detects that your deployment uses datasources, it will abort asking you to take an action to fix the problem.
+It will suggest the set of known add-ons allowing WildFly to connect to a database.</p>
+</div>
+<div class="paragraph">
+<p>You will have to choose one of the proposed add-ons.</p>
+</div>
+<div class="paragraph">
+<p>An example of a reported error when using the WildFly Glow CLI:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">wildfly-glow scan todo-backend.war
+
+Wildfly Glow is scanning...
+context: bare-metal
+enabled profile: none
+galleon discovery
+- feature-packs
+   org.wildfly:wildfly-galleon-pack:30.0.1.Final
+- layers
+   ee-core-profile-server
+   ejb-lite
+   jpa
+   jaxrs
+
+identified errors
+* unbound datasources error: java:jboss/datasources/ToDos
+  To correct this error, enable one of the following add-ons:
+  - mariadb
+  - mssqlserver
+  - mysql
+  - oracle
+  - postgresql
+
+Some suggestions have been found. You could enable suggestions with --suggest option (if using the WildFly Glow CLI) or &lt;suggest&gt;true&lt;/suggest&gt; (if using the WildFly Maven Plugin).
+To enable add-ons, add the --add-ons=&lt;list of add-ons&gt; option to the scan command
+Some errors have been reported. You should fix them prior provisioning a server with the --provision option of the scan command</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="datasources-support-setting-a-datasource-add-on">Datasources support, setting a datasource add-on</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We will use the <code>postgresql</code> add-on to fix the reported error.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">wildfly-glow scan todo-backend.war --add-ons=postgresql
+
+Wildfly Glow is scanning...
+context: bare-metal
+enabled profile: none
+galleon discovery
+- feature-packs
+   org.wildfly:wildfly-galleon-pack:30.0.1.Final
+   org.wildfly:wildfly-datasources-galleon-pack:6.0.0.Final
+- layers
+   ee-core-profile-server
+   ejb-lite
+   jpa
+   jaxrs
+   postgresql-datasource
+
+enabled add-ons
+- postgresql : Documentation in https://github.com/wildfly-extras/wildfly-datasources-galleon-pack
+
+strongly suggested configuration
+
+postgresql-datasource environment variables:
+ - POSTGRESQL_DATABASE=Defines the database name to be used in the datasource’s `connection-url` property.
+ - POSTGRESQL_JNDI=java:jboss/datasources/ToDos
+ - POSTGRESQL_PASSWORD=Defines the password for the datasource.
+ - POSTGRESQL_USER=Defines the username for the datasource.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>WildFly Glow detects that the postgresql datasource has to be configured with environment variables and advertises the set of environment variables to be used when starting the server.</p>
+</div>
+<div class="paragraph">
+<p>Example of a server started with environment variables set:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">POSTGRESQL_DATABASE=test \
+POSTGRESQL_JNDI=java:jboss/datasources/ToDos \
+POSTGRESQL_PASSWORD=test \
+POSTGRESQL_USER=test \
+sh ./bin/target/server/bin/standalone.sh</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="experimenting-with-wildfly-glow">Experimenting with WildFly Glow</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="using-the-wildfly-glow-cli">Using the WildFly Glow CLI</h3>
+<div class="paragraph">
+<p>To get started with the WildFly Glow CLI, you can download the <a href="https://github.com/wildfly/wildfly-glow/releases">latest release</a>.</p>
+</div>
+<div class="paragraph">
+<p>To scan a deployment you plan to deploy to WildFly, call:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">wildfly-glow.sh scan &lt;your deployment&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can report issues/suggestions as <a href="https://github.com/wildfly/wildfly-glow/issues">Issues</a> in the WildFly Glow project.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="using-the-wildfly-maven-plugin">Using the WildFly Maven Plugin</h3>
+<div class="paragraph">
+<p>The WildFly quickstarts have been ported to rely on WildFly Glow. You can clone the quickstart <a href="https://github.com/wildfly/quickstart/tree/31.0.0.Final-glow-preview">glow-preview branch</a> and play with the quickstarts of your choice.
+For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">cd helloworld
+mvn clean package -Pprovisioned-server</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To produce a WildFly Bootable JAR call:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">cd microprofile-config
+mvn clean package -Pbootable-jar</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="status">Status</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For WildFly 31, WildFly Glow is at a Beta level of quality. Some facts:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/wildfly/wildfly-glow/releases">Latest WildFly Glow</a> version is currently 1.0.0.Beta7.</p>
+</li>
+<li>
+<p><a href="https://github.com/wildfly/wildfly-maven-plugin">WildFly Maven Plugin</a> 5.0.0.Beta2 supports WildFly Glow and the ability to produce a WildFly Bootable JAR.</p>
+</li>
+<li>
+<p>All WildFly quickstarts have been ported to use WildFly Glow in this preview <a href="https://github.com/wildfly/quickstart/tree/31.0.0.Final-glow-preview">branch</a>.</p>
+</li>
+<li>
+<p>The WildFly 31 testsuite has been enhanced to use WildFly Glow everywhere it is practical.</p>
+</li>
+<li>
+<p>WildFly Galleon feature-packs <a href="https://github.com/wildfly/wildfly-galleon-feature-packs">registry</a> is open to contribute more extra feature-packs compatible with WildFly.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Final level of quality is expected for WildFly 32</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>WildFly Glow Final.</p>
+</li>
+<li>
+<p>WildFly Quickstarts main branch migrated to WildFly Glow.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>We hope that you will find interest in this simplified approach to provisioning WildFly servers. Your feedback would be very valuable to evolve WildFly Glow in the right direction.
+Feel free to log issues in the <a href="https://github.com/wildfly/wildfly-glow/issues">project</a>.</p>
+</div>
+<div class="paragraph">
+<p>Thank-you!</p>
+</div>
+<div class="paragraph">
+<p>Jean-Francois Denise</p>
+</div>
+</div>
+</div>
+    
+  </div>
+</div>
+
+
+
+  </div>
+
+  <div class="content project-footer">
+  <div class="footer-section">
+    <div class="logo-wrapper">
+      <a href="/"><img class="wf-logo" src="/assets/img/wildfly_icons_one-color-logo.png"></a>
+    </div>
+  </div>
+  <div class="grid-wrapper">
+    <p class="grid__item width-3-12">WildFly is fully open. All components are open source and follow a community-focused development process.<br/><br/>This website was built with <a href='https://jekyllrb.com/' target='_blank'>Jekyll</a> is hosted on <a href='https://pages.github.com/' target='_blank'>Github Pages</a> and is completely open source. If you want to make it better, <a href='https://github.com/wildfly/wildfly.org/fork' target='_blank'>fork it</a> and show us what you’ve got.</p>
+
+    
+      <div class="width-1-12 project-links">
+        <strong>Navigation</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="/downloads">Downloads</a></li>
+          
+            <li><a href="https://docs.wildfly.org">Docs</a></li>
+          
+            <li><a href="/get-started">Get Started</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly">Github</a></li>
+          
+            <li><a href="/guides">Guides</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Contribute</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://issues.jboss.org/browse/WFLY">Submit a bug</a></li>
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly/fork">Fork WildFly</a></li>
+          
+            <li><a href="https://twitter.com/WildFlyAS">Follow us</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Get Help</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://wildfly.zulipchat.com/">Join Zulip Chat</a></li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="width-6-12 more-links">
+        <strong>Find more Red Hat Middleware Community Projects</strong>
+        <ul class="footer-links">
+          
+            <li><a href="https://www.apiman.io/">APIMan</a></li>
+          
+            <li><a href="http://arquillian.org">Arquillian</a></li>
+          
+            <li><a href="https://github.com/ansible-middleware/wildfly">Ansible Collection for Wildfly</a></li>
+          
+            <li><a href="http://byteman.jboss.org/">Byteman</a></li>
+          
+            <li><a href="http://capedwarf.org/">CapeDwarf</a></li>
+          
+            <li><a href="https://github.com/alechenninger/chronicler">Chronicler</a></li>
+          
+            <li><a href="https://github.com/darcy-framework">Darcy</a></li>
+          
+            <li><a href="http://debezium.io/">Debezium</a></li>
+          
+            <li><a href="https://www.drools.org/">Drools</a></li>
+          
+            <li><a href="http://gatein.jboss.org/">GateIn</a></li>
+          
+            <li><a href="http://www.hawkular.org/">Hawkular</a></li>
+          
+            <li><a href="http://hawt.io/">Hawtio</a></li>
+          
+            <li><a href="http://hibernate.org/">Hibernate</a></li>
+          
+            <li><a href="http://www.infinispan.org/">Infinispan</a></li>
+          
+            <li><a href="https://developers.redhat.com/products/codeready-studio/overview">CodeReady Studio</a></li>
+          
+            <li><a href="http://forge.jboss.org/">JBoss Forge</a></li>
+          
+            <li><a href="https://github.com/jboss-logging">JBoss Logging</a></li>
+          
+            <li><a href="http://jbossremoting.jboss.org/">JBoss Remoting</a></li>
+          
+            <li><a href="https://www.jbpm.org/">jBPM</a></li>
+          
+            <li><a href="https://jsfunit.jboss.org/">JSFUnit</a></li>
+          
+            <li><a href="https://www.keycloak.org/">Keycloak</a></li>
+          
+            <li><a href="http://modcluster.io/">Mod Cluster</a></li>
+          
+            <li><a href="http://modeshape.jboss.org/">ModeShape</a></li>
+          
+            <li><a href="https://www.optaplanner.org/">OptaPlanner</a></li>
+          
+            <li><a href="https://quarkus.io/">Quarkus</a></li>
+          
+            <li><a href="http://resteasy.jboss.org/">RESTEasy</a></li>
+          
+            <li><a href="https://riftsaw.jboss.org/">Riftsaw</a></li>
+          
+            <li><a href="http://savara.jboss.org/">Savara</a></li>
+          
+            <li><a href="https://weld.cdi-spec.org/">Weld</a></li>
+          
+            <li><a href="http://arquillian.org/">Shrinkwrap</a></li>
+          
+            <li><a href="https://switchyard.jboss.org/">Switchyard</a></li>
+          
+            <li><a href="https://tattletale.jboss.org/">Tattletale</a></li>
+          
+            <li><a href="https://teiid.io/">Teiid</a></li>
+          
+            <li><a href="https://wildfly-security.github.io/wildfly-elytron/">WildFly Elytron</a></li>
+          
+            <li><a href="http://wise.jboss.org/">Wise</a></li>
+          
+            <li><a href="https://xnio.jboss.org/">XNIO</a></li>
+          
+        </ul>
+      </div>
+    
+  </div>
+</div>
+  <div class="content redhat-footer">
+  <div class="grid-wrapper">
+    <span class="licence">
+      <i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i> <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC by 3.0</a> | <a href="https://www.redhat.com/en/about/privacy-policy">Privacy Policy</a>
+    </span>
+    <span class="redhat">
+      Sponsored by
+    </span>
+    <span class="redhat-logo">
+      <a href="https://www.redhat.com/" target="_blank"><img src="/assets/img/redhat_reversed.svg"></a>
+    </span>
+  </div>
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/mobile-nav.js"></script>
+  <script type="text/javascript" src="/assets/javascript/random-color-picker.js"></script>
+  <script type="text/javascript">
+    if (("undefined" !== typeof _satellite) && ("function" === typeof _satellite.pageBottom)) {
+        _satellite.pageBottom();
+    }
+    hljs.highlightAll();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/copy.js"></script>
+
+</body>
+
+</html>

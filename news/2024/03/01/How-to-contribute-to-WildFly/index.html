@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script id="adobe_dtm" src="//www.redhat.com/dtm.js" type="text/javascript"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to contribute to WildFly</title>
+  <meta name="description" content="Article about How to contribute to WildFly.">
+  <link rel="me" href="https://fosstodon.org/@wildflyas" />
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" >
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/atelier-dune-light.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/protobuf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/dockerfile.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40221748-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-40221748-1');
+  </script>
+
+  
+
+</head>
+
+<body class="How to contribute to WildFly">
+  <div class="content">
+    <div class="header navigation">
+  <div class="logo-wrapper">
+    <a href="/"><img class="wf-logo" src="/assets/img/wildfly_icons_one-color-logo.png"></a>
+  </div>
+  <div class="nav-container">
+    <nav>
+      <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+      <ul class="nav-list">
+        <li>
+          <a href="/news/" class="active">News</a>
+        </li>
+        <li>
+          <a href="/about/" class="">About</a>
+        </li>
+        <li>
+          <a href="/contribute/" class="">Contribute</a>
+        </li>
+        <li>
+            <a target="_blank" href="https://docs.wildfly.org">Docs</a>
+        </li>
+        <li>
+          <a href="/guides/" class="">Guides</a>
+        </li>
+        <li>
+          <a href="/downloads/" class="">Downloads</a>
+        </li>
+        <li>
+          <a href="/security/" class="">CVE Reporting</a>
+        </li>
+        <li>
+          <a href="https://github.com/wildfly/wildfly/fork" target="_blank">Fork</a>
+        </li>
+        <li>
+          <a class="button-cta secondary " href="/get-started/">Get Started</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+    <div class="post-page grid-wrapper">
+  <div class="grid__item width-10-12">
+    <h1 class="title">How to contribute to WildFly</h1>
+    
+    
+    
+
+    <p>
+      
+        
+          
+          <p class="byline">
+            
+              <img class="avatar" height="60px" width="60px" src="/assets/img/authors/rchakrab.jpg"/>
+            
+
+            By Ranabir Chakraborty
+            
+              | March 01, 2024
+            
+          </p>
+        
+      
+    </p>
+  </div>
+  <div class="grid__item width-10-12 doc-content">
+    
+    <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Welcome to the world of WildFly contributions, a place where your skills can make a real impact! If you&#8217;re eager to dive in but not sure where to start, this guide is here to simplify the process for you. Whether you&#8217;re new to open source or just getting acquainted with WildFly, we&#8217;ve got your back.</p>
+</div>
+<div class="paragraph">
+<p>In the upcoming sections, we&#8217;ll walk you through the essential steps, providing insights into the WildFly ecosystem and equipping you with the tools and knowledge needed to actively participate in its development. From setting up your development environment to engaging with the vibrant community, each step is a gateway to not only enhancing your technical skills but also fostering connections within a community passionate about open-source excellence. Join us as we explore how you can navigate the wild and make your mark in the world of WildFly contributions.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="get-acquainted-with-wildfly">Get Acquainted with WildFly</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The first step in contributing to WildFly is to familiarize yourself with the project. Visit the WildFly <a href="https://github.com/wildfly/wildfly">GitHub repository</a>. Explore the project structure, review the source code, and read the <a href="https://docs.wildfly.org/">latest documentation</a> available in the repository. The documentation provides valuable insights into building, configuring, and deploying applications with WildFly.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="set-up-your-development-environment-and-install-wildfly">Set Up Your Development Environment and Install WildFly</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Before installing the latest version of WildFly, there are a few prerequisites:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Check that you have a JDK on your machine—JDK 11 or higher recommended to start WildFly. You can use the open source JDK called <a href="https://openjdk.org/">OpenJDK</a>. Once you install the JDK, set the JAVA_HOME environment variable.</p>
+</li>
+<li>
+<p>Ensure you have Maven 3.6.0 or higher installed. You can download Maven from <a href="https://maven.apache.org/download.cgi">here</a> and set the environment variables.</p>
+</li>
+<li>
+<p>After loading both the variables, check the versions of JDK and Maven like below.</p>
+</li>
+</ul>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ java -version
+openjdk version “11.0.9” 2020-10-20 OpenJDK Runtime Environment AdoptOpenJDK (build 11.0.9+11)
+OpenJDK 64-Bit Server VM AdoptOpenJDK (build 11.0.9+11, mixed mode)</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ mvn -version
+Apache Maven 3.6.3 (cecedd343002696d0abb50b32b541b8a6ba2883f) Maven home: /usr/share/maven
+Java version: 11.0.9, vendor: AdoptOpenJDK, runtime: /usr/lib64/adoptopenjdk
+Default locale: en_US, platform encoding: UTF-8
+OS name: “linux”, version: “5.9.1”, arch: “amd64”, family: “unix”</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There are many ways you can install WildFly, including unzipping our traditional download zip, provisioning a custom installation using Galleon, or building a bootable jar. The official <a href="https://docs.wildfly.org/24/Installation_Guide.html">installation guide</a> helps you identify the kind of WildFly installation that best fits your application’s deployment needs.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="create-an-issue-or-follow-the-jira">Create an Issue or Follow the JIRA</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>WildFly uses JIRA for issue tracking. You can find the list of issues and tasks on the <a href="https://issues.redhat.com/projects/WFLY">WildFly JIRA dashboard</a>. If you encounter a bug, have a feature request, spot something in the documentation that could be improved or spot something missing in the documentation, or want to contribute in any way, create a new issue on JIRA. Alternatively, you can pick an existing issue or go through <a href="https://issues.redhat.com/issues/?filter=12403174">good first issues</a> that aligns with your interests or skills.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="select-an-issue-and-send-a-pull-request">Select an Issue and Send a Pull Request:</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Once you&#8217;ve identified an issue you&#8217;d like to work on, <a href="https://github.com/wildfly/wildfly/fork">fork the WildFly repository</a>, create a new branch, and start working on the issue. Make your changes, commit them, and push the changes to your forked repository. Finally, submit a pull request to the main WildFly repository. For better understanding you can also follow the official <a href="https://docs.wildfly.org/31/Hacking_On_WildFly.html#getting-started">getting started guide</a>. Make sure to follow the <a href="https://github.com/wildfly/wildfly/blob/main/CODE_OF_CONDUCT.md">code of conduct</a> and <a href="https://github.com/wildfly/wildfly/blob/main/CONTRIBUTING.md">contribution guidelines</a> to ensure a smooth review process.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="participate-in-code-review">Participate in Code Review</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Code review is a crucial aspect of any open-source project. Engage in discussions with other contributors, address feedback, and iterate on your changes. This collaborative process helps maintain code quality and ensures that contributions align with the project&#8217;s standards.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="engage-with-the-community">Engage with the Community</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>WildFly has a diverse and active community of developers, users, and contributors. Join the discussion on the WildFly google group - <a href="mailto:wildfly@googlegroups.com">wildfly@googlegroups.com</a> or via the Zulip <a href="https://wildfly.zulipchat.com/#narrow/stream/196266-wildfly-user">wildfly-user</a>, <a href="https://wildfly.zulipchat.com/#narrow/stream/174184-wildfly-developers">wildfly-developer</a> channels. We are also present on <a href="https://twitter.com/WildFlyAS">X</a> and <a href="https://www.youtube.com/@WildFlyAS">YouTube</a>, you can follow us there as well. Participate in community events, webinars, and conferences related to WildFly. Engaging with the community not only enhances your understanding of the project but also opens doors for collaboration and mentorship.</p>
+</div>
+<div class="paragraph">
+<p>Contributing to WildFly is a rewarding experience that allows you to be part of a thriving open-source community. By following these steps, you can make meaningful contributions to the project, enhance your skills, and connect with like-minded individuals who share a passion for open-source development. Remember, every contribution, no matter how small, makes a valuable impact on the success of the WildFly project.</p>
+</div>
+</div>
+</div>
+    
+  </div>
+</div>
+
+
+
+  </div>
+
+  <div class="content project-footer">
+  <div class="footer-section">
+    <div class="logo-wrapper">
+      <a href="/"><img class="wf-logo" src="/assets/img/wildfly_icons_one-color-logo.png"></a>
+    </div>
+  </div>
+  <div class="grid-wrapper">
+    <p class="grid__item width-3-12">WildFly is fully open. All components are open source and follow a community-focused development process.<br/><br/>This website was built with <a href='https://jekyllrb.com/' target='_blank'>Jekyll</a> is hosted on <a href='https://pages.github.com/' target='_blank'>Github Pages</a> and is completely open source. If you want to make it better, <a href='https://github.com/wildfly/wildfly.org/fork' target='_blank'>fork it</a> and show us what you’ve got.</p>
+
+    
+      <div class="width-1-12 project-links">
+        <strong>Navigation</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="/downloads">Downloads</a></li>
+          
+            <li><a href="https://docs.wildfly.org">Docs</a></li>
+          
+            <li><a href="/get-started">Get Started</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly">Github</a></li>
+          
+            <li><a href="/guides">Guides</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Contribute</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://issues.jboss.org/browse/WFLY">Submit a bug</a></li>
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly/fork">Fork WildFly</a></li>
+          
+            <li><a href="https://twitter.com/WildFlyAS">Follow us</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Get Help</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://wildfly.zulipchat.com/">Join Zulip Chat</a></li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="width-6-12 more-links">
+        <strong>Find more Red Hat Middleware Community Projects</strong>
+        <ul class="footer-links">
+          
+            <li><a href="https://www.apiman.io/">APIMan</a></li>
+          
+            <li><a href="http://arquillian.org">Arquillian</a></li>
+          
+            <li><a href="https://github.com/ansible-middleware/wildfly">Ansible Collection for Wildfly</a></li>
+          
+            <li><a href="http://byteman.jboss.org/">Byteman</a></li>
+          
+            <li><a href="http://capedwarf.org/">CapeDwarf</a></li>
+          
+            <li><a href="https://github.com/alechenninger/chronicler">Chronicler</a></li>
+          
+            <li><a href="https://github.com/darcy-framework">Darcy</a></li>
+          
+            <li><a href="http://debezium.io/">Debezium</a></li>
+          
+            <li><a href="https://www.drools.org/">Drools</a></li>
+          
+            <li><a href="http://gatein.jboss.org/">GateIn</a></li>
+          
+            <li><a href="http://www.hawkular.org/">Hawkular</a></li>
+          
+            <li><a href="http://hawt.io/">Hawtio</a></li>
+          
+            <li><a href="http://hibernate.org/">Hibernate</a></li>
+          
+            <li><a href="http://www.infinispan.org/">Infinispan</a></li>
+          
+            <li><a href="https://developers.redhat.com/products/codeready-studio/overview">CodeReady Studio</a></li>
+          
+            <li><a href="http://forge.jboss.org/">JBoss Forge</a></li>
+          
+            <li><a href="https://github.com/jboss-logging">JBoss Logging</a></li>
+          
+            <li><a href="http://jbossremoting.jboss.org/">JBoss Remoting</a></li>
+          
+            <li><a href="https://www.jbpm.org/">jBPM</a></li>
+          
+            <li><a href="https://jsfunit.jboss.org/">JSFUnit</a></li>
+          
+            <li><a href="https://www.keycloak.org/">Keycloak</a></li>
+          
+            <li><a href="http://modcluster.io/">Mod Cluster</a></li>
+          
+            <li><a href="http://modeshape.jboss.org/">ModeShape</a></li>
+          
+            <li><a href="https://www.optaplanner.org/">OptaPlanner</a></li>
+          
+            <li><a href="https://quarkus.io/">Quarkus</a></li>
+          
+            <li><a href="http://resteasy.jboss.org/">RESTEasy</a></li>
+          
+            <li><a href="https://riftsaw.jboss.org/">Riftsaw</a></li>
+          
+            <li><a href="http://savara.jboss.org/">Savara</a></li>
+          
+            <li><a href="https://weld.cdi-spec.org/">Weld</a></li>
+          
+            <li><a href="http://arquillian.org/">Shrinkwrap</a></li>
+          
+            <li><a href="https://switchyard.jboss.org/">Switchyard</a></li>
+          
+            <li><a href="https://tattletale.jboss.org/">Tattletale</a></li>
+          
+            <li><a href="https://teiid.io/">Teiid</a></li>
+          
+            <li><a href="https://wildfly-security.github.io/wildfly-elytron/">WildFly Elytron</a></li>
+          
+            <li><a href="http://wise.jboss.org/">Wise</a></li>
+          
+            <li><a href="https://xnio.jboss.org/">XNIO</a></li>
+          
+        </ul>
+      </div>
+    
+  </div>
+</div>
+  <div class="content redhat-footer">
+  <div class="grid-wrapper">
+    <span class="licence">
+      <i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i> <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC by 3.0</a> | <a href="https://www.redhat.com/en/about/privacy-policy">Privacy Policy</a>
+    </span>
+    <span class="redhat">
+      Sponsored by
+    </span>
+    <span class="redhat-logo">
+      <a href="https://www.redhat.com/" target="_blank"><img src="/assets/img/redhat_reversed.svg"></a>
+    </span>
+  </div>
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/mobile-nav.js"></script>
+  <script type="text/javascript" src="/assets/javascript/random-color-picker.js"></script>
+  <script type="text/javascript">
+    if (("undefined" !== typeof _satellite) && ("function" === typeof _satellite.pageBottom)) {
+        _satellite.pageBottom();
+    }
+    hljs.highlightAll();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/copy.js"></script>
+
+</body>
+
+</html>

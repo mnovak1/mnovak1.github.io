@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script id="adobe_dtm" src="//www.redhat.com/dtm.js" type="text/javascript"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WildFly 33 is released!</title>
+  <meta name="description" content="WildFly 33 Final is now available for download.">
+  <link rel="me" href="https://fosstodon.org/@wildflyas" />
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" >
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/atelier-dune-light.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/protobuf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/dockerfile.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40221748-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-40221748-1');
+  </script>
+
+  
+
+</head>
+
+<body class="WildFly 33 is released!">
+  <div class="content">
+    <div class="header navigation">
+  <div class="logo-wrapper">
+    <a href="/"><img class="wf-logo" src="/assets/img/wildfly_icons_one-color-logo.png"></a>
+  </div>
+  <div class="nav-container">
+    <nav>
+      <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+      <ul class="nav-list">
+        <li>
+          <a href="/news/" class="active">News</a>
+        </li>
+        <li>
+          <a href="/about/" class="">About</a>
+        </li>
+        <li>
+          <a href="/contribute/" class="">Contribute</a>
+        </li>
+        <li>
+            <a target="_blank" href="https://docs.wildfly.org">Docs</a>
+        </li>
+        <li>
+          <a href="/guides/" class="">Guides</a>
+        </li>
+        <li>
+          <a href="/downloads/" class="">Downloads</a>
+        </li>
+        <li>
+          <a href="/security/" class="">CVE Reporting</a>
+        </li>
+        <li>
+          <a href="https://github.com/wildfly/wildfly/fork" target="_blank">Fork</a>
+        </li>
+        <li>
+          <a class="button-cta secondary " href="/get-started/">Get Started</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+    <div class="post-page grid-wrapper">
+  <div class="grid__item width-10-12">
+    <h1 class="title">WildFly 33 is released!</h1>
+    
+    
+    
+
+    <p>
+      
+        
+          
+          <p class="byline">
+            
+              <img class="avatar" height="60px" width="60px" src="/assets/img/authors/bstansberry.jpg"/>
+            
+
+            By Brian Stansberry
+            
+              | July 23, 2024
+            
+          </p>
+        
+      
+    </p>
+  </div>
+  <div class="grid__item width-10-12 doc-content">
+    
+    <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>I&#8217;m pleased to announce that the new WildFly and WildFly Preview 33.0.0.Final releases are available for download at <a href="https://wildfly.org/downloads" class="bare">https://wildfly.org/downloads</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="new-and-notable">New and Notable</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="individual-features">Individual Features</h3>
+<div class="paragraph">
+<p>There a number of new features in WildFly 33, but before getting into the specific items I want to mention again the capabilities introduced in WildFly 31 to introduce features at <a href="https://docs.wildfly.org/33/Admin_Guide.html#Feature_stability_levels">different stability levels</a>. Features can be introduced at one of four stability levels&#8201;&#8212;&#8201;<code>experimental</code>, <code>preview</code>, <code>community</code> or <code>default</code>&#8201;&#8212;&#8201;with the ideal outcome being that we promote them in subsequent releases to higher levels. The goal here is to allow users who want to look at features in earlier stages of the development lifecycle to easily do so, without leaving users who are not interested in that in a situation where they may inadvertently use those features.</p>
+</div>
+<div class="paragraph">
+<p>So, here&#8217;s what&#8217;s new:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>WildFly&#8217;s support for <a href="https://docs.wildfly.org/33/Admin_Guide.html#YAML_Configuration_file">overriding base configuration settings using a YAML file</a> has been enhanced with the addition of support for <a href="https://issues.redhat.com/browse/WFCORE-6503">using the YAML file to add <strong>unmanaged</strong> deployments to the configuration</a>. An unmanaged deployment is one where the server does not make an internal copy of the deployment content for its use; instead it directly uses the configured content. For more on this concept, see <a href="https://docs.wildfly.org/33/Admin_Guide.html#managed-and-unmanaged-deployments">Managed and Unmanaged Deployments</a> in the WildFly documentation.  This feature is provided at the <code>default</code> stability level.</p>
+</li>
+<li>
+<p>The <code>core-management</code> subsystem now allows you to enable <a href="https://docs.wildfly.org/wildfly-proposals/server/WFCORE-6750-unstable-api-annotation-scanner.html">scanning of your deployments</a> for usage of classes/methods in the SmallRye and Hibernate libraries annotated with <code>org.hibernate.Incubating</code> and <code>io.smallrye.common.annotation.Experimental</code>. These annotations indicate that those API elements are subject to change at any time, so users may wish to be made aware if their applications use them, or even fail deployment if they are used.  The goal here is not to discourage such use; rather it&#8217;s part of our overall effort to allow users to take advantage in a controlled manner of newer, perhaps less stable, functionality. This feature itself is provided at the <code>preview</code> stability level.</p>
+</li>
+<li>
+<p>When configuring WildFly to act as a reverse proxy, the <code>undertow</code> subsystem now supports configuring the reverse proxy handler to <a href="https://docs.wildfly.org/wildfly-proposals/undertow/WFLY-14255_Make_resuseXForwarded_and_rewriteHost_configurable.html">reuse and append to any <code>X-Forwarded</code> HTTP headers and to rewrite the <code>Host</code> header</a>. This feature is provided at the <code>preview</code> stability level.</p>
+</li>
+<li>
+<p>The <code>undertow</code> subsystem now allows <a href="https://docs.wildfly.org/wildfly-proposals/undertow/WFLY-15452_ajp-listener_allowed_attr_pattern.html">configuring the AJP listener to accept custom AJP request headers</a>. Previously such configuration could only be done by via a system property. This feature is provided at the <code>preview</code> stability level.</p>
+</li>
+<li>
+<p>The <code>elytron-oidc-client</code> subsystem now <a href="https://docs.wildfly.org/wildfly-proposals/elytron/WFLY-17143-request-uri-parameters.html">allows authentication requests to be sent as a signed and encrypted request object</a> using the <code>request</code> and <code>request_uri</code> authenication request parameters. This feature is provided at the <code>preview</code> stability level.</p>
+</li>
+<li>
+<p>Utilities to <a href="https://docs.wildfly.org/wildfly-proposals/server/WFCORE-6815-reload-domain-mode-to-stability-level.html">reload a server to a different stability level</a> in the testsuite are now available. The primary audience for this feature is the developers of WildFly itself or people writing extensions to WildFly. This follows up on a similar feature <a href="https://docs.wildfly.org/wildfly-proposals/server/WFCORE-6728-reload-to-stability-level.html">reload a server to a different stability level</a> added in WildFly 32. This feature is provided at the <code>community</code> stability level.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="wildfly-ee-10-and-se-21">WildFly, EE 10 and SE 21</h3>
+<div class="paragraph">
+<p>I am very happy to be able to announce that standard WildFly 33 is a compatible implementation of the Jakarta EE 10 <a href="https://github.com/wildfly/certifications/blob/EE10/WildFly_33.0.0.Final/jakarta-web-profile-jdk21.adoc#tck-results">Web Profile</a> and <a href="https://github.com/wildfly/certifications/blob/EE10/WildFly_33.0.0.Final/jakarta-full-platform-jdk21.adoc#tck-results">Full Platform</a> when running on Java SE 21.</p>
+</div>
+<div class="paragraph">
+<p>WildFly has been able to certify as a compatible EE 10 Core Profile, Web Profile and Full Platform implementation when running on SE 11 and SE 17 since <a href="https://www.wildfly.org/news/2022/11/09/WildFly27-Final-Released/">the WildFly 27 release</a>. We&#8217;ve also been able to certify as EE 10 Core Profile compatible on SE 21 since <a href="https://www.wildfly.org/news/2023/10/18/WildFly30-Released/">WildFly 30</a>. What&#8217;s new is the ability to add Web Profile and Full Platform on SE 21 to the compatibility matrix.</p>
+</div>
+<div class="paragraph">
+<p>My thanks to Scott Marlow for driving this effort and to James Perkins for his invaluable help. And <strong>kudos to the Jakarta EE community</strong> in general for making this possible. It has been a Jakarta EE goal since EE 9.1 that vendors should be able to certify as compatible when running on SE releases that didn&#8217;t even exist when the EE version went GA. This doesn&#8217;t happen by magic; certifying as EE compatible requires passing a number of large TCKs, and like any large piece of software, adaptations to the TCKs are sometimes needed to allow proper execution on a new Java SE version. Those adaptations require <em>volunteer</em> effort from the community of developers who work on Jakarta EE. My thanks to Paul Nicolucci, Gurunandan Rao, Jason Mehrens, Lance Andersen and Arjan Tims for your hard work on Jakarta EE in this area! And my thanks and apologies to anyone else involved who I&#8217;ve neglected to mention.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="supported-specifications">Supported Specifications</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="jakarta-ee">Jakarta EE</h3>
+<div class="paragraph">
+<p>Standard WildFly 33 is a compatible implementation of the EE 10 <a href="https://jakarta.ee/specifications/platform/10/">Platform</a> as well as the <a href="https://jakarta.ee/specifications/webprofile/10/">Web Profile</a> and the <a href="https://jakarta.ee/specifications/coreprofile/10/">Core Profile</a>. WildFly is EE 10 Platform, Web Profile and Core Profile compatible when running on Java SE 11, Java SE 17 and Java SE 21.</p>
+</div>
+<div class="paragraph">
+<p>Evidence supporting our certification is available in the <a href="https://github.com/wildfly/certifications/tree/EE10">WildFly Certifications</a> repository on GitHub:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Specification</th>
+<th class="tableblock halign-left valign-top">Compatibility Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Jakarta EE 10 Full Platform</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/wildfly/certifications/blob/EE10/WildFly_33.0.0.Final/jakarta-full-platform-jdk11.adoc#tck-results">SE 11</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/wildfly/certifications/blob/EE10/WildFly_33.0.0.Final/jakarta-full-platform-jdk17.adoc#tck-results">SE 17</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/wildfly/certifications/blob/EE10/WildFly_33.0.0.Final/jakarta-full-platform-jdk21.adoc#tck-results">SE 21</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Jakarta EE 10 Web Profile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/wildfly/certifications/blob/EE10/WildFly_33.0.0.Final/jakarta-web-profile-jdk11.adoc#tck-results">SE 11</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/wildfly/certifications/blob/EE10/WildFly_33.0.0.Final/jakarta-web-profile-jdk17.adoc#tck-results">SE 17</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/wildfly/certifications/blob/EE10/WildFly_33.0.0.Final/jakarta-web-profile-jdk21.adoc#tck-results">SE 21</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Jakarta EE 10 Core Profile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/wildfly/certifications/blob/EE10/WildFly_33.0.0.Final/jakarta-core-jdk11.adoc#jakarta-core-profile-1001-tck-java-se-11-results">SE 11</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/wildfly/certifications/blob/EE10/WildFly_33.0.0.Final/jakarta-core-jdk17.adoc#jakarta-core-profile-1001-tck-java-se-17-results">SE 17</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/wildfly/certifications/blob/EE10/WildFly_33.0.0.Final/jakarta-core-jdk21.adoc#jakarta-core-profile-1001-tck-java-se-21-results">SE 21</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="microprofile">MicroProfile</h3>
+<div class="paragraph">
+<p>WildFly supports numerous MicroProfile specifications. Because we no longer support MicroProfile Metrics, WildFly 33 cannot claim to be a compatible implementation of the MicroProfile 6.1 specification. However, WildFly&#8217;s MicroProfile support includes implementations of the following specifications in our "full" (e.g. <code>standalone-full.xml</code>) and "default" (e.g <code>standalone.xml</code>) configurations as well as our "microprofile" configurations (e.g. <code>standalone-microprofile.xml</code>):</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">MicroProfile Technology</th>
+<th class="tableblock halign-left valign-top">WildFly Full/Default Configurations</th>
+<th class="tableblock halign-left valign-top">WildFly MicroProfile Configuration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MicroProfile Config 3.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MicroProfile Fault Tolerance 4.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MicroProfile Health 4.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MicroProfile JWT Authentication 2.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MicroProfile LRA 2.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MicroProfile OpenAPI 3.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MicroProfile Reactive Messaging 3.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MicroProfile Reactive Streams Operators 3.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MicroProfile Rest Client 3.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MicroProfile Telemetry 1.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><a href="https://github.com/wildfly/certifications/blob/MP6.1/WildFly_33.0.0.Final/microprofile-6.1-selected-specifications/microprofile-6.1-selected-specifications-certification.adoc">Compatibility evidence</a> for the above specifications that are part of MicroProfile 6.1 can be found in the WildFly Certifications repository on GitHub.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="preview-ee11-se17">WildFly Preview, EE 11 and SE 17</h3>
+<div class="paragraph">
+<p>As I noted in the <a href="https://www.wildfly.org/news/2024/04/25/WildFly32-Released/">WildFly 32 release announcement</a>, beginning with that release we are using WildFly Preview to provide a look at what we&#8217;re doing for Jakarta EE 11 support.  EE 11 won&#8217;t go GA before later this year, and we don&#8217;t expect standard WildFly to support EE 11 before the WildFly 35 release. But there are milestone, Release Candidate and Final releases of many EE 11 specs and implementations available, so we are providiong those in WildFly Preview. This means for a number of EE APIs, WildFly Preview no longer provides an EE 10 compatible implementation.</p>
+</div>
+<div class="paragraph">
+<p>However, for a number of specifications that are planning changes for EE 11 we are still offering the EE 10 variant. In future releases we&#8217;ll shift those to the EE 11 variants.</p>
+</div>
+<div class="paragraph">
+<p>As a result of this shift to EE 11 APIs, <strong>WildFly Preview no longer supports running on Java SE 11.</strong> Going forward, if you want to use WildFly Preview you&#8217;ll need to use SE 17 or higher.  A number of EE 11 APIs no longer produce SE 11 compatible binaries, which means an EE 11 runtime can no longer support SE 11.</p>
+</div>
+<div class="paragraph">
+<p>The following table lists the various Jakarta EE technologies offered by WildFly Preview 33, along with information about which EE platform version the specification relates to. Note that a number of Jakarta specifications are unchanged between EE 10 and EE 11, while other EE technologies that WildFly offers are not part of EE 11.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Jakarta EE Technology</th>
+<th class="tableblock halign-left valign-top">WildFly Preview Version</th>
+<th class="tableblock halign-left valign-top">EE Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Activation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 &amp; 11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Annotations</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.0.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Authentication</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Authorization</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.0.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Batch</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 &amp; 11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Concurrency</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.1.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Connectors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 &amp; 11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Contexts and Dependency Injection</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.1.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Debugging Support for Other Languages</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 &amp; 11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Dependency Injection</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 &amp; 11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Enterprise Beans</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 &amp; 11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Enterprise Web Services</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 <a href="#note1"><sup>1</sup></a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Expression Language</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.0.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Faces</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.1.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Interceptors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.2.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta JSON Binding</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 &amp; 11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta JSON Processing</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 &amp; 11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Mail</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 &amp; 11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Messaging</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 &amp; 11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta MVC
+(<em>preview stability only</em>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N/A <a href="#note2"><sup>2</sup></a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Pages</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Persistence</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.2.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta RESTful Web Services</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Security</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.0.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Servlet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.1.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta SOAP with Attachments</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 <a href="#note1"><sup>1</sup></a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Standard Tag Library</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 &amp; 11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Transactions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 &amp; 11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta Validation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.1.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta WebSocket</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.2.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta XML Binding</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 <a href="#note1"><sup>1</sup></a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jakarta XML Web Services</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 <a href="#note1"><sup>1</sup></a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Notes:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a id="note1"></a>This Jakarta EE 10 technology is not part of EE 11 but is still provided by WildFly.</p>
+</li>
+<li>
+<p><a id="note2"></a>Jakarta MVC is not of the Jakarta EE Platform or the Web or Core Profile</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="java-se-support">Java SE Support</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="recommended-se-versions">Recommended SE Versions</h3>
+<div class="paragraph">
+<p>Our recommendation is that you run WildFly 33 on Java SE 21, as that is the latest LTS JDK release where we have completed the full set of testing we like to do before recommending a particular SE version. WildFly 33 also is heavily tested and runs well on Java 17 and Java 11.</p>
+</div>
+<div class="paragraph">
+<p>Our recommendation of SE 21 over earlier LTS releases is solely because as a general principle we recommend being on later LTS releases, not because of any problems with WildFly on SE 17 or SE 11.</p>
+</div>
+<div class="paragraph">
+<p>One reason to use later SE versions is because it gets you ahead of the curve as WildFly and other projects begin to move on from supporting older SE releases.</p>
+</div>
+<div class="paragraph">
+<p>However, WildFly Preview no longer supports SE 11, as the baseline for Jakarta EE 11 is SE 17. We&#8217;re continuing to evaluate our plans around SE 11 support in standard WildFly, and I&#8217;ll be sure to post here as we make decisions. I do encourage WildFly users to prepare now for any eventual change to move off of SE 11.</p>
+</div>
+<div class="paragraph">
+<p>While we recommend using an LTS JDK release, I do believe WildFly runs well on JDK 22. By runs well, I mean the main WildFly testsuite runs with no more than a few failures in areas not expected to be commonly used. We want developers who are trying to evaluate what a newer JVM means for their applications to be able to look to WildFly as a useful development platform.</p>
+</div>
+<div class="paragraph">
+<p>Please note that WildFly runs in classpath mode.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="incompatible-changes">Incompatible Changes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Running WildFly Preview 33 with the Java SecurityManager enabled is no longer allowed. In WildFly Preview 32 it was noted as being unsupported, but with 33 <a href="https://issues.redhat.com/browse/WFLY-19287">booting a WildFly Preview server will fail if the SecurityManager is enabled</a>. This is because the Jakarta EE 11 specifications no longer support the SecurityManager, and it is not possible for WildFly to provide a consistent, reliable SecurityManager experience once the spec APIs and implementation projects we integrate no longer support it.</p>
+</div>
+<div class="paragraph">
+<p>As noted above, WildFly Preview no longer supports running on Java SE 11.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="known-issues">Known Issues</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Arquillian version specified in the WildFly 33 end user <a href="https://repository.jboss.org/org/wildfly/bom/wildfly-ee-with-tools/33.0.0.Final/wildfly-ee-with-tools-33.0.0.Final.pom"><code>wildfly-ee-with-tools</code> BOM</a> results in <a href="https://issues.redhat.com/browse/WFLY-19574">test failures with JUnit 5</a>. Users can work around this problem by directly controlling the Arquillian version and using Arquillian 1.9.0.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.jboss.arquillian.container&lt;/groupId&gt;
+    &lt;artifactId&gt;arquillian-container-test-spi&lt;/artifactId&gt;
+    &lt;version&gt;1.9.0&lt;/version&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.jboss.arquillian.junit&lt;/groupId&gt;
+    &lt;artifactId&gt;arquillian-junit-container&lt;/artifactId&gt;
+    &lt;version&gt;1.9.0&lt;/version&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.jboss.arquillian.protocol&lt;/groupId&gt;
+    &lt;artifactId&gt;arquillian-protocol-servlet-jakarta&lt;/artifactId&gt;
+    &lt;version&gt;1.9.0&lt;/version&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.jboss.arquillian.junit5&lt;/groupId&gt;
+    &lt;artifactId&gt;arquillian-junit5-container&lt;/artifactId&gt;
+    &lt;version&gt;1.9.0&lt;/version&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release-notes">Release Notes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The full WildFly 33 release notes are <a href="https://github.com/wildfly/wildfly/releases/tag/33.0.0.Final">available in GitHub</a>.  Issues fixed in the underlying <a href="https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12315422&amp;version=12430015">WildFly Core 25</a> release are listed in the WildFly Core JIRA.</p>
+</div>
+<div class="paragraph">
+<p>Please try it out and give us your feedback, in the <a href="https://groups.google.com/g/wildfly">WildFly google group</a>, <a href="https://wildfly.zulipchat.com/#narrow/stream/196266-wildfly-user">Zulip</a> or <a href="https://issues.redhat.com/projects/WFLY/summary">JIRA</a>.</p>
+</div>
+<div class="paragraph">
+<p>And, with that, onward to WildFly 34!</p>
+</div>
+<div class="paragraph">
+<p>Best regards,</p>
+</div>
+<div class="paragraph">
+<p>Brian</p>
+</div>
+</div>
+</div>
+    
+  </div>
+</div>
+
+
+
+  </div>
+
+  <div class="content project-footer">
+  <div class="footer-section">
+    <div class="logo-wrapper">
+      <a href="/"><img class="wf-logo" src="/assets/img/wildfly_icons_one-color-logo.png"></a>
+    </div>
+  </div>
+  <div class="grid-wrapper">
+    <p class="grid__item width-3-12">WildFly is fully open. All components are open source and follow a community-focused development process.<br/><br/>This website was built with <a href='https://jekyllrb.com/' target='_blank'>Jekyll</a> is hosted on <a href='https://pages.github.com/' target='_blank'>Github Pages</a> and is completely open source. If you want to make it better, <a href='https://github.com/wildfly/wildfly.org/fork' target='_blank'>fork it</a> and show us what you’ve got.</p>
+
+    
+      <div class="width-1-12 project-links">
+        <strong>Navigation</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="/downloads">Downloads</a></li>
+          
+            <li><a href="https://docs.wildfly.org">Docs</a></li>
+          
+            <li><a href="/get-started">Get Started</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly">Github</a></li>
+          
+            <li><a href="/guides">Guides</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Contribute</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://issues.jboss.org/browse/WFLY">Submit a bug</a></li>
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly/fork">Fork WildFly</a></li>
+          
+            <li><a href="https://twitter.com/WildFlyAS">Follow us</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Get Help</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://wildfly.zulipchat.com/">Join Zulip Chat</a></li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="width-6-12 more-links">
+        <strong>Find more Red Hat Middleware Community Projects</strong>
+        <ul class="footer-links">
+          
+            <li><a href="https://www.apiman.io/">APIMan</a></li>
+          
+            <li><a href="http://arquillian.org">Arquillian</a></li>
+          
+            <li><a href="https://github.com/ansible-middleware/wildfly">Ansible Collection for Wildfly</a></li>
+          
+            <li><a href="http://byteman.jboss.org/">Byteman</a></li>
+          
+            <li><a href="http://capedwarf.org/">CapeDwarf</a></li>
+          
+            <li><a href="https://github.com/alechenninger/chronicler">Chronicler</a></li>
+          
+            <li><a href="https://github.com/darcy-framework">Darcy</a></li>
+          
+            <li><a href="http://debezium.io/">Debezium</a></li>
+          
+            <li><a href="https://www.drools.org/">Drools</a></li>
+          
+            <li><a href="http://gatein.jboss.org/">GateIn</a></li>
+          
+            <li><a href="http://www.hawkular.org/">Hawkular</a></li>
+          
+            <li><a href="http://hawt.io/">Hawtio</a></li>
+          
+            <li><a href="http://hibernate.org/">Hibernate</a></li>
+          
+            <li><a href="http://www.infinispan.org/">Infinispan</a></li>
+          
+            <li><a href="https://developers.redhat.com/products/codeready-studio/overview">CodeReady Studio</a></li>
+          
+            <li><a href="http://forge.jboss.org/">JBoss Forge</a></li>
+          
+            <li><a href="https://github.com/jboss-logging">JBoss Logging</a></li>
+          
+            <li><a href="http://jbossremoting.jboss.org/">JBoss Remoting</a></li>
+          
+            <li><a href="https://www.jbpm.org/">jBPM</a></li>
+          
+            <li><a href="https://jsfunit.jboss.org/">JSFUnit</a></li>
+          
+            <li><a href="https://www.keycloak.org/">Keycloak</a></li>
+          
+            <li><a href="http://modcluster.io/">Mod Cluster</a></li>
+          
+            <li><a href="http://modeshape.jboss.org/">ModeShape</a></li>
+          
+            <li><a href="https://www.optaplanner.org/">OptaPlanner</a></li>
+          
+            <li><a href="https://quarkus.io/">Quarkus</a></li>
+          
+            <li><a href="http://resteasy.jboss.org/">RESTEasy</a></li>
+          
+            <li><a href="https://riftsaw.jboss.org/">Riftsaw</a></li>
+          
+            <li><a href="http://savara.jboss.org/">Savara</a></li>
+          
+            <li><a href="https://weld.cdi-spec.org/">Weld</a></li>
+          
+            <li><a href="http://arquillian.org/">Shrinkwrap</a></li>
+          
+            <li><a href="https://switchyard.jboss.org/">Switchyard</a></li>
+          
+            <li><a href="https://tattletale.jboss.org/">Tattletale</a></li>
+          
+            <li><a href="https://teiid.io/">Teiid</a></li>
+          
+            <li><a href="https://wildfly-security.github.io/wildfly-elytron/">WildFly Elytron</a></li>
+          
+            <li><a href="http://wise.jboss.org/">Wise</a></li>
+          
+            <li><a href="https://xnio.jboss.org/">XNIO</a></li>
+          
+        </ul>
+      </div>
+    
+  </div>
+</div>
+  <div class="content redhat-footer">
+  <div class="grid-wrapper">
+    <span class="licence">
+      <i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i> <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC by 3.0</a> | <a href="https://www.redhat.com/en/about/privacy-policy">Privacy Policy</a>
+    </span>
+    <span class="redhat">
+      Sponsored by
+    </span>
+    <span class="redhat-logo">
+      <a href="https://www.redhat.com/" target="_blank"><img src="/assets/img/redhat_reversed.svg"></a>
+    </span>
+  </div>
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/mobile-nav.js"></script>
+  <script type="text/javascript" src="/assets/javascript/random-color-picker.js"></script>
+  <script type="text/javascript">
+    if (("undefined" !== typeof _satellite) && ("function" === typeof _satellite.pageBottom)) {
+        _satellite.pageBottom();
+    }
+    hljs.highlightAll();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/copy.js"></script>
+
+</body>
+
+</html>

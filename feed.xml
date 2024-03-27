@@ -1,0 +1,2572 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator>
+  <link href="https://wildfly.org//feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://wildfly.org//" rel="alternate" type="text/html" />
+  <updated>2024-12-04T14:32:51+00:00</updated>
+  <id>https://wildfly.org/</id>
+
+  
+  
+    <title type="html">WildFly</title>
+  
+
+  
+    <entry>
+      <title type="html">WildFly 34.0.1 is released!</title>
+      <link href="https://wildfly.org//news/2024/11/22/WildFly3401-Released/" rel="alternate" type="text/html" title="WildFly 34.0.1 is released!" />
+      <published>2024-11-22T00:00:00+00:00</published>
+      <updated>2024-11-22T00:00:00+00:00</updated>
+      <id>https://wildfly.org//news/2024/11/22/WildFly3401-Released</id>
+      
+      
+        <content type="html" xml:base="https://wildfly.org//news/2024/11/22/WildFly3401-Released/">&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;WildFly 34.0.1.Final is now available &lt;a href=&quot;https://wildfly.org/downloads&quot;&gt;for download&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It&amp;#8217;s been about a month since the WildFly 34 release, so we have done a small bug fix update, WildFly 34.0.1. This includes an update to WildFly Preview.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The following issues were resolved in 34.0.1:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;bugs&quot;&gt;Bugs&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19891&quot;&gt;WFLY-19891&lt;/a&gt;] - ISPN000299: Unable to acquire lock&amp;#8230;&amp;#8203; when cancelling a persistent timer in @PostConstruct on a suspended node&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19909&quot;&gt;WFLY-19909&lt;/a&gt;] - Wrong routing of EJB calls in cluster&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;component-upgrades&quot;&gt;Component Upgrades&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19927&quot;&gt;WFLY-19927&lt;/a&gt;] - Upgrade RESTEasy to 6.2.11.Final&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19928&quot;&gt;WFLY-19928&lt;/a&gt;] - Upgrade RESTEasy to 7.0.0.Alpha4 (WF preview)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19964&quot;&gt;WFLY-19964&lt;/a&gt;] - Upgrade Netty to 4.1.115.Final&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19977&quot;&gt;WFLY-19977&lt;/a&gt;] - Upgrade wildfly-clustering to 1.1.3.Final&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Enjoy!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Paul Ferraro</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="announcement" />
+      
+        <category term="release" />
+      
+
+      
+        <summary type="html">WildFly 34.0.1.Final is now available for download.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Using the maven-wildfly-plugin to provision the WildFly to use the PostgreSQL datasource.</title>
+      <link href="https://wildfly.org//news/2024/11/14/using-maven-wildfly-plugin-with-postgresql-ds/" rel="alternate" type="text/html" title="Using the maven-wildfly-plugin to provision the WildFly to use the PostgreSQL datasource." />
+      <published>2024-11-14T00:00:00+00:00</published>
+      <updated>2024-11-14T00:00:00+00:00</updated>
+      <id>https://wildfly.org//news/2024/11/14/using-maven-wildfly-plugin-with-postgresql-ds</id>
+      
+      
+        <content type="html" xml:base="https://wildfly.org//news/2024/11/14/using-maven-wildfly-plugin-with-postgresql-ds/">&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Recently I needed to configure a WildFly server to use a PostgreSQL datasource for some testings, and I’d like to use the`wildfly-maven-plugin` to automate the server provision process, so I invested some time into the topic and finally made it work. To sum up what I have learned, I have put the usage example in this PR:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/jberet/jberet-examples/pull/8&quot;&gt;jberet-examples / add postgresql based repository example #8&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;From the above pull request, we can see that the &lt;code&gt;wildfly-datasources-galleon-pack&lt;/code&gt; feature pack&lt;sup class=&quot;footnote&quot;&gt;[&lt;a id=&quot;_footnoteref_1&quot; class=&quot;footnote&quot; href=&quot;#_footnotedef_1&quot; title=&quot;View footnote.&quot;&gt;1&lt;/a&gt;]&lt;/sup&gt; is added into the plugin configuration:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;feature-pack&amp;gt;
+    &amp;lt;location&amp;gt;org.wildfly:wildfly-datasources-galleon-pack:8.0.1.Final&amp;lt;/location&amp;gt;
+&amp;lt;/feature-pack&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;And this layer is used:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;layers&amp;gt;
+    &amp;lt;layer&amp;gt;postgresql-driver&amp;lt;/layer&amp;gt;
+&amp;lt;/layers&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The above layer will just add the PostgreSQL driver into the provisioned WildFly server, and it won’t add any datasource by default. If I run the provisioned server with the above feature pack and layer added into the configuration with the following command in the example:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;$ mvn clean wildfly:dev -Ppostgres&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I can see from the server log that the PostgreSQL driver is enabled during the server startup process:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;22:11:00,626 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 42) WFLYJCA0005: Deploying non-JDBC-compliant driver class org.postgresql.Driver (version 42.5)
+22:11:00,631 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-6) WFLYJCA0018: Started Driver service with driver-name = postgresql&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;So the feature pack and the layer will prepare the provisioned WildFly server to connect to the PostgreSQL driver, and then we can configure the datasource in the server. In the above example, there are scripts that will add the PostgreSQL datasource&lt;sup class=&quot;footnote&quot;&gt;[&lt;a id=&quot;_footnoteref_2&quot; class=&quot;footnote&quot; href=&quot;#_footnotedef_2&quot; title=&quot;View footnote.&quot;&gt;2&lt;/a&gt;]&lt;/sup&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;xa-data-source add --name=batch_db --enabled=true --use-java-context=true --use-ccm=true --jndi-name=java:jboss/jsr352/batch_db --xa-datasource-properties={&quot;URL&quot;=&amp;gt;&quot;jdbc:postgresql://localhost:5432/batch_db&quot;} --driver-name=postgresql --password=123 --user-name=batch_user --same-rm-override=false --no-recovery=true
+/subsystem=batch-jberet/jdbc-job-repository=batch_db:add(data-source=batch_db)
+/subsystem=batch-jberet/:write-attribute(name=default-job-repository,value=batch_db)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The above configuration add the PostgreSQL datasource I need, and then it configures the batch subsystem to use the datasource as its job store, and is used in the &lt;code&gt;wildfly-maven-plugin&lt;/code&gt; configuration section:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;scripts&amp;gt;
+    &amp;lt;script&amp;gt;${configure.ds.script}&amp;lt;/script&amp;gt;
+&amp;lt;/scripts&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The &lt;code&gt;configure.ds.script&lt;/code&gt; property is configured in the &lt;code&gt;postgresql&lt;/code&gt; profile:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;profile&amp;gt;
+    &amp;lt;id&amp;gt;postgres&amp;lt;/id&amp;gt;
+    &amp;lt;activation&amp;gt;
+        &amp;lt;property&amp;gt;
+            &amp;lt;name&amp;gt;postgres&amp;lt;/name&amp;gt;
+        &amp;lt;/property&amp;gt;
+    &amp;lt;/activation&amp;gt;
+    &amp;lt;properties&amp;gt;
+        &amp;lt;configure.ds.script&amp;gt;${project.basedir}/add-postgresql-ds.cli&amp;lt;/configure.ds.script&amp;gt;
+    &amp;lt;/properties&amp;gt;
+&amp;lt;/profile&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;With the script execution during the server startup, I can see from the server log that the datasource is bound:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;17:47:36,063 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-6) WFLYJCA0001: Bound data source [java:jboss/jsr352/batch_db]&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Please note that the &lt;code&gt;script&lt;/code&gt; section configuration can be used with the &lt;code&gt;provision&lt;/code&gt; goal(and it can be used in other goals as well like &lt;code&gt;dev&lt;/code&gt;):&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;execution&amp;gt;
+    &amp;lt;goals&amp;gt;
+        &amp;lt;goal&amp;gt;provision&amp;lt;/goal&amp;gt;
+    &amp;lt;/goals&amp;gt;
+&amp;lt;/execution&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you want to use the &lt;code&gt;script&lt;/code&gt; with the &lt;code&gt;package&lt;/code&gt; goal:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;execution&amp;gt;
+    &amp;lt;goals&amp;gt;
+        &amp;lt;goal&amp;gt;package&amp;lt;/goal&amp;gt;
+    &amp;lt;/goals&amp;gt;
+&amp;lt;/execution&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Then you should configure the script like this:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;packaging-scripts&amp;gt;
+    &amp;lt;packaging-script&amp;gt;
+        &amp;lt;scripts&amp;gt;
+            &amp;lt;script&amp;gt;${configure.ds.script}&amp;lt;/script&amp;gt;
+        &amp;lt;/scripts&amp;gt;
+        &amp;lt;!-- Expressions resolved during server execution --&amp;gt;
+        &amp;lt;resolve-expressions&amp;gt;false&amp;lt;/resolve-expressions&amp;gt;
+    &amp;lt;/packaging-script&amp;gt;
+&amp;lt;/packaging-scripts&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Here is an example that is showing the above configuration method:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.wildfly.org/wildfly-maven-plugin/releases/5.0/package-mojo.html#packagingScripts&quot;&gt;WildFly Maven Plugin – wildfly:package#packagingScripts&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;To sum up, if you want to play with the &lt;code&gt;jberet-example&lt;/code&gt; as noted in above by using a PostgreSQL back-end DB, you can use &lt;code&gt;podman&lt;/code&gt;(or Docker) to start a container that runs a PostgreSQL database:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;$ podman run -it -e POSTGRES_PASSWORD=123 -e POSTGRES_USER=batch_user -e POSTGRES_DB=batch_db -p 5432:5432 postgres&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Then run:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;$ mvn clean wildfly:dev -Dpostgres&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You should be able to play with the example.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Above is the introduction to the script configuration. Besides the &lt;code&gt;postgresql-driver&lt;/code&gt; layer, the &lt;code&gt;wildfly-datasources-galleon-pack&lt;/code&gt; also provide other layers as described in the document&lt;sup class=&quot;footnote&quot;&gt;[&lt;a id=&quot;_footnoteref_3&quot; class=&quot;footnote&quot; href=&quot;#_footnotedef_3&quot; title=&quot;View footnote.&quot;&gt;3&lt;/a&gt;]&lt;/sup&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;quoteblock&quot;&gt;
+&lt;blockquote&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;postgresql-default-datasource&lt;/code&gt;: Provision the PostgreSQLDS non xa
+datasource and configures it as the default one. Depends on
+postgresql-datasource layer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;postgresql-datasource&lt;/code&gt;: Provision the PostgreSQLDS non xa
+datasource. Depends on postgresql-driver layer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;postgresql-driver&lt;/code&gt;: Provision the postgresql driver. This layer
+installs the JBoss Modules module org.postgresql.jdbc.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As the document described above, the &lt;code&gt;postgresql-datasource&lt;/code&gt; and the &lt;code&gt;postgresql-default-datasource&lt;/code&gt; layers define a &lt;code&gt;PostgreSQLDS&lt;/code&gt; datasource in the provisioned server by default. In addition, the default &lt;code&gt;PostgreSQLDS&lt;/code&gt; datasource uses some built-in parameters to connect to the underlying PostgreSQL database. Here are the parameters that must be defined:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;POSTGRESQL_DATABASE&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;POSTGRESQL_PASSWORD&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;POSTGRESQL_URL&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;POSTGRESQL_USER&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In the example, it also contains a profile called &lt;code&gt;postgres-ds&lt;/code&gt; that showing the usage of the &lt;code&gt;postgresql-datasource&lt;/code&gt; layer:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;layers&amp;gt;
+    &amp;lt;layer&amp;gt;postgresql-datasource&amp;lt;/layer&amp;gt;
+&amp;lt;/layers&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In the profile it defines the following properties for the &lt;code&gt;PostgreSQLDS&lt;/code&gt; datasource:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;env&amp;gt;
+    &amp;lt;POSTGRESQL_JNDI&amp;gt;java:jboss/jsr352/batch_db&amp;lt;/POSTGRESQL_JNDI&amp;gt;
+    &amp;lt;POSTGRESQL_DATABASE&amp;gt;batch_db&amp;lt;/POSTGRESQL_DATABASE&amp;gt;
+    &amp;lt;POSTGRESQL_PASSWORD&amp;gt;123&amp;lt;/POSTGRESQL_PASSWORD&amp;gt;
+    &amp;lt;POSTGRESQL_URL&amp;gt;jdbc:postgresql://localhost:5432/batch_db&amp;lt;/POSTGRESQL_URL&amp;gt;
+    &amp;lt;POSTGRESQL_USER&amp;gt;batch_user&amp;lt;/POSTGRESQL_USER&amp;gt;
+&amp;lt;/env&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;After the above configuration is used, and if the provisioned server is run by &lt;code&gt;mvn clean wildfly:dev -Ppostgres-ds&lt;/code&gt;, we can check the datasource by using the CLI tool to connect to the WildFly server:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;./jboss-cli.sh --connect
+[standalone@localhost:9990 /]&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;And then we can check the configured datasource in the server:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;[standalone@localhost:9990 /] /subsystem=datasources:read-resource
+{
+    &quot;outcome&quot; =&amp;gt; &quot;success&quot;,
+    &quot;result&quot; =&amp;gt; {
+        &quot;data-source&quot; =&amp;gt; {&quot;PostgreSQLDS&quot; =&amp;gt; undefined},
+        &quot;jdbc-driver&quot; =&amp;gt; {&quot;postgresql&quot; =&amp;gt; undefined},
+        &quot;xa-data-source&quot; =&amp;gt; undefined
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You can see the &lt;code&gt;PostgreSQLDS&lt;/code&gt; is now the configured datasource. Then we can check the &lt;code&gt;default-job-repository&lt;/code&gt; used by the &lt;code&gt;batch-jberet&lt;/code&gt; subsystem:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;[standalone@localhost:9990 /] /subsystem=batch-jberet:read-resource
+{
+    &quot;outcome&quot; =&amp;gt; &quot;success&quot;,
+    &quot;result&quot; =&amp;gt; {
+        &quot;restart-jobs-on-resume&quot; =&amp;gt; true,
+        &quot;security-domain&quot; =&amp;gt; &quot;ApplicationDomain&quot;,
+        &quot;default-job-repository&quot; =&amp;gt; &quot;batch_db&quot;,
+        &quot;default-thread-pool&quot; =&amp;gt; &quot;batch&quot;,
+        &quot;in-memory-job-repository&quot; =&amp;gt; {&quot;in-memory&quot; =&amp;gt; undefined},
+        &quot;jdbc-job-repository&quot; =&amp;gt; {&quot;batch_db&quot; =&amp;gt; undefined},
+        &quot;thread-factory&quot; =&amp;gt; undefined,
+        &quot;thread-pool&quot; =&amp;gt; {&quot;batch&quot; =&amp;gt; undefined}
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As the output shown above, the &lt;code&gt;default-job-repository&lt;/code&gt; is configured to use the &lt;code&gt;batch_db&lt;/code&gt;. Finally, we can check the definition of the &lt;code&gt;batch_db&lt;/code&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;[standalone@localhost:9990 /] /subsystem=batch-jberet/jdbc-job-repository=batch_db:read-resource
+{
+    &quot;outcome&quot; =&amp;gt; &quot;success&quot;,
+    &quot;result&quot; =&amp;gt; {
+        &quot;data-source&quot; =&amp;gt; &quot;PostgreSQLDS&quot;,
+        &quot;execution-records-limit&quot; =&amp;gt; undefined
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It&amp;#8217;s clear that the used &lt;code&gt;data-source&lt;/code&gt; is &lt;code&gt;PostgreSQLDS&lt;/code&gt;. This configuration is done by the &lt;code&gt;enable-jdbc-job-repo.cli&lt;/code&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;/subsystem=batch-jberet/jdbc-job-repository=batch_db:add(data-source=PostgreSQLDS)
+/subsystem=batch-jberet/:write-attribute(name=default-job-repository,value=batch_db)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;And the above script is configured to be executed in the &lt;code&gt;postgres-ds&lt;/code&gt; profile of the example:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;properties&amp;gt;
+    &amp;lt;configure.ds.script&amp;gt;${project.basedir}/enable-jdbc-job-repo.cli&amp;lt;/configure.ds.script&amp;gt;
+&amp;lt;/properties&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you check the configuration by running the example with the &lt;code&gt;-Ppostgres&lt;/code&gt; profile. You can see the following output from the CLI:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;[standalone@localhost:9990 /] /subsystem=batch-jberet/jdbc-job-repository=batch_db:read-resource
+{
+    &quot;outcome&quot; =&amp;gt; &quot;success&quot;,
+    &quot;result&quot; =&amp;gt; {
+        &quot;data-source&quot; =&amp;gt; &quot;batch_db&quot;,
+        &quot;execution-records-limit&quot; =&amp;gt; undefined
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Which is expected, because we configured the data-source manually by using the &lt;code&gt;postgresql-driver&lt;/code&gt; layer.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Above is the introduction to the usage of the &lt;code&gt;wildfly-datasources-galleon-pack&lt;/code&gt; in the &lt;code&gt;maven-wildfly-plugin&lt;/code&gt;. An alternative way to do the configuration to use the &lt;code&gt;add-resources&lt;/code&gt; goal in the &lt;code&gt;wildfly-maven-plugin&lt;/code&gt;. The document of the WildFly Maven Plugin shows its usage:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.wildfly.org/wildfly-maven-plugin/releases/5.0/add-resource-example.html&quot;&gt;WildFly Maven Plugin – Adding Resources Examples&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;With the above configuration, the datasource is deployed during the &lt;code&gt;add-resource&lt;/code&gt; goal running process. Because this method depends on the &lt;code&gt;add-resource&lt;/code&gt; goal, so it needs server to be run firstly, and then deploy the PostgreSQL driver(The PostgreSQL driver need to be added into the dependencies section for it to be deployed).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In addition, there is another way to do the PostgreSQL datasource configuration by using the Glow&lt;sup class=&quot;footnote&quot;&gt;[&lt;a id=&quot;_footnoteref_4&quot; class=&quot;footnote&quot; href=&quot;#_footnotedef_4&quot; title=&quot;View footnote.&quot;&gt;4&lt;/a&gt;]&lt;/sup&gt; in the &lt;code&gt;wildfly-maven-plugin&lt;/code&gt;. Here is the relative document to describe its usage:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.wildfly.org/guides/database-integrating-with-postgresql&quot;&gt;Integrating with a PostgreSQL database&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Please note that the &lt;code&gt;batch-processing&lt;/code&gt; example&lt;sup class=&quot;footnote&quot;&gt;[&lt;a id=&quot;_footnoteref_5&quot; class=&quot;footnote&quot; href=&quot;#_footnotedef_5&quot; title=&quot;View footnote.&quot;&gt;5&lt;/a&gt;]&lt;/sup&gt; in the WildFly Quickstart uses the above Glow solution to do the datasource configuration, and here is a relative pull request that contains the discussion related with the Glow usage:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/wildfly/quickstart/pull/973&quot;&gt;WFLY-19790 Replaces -ds.xml deprecated filed with Jakarta’s DataSou… by emmartins · Pull Request #973 · wildfly/quickstart&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In the above pull request, it also contains the example usage of the &lt;code&gt;jakarta.annotation.sql.DataSourceDefinition&lt;/code&gt; class that eliminates the usage of the CLI script to configure the datasource&lt;sup class=&quot;footnote&quot;&gt;[&lt;a id=&quot;_footnoteref_6&quot; class=&quot;footnote&quot; href=&quot;#_footnotedef_6&quot; title=&quot;View footnote.&quot;&gt;6&lt;/a&gt;]&lt;/sup&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Personally I prefer to use the &lt;code&gt;wildfly-datasources-galleon-pack&lt;/code&gt; to configure the datasource because I can either use the default datasource layer configuration or manually configure it by choosing different layers, but you can always choose a solution that best fits your own project’s requirement.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+
+&lt;/div&gt;
+&lt;div id=&quot;footnotes&quot;&gt;
+&lt;hr&gt;
+&lt;div class=&quot;footnote&quot; id=&quot;_footnotedef_1&quot;&gt;
+&lt;a href=&quot;#_footnoteref_1&quot;&gt;1&lt;/a&gt;. &lt;a href=&quot;https://github.com/wildfly-extras/wildfly-datasources-galleon-pack&quot;&gt;wildfly-extras/wildfly-datasources-galleon-pack&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class=&quot;footnote&quot; id=&quot;_footnotedef_2&quot;&gt;
+&lt;a href=&quot;#_footnoteref_2&quot;&gt;2&lt;/a&gt;. &lt;a href=&quot;https://github.com/jberet/jberet-examples/blob/main/deployment/add-postgresql-ds.cli&quot; class=&quot;bare&quot;&gt;https://github.com/jberet/jberet-examples/blob/main/deployment/add-postgresql-ds.cli&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class=&quot;footnote&quot; id=&quot;_footnotedef_3&quot;&gt;
+&lt;a href=&quot;#_footnoteref_3&quot;&gt;3&lt;/a&gt;. &lt;a href=&quot;https://github.com/wildfly-extras/wildfly-datasources-galleon-pack/blob/main/doc/postgresql/README.md&quot; class=&quot;bare&quot;&gt;https://github.com/wildfly-extras/wildfly-datasources-galleon-pack/blob/main/doc/postgresql/README.md&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class=&quot;footnote&quot; id=&quot;_footnotedef_4&quot;&gt;
+&lt;a href=&quot;#_footnoteref_4&quot;&gt;4&lt;/a&gt;. &lt;a href=&quot;https://github.com/wildfly/wildfly-glow&quot;&gt;wildfly/wildfly-glow:Galleon Layers Output from War: Automatic discover of WildFly provisioning information from an application.&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class=&quot;footnote&quot; id=&quot;_footnotedef_5&quot;&gt;
+&lt;a href=&quot;#_footnoteref_5&quot;&gt;5&lt;/a&gt;. &lt;a href=&quot;https://github.com/wildfly/quickstart/tree/main/batch-processing&quot;&gt;quickstart/batch-processing at main · wildfly/quickstart&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class=&quot;footnote&quot; id=&quot;_footnotedef_6&quot;&gt;
+&lt;a href=&quot;#_footnoteref_6&quot;&gt;6&lt;/a&gt;. &lt;a href=&quot;https://github.com/wildfly/quickstart/pull/973/files#diff-c2ef4683cc221a472071d924c4598af19d1152ad40f3b773cf4fe9c60fbc686d&quot;&gt;WFLY-19790 Replaces -ds.xml deprecated filed with Jakarta’s DataSou… by emmartins · Pull Request #973 · wildfly/quickstart&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>阿男</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="wildfly" />
+      
+        <category term="wildfly-maven-plugin" />
+      
+        <category term="postgresql" />
+      
+        <category term="jberet" />
+      
+        <category term="glow" />
+      
+
+      
+        <summary type="html">Recently I needed to configure a WildFly server to use a PostgreSQL datasource for some testings, and I’d like to use the`wildfly-maven-plugin` to automate the server provision process, so I invested some time into the topic and finally made it work. To sum up what I have learned, I have put the usage example in this PR:</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Next WildFly Mini Conference</title>
+      <link href="https://wildfly.org//news/2024/11/12/WildFly-mini-conference/" rel="alternate" type="text/html" title="Next WildFly Mini Conference" />
+      <published>2024-11-12T00:00:00+00:00</published>
+      <updated>2024-11-12T00:00:00+00:00</updated>
+      <id>https://wildfly.org//news/2024/11/12/WildFly-mini-conference</id>
+      
+      
+        <content type="html" xml:base="https://wildfly.org//news/2024/11/12/WildFly-mini-conference/">&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The WildFly team organizes the next WildFly mini conference. It will take place on &lt;strong&gt;Wednesday, November 20, 2024&lt;/strong&gt;. It starts at &lt;strong&gt;14:00 UTC&lt;/strong&gt; and includes &lt;strong&gt;four sessions&lt;/strong&gt; with topics related to WildFly. All sessions will be streamed live on YouTube.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;For more information, please take a look at the conference page at &lt;a href=&quot;https://www.wildfly.org/conference/&quot; class=&quot;bare&quot;&gt;https://www.wildfly.org/conference/&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We&amp;#8217;re looking forward to seeing you there!&lt;/p&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Harald Pehl</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="announcement" />
+      
+        <category term="conference" />
+      
+
+      
+        <summary type="html">The WildFly team organizes the next WildFly mini conference. It will take place on Wednesday, November 20, 2024. It starts at 14:00 UTC and includes four sessions with topics related to WildFly. All sessions will be streamed live on YouTube.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Playing with Generative AI with WildFly</title>
+      <link href="https://wildfly.org//news/2024/11/04/WildFly-playing-with-generative-ai/" rel="alternate" type="text/html" title="Playing with Generative AI with WildFly" />
+      <published>2024-11-04T00:00:00+00:00</published>
+      <updated>2024-11-04T00:00:00+00:00</updated>
+      <id>https://wildfly.org//news/2024/11/04/WildFly-playing-with-generative-ai</id>
+      
+      
+        <content type="html" xml:base="https://wildfly.org//news/2024/11/04/WildFly-playing-with-generative-ai/">&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This blog post provides information on how to use the AI Galleon Feature pack to write generative AI applications.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Please note that this feature pack is currently a proof of concept and is not ready for production.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You can access the release &lt;a href=&quot;https://github.com/wildfly-extras/wildfly-ai-feature-pack/releases/tag/0.1.0&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;strong&gt;org.wildfly:wildfly-ai-galleon-pack:0.1.0&lt;/strong&gt;&lt;/a&gt; to follow the examples provided here.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;whats-in-this-feature-pack&quot;&gt;What&amp;#8217;s in this feature pack ?&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This feature pack is work in progress so we will only cover what is already available as of today.
+It relies on configuring and exposing &lt;a href=&quot;https://github.com/langchain4j&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;LangChain4J&lt;/a&gt; via &lt;a href=&quot;https://github.com/smallrye/smallrye-llm&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;smallrye-llm&lt;/a&gt; to your application.
+It provides a way to inject some basic elements to make creating a Retrieval-Augmented Generation (RAG) application easy.
+It helps by configuring and providing all the required elements for such an application.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;what-is-rag&quot;&gt;What is RAG ?&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As its name indicates, RAG is about retrieving relevant elements from pieces of information in your data and using them to enrich the prompt before sending the whole query (initial prompt + relevant data) to the LLM.
+The goal is to provide sufficient context to the LLM so that it can use those pieces of information and not hallucinate.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect3&quot;&gt;
+&lt;h4 id=&quot;the-core-elements-of-rag&quot;&gt;The core elements of RAG&lt;/h4&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As you can see on the schema below, you need a few elements to provide a RAG functionality:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;some components to get relevant pieces of information. We will focus on using a &apos;semantic&apos; search approach, a.k.a. vector search, so we will need:&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;an embedding model to create embeddings (aka semantic vectors) from the user query thus creating an embedding query.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;an embedding store containing all the embeddings and the associated segments of data and against which/ the embedding query will be run.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;a client to the LLM to send the enriched query against.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;/assets/img/news/ai/rag.png&quot; alt=&quot;RAG&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect3&quot;&gt;
+&lt;h4 id=&quot;rag-with-langchain4j&quot;&gt;RAG with LangChain4j&lt;/h4&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The current feature pack provides a basic integration with the library LangChain4J. That means that currently we are exposing the LangChain4J API to the application.
+So it provides:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;dev.langchain4j.model.embedding.EmbeddingModel&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;dev.langchain4j.store.embedding.EmbeddingStore&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;dev.langchain4j.rag.content.retriever.ContentRetriever&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;dev.langchain4j.model.chat.ChatLanguageModel&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;So you can configure instances of these objects via the WildFly management API to be injected via CDI into your application.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We also support partially LangChain4J &lt;a href=&quot;https://docs.langchain4j.dev/tutorials/ai-services/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;strong&gt;AI Services&lt;/strong&gt;&lt;/a&gt; using &lt;a href=&quot;https://github.com/smallrye/smallrye-llm/blob/0.0.1/smallrye-llm-langchain4j-core/src/main/java/io/smallrye/llm/spi/RegisterAIService.java&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;RegisterAIService&lt;/a&gt; from &lt;a href=&quot;https://github.com/smallrye/smallrye-llm&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;smallrye-llm&lt;/a&gt;. Please note that this will change in the future as this project is quite new.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;the-feature-pack&quot;&gt;The feature pack&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The feature pack is composed of a subsystem and a CDI extension. It supports several layers based on what you are trying to acheive. The list is not exhaustive and may vary in the future.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect3&quot;&gt;
+&lt;h4 id=&quot;the-layers&quot;&gt;The layers&lt;/h4&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This feature pack provides several layers to choose from when provisioning your server:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Support for chat models to interact with a LLM via &lt;code&gt;ChatModelLanguage&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;mistral-ai-chat-model&lt;/code&gt;: provides integration with &lt;a href=&quot;https://mistral.ai/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Mistral AI&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;ollama-chat-model&lt;/code&gt;: provides integration with &lt;a href=&quot;https://ollama.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Ollama&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;openai-chat-model&lt;/code&gt;: provides integration with &lt;a href=&quot;https://openai.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;OpenAI&lt;/a&gt; (current configuration target &lt;a href=&quot;https://console.groq.com/playground&quot;&gt;Groq&lt;/a&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Support for embedding models via &lt;code&gt;EmbeddingModel&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;in-memory-embedding-model-all-minilm-l6-v2&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;in-memory-embedding-model-all-minilm-l6-v2-q&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;in-memory-embedding-model-bge-small-en&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;in-memory-embedding-model-bge-small-en-q&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;in-memory-embedding-model-bge-small-en-v15&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;in-memory-embedding-model-bge-small-en-v15-q&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;in-memory-embedding-model-e5-small-v2&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;in-memory-embedding-model-e5-small-v2-q&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;ollama-embedding-model&lt;/code&gt;: using &lt;a href=&quot;https://ollama.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Ollama&lt;/a&gt; to compute embeddings.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Support for embedding stores via  &lt;code&gt;EmbeddingStore&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;in-memory-embedding-store&lt;/code&gt;: provides integration with an in memory embedding store (for demo purpose only).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;weaviate-embedding-store&lt;/code&gt;: provides integration with &lt;a href=&quot;https://weaviate.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Weaviate&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Support for content retriever as &lt;code&gt;ContentRetriever&lt;/code&gt; for RAG:&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;default-embedding-content-retriever&lt;/code&gt;: default content retriever using an &lt;code&gt;in-memory-embedding-store&lt;/code&gt; and &lt;code&gt;in-memory-embedding-model-all-minilm-l6-v2&lt;/code&gt; for embedding model.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;web-search-engines&lt;/code&gt;: provides support for Google and Tavily search engine.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The layers will provide the required management resources, operations and modules.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect3&quot;&gt;
+&lt;h4 id=&quot;provisioning-the-feature-pack&quot;&gt;Provisioning the feature pack&lt;/h4&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;!-- The WildFly plugin deploys your war to a local WildFly container --&amp;gt;
+&amp;lt;plugin&amp;gt;
+    &amp;lt;groupId&amp;gt;org.wildfly.plugins&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;wildfly-maven-plugin&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;${version.wildfly.maven.plugin}&amp;lt;/version&amp;gt;
+    &amp;lt;configuration&amp;gt;
+        &amp;lt;feature-packs&amp;gt;
+            &amp;lt;feature-pack&amp;gt;
+                &amp;lt;location&amp;gt;org.wildfly:wildfly-galleon-pack:${version.wildfly.bom}&amp;lt;/location&amp;gt;
+            &amp;lt;/feature-pack&amp;gt;
+            &amp;lt;feature-pack&amp;gt;
+                &amp;lt;location&amp;gt;org.wildfly:wildfly-ai-galleon-pack:0.1.0&amp;lt;/location&amp;gt;
+            &amp;lt;/feature-pack&amp;gt;
+        &amp;lt;/feature-packs&amp;gt;
+        &amp;lt;layers&amp;gt;
+            &amp;lt;layer&amp;gt;cloud-server&amp;lt;/layer&amp;gt;
+            &amp;lt;layer&amp;gt;ollama-chat-model&amp;lt;/layer&amp;gt;
+            &amp;lt;layer&amp;gt;default-embedding-content-retriever&amp;lt;/layer&amp;gt;
+            &amp;lt;!-- default-embedding-content-retriever provides the following layers --&amp;gt;
+            &amp;lt;!--
+                &amp;lt;layer&amp;gt;in-memory-embedding-model-all-minilm-l6-v2&amp;lt;/layer&amp;gt;
+                &amp;lt;layer&amp;gt;in-memory-embedding-store&amp;lt;/layer&amp;gt;
+            --&amp;gt;
+            &amp;lt;!-- Existing layers that can be used instead--&amp;gt;
+            &amp;lt;!--
+                &amp;lt;layer&amp;gt;ollama-embedding-model&amp;lt;/layer&amp;gt;
+                &amp;lt;layer&amp;gt;openai-chat-model&amp;lt;/layer&amp;gt;
+                &amp;lt;layer&amp;gt;mistral-ai-chat-model&amp;lt;/layer&amp;gt;
+                &amp;lt;layer&amp;gt;weaviate-embedding-store&amp;lt;/layer&amp;gt;
+                &amp;lt;layer&amp;gt;web-search-engines&amp;lt;/layer&amp;gt;
+            --&amp;gt;
+        &amp;lt;/layers&amp;gt;
+        &amp;lt;name&amp;gt;ROOT.war&amp;lt;/name&amp;gt;
+        &amp;lt;extraServerContentDirs&amp;gt;
+            &amp;lt;extraServerContentDir&amp;gt;extra-content&amp;lt;/extraServerContentDir&amp;gt;
+        &amp;lt;/extraServerContentDirs&amp;gt;
+        &amp;lt;packagingScripts&amp;gt;
+            &amp;lt;packaging-script&amp;gt;
+                &amp;lt;scripts&amp;gt;
+                    &amp;lt;script&amp;gt;./src/scripts/configure_llm.cli&amp;lt;/script&amp;gt;
+                &amp;lt;/scripts&amp;gt;
+            &amp;lt;/packaging-script&amp;gt;
+        &amp;lt;/packagingScripts&amp;gt;
+    &amp;lt;/configuration&amp;gt;
+    &amp;lt;executions&amp;gt;
+        &amp;lt;execution&amp;gt;
+            &amp;lt;goals&amp;gt;
+                &amp;lt;goal&amp;gt;package&amp;lt;/goal&amp;gt;
+            &amp;lt;/goals&amp;gt;
+        &amp;lt;/execution&amp;gt;
+    &amp;lt;/executions&amp;gt;
+&amp;lt;/plugin&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In our example we are provisioning everything via layers.
+The script &lt;code&gt;configure_llm.cli&lt;/code&gt; provides sample commands to further configure the subsystem manually.
+Please note that all modules might not be provisionned so you need to add the corresponding layers in &lt;code&gt;the pom.xml&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;###Embedding Models
+# Adding the SentenceTransformers all-MiniLM-L6-v2 EmbeddingModel that runs within the server JVM.
+#/subsystem=ai/embedding-model=myembedding:add(module=dev.langchain4j.embeddings.all-minilm-l6-v2, embedding-class=dev.langchain4j.model.embedding.onnx.allminilml6v2.AllMiniLmL6V2EmbeddingModel)
+
+
+# Adding an Ollama EmbeddingModel connecting to http://192.168.1.11:11434 using the model llama3:8b.
+#/subsystem=ai/ollama-embedding-model=test:add(base-url=&quot;http://192.168.1.11:11434&quot;, model-name=&quot;llama3:8b&quot;)
+
+###Chat Language Models
+# Adding an OpenAI REST ChatLanguageModel connecting to Groq using the model llama3-8b-8192.
+#/subsystem=ai/openai-chat-model=mychat:add(base-url=&quot;https://api.groq.com/openai/v1&quot;, api-key=&quot;${env.GROQ_API_KEY}&quot;, log-requests=&quot;true&quot;, log-responses=&quot;true&quot;, model-name=&quot;llama3-8b-8192&quot;)
+
+### Mistral
+#/subsystem=ai/mistral-ai-chat-model=test:add(api-key=&quot;${env.MISTRAL_API_KEY}&quot;, base-url=&quot;https://api.mistral.ai/v1&quot;, log-requests=&quot;true&quot;, log-responses=&quot;true&quot;, model-name=&quot;mistral-small-latest&quot;)
+
+
+# Adding an Ollama ChatLanguageModel connecting to http://127.0.0.1:11434 using the model llama3:8b.
+#/subsystem=ai/ollama-chat-model=mychat:add(model-name=&quot;llama3.1:8b&quot;, base-url=&quot;http://127.0.0.1:11434&quot;, log-requests=&quot;true&quot;, log-responses=&quot;true&quot;, temperature=&quot;0.9&quot;)
+#/subsystem=ai/ollama-chat-model=mychat:add(model-name=&quot;mistral&quot;, base-url=&quot;http://127.0.0.1:11434&quot;, log-requests=&quot;true&quot;, log-responses=&quot;true&quot;, temperature=&quot;0.9&quot;)
+#/subsystem=ai/openai-chat-model=mychat:add(base-url=&quot;https://api.groq.com/openai/v1&quot;, api-key=&quot;${env.GROQ_API_KEY}&quot;,model-name=&quot;llama3:8b&quot;)
+
+
+###Embedding Stores
+
+# Adding Weaviate as an embedding store
+# podman run --rm -p 8090:8080 -p 50051:50051  -e AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED=&quot;true&quot; -v $SOME_PATH/volumes/weaviate/_data:/data --name=weaviate cr.weaviate.io/semitechnologies/weaviate:1.24.10
+#/socket-binding-group=standard-sockets/remote-destination-outbound-socket-binding=weaviate:add(host=localhost, port=8090)
+#/subsystem=ai/weaviate-embedding-store=mystore:add(socket-binding=weaviate, ssl-enabled=false, object-class=Simple, metadata=[url,language,parent_url,file_name,file_path,title,subtitle])
+#/subsystem=logging/logger=io.weaviate.client.client:add(level=TRACE)
+
+# Adding in memory embedding store loading form a json file
+#/subsystem=ai/in-memory-embedding-store=mystore:add(file=/home/ehugonne/dev/AI/crawler/crawler/wildfly-admin-embeddings.json)
+
+
+###Content retrievers
+
+# Adding a content retriever using embeddings
+#/subsystem=ai/embedding-store-content-retriever=myretriever:add(embedding-model=myembedding,embedding-store=mystore, max-results=2, min-score=0.7)
+
+# Adding a content retriever using Tavily search engine
+#/subsystem=ai/web-search-content-retriever=myretriever:add(tavily={api-key=${env.TAVILY_API_KEY}, base-url=https://api.tavily.com, connect-timeout=20000, exclude-domains=[example.org], include-domains=[example.com], include-answer=true})&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;putting-it-all-together-the-webchat-example&quot;&gt;Putting it all together: The WebChat example&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;To put it all together we are going to execute a sample RAG application with a web interface. It will use embeddings that were previously computed using WildFly documentation.
+If you want to check the code of the application used to create embeddings out of WildFly documentation and store the results you can look at &lt;a href=&quot;https://github.com/ehsavoie/crawler&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/ehsavoie/crawler&lt;/a&gt;. It can be used to fill either a JSON file or a weaviate embedding store.The embeddings were computed using the &lt;strong&gt;All-MiniLM-L6-v2 EmbeddingModel&lt;/strong&gt;, so we need to use the same model in our RAG application.
+This embedding model will be used to compute the embedding of the user query and then the application will search for the nearest contents in the in-memory embedding store.
+The content retriever will retrieve and append those contents to the user query to create the prompt that will be sent to the LLM we are connected to, via the ChatLanguageModel.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect3&quot;&gt;
+&lt;h4 id=&quot;running-ollama-locally&quot;&gt;Running Ollama locally&lt;/h4&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;podman run -d --rm --name ollama --replace --pull=always -p 11434:11434 -v ollama:/root/.ollama --stop-signal=SIGKILL docker.io/ollama/ollama&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Execute the following command to select the expected model (type &lt;strong&gt;/bye&lt;/strong&gt; to quit the ollama prompt):&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;podman exec -it ollama ollama run llama3.1:8b&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect3&quot;&gt;
+&lt;h4 id=&quot;configuring-the-server&quot;&gt;Configuring the server&lt;/h4&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We will use the following layers:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;default-embedding-content-retriever&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ollama-chat-model&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;So the pom.xml should look like this:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;!-- The WildFly plugin deploys your war to a local JBoss AS container --&amp;gt;
+&amp;lt;plugin&amp;gt;
+    &amp;lt;groupId&amp;gt;org.wildfly.plugins&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;wildfly-maven-plugin&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;${version.wildfly.maven.plugin}&amp;lt;/version&amp;gt;
+    &amp;lt;configuration&amp;gt;
+        &amp;lt;feature-packs&amp;gt;
+            &amp;lt;feature-pack&amp;gt;
+                &amp;lt;location&amp;gt;org.wildfly:wildfly-galleon-pack:${version.wildfly.bom}&amp;lt;/location&amp;gt;
+            &amp;lt;/feature-pack&amp;gt;
+            &amp;lt;feature-pack&amp;gt;
+                &amp;lt;location&amp;gt;org.wildfly:wildfly-ai-galleon-pack:0.1.0&amp;lt;/location&amp;gt;
+            &amp;lt;/feature-pack&amp;gt;
+        &amp;lt;/feature-packs&amp;gt;
+        &amp;lt;layers&amp;gt;
+            &amp;lt;layer&amp;gt;cloud-server&amp;lt;/layer&amp;gt;
+            &amp;lt;layer&amp;gt;default-embedding-content-retriever&amp;lt;/layer&amp;gt;
+            &amp;lt;layer&amp;gt;ollama-chat-model&amp;lt;/layer&amp;gt;
+        &amp;lt;/layers&amp;gt;
+        &amp;lt;name&amp;gt;ROOT.war&amp;lt;/name&amp;gt;
+        &amp;lt;packagingScripts&amp;gt;
+            &amp;lt;packaging-script&amp;gt;
+                &amp;lt;scripts&amp;gt;
+                    &amp;lt;script&amp;gt;./src/main/resources/scripts/configure_llm.cli&amp;lt;/script&amp;gt;
+                &amp;lt;/scripts&amp;gt;
+            &amp;lt;/packaging-script&amp;gt;
+        &amp;lt;/packagingScripts&amp;gt;
+    &amp;lt;/configuration&amp;gt;
+    &amp;lt;executions&amp;gt;
+        &amp;lt;execution&amp;gt;
+            &amp;lt;goals&amp;gt;
+                &amp;lt;goal&amp;gt;package&amp;lt;/goal&amp;gt;
+            &amp;lt;/goals&amp;gt;
+        &amp;lt;/execution&amp;gt;
+    &amp;lt;/executions&amp;gt;
+&amp;lt;/plugin&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect3&quot;&gt;
+&lt;h4 id=&quot;the-code&quot;&gt;The code&lt;/h4&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The code itself is quite straightforward:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;@ServerEndpoint(value = &quot;/websocket/chatbot&quot;,
+        configurator = org.wildfly.ai.websocket.CustomConfigurator.class)
+public class RagChatBot {
+    @Inject
+    @Named(value = &quot;ollama&quot;)
+    ChatLanguageModel chatModel;
+    @Inject
+    @Named(value = &quot;embedding-store-retriever&quot;)
+    ContentRetriever retriever;
+
+  private static final String PROMPT_TEMPLATE = &quot;You are a WildFly expert who understands well how to administrate the WildFly server and its components\n&quot;
+            + &quot;Objective: answer the user question delimited by  ---\n&quot;
+            + &quot;\n&quot;
+            + &quot;---\n&quot;
+            + &quot;{{userMessage}}\n&quot;
+            + &quot;---&quot;
+            + &quot;\n Here is some data to help you:\n&quot;
+            + &quot;{{contents}}&quot;;
+
+  @OnMessage
+  public String sayHello(String question, Session session) throws IOException {
+        ChatMemory chatMemory = MessageWindowChatMemory.builder().id(session.getUserProperties().get(&quot;httpSessionId&quot;)).maxMessages(3).build();
+        ConversationalRetrievalChain chain = ConversationalRetrievalChain.builder()
+                .chatLanguageModel(chatModel)
+                .chatMemory(chatMemory)
+                .retrievalAugmentor(createBasicRag())
+                .build();
+        String result = chain.execute(question).replace(&quot;\n&quot;, &quot;&amp;lt;br/&amp;gt;&quot;);
+        return result;
+    }
+
+    private RetrievalAugmentor createBasicRag() {
+        return DefaultRetrievalAugmentor.builder()
+                .contentRetriever(retriever)
+                .contentInjector(DefaultContentInjector.builder()
+                        .promptTemplate(PromptTemplate.from(PROMPT_TEMPLATE))
+                        .build())
+                .queryRouter(new DefaultQueryRouter(retriever))
+                .build();
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The &lt;code&gt;dev.langchain4j.rag.content.retriever.ContentRetriever&lt;/code&gt; called &lt;strong&gt;embedding-store-retriever&lt;/strong&gt; defined in the subsystem is injected into our WebSocket endpoint using the the &lt;code&gt;@Named&lt;/code&gt; annotation.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It is used to instantiate a &lt;code&gt;dev.langchain4j.rag.RetrievalAugmentor&lt;/code&gt; which is in charge of retrieving the contents and enriching the prompt with them.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In the same way, the &lt;code&gt;dev.langchain4j.model.chat.ChatLanguageModel&lt;/code&gt; called &lt;strong&gt;ollama&lt;/strong&gt; defined in the subsystem is injected into our WebSocket endpoint using the &lt;code&gt;@Named&lt;/code&gt; annotation.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;With those two elements, a &lt;code&gt;dev.langchain4j.chain.ConversationalRetrievalChain&lt;/code&gt; is created and used to interact with the LLM and send back the answer to the client using the WebSocket.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The final code of the application is a bit more complex than what is exposed here as it tries to keep some context between user queries.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect3&quot;&gt;
+&lt;h4 id=&quot;building-and-running-the-application&quot;&gt;Building and Running the application&lt;/h4&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;First you need to clone it from &lt;a href=&quot;https://github.com/ehsavoie/webchat/tree/0.1.x&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/ehsavoie/webchat&lt;/a&gt; and select the branch 0.1.x.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In a console execute the following commands:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git clone https://github.com/ehsavoie/webchat.git
+cd webchat
+git checkout 0.1.x
+mvn clean install
+./target/server/bin/standalone.sh&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Now that the server is started, you can access the &lt;a href=&quot;http://localhost:8080&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;application&lt;/a&gt;.
+You need to open the WebSocket connection and then you can ask your questions.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;For example you can ask &lt;strong&gt;&quot;How do you configure a connection factory to a remote Artemis server ?&quot;&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you look into the server log file you will see the effective prompt sent to the LLM as well as the answer from it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;going-further&quot;&gt;Going further&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This feature pack is currently just a proof of concept and is quite limited.
+If you look at the code you can easily tweak it to try several scenarios like using a Weaviate Embedding Store with metadata.
+Also you can try &lt;a href=&quot;https://openai.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;OpenAI&lt;/a&gt; or &lt;a href=&quot;https://groq.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Groq&lt;/a&gt; instead of Ollama.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;All the source code of the feature pack is available on &lt;a href=&quot;https://github.com/wildfly-extras/wildfly-ai-feature-pack&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Github&lt;/a&gt; and can be improved by extending the components that may be of use.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Emmanuel Hugonnet</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="generative-ai" />
+      
+        <category term="rag" />
+      
+        <category term="wildfly" />
+      
+
+      
+        <summary type="html">This blog post provides information on how to use the AI Galleon Feature pack to write generative AI applications.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">WildFly 35 moves to SE 17, drops SE 11</title>
+      <link href="https://wildfly.org//news/2024/10/28/WildFly-moves-to-SE-17/" rel="alternate" type="text/html" title="WildFly 35 moves to SE 17, drops SE 11" />
+      <published>2024-10-28T00:00:00+00:00</published>
+      <updated>2024-10-28T00:00:00+00:00</updated>
+      <id>https://wildfly.org//news/2024/10/28/WildFly-moves-to-SE-17</id>
+      
+      
+        <content type="html" xml:base="https://wildfly.org//news/2024/10/28/WildFly-moves-to-SE-17/">&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As I noted in the &lt;a href=&quot;https://www.wildfly.org/news/2024/10/17/WildFly34-Released/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;WildFly 34 release announcement&lt;/a&gt;, our plan is that WildFly 34.x will be the final release series that would run on Java SE 11. Beginning with the WildFly 35 release, the minimum Java SE version for a WildFly server will be SE 17.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We have now executed on this plan by updating the WildFly &apos;main&apos; branch to build SE 17 binaries. &lt;strong&gt;If you are consuming WildFly nightly builds or building WildFly snapshots, you will need to move to an SE 17 baseline in those workflows. Any WildFly 35 releases will require SE 17 as a minimum.&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;admonitionblock note&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;Note&lt;/div&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+We recommend that you run WildFly on SE 21, as that is the latest supported LTS release.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;admonitionblock note&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;Note&lt;/div&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+The WildFly 34.0.1 release will support SE 11. If we do any further releases in the 34.x series, they will support SE 11.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The primary driver for this change is the fact that libraries we integrate are beginning to withdraw SE 11 support in their feature development branches and the availability of bug fix releases in older branches is increasingly uncertain. We also don&amp;#8217;t wish to continue to act as an innovation constraint on projects we integrate that are looking to move past SE 11.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We recognize that changing SE versions can be a significant task for some users, so we didn&amp;#8217;t make this decision lightly. I hope that the fact that WildFly has supported SE 17 since the WildFly 25 release has made it easier for our users to prepare for this change.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Best regards,&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Brian&lt;/p&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Brian Stansberry</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="announcement" />
+      
+
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Save the Date: WildFly Mini Conference on Nov 20th</title>
+      <link href="https://wildfly.org//news/2024/10/28/WildFly-mini-conference-save-the-date/" rel="alternate" type="text/html" title="Save the Date: WildFly Mini Conference on Nov 20th" />
+      <published>2024-10-28T00:00:00+00:00</published>
+      <updated>2024-10-28T00:00:00+00:00</updated>
+      <id>https://wildfly.org//news/2024/10/28/WildFly-mini-conference-save-the-date</id>
+      
+      
+        <content type="html" xml:base="https://wildfly.org//news/2024/10/28/WildFly-mini-conference-save-the-date/">&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Hello, WildFly Community!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We are happy to announce that the next WildFly Mini Conference is scheduled for November 20th, 2024! Building on the success of our previous mini conference event, we are eager to bring together our community for another day of insightful discussions and online networking.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As you know, a few weeks ago we sent a &lt;a href=&quot;http://wildfly.org/news/2024/10/07/WildFly-mini-conference-session-form&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;request for feedback&lt;/a&gt;. Based on the  feedback we received, the most voted topics were:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Jakarta EE11: Dive deep into the latest advancements and explore how Jakarta EE11 is shaping the future of enterprise Java.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Latest News on WildFly: Stay updated with the latest news on WildFly&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;DevOps Related Topics: Discover best practices and innovative approaches to integrating WildFly within your DevOps pipelines.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We are committed to not only covering these popular topics but also addressing the suggestions submitted by our community. Your input is invaluable, and we&amp;#8217;re dedicated to crafting a conference agenda that reflects your interests and needs.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Stay tuned for upcoming announcements regarding the detailed schedule and our lineup of expert speakers. We are looking forward to another successful event and can&amp;#8217;t wait to connect with all of you on November 20th!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Best regards,&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Flavia&lt;/p&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Flavia Rainone</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="wildfly" />
+      
+        <category term="announcement" />
+      
+        <category term="conference" />
+      
+        <category term="wildfly-mini-conference" />
+      
+
+      
+        <summary type="html">Hello, WildFly Community!</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">WildFly 34 is released!</title>
+      <link href="https://wildfly.org//news/2024/10/17/WildFly34-Released/" rel="alternate" type="text/html" title="WildFly 34 is released!" />
+      <published>2024-10-17T00:00:00+00:00</published>
+      <updated>2024-10-17T00:00:00+00:00</updated>
+      <id>https://wildfly.org//news/2024/10/17/WildFly34-Released</id>
+      
+      
+        <content type="html" xml:base="https://wildfly.org//news/2024/10/17/WildFly34-Released/">&lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I&amp;#8217;m pleased to announce that the new WildFly and WildFly Preview 34.0.0.Final releases are available for download at &lt;a href=&quot;https://wildfly.org/downloads&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://wildfly.org/downloads&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;new_and_notable&quot;&gt;New and Notable&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This quarter we had a heavy focus on &lt;a href=&quot;https://docs.wildfly.org/34/WildFly_and_WildFly_Preview.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;WildFly Preview&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;WildFly Preview now includes &lt;a href=&quot;https://www.wildfly.org/news/2024/10/10/jakarta-data/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;support for Jakarta Data 1.0&lt;/a&gt;. This feature is provided at the &lt;a href=&quot;https://docs.wildfly.org/34/Admin_Guide.html#Feature_stability_levels&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;preview&lt;/code&gt; stability level&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;WildFly Preview now &lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19589&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;supports MicroProfile REST Client 4.0&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;WildFly Preview now &lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19590&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;supports MicroProfile Telemetry 2.0&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;As part of a &lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19464&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;general reorganization of our end user BOMs&lt;/a&gt;, we introduced new BOMs for WildFly Preview.&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;org.wildfly.bom:wildfly-ee-preview&lt;/code&gt; is the WildFly Preview analogue to the existing standard WildFly &lt;code&gt;org.wildfly.bom:wildfly-ee&lt;/code&gt; BOM.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;org.wildfly.bom:wildfly-expansion-preview&lt;/code&gt; is the WildFly Preview analogue to the standard WildFly BOM formerly known as &lt;code&gt;org.wildfly.bom:wildfly-microprofile&lt;/code&gt;, now &lt;a href=&quot;#incompatibilities&quot;&gt;renamed&lt;/a&gt; to &lt;code&gt;org.wildfly.bom:wildfly-expansion&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Previously under &lt;a href=&quot;https://issues.redhat.com/browse/WFCORE-6825&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;WFCORE-6825&lt;/a&gt; four system properties with default values were
+added to enable configuration of constraints affecting the HTTP management interface. In WildFly 35
+&lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/management/WFCORE-6830_Management_Resource_Constraints.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;four new attributes have been added to the HTTP management interface configuration&lt;/a&gt;
+(&lt;code&gt;backlog&lt;/code&gt;, &lt;code&gt;connection-high-water&lt;/code&gt;, &lt;code&gt;connection-low-water&lt;/code&gt;, &lt;code&gt;no-request-timeout&lt;/code&gt;) to allow these constraints to be configured
+directly in the management model. This feature is provided at the &lt;a href=&quot;https://docs.wildfly.org/34/Admin_Guide.html#Feature_stability_levels&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;community&lt;/code&gt; stability level&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;We updated our Hibernate ORM version &lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19306&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;from the 6.4 series to 6.6&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Along with that we updated Hibernate Search &lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19632&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;from the 7.1 series to 7.2&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;supported-specifications&quot;&gt;Supported Specifications&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;jakarta-ee&quot;&gt;Jakarta EE&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Standard WildFly 34 is a compatible implementation of the EE 10 &lt;a href=&quot;https://jakarta.ee/specifications/platform/10/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Platform&lt;/a&gt; as well as the &lt;a href=&quot;https://jakarta.ee/specifications/webprofile/10/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Web Profile&lt;/a&gt; and the &lt;a href=&quot;https://jakarta.ee/specifications/coreprofile/10/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Core Profile&lt;/a&gt;. WildFly is EE 10 Platform, Web Profile and Core Profile compatible when running on Java SE 11, Java SE 17 and Java SE 21.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Evidence supporting our certification is available in the &lt;a href=&quot;https://github.com/wildfly/certifications/tree/EE10&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;WildFly Certifications&lt;/a&gt; repository on GitHub:&lt;/p&gt;
+&lt;/div&gt;
+&lt;table class=&quot;tableblock frame-all grid-all stretch&quot;&gt;
+&lt;colgroup&gt;
+&lt;col style=&quot;width: 50%;&quot;&gt;
+&lt;col style=&quot;width: 50%;&quot;&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;Specification&lt;/th&gt;
+&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;Compatibility Evidence&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot; rowspan=&quot;3&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta EE 10 Full Platform&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE10/WildFly_34.0.0.Final/jakarta-full-platform-jdk11.adoc#tck-results&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SE 11&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE10/WildFly_34.0.0.Final/jakarta-full-platform-jdk17.adoc#tck-results&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SE 17&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE10/WildFly_34.0.0.Final/jakarta-full-platform-jdk21.adoc#tck-results&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SE 21&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot; rowspan=&quot;3&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta EE 10 Web Profile&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE10/WildFly_34.0.0.Final/jakarta-web-profile-jdk11.adoc#tck-results&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SE 11&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE10/WildFly_34.0.0.Final/jakarta-web-profile-jdk17.adoc#tck-results&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SE 17&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE10/WildFly_34.0.0.Final/jakarta-web-profile-jdk21.adoc#tck-results&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SE 21&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot; rowspan=&quot;3&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta EE 10 Core Profile&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE10/WildFly_34.0.0.Final/jakarta-core-jdk11.adoc#jakarta-core-profile-1001-tck-java-se-11-results&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SE 11&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE10/WildFly_34.0.0.Final/jakarta-core-jdk17.adoc#jakarta-core-profile-1001-tck-java-se-17-results&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SE 17&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE10/WildFly_34.0.0.Final/jakarta-core-jdk21.adoc#jakarta-core-profile-1001-tck-java-se-21-results&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SE 21&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;microprofile&quot;&gt;MicroProfile&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;WildFly supports numerous MicroProfile specifications. Because we no longer support MicroProfile Metrics, WildFly 34 cannot claim to be a compatible implementation of the MicroProfile 6.1 specification. However, WildFly&amp;#8217;s MicroProfile support includes implementations of the following specifications in our &quot;full&quot; (e.g. &lt;code&gt;standalone-full.xml&lt;/code&gt;) and &quot;default&quot; (e.g &lt;code&gt;standalone.xml&lt;/code&gt;) configurations as well as our &quot;microprofile&quot; configurations (e.g. &lt;code&gt;standalone-microprofile.xml&lt;/code&gt;):&lt;/p&gt;
+&lt;/div&gt;
+&lt;table class=&quot;tableblock frame-all grid-all stretch&quot;&gt;
+&lt;colgroup&gt;
+&lt;col style=&quot;width: 33.3333%;&quot;&gt;
+&lt;col style=&quot;width: 33.3333%;&quot;&gt;
+&lt;col style=&quot;width: 33.3334%;&quot;&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;MicroProfile Technology&lt;/th&gt;
+&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;WildFly Full/Default Configurations&lt;/th&gt;
+&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;WildFly MicroProfile Configuration&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile Config 3.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile Fault Tolerance 4.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile Health 4.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile JWT Authentication 2.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile LRA 2.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile OpenAPI 3.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile Reactive Messaging 3.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile Reactive Streams Operators 3.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile Rest Client 3.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile Telemetry 1.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/MP6.1/WildFly_34.0.0.Final/microprofile-6.1-selected-specifications/microprofile-6.1-selected-specifications-certification.adoc&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Compatibility evidence&lt;/a&gt; for the above specifications that are part of MicroProfile 6.1 can be found in the WildFly Certifications repository on GitHub.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As noted in the &lt;a href=&quot;#new_and_notable&quot;&gt;New and Notable&lt;/a&gt; section, instead of the version listed above, WildFly Preview 34 now supports later releases of two MicroProfile specifications:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://download.eclipse.org/microprofile/microprofile-rest-client-4.0/microprofile-rest-client-spec-4.0.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;MicroProfile REST Client 4.0&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://download.eclipse.org/microprofile/microprofile-telemetry-2.0/microprofile-telemetry-spec-2.0.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;MicroProfile Telemetry 2.0&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;preview-ee11-se17&quot;&gt;WildFly Preview, EE 11 and SE 17&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As I noted in the &lt;a href=&quot;https://www.wildfly.org/news/2024/04/25/WildFly32-Released/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;WildFly 32 release announcement&lt;/a&gt;, beginning with that release we are using WildFly Preview to provide a look at what we&amp;#8217;re doing for Jakarta EE 11 support.  EE 11 won&amp;#8217;t go GA before later this year, and we don&amp;#8217;t expect standard WildFly to support EE 11 before the WildFly 36 release. But there are milestone, Release Candidate and Final releases of many EE 11 specs and implementations available, so we are providiong those in WildFly Preview. This means for a number of EE APIs, WildFly Preview no longer provides an EE 10 compatible implementation.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;However, for a number of specifications that are planning changes for EE 11 we are still offering the EE 10 variant. In future releases we&amp;#8217;ll shift those to the EE 11 variants.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As a result of this shift to EE 11 APIs, &lt;strong&gt;WildFly Preview no longer supports running on Java SE 11.&lt;/strong&gt; If you want to use WildFly Preview you&amp;#8217;ll need to use SE 17 or higher.  A number of EE 11 APIs no longer produce SE 11 compatible binaries, which means an EE 11 runtime can no longer support SE 11.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The following table lists the various Jakarta EE technologies offered by WildFly Preview 34, along with information about which EE platform version the specification relates to. Note that a number of Jakarta specifications are unchanged between EE 10 and EE 11, while other EE technologies that WildFly offers are not part of EE 11.&lt;/p&gt;
+&lt;/div&gt;
+&lt;table class=&quot;tableblock frame-all grid-all stretch&quot;&gt;
+&lt;colgroup&gt;
+&lt;col style=&quot;width: 33.3333%;&quot;&gt;
+&lt;col style=&quot;width: 33.3333%;&quot;&gt;
+&lt;col style=&quot;width: 33.3334%;&quot;&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;Jakarta EE Technology&lt;/th&gt;
+&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;WildFly Preview Version&lt;/th&gt;
+&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;EE Version&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Activation&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;2.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &amp;amp; 11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Annotations&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;3.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Authentication&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;3.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Authorization&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;3.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Batch&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;2.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &amp;amp; 11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Concurrency&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;3.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Connectors&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;2.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &amp;amp; 11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Contexts and Dependency Injection&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;4.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Data
+(&lt;em&gt;preview stability only&lt;/em&gt;)&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;1.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11 &lt;a href=&quot;#note2&quot;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Debugging Support for Other Languages&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;2.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &amp;amp; 11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Dependency Injection&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;2.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &amp;amp; 11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Enterprise Beans&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;4.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &amp;amp; 11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Enterprise Web Services&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;2.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &lt;a href=&quot;#note1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Expression Language&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;6.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Faces&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;4.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Interceptors&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;2.2&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta JSON Binding&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;3.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &amp;amp; 11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta JSON Processing&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;2.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &amp;amp; 11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Mail&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;2.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &amp;amp; 11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Messaging&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;3.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &amp;amp; 11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta MVC
+(&lt;em&gt;preview stability only&lt;/em&gt;)&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;2.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;N/A &lt;a href=&quot;#note3&quot;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Pages&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;3.1&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Persistence&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;3.2.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta RESTful Web Services&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;4.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Security&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;4.0.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Servlet&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;6.1.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta SOAP with Attachments&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;3.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &lt;a href=&quot;#note1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Standard Tag Library&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;3.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &amp;amp; 11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Transactions&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;2.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &amp;amp; 11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta Validation&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;3.1.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta WebSocket&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;2.2.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;11&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta XML Binding&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;4.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &lt;a href=&quot;#note1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta XML Web Services&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;4.0&lt;/p&gt;&lt;/td&gt;
+&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;10 &lt;a href=&quot;#note1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Notes:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;olist arabic&quot;&gt;
+&lt;ol class=&quot;arabic&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a id=&quot;note1&quot;&gt;&lt;/a&gt;This Jakarta EE 10 technology is not part of EE 11 but is still provided by WildFly.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a id=&quot;note2&quot;&gt;&lt;/a&gt;Jakarta Data is a new specification in EE 11.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a id=&quot;note3&quot;&gt;&lt;/a&gt;Jakarta MVC is not of the Jakarta EE Platform or the Web or Core Profile.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;java-se-support&quot;&gt;Java SE Support&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Our recommendation is that you run WildFly 34 on Java SE 21, as that is the latest LTS JDK release where we have completed the full set of testing we like to do before recommending a particular SE version. WildFly 34 also is heavily tested and runs well on Java 17 and Java 11.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Our recommendation of SE 21 over earlier LTS releases is solely because as a general principle we recommend being on later LTS releases, not because of any problems with WildFly on SE 17 or SE 11.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;However, one reason to use later SE versions is because it gets you ahead of the curve as WildFly and other projects begin to move on from supporting older SE releases. This is certainly happening, and &lt;strong&gt;we do not intend to support SE 11 in WildFly in WildFly 35!&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;admonitionblock warning&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;Warning&lt;/div&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+The WildFly 34 series will be the &lt;strong&gt;last to support SE 11&lt;/strong&gt;, so if you are running WildFly on SE 11 you should move to SE 17 or 21 as soon as possible.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;WildFly Preview no longer supports SE 11, as the baseline for Jakarta EE 11 is SE 17.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;While we recommend using an LTS JDK release, I do believe WildFly runs well on SE 23. By runs well, I mean the main WildFly testsuite runs with no more than a few failures in areas not expected to be commonly used. We want developers who are trying to evaluate what a newer JVM means for their applications to be able to look to WildFly as a useful development platform.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Please note that WildFly runs in classpath mode.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;incompatibilities&quot;&gt;Incompatible Changes&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We changed the Maven artifactId of the &lt;code&gt;org.wildfly.bom:wildfly-microprofile&lt;/code&gt; user BOM to &lt;code&gt;org.wildfly.bom:wildfly-expansion&lt;/code&gt;, so users of this BOM will need to update their poms. This BOM is intended to help developers develop applications that can run in a server provisioned using the &lt;code&gt;wildfly&lt;/code&gt; feature pack, but which can&amp;#8217;t run in a server only using its &lt;code&gt;wildfly-ee&lt;/code&gt; feature pack dependency. (The &lt;code&gt;org.wildfly.bom:wildfly-ee&lt;/code&gt; BOM is used for the &lt;code&gt;wildfly-ee&lt;/code&gt; feature pack dependencies.) For a while now the additional functionality in the &lt;code&gt;wildfly&lt;/code&gt; feature pack has gone beyond MicroProfile, to include things like Micrometer, so we&amp;#8217;ve updated to the more general &apos;expansion&apos; term that we use to describe this feature pack.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;release-notes&quot;&gt;Release Notes&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The full WildFly 34 release notes are &lt;a href=&quot;https://github.com/wildfly/wildfly/releases/tag/34.0.0.Final&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;available in GitHub&lt;/a&gt;.  Issues fixed in the underlying WildFly Core 26.0.0 and 26.0.1 releases are listed in the &lt;a href=&quot;https://issues.redhat.com/issues/?filter=12444106&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;WildFly Core JIRA&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Please try it out and give us your feedback, in the &lt;a href=&quot;https://groups.google.com/g/wildfly&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;WildFly google group&lt;/a&gt;, &lt;a href=&quot;https://wildfly.zulipchat.com/#narrow/stream/196266-wildfly-user&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Zulip&lt;/a&gt; or &lt;a href=&quot;https://issues.redhat.com/projects/WFLY/summary&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;JIRA&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;And, with that, I&amp;#8217;m moving on to what I think will be a very busy WildFly 35!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Best regards,&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Brian&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Brian Stansberry</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="announcement" />
+      
+        <category term="release" />
+      
+
+      
+        <summary type="html">I&amp;#8217;m pleased to announce that the new WildFly and WildFly Preview 34.0.0.Final releases are available for download at https://wildfly.org/downloads.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Introducing Jakarta Data in WildFly Preview</title>
+      <link href="https://wildfly.org//news/2024/10/10/jakarta-data/" rel="alternate" type="text/html" title="Introducing Jakarta Data in WildFly Preview" />
+      <published>2024-10-10T00:00:00+00:00</published>
+      <updated>2024-10-10T00:00:00+00:00</updated>
+      <id>https://wildfly.org//news/2024/10/10/jakarta-data</id>
+      
+      
+        <content type="html" xml:base="https://wildfly.org//news/2024/10/10/jakarta-data/">&lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I&amp;#8217;m excited that in the 34 Beta release we were able to introduce support for &lt;a href=&quot;https://jakarta.ee/specifications/data/1.0/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Jakarta Data&lt;/a&gt; into WildFly Preview. It was a bit of an unexpected last minute thing that we were able to do this, which left us without time to much in the way of documentation. We&amp;#8217;ll correct that for WildFly 35, but in the meantime I&amp;#8217;ll use this blog post as a way to introduce the basics.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;admonitionblock note&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;Note&lt;/div&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+In the 34 release, Jakarta Data is only available in WildFly Preview, and not in standard WildFly. It is provided at the &lt;a href=&quot;https://docs.wildfly.org/33/Admin_Guide.html#Feature_stability_levels&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;preview&lt;/code&gt; stability level&lt;/a&gt;, which is enabled out-of-the-box in WildFly Preview.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;jakarta-data-overview&quot;&gt;Jakarta Data Overview&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;My purpose in this post isn&amp;#8217;t to dive much into the details of Jakarta Data itself; there are other resources that do a good job of covering that. I want to focus here on how the WildFly Preview and Hibernate ORM integration of Jakarta Data works, so users can get going with using Jakarta Data in a WildFly server. So this next bit is very brief and high level.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Jakarta Data brings the repository pattern to the Jakarta ecosystem. As explained in the &lt;a href=&quot;https://jakarta.ee/specifications/data/1.0/jakarta-data-1.0#architecture&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Jakarta Data 1.0 Specification&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;quoteblock&quot;&gt;
+&lt;blockquote&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;a repository is a mediator between an application’s domain logic and the underlying data storage, be it a relational database, NoSQL database, or any other data source.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In Jakarta Data, a Repository provides a structured and organized way to interact with data. It abstracts data storage and retrieval complexities, allowing you to work with domain-specific objects and perform common operations on data without writing low-level database queries.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;An application developer defines a repository by providing an interface annotated with the Jakarta Data &lt;code&gt;@Repository&lt;/code&gt; annotation. The repository interface declares methods used for data retrieval and modification of a particular &lt;a href=&quot;https://jakarta.ee/specifications/data/1.0/jakarta-data-1.0#_entity_classes&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;entity type&lt;/a&gt;. A repositoy interface can include different methods that deal with different entity types, giving application authors flexibility to define repositories that fit the needs of their application domain.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Following is an example repository:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;@Repository
+interface Publishing {
+    @Find
+    Book book(String isbn);
+
+    @Find
+    Author author(String ssn);
+
+    @Insert
+    void publish(Book book);
+
+    @Insert
+    void create(Author author);
+
+    // query methods
+    ...
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;code&gt;Book&lt;/code&gt; and &lt;code&gt;Author&lt;/code&gt; are typical entity classes.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The repository interface methods are annotated with various Jakarta Data annotations (&lt;code&gt;@Insert&lt;/code&gt;, &lt;code&gt;@Find&lt;/code&gt;, etc) that define the expected persistence behavior of the method.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;There&amp;#8217;s much more to the Jakarta Data programming model than this; for all the details see:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;a href=&quot;https://jakarta.ee/specifications/data/1.0/jakarta-data-1.0&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Jakarta Data 1.0 specification&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;a href=&quot;https://docs.jboss.org/hibernate/orm/6.6/repositories/html_single/Hibernate_Data_Repositories.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hibernate Data Repositories documentation&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Gavin King&amp;#8217;s excellent &lt;a href=&quot;https://in.relation.to/2024/04/01/jakarta-data-1/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;blog posts&lt;/a&gt; on Jakarta Data&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;A Jakarta Data implementation like WildFly Preview can support one or more Jakarta Data &lt;a href=&quot;https://jakarta.ee/specifications/data/1.0/jakarta-data-1.0#_jakarta_data_providers&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;providers&lt;/a&gt;. A provider understands one or more Java annotation types that are used to define entities, and it understands how to interact with a particular type of back end datastore.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;WildFly Preview&amp;#8217;s Jakarta Data implementation supports the &lt;a href=&quot;https://docs.jboss.org/hibernate/orm/6.6/repositories/html_single/Hibernate_Data_Repositories.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hibernate Data Repositories&lt;/a&gt; provider, which uses Hibernate ORM to interact with a variety of different relational databases. Hibernate Data Repositories supports the &lt;code&gt;jakarta.persistence.Entity&lt;/code&gt; annotation as the mechanism for application authors to define entities.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;using-hibernate-data-repositories-in-your-application&quot;&gt;Using Hibernate Data Repositories in Your Application&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;There are two key things to understand in order to use WildFly Preview&amp;#8217;s Hibernate Data Repositories provider:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;How to configure build time generation of the implementation of your &lt;code&gt;@Repository&lt;/code&gt; interfaces.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;How to configure the runtime behavior of the Hibernate ORM instance that will interact with the database.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;build-time-generation-of-repository-implementations&quot;&gt;Build-time Generation of Repository Implementations&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;An application author using Jakarta Data simply writes an interface for their repository, but of course for that to work at runtime there must be an actual implementation of that interface. It&amp;#8217;s the responsibility of the Jakarta Data provider to provide that implementation. Hibernate Data Repositories does this by generating the implementation classes as part of the build of your application.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;So, &lt;em&gt;to use Jakarta Data with WildFly Preview you need to configure the generation of those classes as part of your application build&lt;/em&gt;. In a Maven build this is done by configuring the Maven compiler plugin to use the &lt;code&gt;org.hibernate.orm:hibernate-jpamodelgen&lt;/code&gt; artifact as an annotation processor:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;    &amp;lt;build&amp;gt;
+        &amp;lt;plugins&amp;gt;
+            &amp;lt;plugin&amp;gt;
+                &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;
+                &amp;lt;artifactId&amp;gt;maven-compiler-plugin&amp;lt;/artifactId&amp;gt;
+                &amp;lt;!-- 3.12 or later is necessary for proper dependency management in annotationProcessorPaths --&amp;gt;
+                &amp;lt;version&amp;gt;3.12.1&amp;lt;/version&amp;gt;
+                &amp;lt;configuration&amp;gt;
+                    &amp;lt;annotationProcessorPaths&amp;gt;
+                        &amp;lt;path&amp;gt;
+                            &amp;lt;groupId&amp;gt;org.hibernate.orm&amp;lt;/groupId&amp;gt;
+                            &amp;lt;artifactId&amp;gt;hibernate-jpamodelgen&amp;lt;/artifactId&amp;gt;
+                        &amp;lt;/path&amp;gt;
+                    &amp;lt;/annotationProcessorPaths&amp;gt;
+                &amp;lt;/configuration&amp;gt;
+            &amp;lt;/plugin&amp;gt;
+        &amp;lt;/plugins&amp;gt;
+    &amp;lt;/build&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Note that there is no version element in the &lt;code&gt;org.hibernate.orm:hibernate-jpamodelgen&lt;/code&gt; declaration above. You could provide one, but best practice is to control the version in your pom&amp;#8217;s &lt;code&gt;dependencyManagement&lt;/code&gt;. Importing the &lt;code&gt;org.wildfly.bom:wildfly-ee-preview-with-tools&lt;/code&gt; BOM lets you align the version of Hibernate artifacts with what&amp;#8217;s used in your target WildFly Preview runtime:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;    &amp;lt;dependencyManagement&amp;gt;
+        &amp;lt;dependencies&amp;gt;
+            &amp;lt;!-- importing the ee-with-tools BOM adds specs and other useful artifacts as managed dependencies --&amp;gt;
+            &amp;lt;dependency&amp;gt;
+                &amp;lt;groupId&amp;gt;org.wildfly.bom&amp;lt;/groupId&amp;gt;
+                &amp;lt;artifactId&amp;gt;wildfly-ee-preview-with-tools&amp;lt;/artifactId&amp;gt;
+                &amp;lt;version&amp;gt;34.0.0.Beta1&amp;lt;/version&amp;gt;
+                &amp;lt;type&amp;gt;pom&amp;lt;/type&amp;gt;
+                &amp;lt;scope&amp;gt;import&amp;lt;/scope&amp;gt;
+            &amp;lt;/dependency&amp;gt;
+        &amp;lt;/dependencies&amp;gt;
+    &amp;lt;/dependencyManagement&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;admonitionblock warning&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;Warning&lt;/div&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+Some users may have learned to configure Hibernate annotation processing by declaring &lt;code&gt;org.hibernate.orm:hibernate-jpamodelgen&lt;/code&gt; as a &lt;code&gt;provided&lt;/code&gt; dependency in their pom. With the Hibernate version used with WildFly, &lt;a href=&quot;https://docs.jboss.org/hibernate/orm/6.3/migration-guide/migration-guide.html#metamodel-generation&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;this will likely fail&lt;/a&gt;. Use the &lt;code&gt;maven-compiler-plugin&lt;/code&gt; configuration approach described above.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you&amp;#8217;re using Gradle, you&amp;#8217;ll need to use &lt;code&gt;annotationProcessor&lt;/code&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;annotationProcessor &apos;org.hibernate.orm:hibernate-jpamodelgen:6.6.1&apos;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The generated repository implementation classes internally use various Hibernate ORM classes, so to compile the generated code you&amp;#8217;ll need to add a dependency on Hibernate:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;  &amp;lt;dependencies&amp;gt;
+      &amp;lt;dependency&amp;gt;
+          &amp;lt;groupId&amp;gt;org.hibernate.orm&amp;lt;/groupId&amp;gt;
+          &amp;lt;artifactId&amp;gt;hibernate-core&amp;lt;/artifactId&amp;gt;
+          &amp;lt;scope&amp;gt;provided&amp;lt;/scope&amp;gt;
+      &amp;lt;/dependency&amp;gt;
+  &amp;lt;/dependencies&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;configuring-hibernate-orm&quot;&gt;Configuring Hibernate ORM&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Under the covers, your repository implementation will use Hibernate ORM to interact with the database. You configure ORM by providing a &lt;code&gt;META-INF/persistence.xml&lt;/code&gt; file, the same as you would with a Jakarta Persistence application:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;persistence xmlns=&quot;http://java.sun.com/xml/ns/persistence&quot;
+             xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+             xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd&quot;
+             version=&quot;3.0&quot;&amp;gt;
+
+    &amp;lt;persistence-unit name=&quot;Publisher&quot;&amp;gt;
+
+        &amp;lt;jta-data-source&amp;gt;java:jboss/datasources/ExampleDS&amp;lt;/jta-data-source&amp;gt;
+        &amp;lt;properties&amp;gt;
+            &amp;lt;property name=&quot;hibernate.hbm2ddl.auto&quot; value=&quot;create&quot;/&amp;gt;
+            &amp;lt;property name=&quot;hibernate.show_sql&quot; value=&quot;false&quot;/&amp;gt;
+        &amp;lt;/properties&amp;gt;
+
+    &amp;lt;/persistence-unit&amp;gt;
+
+&amp;lt;/persistence&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The &lt;code&gt;jta-data-source&lt;/code&gt; value should match the value of the &lt;code&gt;jndi-name&lt;/code&gt; attribute in a datasource you&amp;#8217;ve declared in the WildFly Preview &lt;code&gt;datasources&lt;/code&gt; or &lt;code&gt;datasources-agroal&lt;/code&gt; subsystem configuration.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;configuring-wildfly-preview-to-support-jakarta-data&quot;&gt;Configuring WildFly Preview to Support Jakarta Data&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Jakarta Data in WildFly Preview is configured using the new &lt;code&gt;jakarta-data&lt;/code&gt; subsystem. This subsystem isn&amp;#8217;t included in any of WildFly Preview&amp;#8217;s out-of-the-box configuration files, so to use it you&amp;#8217;ll need to add it to your configuration.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you&amp;#8217;re using a complete WildFly Preview installation, like the ones available from the &lt;a href=&quot;https://wildfly.org/downloads&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;WildFly downloads page&lt;/a&gt;, then you can use the JBoss CLI to add the Jakarta Data extension and subsystem to your configuration:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ /extension=org.wildfly.extension.jakarta.data:add
+$ /subsystem=jakarta-data:add&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you&amp;#8217;re using Galleon to provision a slimmed WildFly Preview installation, you&amp;#8217;ll need to specify the &lt;code&gt;jakarta-data&lt;/code&gt; Galleon layer. For example if you are using the WildFly Maven Plugin to provision a server that supports a Jakarta REST application interacting with a Postgresql database, the configuration in your application&amp;#8217;s pom.xml might look like this:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;    &amp;lt;build&amp;gt;
+        &amp;lt;plugins&amp;gt;
+            &amp;lt;plugin&amp;gt;
+                &amp;lt;groupId&amp;gt;org.wildfly.plugins&amp;lt;/groupId&amp;gt;
+                 &amp;lt;artifactId&amp;gt;wildfly-maven-plugin&amp;lt;/artifactId&amp;gt;
+                 &amp;lt;configuration&amp;gt;
+                     &amp;lt;feature-packs&amp;gt;
+                         &amp;lt;feature-pack&amp;gt;
+                             &amp;lt;location&amp;gt;wildfly-preview@maven(org.jboss.universe:community-universe)&amp;lt;/location&amp;gt;
+                         &amp;lt;/feature-pack&amp;gt;
+                         &amp;lt;feature-pack&amp;gt;
+                             &amp;lt;groupId&amp;gt;org.wildfly&amp;lt;/groupId&amp;gt;
+                             &amp;lt;artifactId&amp;gt;wildfly-datasources-preview-galleon-pack&amp;lt;/artifactId&amp;gt;
+                             &amp;lt;version&amp;gt;8.0.1.Final&amp;lt;/version&amp;gt;
+                         &amp;lt;/feature-pack&amp;gt;
+                     &amp;lt;/feature-packs&amp;gt;
+                     &amp;lt;layers&amp;gt;
+                         &amp;lt;layer&amp;gt;jaxrs-server&amp;lt;/layer&amp;gt;
+                         &amp;lt;layer&amp;gt;jakarta-data&amp;lt;/layer&amp;gt;
+                         &amp;lt;layer&amp;gt;postgresql-datasource&amp;lt;/layer&amp;gt;
+                      &amp;lt;/layers&amp;gt;
+                  &amp;lt;/configuration&amp;gt;
+                  &amp;lt;executions&amp;gt;
+                      &amp;lt;execution&amp;gt;
+                          &amp;lt;goals&amp;gt;
+                              &amp;lt;goal&amp;gt;package&amp;lt;/goal&amp;gt;
+                          &amp;lt;/goals&amp;gt;
+                      &amp;lt;/execution&amp;gt;
+                  &amp;lt;/executions&amp;gt;
+              &amp;lt;/plugin&amp;gt;
+        &amp;lt;/plugins&amp;gt;
+    &amp;lt;/build&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The subsystem itself is very simple and doesn&amp;#8217;t expose any configuration attributes.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Note that for the &lt;code&gt;jakarta-data&lt;/code&gt; subsystem to work, the &lt;code&gt;jpa&lt;/code&gt; subsystem must be present in your configuration. It&amp;#8217;s present in our out-of-the-box configurations and will be included if you provision a server using the &lt;code&gt;jakarta-data&lt;/code&gt; Galleon layer.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Please try out Jakarta Data in WildFly Preview and give us your feedback! We&amp;#8217;ll continue to work on the integration, with a goal of including it in standard WildFly in one of the next couple of releases.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Brian Stansberry</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="wildfly" />
+      
+        <category term="jakarta" />
+      
+        <category term="hibernate" />
+      
+
+      
+        <summary type="html">I&amp;#8217;m excited that in the 34 Beta release we were able to introduce support for Jakarta Data into WildFly Preview. It was a bit of an unexpected last minute thing that we were able to do this, which left us without time to much in the way of documentation. We&amp;#8217;ll correct that for WildFly 35, but in the meantime I&amp;#8217;ll use this blog post as a way to introduce the basics.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Announcement for the Upcoming WildFly Mini Conference!</title>
+      <link href="https://wildfly.org//news/2024/10/07/WildFly-mini-conference-session-form/" rel="alternate" type="text/html" title="Announcement for the Upcoming WildFly Mini Conference!" />
+      <published>2024-10-07T00:00:00+00:00</published>
+      <updated>2024-10-07T00:00:00+00:00</updated>
+      <id>https://wildfly.org//news/2024/10/07/WildFly-mini-conference-session-form</id>
+      
+      
+        <content type="html" xml:base="https://wildfly.org//news/2024/10/07/WildFly-mini-conference-session-form/">&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Hello, WildFly Community!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We are excited to share that after the success of our first WildFly Mini Conference earlier this year, we are planning a new edition for November!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The inaugural conference was an incredible experience, bringing together WildFly developers and the entire community for productive discussions and learning. We are eager to replicate this success, and we want your help to make the next event even better.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We would love to hear which topics you would like to see covered in the conference sessions. Your feedback is crucial to us, and we want to ensure the event meets everyone&amp;#8217;s expectations and interests.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Please take a moment to share your suggestions by filling out our &lt;a href=&quot;https://forms.gle/mAj7dDvECeaWp1WM7&quot;&gt;form&lt;/a&gt;. We will be collecting responses until next Monday, October 14th.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We look forward to hearing from you and seeing everyone at the next WildFly Mini Conference!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Best regards,&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Flavia&lt;/p&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Flavia Rainone</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="wildfly" />
+      
+        <category term="announcement" />
+      
+        <category term="conference" />
+      
+        <category term="wildfly-mini-conference" />
+      
+
+      
+        <summary type="html">Hello, WildFly Community!</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Debug a provisioned WildFly server with the help of wildfly-maven-plugin</title>
+      <link href="https://wildfly.org//news/2024/10/04/debug-with-maven-wildfly-plugin/" rel="alternate" type="text/html" title="Debug a provisioned WildFly server with the help of wildfly-maven-plugin" />
+      <published>2024-10-04T00:00:00+00:00</published>
+      <updated>2024-10-04T00:00:00+00:00</updated>
+      <id>https://wildfly.org//news/2024/10/04/debug-with-maven-wildfly-plugin</id>
+      
+      
+        <content type="html" xml:base="https://wildfly.org//news/2024/10/04/debug-with-maven-wildfly-plugin/">&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;debug-a-provisioned-wildfly-server-with-the-help-of-the-wildfly-maven-plugin&quot;&gt;Debug a provisioned WildFly server with the help of the wildfly-maven-plugin&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Sometimes I need to debug my project in a customized WildFly server. The requirements are:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;I need to use a specific version of WildFly server.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I need to override the version of some artifacts used in modules inside the WildFly server.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I need to run the WildFly server in debug mode, so I can use IDE tools to remotely debug the code.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;With the use of the &lt;code&gt;wildfly-maven-plugin&lt;/code&gt;, the above goals can be achieved in an automated way. Here is an example of the configuration to show the use of the plugin to achieve the above goals:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/jberet/jberet-examples/blob/main/deployment/pom.xml&quot;&gt;jberet-examples/deployment/pom.xml at main · jberet/jberet-examples&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The &lt;code&gt;wildfly-maven-plugin&lt;/code&gt; configuration in the above &lt;code&gt;pom.xml&lt;/code&gt; looks like this:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;plugin&amp;gt;
+    &amp;lt;groupId&amp;gt;org.wildfly.plugins&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;wildfly-maven-plugin&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;${version.maven.wildfly.plugin}&amp;lt;/version&amp;gt;
+    &amp;lt;configuration&amp;gt;
+        &amp;lt;provisioning-dir&amp;gt;${jboss.home}&amp;lt;/provisioning-dir&amp;gt;
+        &amp;lt;galleon-options&amp;gt;
+            &amp;lt;jboss-fork-embedded&amp;gt;${galleon.fork.embedded}&amp;lt;/jboss-fork-embedded&amp;gt;
+        &amp;lt;/galleon-options&amp;gt;
+        &amp;lt;feature-packs&amp;gt;
+            &amp;lt;feature-pack&amp;gt;
+                &amp;lt;groupId&amp;gt;${server.test.feature.pack.groupId}&amp;lt;/groupId&amp;gt;
+                &amp;lt;artifactId&amp;gt;${server.test.feature.pack.artifactId}&amp;lt;/artifactId&amp;gt;
+                &amp;lt;version&amp;gt;${wildfly.version}&amp;lt;/version&amp;gt;
+                &amp;lt;inherit-configs&amp;gt;false&amp;lt;/inherit-configs&amp;gt;
+                &amp;lt;included-configs&amp;gt;
+                    &amp;lt;config&amp;gt;
+                        &amp;lt;model&amp;gt;standalone&amp;lt;/model&amp;gt;
+                        &amp;lt;name&amp;gt;standalone-full.xml&amp;lt;/name&amp;gt;
+                    &amp;lt;/config&amp;gt;
+                    &amp;lt;config&amp;gt;
+                        &amp;lt;model&amp;gt;standalone&amp;lt;/model&amp;gt;
+                        &amp;lt;name&amp;gt;standalone.xml&amp;lt;/name&amp;gt;
+                    &amp;lt;/config&amp;gt;
+                &amp;lt;/included-configs&amp;gt;
+                &amp;lt;excluded-packages&amp;gt;
+                    &amp;lt;name&amp;gt;docs.schema&amp;lt;/name&amp;gt;
+                    &amp;lt;name&amp;gt;appclient&amp;lt;/name&amp;gt;
+                    &amp;lt;name&amp;gt;domain&amp;lt;/name&amp;gt;
+                &amp;lt;/excluded-packages&amp;gt;
+            &amp;lt;/feature-pack&amp;gt;
+        &amp;lt;/feature-packs&amp;gt;
+        &amp;lt;channels&amp;gt;
+            &amp;lt;channel&amp;gt;
+                &amp;lt;manifest&amp;gt;
+                    &amp;lt;groupId&amp;gt;org.jberet&amp;lt;/groupId&amp;gt;
+                    &amp;lt;artifactId&amp;gt;jberet-channel-manifest&amp;lt;/artifactId&amp;gt;
+                    &amp;lt;version&amp;gt;${version.jberet}&amp;lt;/version&amp;gt;
+                &amp;lt;/manifest&amp;gt;
+            &amp;lt;/channel&amp;gt;
+        &amp;lt;/channels&amp;gt;
+    &amp;lt;/configuration&amp;gt;
+...
+&amp;lt;/plugin&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In the above configuration, the &lt;code&gt;feature-packs&lt;/code&gt; section specifies the feature packs to be used by the provisioned server(there is no default feature pack that would be used if this wasn&amp;#8217;t set), and the &lt;code&gt;channels&lt;/code&gt; section is using the &lt;code&gt;jberet-channel-manifest&lt;/code&gt; channel to override the &lt;code&gt;batch-jberet&lt;/code&gt; module to be used in the provisioned server. Please note that you need to use the &lt;code&gt;channels&lt;/code&gt; with the &lt;code&gt;feature-packs&lt;/code&gt; together. Here are the properties used by the configuration:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;properties&amp;gt;
+    ...
+    &amp;lt;version.jberet&amp;gt;3.0.0.Final&amp;lt;/version.jberet&amp;gt;
+    ...
+    &amp;lt;version.maven.wildfly.plugin&amp;gt;5.0.1.Final&amp;lt;/version.maven.wildfly.plugin&amp;gt;
+    &amp;lt;jboss.home&amp;gt;${project.build.directory}${file.separator}wildfly&amp;lt;/jboss.home&amp;gt;
+    &amp;lt;wildfly.version&amp;gt;33.0.2.Final&amp;lt;/wildfly.version&amp;gt;
+    &amp;lt;server.test.feature.pack.groupId&amp;gt;org.wildfly&amp;lt;/server.test.feature.pack.groupId&amp;gt;
+    &amp;lt;server.test.feature.pack.artifactId&amp;gt;wildfly-ee-galleon-pack&amp;lt;/server.test.feature.pack.artifactId&amp;gt;
+    ...
+&amp;lt;/properties&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In the above way, I can define the WildFly version to be used and the JBeret version to be used in the provisioned WildFly server.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The &lt;code&gt;jberet-channel-manifest&lt;/code&gt; is provided by the JBeret project itself:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/jberet/jsr352/tree/main/jberet-manifest&quot;&gt;jsr352/jberet-manifest at main · jberet/jsr352&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The above subproject provides the JBeret module that can be used in the WildFly server. It uses the concept of WildFly Channel to achieve this goal. It can be used to override the version of some artifacts used in modules inside the WildFly server. I won’t explain the concept of WildFly Channel in this blog post. If you are interested in this topic, these articles are worth reading:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.wildfly.org/news/2023/04/05/prospero/&quot;&gt;An Introduction To The Prospero Usage&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.wildfly.org/news/2024/01/29/wildfly-glow/&quot;&gt;WildFly Glow, an evolution of WildFly provisioning&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.wildfly.org/news/2024/01/31/whats-new-in-provisioning/&quot;&gt;What’s new in WildFly provisioning&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;With the above configuration, the &lt;code&gt;3.0.0.Final&lt;/code&gt; version of that manifest specifies use of JBeret &lt;code&gt;3.0.0&lt;/code&gt; while WildFly &lt;code&gt;33.0.2&lt;/code&gt; used &lt;code&gt;2.2.1&lt;/code&gt;. If I run the following command in the above example project, the output showing the relative provision process:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;$ mvn wildfly:run
+...
+[INFO] Resolving channel metadata from Maven artifact org.jberet:jberet-channel-manifest:3.0.0.Final
+[INFO] Provisioning server in /Users/weli/works/jberet-examples/deployment/target/wildfly
+[INFO] Resolving feature-packs
+[INFO] Installing packages
+[INFO] 6 of 523 (1.1%)
+[INFO] Resolving artifacts
+[INFO] 11 of 491 (2.2%)
+...
+[INFO] Generating configurations
+[INFO] Delayed generation, waiting...
+[INFO] Resolving channel metadata from Maven artifact org.jberet:jberet-channel-manifest:3.0.0.Final
+...
+[INFO] --- wildfly:5.0.1.Final:start (wildfly-start) @ batch-deployment-examples ---
+[INFO] Provisioning default server in /Users/weli/works/jberet-examples/deployment/target/server
+Downloading from jboss-public-repository-group: https://repository.jboss.org/nexus/content/groups/public/org/wildfly/wildfly-galleon-pack/33.0.2.Final/wildfly-galleon-pack-33.0.2.Final.zip
+...&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;From the above output, we can see that &lt;code&gt;org.jberet:jberet-channel-manifest:3.0.0.Final&lt;/code&gt; is used for provision, and the &lt;code&gt;wildfly-galleon-pack-33.0.2.Final.zip&lt;/code&gt; is downloaded. If I check the generated WildFly server directory, I can see that JBeret &lt;code&gt;3.0.0.Final&lt;/code&gt; is used in the provisioned WildFly server:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;$ pwd
+/Users/weli/works/jberet-examples/deployment/target/wildfly
+$ find modules -name &quot;*jberet*&quot;
+modules/system/layers/base/org/wildfly/extension/batch/jberet
+modules/system/layers/base/org/wildfly/extension/batch/jberet/main/wildfly-batch-jberet-33.0.2.Final.jar
+modules/system/layers/base/org/jberet
+modules/system/layers/base/org/jberet/jberet-core
+modules/system/layers/base/org/jberet/jberet-core/main/jberet-core-3.0.0.Final.jar&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;To run the provisioned WildFly server in debug mode, the &lt;code&gt;wildfly-maven-plugin&lt;/code&gt; provide options to support the debug mode. To check the usages of &lt;code&gt;wildfly-maven-plugin&lt;/code&gt;, I can run the following command in the above example project to do so:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;$ mvn wildfly:help -Ddetail=true&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The above command will output the full document of the &lt;code&gt;wildfly-maven-plugin&lt;/code&gt;. Following are the relative parts of the document:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;wildfly:dev
+  Description: Starts a standalone instance of WildFly and deploys the
+    application to the server. The deployment type must be a WAR. Once the
+    server is running, the source directories are monitored for changes. If
+    required the sources will be compiled and the deployment may be redeployed.
+    Note that changes to the POM file are not monitored. If changes are made
+    the POM file, the process will need to be terminated and restarted. Note
+    that if a WildFly Bootable JAR is packaged, it is ignored by this goal.
+  Implementation: org.wildfly.plugin.dev.DevMojo
+  Language: java
+  Bound to phase: package
+
+  Available parameters:
+
+    ...
+
+    debug (Default: false)
+      User property: wildfly.debug
+      Starts the server with debugging enabled.
+
+    debugHost (Default: *)
+      User property: wildfly.debug.host
+      Sets the hostname to listen on for debugging. An * means all hosts.
+
+    debugPort (Default: 8787)
+      User property: wildfly.debug.port
+      Sets the port the debugger should listen on.
+
+    debugSuspend (Default: false)
+      User property: wildfly.debug.suspend
+      Indicates whether the server should suspend itself until a debugger is
+      attached.
+
+...
+
+wildfly:run
+  Description: Starts a standalone instance of WildFly and deploys the
+    application to the server. This goal will block until cancelled or a
+    shutdown is invoked from a management client. Note that if a WildFly
+    Bootable JAR is packaged, it is ignored by this goal.
+  Implementation: org.wildfly.plugin.server.RunMojo
+  Language: java
+  Before this goal executes, it will call:
+    Phase: &apos;package&apos;
+
+  Available parameters:
+
+    ...
+
+    debug (Default: false)
+      User property: wildfly.debug
+      Starts the server with debugging enabled.
+
+    debugHost (Default: *)
+      User property: wildfly.debug.host
+      Sets the hostname to listen on for debugging. An * means all hosts.
+
+    debugPort (Default: 8787)
+      User property: wildfly.debug.port
+      Sets the port the debugger should listen on.
+
+    debugSuspend (Default: false)
+      User property: wildfly.debug.suspend
+      Indicates whether the server should suspend itself until a debugger is
+      attached.&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As the document written in above, both the &lt;code&gt;wildfly:dev&lt;/code&gt; and the &lt;code&gt;wildfly:run&lt;/code&gt; goals support the &lt;code&gt;debug&lt;/code&gt; mode, and the property to activate it is the &lt;code&gt;wildfly.debug&lt;/code&gt; option.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;admonitionblock note&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;Note&lt;/div&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you want to check the help text of a specific goal of the plugin, taking the &lt;code&gt;wildfly:dev&lt;/code&gt; goal for example, you can use this command to do so:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;mvn wildfly:help -Ddetail=true -Dgoal=dev&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In addition, instead of reading the embedded help text, you can also refer to the online documentation of &lt;code&gt;wildfly-maven-plugin&lt;/code&gt; here:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.wildfly.org/wildfly-maven-plugin&quot;&gt;WildFly Maven Plugin
+(wildfly-maven-plugin)&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;With the above information, I can run the provisioned WildFly server in debug mode:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;$ mvn wildfly:run -Dwildfly.debug=true&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;And from the server output I can see the debug options are added:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;[INFO] JAVA_OPTS : -Xms64m -Xmx512m -Djava.net.preferIPv4Stack=true -Djava.awt.headless=true -Djboss.modules.system.pkgs=org.jboss.byteman -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8787 --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-exports=jdk.unsupported/sun.reflect=ALL-UNNAMED --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED --add-modules=java.se&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As the output shows above, the debug options are added and the remote debug port is set as &lt;code&gt;8787&lt;/code&gt; by default. This means the WildFly server is ready to accept the remote debug requests. In addition, the customized version of the WildFly server codebase and the overridden version of the JBeret module codebase can be used for debugging now. I won’t introduce the way to use an IDE to debug the WildFly server in this blog post. If you’d like to learn about the way to do so, I have written a personal blog post on this topic before:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://weinan.io/2017/05/07/troubleshooting-wildfly.html&quot;&gt;Troubleshooting the Wildfly startup process&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Enjoy :D&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>阿男</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="wildfly" />
+      
+        <category term="wildfly-maven-plugin" />
+      
+        <category term="jberet" />
+      
+
+      
+        <summary type="html">Debug a provisioned WildFly server with the help of the wildfly-maven-plugin</summary>
+      
+
+      
+      
+    </entry>
+  
+
+</feed>
+

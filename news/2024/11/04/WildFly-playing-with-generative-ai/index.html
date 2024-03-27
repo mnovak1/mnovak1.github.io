@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script id="adobe_dtm" src="//www.redhat.com/dtm.js" type="text/javascript"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Playing with Generative AI with WildFly</title>
+  <meta name="description" content="How to try the Generative AI feature pack with WildFly">
+  <link rel="me" href="https://fosstodon.org/@wildflyas" />
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" >
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/atelier-dune-light.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/protobuf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/dockerfile.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40221748-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-40221748-1');
+  </script>
+
+  
+
+</head>
+
+<body class="Playing with Generative AI with WildFly">
+  <div class="content">
+    <div class="header navigation">
+  <div class="logo-wrapper">
+    <a href="/"><img class="wf-logo" src="/assets/img/wildfly_icons_one-color-logo.png"></a>
+  </div>
+  <div class="nav-container">
+    <nav>
+      <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+      <ul class="nav-list">
+        <li>
+          <a href="/news/" class="active">News</a>
+        </li>
+        <li>
+          <a href="/about/" class="">About</a>
+        </li>
+        <li>
+          <a href="/contribute/" class="">Contribute</a>
+        </li>
+        <li>
+            <a target="_blank" href="https://docs.wildfly.org">Docs</a>
+        </li>
+        <li>
+          <a href="/guides/" class="">Guides</a>
+        </li>
+        <li>
+          <a href="/downloads/" class="">Downloads</a>
+        </li>
+        <li>
+          <a href="/security/" class="">CVE Reporting</a>
+        </li>
+        <li>
+          <a href="https://github.com/wildfly/wildfly/fork" target="_blank">Fork</a>
+        </li>
+        <li>
+          <a class="button-cta secondary " href="/get-started/">Get Started</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+    <div class="post-page grid-wrapper">
+  <div class="grid__item width-10-12">
+    <h1 class="title">Playing with Generative AI with WildFly</h1>
+    
+    
+    
+
+    <p>
+      
+        
+          
+          <p class="byline">
+            
+              <img class="avatar" height="60px" width="60px" src="/assets/img/authors/ehsavoie.png"/>
+            
+
+            By Emmanuel Hugonnet
+            
+              | November 04, 2024
+            
+          </p>
+        
+      
+    </p>
+  </div>
+  <div class="grid__item width-10-12 doc-content">
+    
+    <div class="paragraph">
+<p>This blog post provides information on how to use the AI Galleon Feature pack to write generative AI applications.</p>
+</div>
+<div class="paragraph">
+<p>Please note that this feature pack is currently a proof of concept and is not ready for production.</p>
+</div>
+<div class="paragraph">
+<p>You can access the release <a href="https://github.com/wildfly-extras/wildfly-ai-feature-pack/releases/tag/0.1.0" target="_blank" rel="noopener"><strong>org.wildfly:wildfly-ai-galleon-pack:0.1.0</strong></a> to follow the examples provided here.</p>
+</div>
+<div class="sect1">
+<h2 id="whats-in-this-feature-pack">What&#8217;s in this feature pack ?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This feature pack is work in progress so we will only cover what is already available as of today.
+It relies on configuring and exposing <a href="https://github.com/langchain4j" target="_blank" rel="noopener">LangChain4J</a> via <a href="https://github.com/smallrye/smallrye-llm" target="_blank" rel="noopener">smallrye-llm</a> to your application.
+It provides a way to inject some basic elements to make creating a Retrieval-Augmented Generation (RAG) application easy.
+It helps by configuring and providing all the required elements for such an application.</p>
+</div>
+<div class="sect2">
+<h3 id="what-is-rag">What is RAG ?</h3>
+<div class="paragraph">
+<p>As its name indicates, RAG is about retrieving relevant elements from pieces of information in your data and using them to enrich the prompt before sending the whole query (initial prompt + relevant data) to the LLM.
+The goal is to provide sufficient context to the LLM so that it can use those pieces of information and not hallucinate.</p>
+</div>
+<div class="sect3">
+<h4 id="the-core-elements-of-rag">The core elements of RAG</h4>
+<div class="paragraph">
+<p>As you can see on the schema below, you need a few elements to provide a RAG functionality:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>some components to get relevant pieces of information. We will focus on using a 'semantic' search approach, a.k.a. vector search, so we will need:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>an embedding model to create embeddings (aka semantic vectors) from the user query thus creating an embedding query.</p>
+</li>
+<li>
+<p>an embedding store containing all the embeddings and the associated segments of data and against which/ the embedding query will be run.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>a client to the LLM to send the enriched query against.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="/assets/img/news/ai/rag.png" alt="RAG">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="rag-with-langchain4j">RAG with LangChain4j</h4>
+<div class="paragraph">
+<p>The current feature pack provides a basic integration with the library LangChain4J. That means that currently we are exposing the LangChain4J API to the application.
+So it provides:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>dev.langchain4j.model.embedding.EmbeddingModel</code></p>
+</li>
+<li>
+<p><code>dev.langchain4j.store.embedding.EmbeddingStore</code></p>
+</li>
+<li>
+<p><code>dev.langchain4j.rag.content.retriever.ContentRetriever</code></p>
+</li>
+<li>
+<p><code>dev.langchain4j.model.chat.ChatLanguageModel</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>So you can configure instances of these objects via the WildFly management API to be injected via CDI into your application.</p>
+</div>
+<div class="paragraph">
+<p>We also support partially LangChain4J <a href="https://docs.langchain4j.dev/tutorials/ai-services/" target="_blank" rel="noopener"><strong>AI Services</strong></a> using <a href="https://github.com/smallrye/smallrye-llm/blob/0.0.1/smallrye-llm-langchain4j-core/src/main/java/io/smallrye/llm/spi/RegisterAIService.java" target="_blank" rel="noopener">RegisterAIService</a> from <a href="https://github.com/smallrye/smallrye-llm" target="_blank" rel="noopener">smallrye-llm</a>. Please note that this will change in the future as this project is quite new.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="the-feature-pack">The feature pack</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The feature pack is composed of a subsystem and a CDI extension. It supports several layers based on what you are trying to acheive. The list is not exhaustive and may vary in the future.</p>
+</div>
+<div class="sect3">
+<h4 id="the-layers">The layers</h4>
+<div class="paragraph">
+<p>This feature pack provides several layers to choose from when provisioning your server:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Support for chat models to interact with a LLM via <code>ChatModelLanguage</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>mistral-ai-chat-model</code>: provides integration with <a href="https://mistral.ai/" target="_blank" rel="noopener">Mistral AI</a></p>
+</li>
+<li>
+<p><code>ollama-chat-model</code>: provides integration with <a href="https://ollama.com/" target="_blank" rel="noopener">Ollama</a></p>
+</li>
+<li>
+<p><code>openai-chat-model</code>: provides integration with <a href="https://openai.com/" target="_blank" rel="noopener">OpenAI</a> (current configuration target <a href="https://console.groq.com/playground">Groq</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Support for embedding models via <code>EmbeddingModel</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>in-memory-embedding-model-all-minilm-l6-v2</code></p>
+</li>
+<li>
+<p><code>in-memory-embedding-model-all-minilm-l6-v2-q</code></p>
+</li>
+<li>
+<p><code>in-memory-embedding-model-bge-small-en</code></p>
+</li>
+<li>
+<p><code>in-memory-embedding-model-bge-small-en-q</code></p>
+</li>
+<li>
+<p><code>in-memory-embedding-model-bge-small-en-v15</code></p>
+</li>
+<li>
+<p><code>in-memory-embedding-model-bge-small-en-v15-q</code></p>
+</li>
+<li>
+<p><code>in-memory-embedding-model-e5-small-v2</code></p>
+</li>
+<li>
+<p><code>in-memory-embedding-model-e5-small-v2-q</code></p>
+</li>
+<li>
+<p><code>ollama-embedding-model</code>: using <a href="https://ollama.com/" target="_blank" rel="noopener">Ollama</a> to compute embeddings.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Support for embedding stores via  <code>EmbeddingStore</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>in-memory-embedding-store</code>: provides integration with an in memory embedding store (for demo purpose only).</p>
+</li>
+<li>
+<p><code>weaviate-embedding-store</code>: provides integration with <a href="https://weaviate.io/" target="_blank" rel="noopener">Weaviate</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Support for content retriever as <code>ContentRetriever</code> for RAG:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>default-embedding-content-retriever</code>: default content retriever using an <code>in-memory-embedding-store</code> and <code>in-memory-embedding-model-all-minilm-l6-v2</code> for embedding model.</p>
+</li>
+<li>
+<p><code>web-search-engines</code>: provides support for Google and Tavily search engine.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The layers will provide the required management resources, operations and modules.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="provisioning-the-feature-pack">Provisioning the feature pack</h4>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;!-- The WildFly plugin deploys your war to a local WildFly container --&gt;
+&lt;plugin&gt;
+    &lt;groupId&gt;org.wildfly.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;wildfly-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;${version.wildfly.maven.plugin}&lt;/version&gt;
+    &lt;configuration&gt;
+        &lt;feature-packs&gt;
+            &lt;feature-pack&gt;
+                &lt;location&gt;org.wildfly:wildfly-galleon-pack:${version.wildfly.bom}&lt;/location&gt;
+            &lt;/feature-pack&gt;
+            &lt;feature-pack&gt;
+                &lt;location&gt;org.wildfly:wildfly-ai-galleon-pack:0.1.0&lt;/location&gt;
+            &lt;/feature-pack&gt;
+        &lt;/feature-packs&gt;
+        &lt;layers&gt;
+            &lt;layer&gt;cloud-server&lt;/layer&gt;
+            &lt;layer&gt;ollama-chat-model&lt;/layer&gt;
+            &lt;layer&gt;default-embedding-content-retriever&lt;/layer&gt;
+            &lt;!-- default-embedding-content-retriever provides the following layers --&gt;
+            &lt;!--
+                &lt;layer&gt;in-memory-embedding-model-all-minilm-l6-v2&lt;/layer&gt;
+                &lt;layer&gt;in-memory-embedding-store&lt;/layer&gt;
+            --&gt;
+            &lt;!-- Existing layers that can be used instead--&gt;
+            &lt;!--
+                &lt;layer&gt;ollama-embedding-model&lt;/layer&gt;
+                &lt;layer&gt;openai-chat-model&lt;/layer&gt;
+                &lt;layer&gt;mistral-ai-chat-model&lt;/layer&gt;
+                &lt;layer&gt;weaviate-embedding-store&lt;/layer&gt;
+                &lt;layer&gt;web-search-engines&lt;/layer&gt;
+            --&gt;
+        &lt;/layers&gt;
+        &lt;name&gt;ROOT.war&lt;/name&gt;
+        &lt;extraServerContentDirs&gt;
+            &lt;extraServerContentDir&gt;extra-content&lt;/extraServerContentDir&gt;
+        &lt;/extraServerContentDirs&gt;
+        &lt;packagingScripts&gt;
+            &lt;packaging-script&gt;
+                &lt;scripts&gt;
+                    &lt;script&gt;./src/scripts/configure_llm.cli&lt;/script&gt;
+                &lt;/scripts&gt;
+            &lt;/packaging-script&gt;
+        &lt;/packagingScripts&gt;
+    &lt;/configuration&gt;
+    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;package&lt;/goal&gt;
+            &lt;/goals&gt;
+        &lt;/execution&gt;
+    &lt;/executions&gt;
+&lt;/plugin&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In our example we are provisioning everything via layers.
+The script <code>configure_llm.cli</code> provides sample commands to further configure the subsystem manually.
+Please note that all modules might not be provisionned so you need to add the corresponding layers in <code>the pom.xml</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">###Embedding Models
+# Adding the SentenceTransformers all-MiniLM-L6-v2 EmbeddingModel that runs within the server JVM.
+#/subsystem=ai/embedding-model=myembedding:add(module=dev.langchain4j.embeddings.all-minilm-l6-v2, embedding-class=dev.langchain4j.model.embedding.onnx.allminilml6v2.AllMiniLmL6V2EmbeddingModel)
+
+
+# Adding an Ollama EmbeddingModel connecting to http://192.168.1.11:11434 using the model llama3:8b.
+#/subsystem=ai/ollama-embedding-model=test:add(base-url="http://192.168.1.11:11434", model-name="llama3:8b")
+
+###Chat Language Models
+# Adding an OpenAI REST ChatLanguageModel connecting to Groq using the model llama3-8b-8192.
+#/subsystem=ai/openai-chat-model=mychat:add(base-url="https://api.groq.com/openai/v1", api-key="${env.GROQ_API_KEY}", log-requests="true", log-responses="true", model-name="llama3-8b-8192")
+
+### Mistral
+#/subsystem=ai/mistral-ai-chat-model=test:add(api-key="${env.MISTRAL_API_KEY}", base-url="https://api.mistral.ai/v1", log-requests="true", log-responses="true", model-name="mistral-small-latest")
+
+
+# Adding an Ollama ChatLanguageModel connecting to http://127.0.0.1:11434 using the model llama3:8b.
+#/subsystem=ai/ollama-chat-model=mychat:add(model-name="llama3.1:8b", base-url="http://127.0.0.1:11434", log-requests="true", log-responses="true", temperature="0.9")
+#/subsystem=ai/ollama-chat-model=mychat:add(model-name="mistral", base-url="http://127.0.0.1:11434", log-requests="true", log-responses="true", temperature="0.9")
+#/subsystem=ai/openai-chat-model=mychat:add(base-url="https://api.groq.com/openai/v1", api-key="${env.GROQ_API_KEY}",model-name="llama3:8b")
+
+
+###Embedding Stores
+
+# Adding Weaviate as an embedding store
+# podman run --rm -p 8090:8080 -p 50051:50051  -e AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED="true" -v $SOME_PATH/volumes/weaviate/_data:/data --name=weaviate cr.weaviate.io/semitechnologies/weaviate:1.24.10
+#/socket-binding-group=standard-sockets/remote-destination-outbound-socket-binding=weaviate:add(host=localhost, port=8090)
+#/subsystem=ai/weaviate-embedding-store=mystore:add(socket-binding=weaviate, ssl-enabled=false, object-class=Simple, metadata=[url,language,parent_url,file_name,file_path,title,subtitle])
+#/subsystem=logging/logger=io.weaviate.client.client:add(level=TRACE)
+
+# Adding in memory embedding store loading form a json file
+#/subsystem=ai/in-memory-embedding-store=mystore:add(file=/home/ehugonne/dev/AI/crawler/crawler/wildfly-admin-embeddings.json)
+
+
+###Content retrievers
+
+# Adding a content retriever using embeddings
+#/subsystem=ai/embedding-store-content-retriever=myretriever:add(embedding-model=myembedding,embedding-store=mystore, max-results=2, min-score=0.7)
+
+# Adding a content retriever using Tavily search engine
+#/subsystem=ai/web-search-content-retriever=myretriever:add(tavily={api-key=${env.TAVILY_API_KEY}, base-url=https://api.tavily.com, connect-timeout=20000, exclude-domains=[example.org], include-domains=[example.com], include-answer=true})</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="putting-it-all-together-the-webchat-example">Putting it all together: The WebChat example</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To put it all together we are going to execute a sample RAG application with a web interface. It will use embeddings that were previously computed using WildFly documentation.
+If you want to check the code of the application used to create embeddings out of WildFly documentation and store the results you can look at <a href="https://github.com/ehsavoie/crawler" target="_blank" rel="noopener">https://github.com/ehsavoie/crawler</a>. It can be used to fill either a JSON file or a weaviate embedding store.The embeddings were computed using the <strong>All-MiniLM-L6-v2 EmbeddingModel</strong>, so we need to use the same model in our RAG application.
+This embedding model will be used to compute the embedding of the user query and then the application will search for the nearest contents in the in-memory embedding store.
+The content retriever will retrieve and append those contents to the user query to create the prompt that will be sent to the LLM we are connected to, via the ChatLanguageModel.</p>
+</div>
+<div class="sect3">
+<h4 id="running-ollama-locally">Running Ollama locally</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">podman run -d --rm --name ollama --replace --pull=always -p 11434:11434 -v ollama:/root/.ollama --stop-signal=SIGKILL docker.io/ollama/ollama</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Execute the following command to select the expected model (type <strong>/bye</strong> to quit the ollama prompt):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">podman exec -it ollama ollama run llama3.1:8b</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="configuring-the-server">Configuring the server</h4>
+<div class="paragraph">
+<p>We will use the following layers:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>default-embedding-content-retriever</p>
+</li>
+<li>
+<p>ollama-chat-model</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>So the pom.xml should look like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;!-- The WildFly plugin deploys your war to a local JBoss AS container --&gt;
+&lt;plugin&gt;
+    &lt;groupId&gt;org.wildfly.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;wildfly-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;${version.wildfly.maven.plugin}&lt;/version&gt;
+    &lt;configuration&gt;
+        &lt;feature-packs&gt;
+            &lt;feature-pack&gt;
+                &lt;location&gt;org.wildfly:wildfly-galleon-pack:${version.wildfly.bom}&lt;/location&gt;
+            &lt;/feature-pack&gt;
+            &lt;feature-pack&gt;
+                &lt;location&gt;org.wildfly:wildfly-ai-galleon-pack:0.1.0&lt;/location&gt;
+            &lt;/feature-pack&gt;
+        &lt;/feature-packs&gt;
+        &lt;layers&gt;
+            &lt;layer&gt;cloud-server&lt;/layer&gt;
+            &lt;layer&gt;default-embedding-content-retriever&lt;/layer&gt;
+            &lt;layer&gt;ollama-chat-model&lt;/layer&gt;
+        &lt;/layers&gt;
+        &lt;name&gt;ROOT.war&lt;/name&gt;
+        &lt;packagingScripts&gt;
+            &lt;packaging-script&gt;
+                &lt;scripts&gt;
+                    &lt;script&gt;./src/main/resources/scripts/configure_llm.cli&lt;/script&gt;
+                &lt;/scripts&gt;
+            &lt;/packaging-script&gt;
+        &lt;/packagingScripts&gt;
+    &lt;/configuration&gt;
+    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;package&lt;/goal&gt;
+            &lt;/goals&gt;
+        &lt;/execution&gt;
+    &lt;/executions&gt;
+&lt;/plugin&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="the-code">The code</h4>
+<div class="paragraph">
+<p>The code itself is quite straightforward:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">@ServerEndpoint(value = "/websocket/chatbot",
+        configurator = org.wildfly.ai.websocket.CustomConfigurator.class)
+public class RagChatBot {
+    @Inject
+    @Named(value = "ollama")
+    ChatLanguageModel chatModel;
+    @Inject
+    @Named(value = "embedding-store-retriever")
+    ContentRetriever retriever;
+
+  private static final String PROMPT_TEMPLATE = "You are a WildFly expert who understands well how to administrate the WildFly server and its components\n"
+            + "Objective: answer the user question delimited by  ---\n"
+            + "\n"
+            + "---\n"
+            + "{{userMessage}}\n"
+            + "---"
+            + "\n Here is some data to help you:\n"
+            + "{{contents}}";
+
+  @OnMessage
+  public String sayHello(String question, Session session) throws IOException {
+        ChatMemory chatMemory = MessageWindowChatMemory.builder().id(session.getUserProperties().get("httpSessionId")).maxMessages(3).build();
+        ConversationalRetrievalChain chain = ConversationalRetrievalChain.builder()
+                .chatLanguageModel(chatModel)
+                .chatMemory(chatMemory)
+                .retrievalAugmentor(createBasicRag())
+                .build();
+        String result = chain.execute(question).replace("\n", "&lt;br/&gt;");
+        return result;
+    }
+
+    private RetrievalAugmentor createBasicRag() {
+        return DefaultRetrievalAugmentor.builder()
+                .contentRetriever(retriever)
+                .contentInjector(DefaultContentInjector.builder()
+                        .promptTemplate(PromptTemplate.from(PROMPT_TEMPLATE))
+                        .build())
+                .queryRouter(new DefaultQueryRouter(retriever))
+                .build();
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>dev.langchain4j.rag.content.retriever.ContentRetriever</code> called <strong>embedding-store-retriever</strong> defined in the subsystem is injected into our WebSocket endpoint using the the <code>@Named</code> annotation.</p>
+</div>
+<div class="paragraph">
+<p>It is used to instantiate a <code>dev.langchain4j.rag.RetrievalAugmentor</code> which is in charge of retrieving the contents and enriching the prompt with them.</p>
+</div>
+<div class="paragraph">
+<p>In the same way, the <code>dev.langchain4j.model.chat.ChatLanguageModel</code> called <strong>ollama</strong> defined in the subsystem is injected into our WebSocket endpoint using the <code>@Named</code> annotation.</p>
+</div>
+<div class="paragraph">
+<p>With those two elements, a <code>dev.langchain4j.chain.ConversationalRetrievalChain</code> is created and used to interact with the LLM and send back the answer to the client using the WebSocket.</p>
+</div>
+<div class="paragraph">
+<p>The final code of the application is a bit more complex than what is exposed here as it tries to keep some context between user queries.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="building-and-running-the-application">Building and Running the application</h4>
+<div class="paragraph">
+<p>First you need to clone it from <a href="https://github.com/ehsavoie/webchat/tree/0.1.x" target="_blank" rel="noopener">https://github.com/ehsavoie/webchat</a> and select the branch 0.1.x.</p>
+</div>
+<div class="paragraph">
+<p>In a console execute the following commands:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">git clone https://github.com/ehsavoie/webchat.git
+cd webchat
+git checkout 0.1.x
+mvn clean install
+./target/server/bin/standalone.sh</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now that the server is started, you can access the <a href="http://localhost:8080" target="_blank" rel="noopener">application</a>.
+You need to open the WebSocket connection and then you can ask your questions.</p>
+</div>
+<div class="paragraph">
+<p>For example you can ask <strong>"How do you configure a connection factory to a remote Artemis server ?"</strong>.</p>
+</div>
+<div class="paragraph">
+<p>If you look into the server log file you will see the effective prompt sent to the LLM as well as the answer from it.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="going-further">Going further</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This feature pack is currently just a proof of concept and is quite limited.
+If you look at the code you can easily tweak it to try several scenarios like using a Weaviate Embedding Store with metadata.
+Also you can try <a href="https://openai.com/" target="_blank" rel="noopener">OpenAI</a> or <a href="https://groq.com" target="_blank" rel="noopener">Groq</a> instead of Ollama.</p>
+</div>
+<div class="paragraph">
+<p>All the source code of the feature pack is available on <a href="https://github.com/wildfly-extras/wildfly-ai-feature-pack" target="_blank" rel="noopener">Github</a> and can be improved by extending the components that may be of use.</p>
+</div>
+</div>
+</div>
+    
+  </div>
+</div>
+
+
+
+  </div>
+
+  <div class="content project-footer">
+  <div class="footer-section">
+    <div class="logo-wrapper">
+      <a href="/"><img class="wf-logo" src="/assets/img/wildfly_icons_one-color-logo.png"></a>
+    </div>
+  </div>
+  <div class="grid-wrapper">
+    <p class="grid__item width-3-12">WildFly is fully open. All components are open source and follow a community-focused development process.<br/><br/>This website was built with <a href='https://jekyllrb.com/' target='_blank'>Jekyll</a> is hosted on <a href='https://pages.github.com/' target='_blank'>Github Pages</a> and is completely open source. If you want to make it better, <a href='https://github.com/wildfly/wildfly.org/fork' target='_blank'>fork it</a> and show us what you’ve got.</p>
+
+    
+      <div class="width-1-12 project-links">
+        <strong>Navigation</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="/downloads">Downloads</a></li>
+          
+            <li><a href="https://docs.wildfly.org">Docs</a></li>
+          
+            <li><a href="/get-started">Get Started</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly">Github</a></li>
+          
+            <li><a href="/guides">Guides</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Contribute</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://issues.jboss.org/browse/WFLY">Submit a bug</a></li>
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly/fork">Fork WildFly</a></li>
+          
+            <li><a href="https://twitter.com/WildFlyAS">Follow us</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Get Help</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://wildfly.zulipchat.com/">Join Zulip Chat</a></li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="width-6-12 more-links">
+        <strong>Find more Red Hat Middleware Community Projects</strong>
+        <ul class="footer-links">
+          
+            <li><a href="https://www.apiman.io/">APIMan</a></li>
+          
+            <li><a href="http://arquillian.org">Arquillian</a></li>
+          
+            <li><a href="https://github.com/ansible-middleware/wildfly">Ansible Collection for Wildfly</a></li>
+          
+            <li><a href="http://byteman.jboss.org/">Byteman</a></li>
+          
+            <li><a href="http://capedwarf.org/">CapeDwarf</a></li>
+          
+            <li><a href="https://github.com/alechenninger/chronicler">Chronicler</a></li>
+          
+            <li><a href="https://github.com/darcy-framework">Darcy</a></li>
+          
+            <li><a href="http://debezium.io/">Debezium</a></li>
+          
+            <li><a href="https://www.drools.org/">Drools</a></li>
+          
+            <li><a href="http://gatein.jboss.org/">GateIn</a></li>
+          
+            <li><a href="http://www.hawkular.org/">Hawkular</a></li>
+          
+            <li><a href="http://hawt.io/">Hawtio</a></li>
+          
+            <li><a href="http://hibernate.org/">Hibernate</a></li>
+          
+            <li><a href="http://www.infinispan.org/">Infinispan</a></li>
+          
+            <li><a href="https://developers.redhat.com/products/codeready-studio/overview">CodeReady Studio</a></li>
+          
+            <li><a href="http://forge.jboss.org/">JBoss Forge</a></li>
+          
+            <li><a href="https://github.com/jboss-logging">JBoss Logging</a></li>
+          
+            <li><a href="http://jbossremoting.jboss.org/">JBoss Remoting</a></li>
+          
+            <li><a href="https://www.jbpm.org/">jBPM</a></li>
+          
+            <li><a href="https://jsfunit.jboss.org/">JSFUnit</a></li>
+          
+            <li><a href="https://www.keycloak.org/">Keycloak</a></li>
+          
+            <li><a href="http://modcluster.io/">Mod Cluster</a></li>
+          
+            <li><a href="http://modeshape.jboss.org/">ModeShape</a></li>
+          
+            <li><a href="https://www.optaplanner.org/">OptaPlanner</a></li>
+          
+            <li><a href="https://quarkus.io/">Quarkus</a></li>
+          
+            <li><a href="http://resteasy.jboss.org/">RESTEasy</a></li>
+          
+            <li><a href="https://riftsaw.jboss.org/">Riftsaw</a></li>
+          
+            <li><a href="http://savara.jboss.org/">Savara</a></li>
+          
+            <li><a href="https://weld.cdi-spec.org/">Weld</a></li>
+          
+            <li><a href="http://arquillian.org/">Shrinkwrap</a></li>
+          
+            <li><a href="https://switchyard.jboss.org/">Switchyard</a></li>
+          
+            <li><a href="https://tattletale.jboss.org/">Tattletale</a></li>
+          
+            <li><a href="https://teiid.io/">Teiid</a></li>
+          
+            <li><a href="https://wildfly-security.github.io/wildfly-elytron/">WildFly Elytron</a></li>
+          
+            <li><a href="http://wise.jboss.org/">Wise</a></li>
+          
+            <li><a href="https://xnio.jboss.org/">XNIO</a></li>
+          
+        </ul>
+      </div>
+    
+  </div>
+</div>
+  <div class="content redhat-footer">
+  <div class="grid-wrapper">
+    <span class="licence">
+      <i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i> <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC by 3.0</a> | <a href="https://www.redhat.com/en/about/privacy-policy">Privacy Policy</a>
+    </span>
+    <span class="redhat">
+      Sponsored by
+    </span>
+    <span class="redhat-logo">
+      <a href="https://www.redhat.com/" target="_blank"><img src="/assets/img/redhat_reversed.svg"></a>
+    </span>
+  </div>
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/mobile-nav.js"></script>
+  <script type="text/javascript" src="/assets/javascript/random-color-picker.js"></script>
+  <script type="text/javascript">
+    if (("undefined" !== typeof _satellite) && ("function" === typeof _satellite.pageBottom)) {
+        _satellite.pageBottom();
+    }
+    hljs.highlightAll();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/copy.js"></script>
+
+</body>
+
+</html>

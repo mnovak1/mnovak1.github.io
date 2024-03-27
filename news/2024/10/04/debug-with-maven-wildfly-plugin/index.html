@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script id="adobe_dtm" src="//www.redhat.com/dtm.js" type="text/javascript"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Debug a provisioned WildFly server with the help of wildfly-maven-plugin</title>
+  <meta name="description" content="Introducing the use of the wildfly-maven-plugin to debug a provisioned WildFly server.">
+  <link rel="me" href="https://fosstodon.org/@wildflyas" />
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" >
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/atelier-dune-light.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/protobuf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/dockerfile.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40221748-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-40221748-1');
+  </script>
+
+  
+
+</head>
+
+<body class="Debug a provisioned WildFly server with the help of wildfly-maven-plugin">
+  <div class="content">
+    <div class="header navigation">
+  <div class="logo-wrapper">
+    <a href="/"><img class="wf-logo" src="/assets/img/wildfly_icons_one-color-logo.png"></a>
+  </div>
+  <div class="nav-container">
+    <nav>
+      <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+      <ul class="nav-list">
+        <li>
+          <a href="/news/" class="active">News</a>
+        </li>
+        <li>
+          <a href="/about/" class="">About</a>
+        </li>
+        <li>
+          <a href="/contribute/" class="">Contribute</a>
+        </li>
+        <li>
+            <a target="_blank" href="https://docs.wildfly.org">Docs</a>
+        </li>
+        <li>
+          <a href="/guides/" class="">Guides</a>
+        </li>
+        <li>
+          <a href="/downloads/" class="">Downloads</a>
+        </li>
+        <li>
+          <a href="/security/" class="">CVE Reporting</a>
+        </li>
+        <li>
+          <a href="https://github.com/wildfly/wildfly/fork" target="_blank">Fork</a>
+        </li>
+        <li>
+          <a class="button-cta secondary " href="/get-started/">Get Started</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+    <div class="post-page grid-wrapper">
+  <div class="grid__item width-10-12">
+    <h1 class="title">Debug a provisioned WildFly server with the help of wildfly-maven-plugin</h1>
+    
+    
+    
+
+    <p>
+      
+        
+          
+          <p class="byline">
+            
+              <img class="avatar" height="60px" width="60px" src="/assets/img/authors/liweinan.jpg"/>
+            
+
+            By 阿男
+            
+              | October 04, 2024
+            
+          </p>
+        
+      
+    </p>
+  </div>
+  <div class="grid__item width-10-12 doc-content">
+    
+    <div class="sect1">
+<h2 id="debug-a-provisioned-wildfly-server-with-the-help-of-the-wildfly-maven-plugin">Debug a provisioned WildFly server with the help of the wildfly-maven-plugin</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sometimes I need to debug my project in a customized WildFly server. The requirements are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>I need to use a specific version of WildFly server.</p>
+</li>
+<li>
+<p>I need to override the version of some artifacts used in modules inside the WildFly server.</p>
+</li>
+<li>
+<p>I need to run the WildFly server in debug mode, so I can use IDE tools to remotely debug the code.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>With the use of the <code>wildfly-maven-plugin</code>, the above goals can be achieved in an automated way. Here is an example of the configuration to show the use of the plugin to achieve the above goals:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/jberet/jberet-examples/blob/main/deployment/pom.xml">jberet-examples/deployment/pom.xml at main · jberet/jberet-examples</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>wildfly-maven-plugin</code> configuration in the above <code>pom.xml</code> looks like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;plugin&gt;
+    &lt;groupId&gt;org.wildfly.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;wildfly-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;${version.maven.wildfly.plugin}&lt;/version&gt;
+    &lt;configuration&gt;
+        &lt;provisioning-dir&gt;${jboss.home}&lt;/provisioning-dir&gt;
+        &lt;galleon-options&gt;
+            &lt;jboss-fork-embedded&gt;${galleon.fork.embedded}&lt;/jboss-fork-embedded&gt;
+        &lt;/galleon-options&gt;
+        &lt;feature-packs&gt;
+            &lt;feature-pack&gt;
+                &lt;groupId&gt;${server.test.feature.pack.groupId}&lt;/groupId&gt;
+                &lt;artifactId&gt;${server.test.feature.pack.artifactId}&lt;/artifactId&gt;
+                &lt;version&gt;${wildfly.version}&lt;/version&gt;
+                &lt;inherit-configs&gt;false&lt;/inherit-configs&gt;
+                &lt;included-configs&gt;
+                    &lt;config&gt;
+                        &lt;model&gt;standalone&lt;/model&gt;
+                        &lt;name&gt;standalone-full.xml&lt;/name&gt;
+                    &lt;/config&gt;
+                    &lt;config&gt;
+                        &lt;model&gt;standalone&lt;/model&gt;
+                        &lt;name&gt;standalone.xml&lt;/name&gt;
+                    &lt;/config&gt;
+                &lt;/included-configs&gt;
+                &lt;excluded-packages&gt;
+                    &lt;name&gt;docs.schema&lt;/name&gt;
+                    &lt;name&gt;appclient&lt;/name&gt;
+                    &lt;name&gt;domain&lt;/name&gt;
+                &lt;/excluded-packages&gt;
+            &lt;/feature-pack&gt;
+        &lt;/feature-packs&gt;
+        &lt;channels&gt;
+            &lt;channel&gt;
+                &lt;manifest&gt;
+                    &lt;groupId&gt;org.jberet&lt;/groupId&gt;
+                    &lt;artifactId&gt;jberet-channel-manifest&lt;/artifactId&gt;
+                    &lt;version&gt;${version.jberet}&lt;/version&gt;
+                &lt;/manifest&gt;
+            &lt;/channel&gt;
+        &lt;/channels&gt;
+    &lt;/configuration&gt;
+...
+&lt;/plugin&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the above configuration, the <code>feature-packs</code> section specifies the feature packs to be used by the provisioned server(there is no default feature pack that would be used if this wasn&#8217;t set), and the <code>channels</code> section is using the <code>jberet-channel-manifest</code> channel to override the <code>batch-jberet</code> module to be used in the provisioned server. Please note that you need to use the <code>channels</code> with the <code>feature-packs</code> together. Here are the properties used by the configuration:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;properties&gt;
+    ...
+    &lt;version.jberet&gt;3.0.0.Final&lt;/version.jberet&gt;
+    ...
+    &lt;version.maven.wildfly.plugin&gt;5.0.1.Final&lt;/version.maven.wildfly.plugin&gt;
+    &lt;jboss.home&gt;${project.build.directory}${file.separator}wildfly&lt;/jboss.home&gt;
+    &lt;wildfly.version&gt;33.0.2.Final&lt;/wildfly.version&gt;
+    &lt;server.test.feature.pack.groupId&gt;org.wildfly&lt;/server.test.feature.pack.groupId&gt;
+    &lt;server.test.feature.pack.artifactId&gt;wildfly-ee-galleon-pack&lt;/server.test.feature.pack.artifactId&gt;
+    ...
+&lt;/properties&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the above way, I can define the WildFly version to be used and the JBeret version to be used in the provisioned WildFly server.</p>
+</div>
+<div class="paragraph">
+<p>The <code>jberet-channel-manifest</code> is provided by the JBeret project itself:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/jberet/jsr352/tree/main/jberet-manifest">jsr352/jberet-manifest at main · jberet/jsr352</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The above subproject provides the JBeret module that can be used in the WildFly server. It uses the concept of WildFly Channel to achieve this goal. It can be used to override the version of some artifacts used in modules inside the WildFly server. I won’t explain the concept of WildFly Channel in this blog post. If you are interested in this topic, these articles are worth reading:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.wildfly.org/news/2023/04/05/prospero/">An Introduction To The Prospero Usage</a></p>
+</li>
+<li>
+<p><a href="https://www.wildfly.org/news/2024/01/29/wildfly-glow/">WildFly Glow, an evolution of WildFly provisioning</a></p>
+</li>
+<li>
+<p><a href="https://www.wildfly.org/news/2024/01/31/whats-new-in-provisioning/">What’s new in WildFly provisioning</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>With the above configuration, the <code>3.0.0.Final</code> version of that manifest specifies use of JBeret <code>3.0.0</code> while WildFly <code>33.0.2</code> used <code>2.2.1</code>. If I run the following command in the above example project, the output showing the relative provision process:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ mvn wildfly:run
+...
+[INFO] Resolving channel metadata from Maven artifact org.jberet:jberet-channel-manifest:3.0.0.Final
+[INFO] Provisioning server in /Users/weli/works/jberet-examples/deployment/target/wildfly
+[INFO] Resolving feature-packs
+[INFO] Installing packages
+[INFO] 6 of 523 (1.1%)
+[INFO] Resolving artifacts
+[INFO] 11 of 491 (2.2%)
+...
+[INFO] Generating configurations
+[INFO] Delayed generation, waiting...
+[INFO] Resolving channel metadata from Maven artifact org.jberet:jberet-channel-manifest:3.0.0.Final
+...
+[INFO] --- wildfly:5.0.1.Final:start (wildfly-start) @ batch-deployment-examples ---
+[INFO] Provisioning default server in /Users/weli/works/jberet-examples/deployment/target/server
+Downloading from jboss-public-repository-group: https://repository.jboss.org/nexus/content/groups/public/org/wildfly/wildfly-galleon-pack/33.0.2.Final/wildfly-galleon-pack-33.0.2.Final.zip
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>From the above output, we can see that <code>org.jberet:jberet-channel-manifest:3.0.0.Final</code> is used for provision, and the <code>wildfly-galleon-pack-33.0.2.Final.zip</code> is downloaded. If I check the generated WildFly server directory, I can see that JBeret <code>3.0.0.Final</code> is used in the provisioned WildFly server:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ pwd
+/Users/weli/works/jberet-examples/deployment/target/wildfly
+$ find modules -name "*jberet*"
+modules/system/layers/base/org/wildfly/extension/batch/jberet
+modules/system/layers/base/org/wildfly/extension/batch/jberet/main/wildfly-batch-jberet-33.0.2.Final.jar
+modules/system/layers/base/org/jberet
+modules/system/layers/base/org/jberet/jberet-core
+modules/system/layers/base/org/jberet/jberet-core/main/jberet-core-3.0.0.Final.jar</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To run the provisioned WildFly server in debug mode, the <code>wildfly-maven-plugin</code> provide options to support the debug mode. To check the usages of <code>wildfly-maven-plugin</code>, I can run the following command in the above example project to do so:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ mvn wildfly:help -Ddetail=true</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The above command will output the full document of the <code>wildfly-maven-plugin</code>. Following are the relative parts of the document:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-txt" data-lang="txt">wildfly:dev
+  Description: Starts a standalone instance of WildFly and deploys the
+    application to the server. The deployment type must be a WAR. Once the
+    server is running, the source directories are monitored for changes. If
+    required the sources will be compiled and the deployment may be redeployed.
+    Note that changes to the POM file are not monitored. If changes are made
+    the POM file, the process will need to be terminated and restarted. Note
+    that if a WildFly Bootable JAR is packaged, it is ignored by this goal.
+  Implementation: org.wildfly.plugin.dev.DevMojo
+  Language: java
+  Bound to phase: package
+
+  Available parameters:
+
+    ...
+
+    debug (Default: false)
+      User property: wildfly.debug
+      Starts the server with debugging enabled.
+
+    debugHost (Default: *)
+      User property: wildfly.debug.host
+      Sets the hostname to listen on for debugging. An * means all hosts.
+
+    debugPort (Default: 8787)
+      User property: wildfly.debug.port
+      Sets the port the debugger should listen on.
+
+    debugSuspend (Default: false)
+      User property: wildfly.debug.suspend
+      Indicates whether the server should suspend itself until a debugger is
+      attached.
+
+...
+
+wildfly:run
+  Description: Starts a standalone instance of WildFly and deploys the
+    application to the server. This goal will block until cancelled or a
+    shutdown is invoked from a management client. Note that if a WildFly
+    Bootable JAR is packaged, it is ignored by this goal.
+  Implementation: org.wildfly.plugin.server.RunMojo
+  Language: java
+  Before this goal executes, it will call:
+    Phase: 'package'
+
+  Available parameters:
+
+    ...
+
+    debug (Default: false)
+      User property: wildfly.debug
+      Starts the server with debugging enabled.
+
+    debugHost (Default: *)
+      User property: wildfly.debug.host
+      Sets the hostname to listen on for debugging. An * means all hosts.
+
+    debugPort (Default: 8787)
+      User property: wildfly.debug.port
+      Sets the port the debugger should listen on.
+
+    debugSuspend (Default: false)
+      User property: wildfly.debug.suspend
+      Indicates whether the server should suspend itself until a debugger is
+      attached.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As the document written in above, both the <code>wildfly:dev</code> and the <code>wildfly:run</code> goals support the <code>debug</code> mode, and the property to activate it is the <code>wildfly.debug</code> option.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you want to check the help text of a specific goal of the plugin, taking the <code>wildfly:dev</code> goal for example, you can use this command to do so:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">mvn wildfly:help -Ddetail=true -Dgoal=dev</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In addition, instead of reading the embedded help text, you can also refer to the online documentation of <code>wildfly-maven-plugin</code> here:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.wildfly.org/wildfly-maven-plugin">WildFly Maven Plugin
+(wildfly-maven-plugin)</a></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>With the above information, I can run the provisioned WildFly server in debug mode:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ mvn wildfly:run -Dwildfly.debug=true</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And from the server output I can see the debug options are added:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-txt" data-lang="txt">[INFO] JAVA_OPTS : -Xms64m -Xmx512m -Djava.net.preferIPv4Stack=true -Djava.awt.headless=true -Djboss.modules.system.pkgs=org.jboss.byteman -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8787 --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-exports=jdk.unsupported/sun.reflect=ALL-UNNAMED --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED --add-modules=java.se</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As the output shows above, the debug options are added and the remote debug port is set as <code>8787</code> by default. This means the WildFly server is ready to accept the remote debug requests. In addition, the customized version of the WildFly server codebase and the overridden version of the JBeret module codebase can be used for debugging now. I won’t introduce the way to use an IDE to debug the WildFly server in this blog post. If you’d like to learn about the way to do so, I have written a personal blog post on this topic before:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://weinan.io/2017/05/07/troubleshooting-wildfly.html">Troubleshooting the Wildfly startup process</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Enjoy :D</p>
+</div>
+</div>
+</div>
+    
+  </div>
+</div>
+
+
+
+  </div>
+
+  <div class="content project-footer">
+  <div class="footer-section">
+    <div class="logo-wrapper">
+      <a href="/"><img class="wf-logo" src="/assets/img/wildfly_icons_one-color-logo.png"></a>
+    </div>
+  </div>
+  <div class="grid-wrapper">
+    <p class="grid__item width-3-12">WildFly is fully open. All components are open source and follow a community-focused development process.<br/><br/>This website was built with <a href='https://jekyllrb.com/' target='_blank'>Jekyll</a> is hosted on <a href='https://pages.github.com/' target='_blank'>Github Pages</a> and is completely open source. If you want to make it better, <a href='https://github.com/wildfly/wildfly.org/fork' target='_blank'>fork it</a> and show us what you’ve got.</p>
+
+    
+      <div class="width-1-12 project-links">
+        <strong>Navigation</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="/downloads">Downloads</a></li>
+          
+            <li><a href="https://docs.wildfly.org">Docs</a></li>
+          
+            <li><a href="/get-started">Get Started</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly">Github</a></li>
+          
+            <li><a href="/guides">Guides</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Contribute</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://issues.jboss.org/browse/WFLY">Submit a bug</a></li>
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly/fork">Fork WildFly</a></li>
+          
+            <li><a href="https://twitter.com/WildFlyAS">Follow us</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Get Help</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://wildfly.zulipchat.com/">Join Zulip Chat</a></li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="width-6-12 more-links">
+        <strong>Find more Red Hat Middleware Community Projects</strong>
+        <ul class="footer-links">
+          
+            <li><a href="https://www.apiman.io/">APIMan</a></li>
+          
+            <li><a href="http://arquillian.org">Arquillian</a></li>
+          
+            <li><a href="https://github.com/ansible-middleware/wildfly">Ansible Collection for Wildfly</a></li>
+          
+            <li><a href="http://byteman.jboss.org/">Byteman</a></li>
+          
+            <li><a href="http://capedwarf.org/">CapeDwarf</a></li>
+          
+            <li><a href="https://github.com/alechenninger/chronicler">Chronicler</a></li>
+          
+            <li><a href="https://github.com/darcy-framework">Darcy</a></li>
+          
+            <li><a href="http://debezium.io/">Debezium</a></li>
+          
+            <li><a href="https://www.drools.org/">Drools</a></li>
+          
+            <li><a href="http://gatein.jboss.org/">GateIn</a></li>
+          
+            <li><a href="http://www.hawkular.org/">Hawkular</a></li>
+          
+            <li><a href="http://hawt.io/">Hawtio</a></li>
+          
+            <li><a href="http://hibernate.org/">Hibernate</a></li>
+          
+            <li><a href="http://www.infinispan.org/">Infinispan</a></li>
+          
+            <li><a href="https://developers.redhat.com/products/codeready-studio/overview">CodeReady Studio</a></li>
+          
+            <li><a href="http://forge.jboss.org/">JBoss Forge</a></li>
+          
+            <li><a href="https://github.com/jboss-logging">JBoss Logging</a></li>
+          
+            <li><a href="http://jbossremoting.jboss.org/">JBoss Remoting</a></li>
+          
+            <li><a href="https://www.jbpm.org/">jBPM</a></li>
+          
+            <li><a href="https://jsfunit.jboss.org/">JSFUnit</a></li>
+          
+            <li><a href="https://www.keycloak.org/">Keycloak</a></li>
+          
+            <li><a href="http://modcluster.io/">Mod Cluster</a></li>
+          
+            <li><a href="http://modeshape.jboss.org/">ModeShape</a></li>
+          
+            <li><a href="https://www.optaplanner.org/">OptaPlanner</a></li>
+          
+            <li><a href="https://quarkus.io/">Quarkus</a></li>
+          
+            <li><a href="http://resteasy.jboss.org/">RESTEasy</a></li>
+          
+            <li><a href="https://riftsaw.jboss.org/">Riftsaw</a></li>
+          
+            <li><a href="http://savara.jboss.org/">Savara</a></li>
+          
+            <li><a href="https://weld.cdi-spec.org/">Weld</a></li>
+          
+            <li><a href="http://arquillian.org/">Shrinkwrap</a></li>
+          
+            <li><a href="https://switchyard.jboss.org/">Switchyard</a></li>
+          
+            <li><a href="https://tattletale.jboss.org/">Tattletale</a></li>
+          
+            <li><a href="https://teiid.io/">Teiid</a></li>
+          
+            <li><a href="https://wildfly-security.github.io/wildfly-elytron/">WildFly Elytron</a></li>
+          
+            <li><a href="http://wise.jboss.org/">Wise</a></li>
+          
+            <li><a href="https://xnio.jboss.org/">XNIO</a></li>
+          
+        </ul>
+      </div>
+    
+  </div>
+</div>
+  <div class="content redhat-footer">
+  <div class="grid-wrapper">
+    <span class="licence">
+      <i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i> <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC by 3.0</a> | <a href="https://www.redhat.com/en/about/privacy-policy">Privacy Policy</a>
+    </span>
+    <span class="redhat">
+      Sponsored by
+    </span>
+    <span class="redhat-logo">
+      <a href="https://www.redhat.com/" target="_blank"><img src="/assets/img/redhat_reversed.svg"></a>
+    </span>
+  </div>
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/mobile-nav.js"></script>
+  <script type="text/javascript" src="/assets/javascript/random-color-picker.js"></script>
+  <script type="text/javascript">
+    if (("undefined" !== typeof _satellite) && ("function" === typeof _satellite.pageBottom)) {
+        _satellite.pageBottom();
+    }
+    hljs.highlightAll();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/copy.js"></script>
+
+</body>
+
+</html>
